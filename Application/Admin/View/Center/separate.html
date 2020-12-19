@@ -1,0 +1,97 @@
+<section class="content-header">
+<div>
+	<ol class="breadcrumb" style="background: none; margin-bottom: 0px;">
+		<li><a href="{:U('Index/index')}" style="color: #333;"><i class=" fa fa-home"></i>&nbsp;Home</a></li>
+		<li class="active">数据信息</li>
+		<li class="active">分成统计</li>
+	</ol>
+</div>
+</section>
+<section class="content">
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-body">
+				<table class="table table-bordered table-striped table-hover">
+					<thead>
+					<tr>
+						<th colspan="8">
+							<form class="form-inline" method="post">
+								<div class="input-group input-group-sm">
+								<input type="text" name="time1" class="form-control reservationtime" placeholder="开始时间" value="{$_GET['time1']}">
+								</div>
+								<span>-</span>
+								<div class="input-group input-group-sm">
+								<input type="text" name="time2" class="form-control reservationtime" placeholder="结束时间" value="{$_GET['time2']}">
+								</div>
+								<div class="input-group input-group-sm">
+									<input type="submit" value="确定查找" class="btn btn-sm btn-success">
+								</div>
+							</form>
+						</th>
+					</tr>
+					<tr>
+						<th>日期</th>
+						<th>返佣代理</th> 
+						<th>代理佣金比例</th>
+						<th>充值ID</th>
+						<th>所属层级</th>
+						<th>分成金额</th>						
+					</tr>
+					</thead>
+					<tbody>
+						<foreach name="list" item="v">
+						<tr>
+							<td>
+								<span>{$v.create_time|date="Y-m-d H:i:s",###}</span>
+							</td>
+							<td >
+								<span>{$v['mch']['title']}</span>
+							</td>
+							<td>
+								<span>{$v['mch']['lv']}</span>
+							</td>
+							<td >
+								<span>{$v.order_id}</span>
+							</td>
+							<td>
+								<span>{$v.level}</span>
+							</td>
+							<td >
+								<span>{$v.money}</span>
+							</td>
+						</tr>
+						</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+			<div class="page">{$page|default="<p style='text-align:center'>暂时没有数据</p>"}</div>
+		</div>
+	</div>
+</div>
+</section>
+<script>
+	$.fn.datetimepicker.dates['zh-CN'] = {
+		days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+		daysShort: ["日", "一", "二", "三", "四", "五", "六", "日"],
+		daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+		months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+		monthsShort: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"],
+		meridiem: ["上午", "下午"],
+		today: "今天"
+	};
+
+	$('.reservationtime').datetimepicker({
+		format: 'yyyy-mm-dd',
+		language: 'zh-CN',
+		weekStart: 1,
+		todayBtn: 1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0,
+		showMeridian: 1
+	});
+</script>

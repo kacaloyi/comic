@@ -1,0 +1,676 @@
+[ 2020-12-13T00:00:02+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Withdraw&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/WithdrawController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `vv_withdraw` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_withdraw` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `vv_withdraw` ORDER BY id desc LIMIT 0,25   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: withdraw /www/wwwkroot/pxs/Application/Admin/Controller/WithdrawController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000055s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+NOTIC: [8] Undefined index: status /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/74b33de847bcd735284bc178d1224e92.php 第 270 行.
+NOTIC: [8] Undefined index: time1 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/74b33de847bcd735284bc178d1224e92.php 第 278 行.
+NOTIC: [8] Undefined index: time2 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/74b33de847bcd735284bc178d1224e92.php 第 280 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010152s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010180s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000133s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000369s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000398s ]
+
+[ 2020-12-13T00:00:03+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Charge&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000345s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/ChargeController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `vv_charge` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_charge` WHERE `status` = 2 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `vv_charge` WHERE `status` = 2 ORDER BY id desc LIMIT 0,25   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 270 行.
+NOTIC: [8] Undefined index: time1 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 272 行.
+NOTIC: [8] Undefined index: time2 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 274 行.
+NOTIC: [8] Undefined variable: orders /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 305 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009230s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009257s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000141s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000161s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000318s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000344s ]
+
+[ 2020-12-13T00:00:06+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Finance&a=share
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/FinanceController.class.php 第 201 行.
+SQL: SHOW COLUMNS FROM `vv_slog` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_slog` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `vv_slog` ORDER BY create_time desc LIMIT 0,25   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000092s ]
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/c492d4ceecb89beba69d43d9b087c1fc.php 第 272 行.
+NOTIC: [8] Undefined index: self_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/c492d4ceecb89beba69d43d9b087c1fc.php 第 274 行.
+NOTIC: [8] Undefined index: time /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/c492d4ceecb89beba69d43d9b087c1fc.php 第 276 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008830s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008858s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000147s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000176s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000392s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000419s ]
+
+[ 2020-12-13T00:00:08+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Finance&a=finance_log
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/FinanceController.class.php 第 181 行.
+SQL: SHOW COLUMNS FROM `vv_finance_log` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_finance_log` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `vv_finance_log` ORDER BY id desc LIMIT 0,25   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000090s ]
+NOTIC: [8] Undefined index: type /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 272 行.
+NOTIC: [8] Undefined index: points_name /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 276 行.
+NOTIC: [8] Undefined index: action /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 279 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 285 行.
+NOTIC: [8] Undefined index: order_sn /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 287 行.
+NOTIC: [8] Undefined index: time1 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 289 行.
+NOTIC: [8] Undefined index: time2 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 291 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009595s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009623s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000149s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000328s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000352s ]
+
+[ 2020-12-13T00:00:11+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Finance&a=separate_log
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/FinanceController.class.php 第 153 行.
+SQL: SHOW COLUMNS FROM `vv_separate_log` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_separate_log` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `vv_separate_log` ORDER BY id desc LIMIT 0,25   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+NOTIC: [8] Undefined index: status /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/bd82cc3bc4294ab4b80883d50ae737d4.php 第 272 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/bd82cc3bc4294ab4b80883d50ae737d4.php 第 279 行.
+NOTIC: [8] Undefined index: order_sn /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/bd82cc3bc4294ab4b80883d50ae737d4.php 第 281 行.
+NOTIC: [8] Undefined index: time1 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/bd82cc3bc4294ab4b80883d50ae737d4.php 第 283 行.
+NOTIC: [8] Undefined index: time2 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/bd82cc3bc4294ab4b80883d50ae737d4.php 第 285 行.
+NOTIC: [8] Undefined index: points_name /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/bd82cc3bc4294ab4b80883d50ae737d4.php 第 297 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009777s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009803s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000134s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000153s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000338s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000362s ]
+
+[ 2020-12-13T00:00:12+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Center&a=corder
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/CenterController.class.php 第 432 行.
+SQL: SHOW COLUMNS FROM `vv_charge` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_charge` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `vv_charge` ORDER BY create_time desc LIMIT 0,25   [ RunTime:0.0002s ]
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'pxs.vv_mch' doesn't exist
+
+[ 2020-12-13T00:00:24+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_member` [ RunTime:0.0015s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_member` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `vv_member` ORDER BY id desc LIMIT 0,25   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `vv_m_withdraw` [ RunTime:0.0012s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_m_withdraw` WHERE `mid` = 1 AND `status` < 2 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009743s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009775s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000127s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000147s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000351s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000376s ]
+
+[ 2020-12-13T00:00:30+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=getWithCount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+ERR: 非法操作:getWithCount
+
+[ 2020-12-13T00:00:33+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=showQrcode&id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_member` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_member` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000027s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000056s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003336s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003366s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000114s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000146s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000301s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000324s ]
+
+[ 2020-12-13T00:00:35+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=getWithCount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+ERR: 非法操作:getWithCount
+
+[ 2020-12-13T00:00:40+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=getWithCount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+ERR: 非法操作:getWithCount
+
+[ 2020-12-13T00:00:43+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=charge&id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_charge` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_charge` WHERE `mid` = 1 AND `status` = 2 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `vv_charge` WHERE `mid` = 1 AND `status` = 2 ORDER BY create_time desc LIMIT 0,25   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000077s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004235s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004266s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000189s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000334s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000365s ]
+
+[ 2020-12-13T00:00:45+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=getWithCount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+ERR: 非法操作:getWithCount
+
+[ 2020-12-13T00:00:47+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=cdesc&id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000702s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_member_separate` [ RunTime:0.0017s ]
+SQL: SELECT u.nickname,s.* FROM vv_member_separate s INNER JOIN vv_user as u on u.id = s.user_id  WHERE s.mid = '1' AND s.is_status = 2  [ RunTime:0.0036s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000096s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005268s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005304s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000151s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000173s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000636s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000662s ]
+
+[ 2020-12-13T00:00:50+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=getWithCount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+ERR: 非法操作:getWithCount
+
+[ 2020-12-13T00:00:50+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=separate&id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_member_separate` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_member_separate` WHERE `mid` = 1 AND `status` = 2 AND `is_status` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `vv_member_separate` WHERE `mid` = 1 AND `status` = 2 AND `is_status` = 1 ORDER BY create_time desc LIMIT 0,25   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000067s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004166s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004194s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000108s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000127s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000303s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000326s ]
+
+[ 2020-12-13T00:00:53+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=edit&id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_member` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_member` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0162s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000092s ]
+NOTIC: [8] Undefined index: gqrcode /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/615a4d9a13eca73e3f56e9489b97f800.php 第 335 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009768s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009800s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000135s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000159s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000333s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000362s ]
+
+[ 2020-12-13T00:00:53+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Member&a=upload&event=setPic&url=
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000346s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000039s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000076s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004945s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004978s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000112s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000133s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000742s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000769s ]
+
+[ 2020-12-13T15:29:09+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Charge&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0079s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0011s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/ChargeController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `vv_charge` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_charge` WHERE `status` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_charge` WHERE `status` = 2 ORDER BY id desc LIMIT 0,25   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000108s ]
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 270 行.
+NOTIC: [8] Undefined index: time1 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 272 行.
+NOTIC: [8] Undefined index: time2 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 274 行.
+NOTIC: [8] Undefined variable: orders /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 305 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022789s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022820s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000160s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000180s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000344s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000368s ]
+
+[ 2020-12-13T15:29:15+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Withdraw&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000318s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/WithdrawController.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `vv_withdraw` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_withdraw` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `vv_withdraw` ORDER BY id desc LIMIT 0,25   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: withdraw /www/wwwkroot/pxs/Application/Admin/Controller/WithdrawController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000079s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000128s ]
+NOTIC: [8] Undefined index: status /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/74b33de847bcd735284bc178d1224e92.php 第 270 行.
+NOTIC: [8] Undefined index: time1 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/74b33de847bcd735284bc178d1224e92.php 第 278 行.
+NOTIC: [8] Undefined index: time2 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/74b33de847bcd735284bc178d1224e92.php 第 280 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015446s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015484s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000180s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000208s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000478s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000515s ]
+
+[ 2020-12-13T15:29:16+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Charge&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/ChargeController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `vv_charge` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_charge` WHERE `status` = 2 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `vv_charge` WHERE `status` = 2 ORDER BY id desc LIMIT 0,25   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000055s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000085s ]
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 270 行.
+NOTIC: [8] Undefined index: time1 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 272 行.
+NOTIC: [8] Undefined index: time2 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 274 行.
+NOTIC: [8] Undefined variable: orders /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/a97fae79452724eee102a1a535b46b68.php 第 305 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008764s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008790s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000158s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000180s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000300s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000324s ]
+
+[ 2020-12-13T15:29:19+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Finance&a=share
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/FinanceController.class.php 第 201 行.
+SQL: SHOW COLUMNS FROM `vv_slog` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_slog` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `vv_slog` ORDER BY create_time desc LIMIT 0,25   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/c492d4ceecb89beba69d43d9b087c1fc.php 第 272 行.
+NOTIC: [8] Undefined index: self_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/c492d4ceecb89beba69d43d9b087c1fc.php 第 274 行.
+NOTIC: [8] Undefined index: time /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/c492d4ceecb89beba69d43d9b087c1fc.php 第 276 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009683s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009709s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000146s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000304s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000327s ]
+
+[ 2020-12-13T15:29:20+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Finance&a=finance_log
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/FinanceController.class.php 第 181 行.
+SQL: SHOW COLUMNS FROM `vv_finance_log` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_finance_log` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `vv_finance_log` ORDER BY id desc LIMIT 0,25   [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000092s ]
+NOTIC: [8] Undefined index: type /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 272 行.
+NOTIC: [8] Undefined index: points_name /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 276 行.
+NOTIC: [8] Undefined index: action /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 279 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 285 行.
+NOTIC: [8] Undefined index: order_sn /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 287 行.
+NOTIC: [8] Undefined index: time1 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 289 行.
+NOTIC: [8] Undefined index: time2 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/d0d055eae877f70d7617251e98696b72.php 第 291 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009355s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009384s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000133s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000154s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000306s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000329s ]
+
+[ 2020-12-13T18:20:12+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Finance&a=finance_log
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000390s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000064s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005258s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005312s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000150s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000174s ]
+
+[ 2020-12-13T18:20:17+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Index&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000062s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005912s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005945s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000134s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000379s ]
+
+[ 2020-12-13T19:06:04+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Index&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000859s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001068s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0011s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_admin` [ RunTime:0.0334s ]
+SQL: SELECT * FROM `vv_admin` WHERE ( username='admin' ) LIMIT 1   [ RunTime:0.0011s ]
+
+[ 2020-12-13T19:06:04+08:00 ] 120.229.74.206 /efucms.php?m=Admin&c=Admin&a=welcome
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: cben /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 86 行.
+NOTIC: [8] Undefined variable: acharge /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 86 行.
+NOTIC: [8] Undefined variable: info /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 88 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000107s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037567s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037632s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000781s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000816s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001457s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001502s ]
+

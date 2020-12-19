@@ -1,0 +1,1831 @@
+[ 2020-12-13T15:50:40+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000961s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001493s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0012s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `vv_order` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_order` WHERE `create_time` BETWEEN 1607702400 AND 1607788800 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(money) AS tp_sum FROM `vv_order` WHERE `create_time` BETWEEN 1607702400 AND 1607788800 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_user` WHERE ( sub_time between 1607702400 and 1607788800 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: INSERT INTO `vv_data` (`orders`,`total`,`subs`,`date`) VALUES ('0','0','0','20201212') [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T15:50:42+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_read_charge` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `vv_read_charge` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0002s ]
+
+[ 2020-12-13T15:52:24+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_reward_record` [ RunTime:0.0004s ]
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'create_time' in 'order clause'
+
+[ 2020-12-13T15:52:25+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_reward_record` [ RunTime:0.0005s ]
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'create_time' in 'order clause'
+
+[ 2020-12-13T15:52:27+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000343s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_sign` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `vv_sign` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0011s ]
+
+[ 2020-12-13T15:52:28+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000405s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0015s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_charge` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_charge` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0002s ]
+
+[ 2020-12-13T15:52:29+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_read_charge` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_read_charge` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0002s ]
+
+[ 2020-12-13T15:52:31+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_charge` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `vv_charge` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0002s ]
+
+[ 2020-12-13T15:52:32+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000365s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_sign` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `vv_sign` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0002s ]
+
+[ 2020-12-13T15:52:32+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000661s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_reward_record` [ RunTime:0.0004s ]
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'create_time' in 'order clause'
+
+[ 2020-12-13T15:52:49+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_sign` [ RunTime:0.0003s ]
+SQL: SELECT * FROM `vv_sign` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0002s ]
+
+[ 2020-12-13T16:13:59+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000458s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0011s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_reward_record` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `vv_reward_record` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0001s ]
+
+[ 2020-12-13T16:20:54+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_reward_record` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_reward_record` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0001s ]
+
+[ 2020-12-13T16:20:57+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000347s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_sign` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `vv_sign` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0011s ]
+
+[ 2020-12-13T16:20:58+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_charge` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_charge` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0011s ]
+
+[ 2020-12-13T16:20:59+08:00 ] 120.229.74.206 /Member/getRecord.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SHOW COLUMNS FROM `vv_read_charge` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `vv_read_charge` WHERE `user_id` = 18 ORDER BY create_time desc LIMIT 0,20   [ RunTime:0.0002s ]
+
+[ 2020-12-13T16:21:16+08:00 ] 120.229.74.206 /Member/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000379s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 18 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000112s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018552s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018619s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000143s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000421s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000449s ]
+
+[ 2020-12-13T18:19:56+08:00 ] 120.229.74.206 /Member/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0056s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+NOTIC: [8] Undefined index: parent /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 138 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0113s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0111s ]
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005037s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005069s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000119s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000139s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000745s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000773s ]
+
+[ 2020-12-13T19:52:47+08:00 ] 120.229.74.206 /Member/my.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001659s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001117s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001185s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0011s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0116s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `vv_sign` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `vv_sign` WHERE `date` = '20201213' AND `user_id` = 13 LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000142s ]
+NOTIC: [8] Undefined index: gonggao /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 167 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 557 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 558 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 559 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 562 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 563 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 564 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 565 行.
+NOTIC: [8] Undefined index: thirdcode /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 606 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 630 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 631 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 632 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 635 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 636 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 637 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 638 行.
+NOTIC: [8] Undefined index: thirdcode /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 679 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020766s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020796s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000751s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000776s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000919s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000948s ]
+
+[ 2020-12-13T19:52:52+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000342s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000375s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+NOTIC: [8] Undefined variable: fuid /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 32 行.
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023272s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023309s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000142s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000165s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000351s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000377s ]
+
+[ 2020-12-13T19:58:28+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004688s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004717s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000122s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000142s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000368s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000395s ]
+
+[ 2020-12-13T20:02:02+08:00 ] 120.229.74.206 /Member/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000258s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+NOTIC: [8] Undefined index: userpwd /www/wwwkroot/pxs/Application/Home/Controller/MemberController.class.php 第 101 行.
+NOTIC: [8] Undefined index: userpwdck /www/wwwkroot/pxs/Application/Home/Controller/MemberController.class.php 第 102 行.
+SQL: SELECT * FROM `vv_user` WHERE `username` = 'u13611' LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2020-12-13T20:02:10+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000076s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005098s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005125s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000148s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000335s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000360s ]
+
+[ 2020-12-13T20:02:12+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T20:02:23+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T20:02:33+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T20:02:36+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T20:04:42+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T20:10:32+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:00:55+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000831s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001063s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001108s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0360s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0097s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0053s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0029s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:02:05+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000354s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0016s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:03:03+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0014s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:03:12+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000334s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000365s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:03:35+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:03:50+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000369s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:03:54+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0017s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:05:33+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000560s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:07:49+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+NOTIC: [8] Indirect modification of overloaded property Home\Controller\MemberController::$user has no effect /www/wwwkroot/pxs/Application/Home/Controller/MemberController.class.php 第 279 行.
+SQL: UPDATE `vv_user` SET `userpwd`='d5dede8aa0f398db3a88350057750233' WHERE `id` = 13 [ RunTime:0.0033s ]
+
+[ 2020-12-13T21:07:49+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000751s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000785s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000039s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000072s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010133s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010160s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000718s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000744s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000900s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000928s ]
+
+[ 2020-12-13T21:11:02+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+NOTIC: [8] Indirect modification of overloaded property Home\Controller\MemberController::$user has no effect /www/wwwkroot/pxs/Application/Home/Controller/MemberController.class.php 第 279 行.
+SQL: UPDATE `vv_user` SET `userpwd`='d5dede8aa0f398db3a88350057750233' WHERE `id` = 13 [ RunTime:0.0002s ]
+
+[ 2020-12-13T21:11:03+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000076s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004958s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004991s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000132s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000166s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000313s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000335s ]
+
+[ 2020-12-13T21:12:34+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+NOTIC: [8] Indirect modification of overloaded property Home\Controller\MemberController::$user has no effect /www/wwwkroot/pxs/Application/Home/Controller/MemberController.class.php 第 279 行.
+SQL: UPDATE `vv_user` SET `userpwd`='d5dede8aa0f398db3a88350057750233' WHERE `id` = 13 [ RunTime:0.0002s ]
+
+[ 2020-12-13T21:49:27+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000818s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001063s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001106s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0443s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0081s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0023s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0016s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:50:06+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000347s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+NOTIC: [8] Indirect modification of overloaded property Home\Controller\MemberController::$user has no effect /www/wwwkroot/pxs/Application/Home/Controller/MemberController.class.php 第 279 行.
+SQL: UPDATE `vv_user` SET `userpwd`='d5dede8aa0f398db3a88350057750233' WHERE `id` = 13 [ RunTime:0.0049s ]
+
+[ 2020-12-13T21:50:13+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T21:50:27+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000339s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+NOTIC: [8] Indirect modification of overloaded property Home\Controller\MemberController::$user has no effect /www/wwwkroot/pxs/Application/Home/Controller/MemberController.class.php 第 279 行.
+SQL: UPDATE `vv_user` SET `userpwd`='d5dede8aa0f398db3a88350057750233' WHERE `id` = 13 [ RunTime:0.0002s ]
+
+[ 2020-12-13T21:53:16+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000375s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000915s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000963s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000039s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 97 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013632s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013663s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001070s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001099s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001026s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001082s ]
+
+[ 2020-12-13T21:55:45+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000068s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 98 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 98 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 98 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004480s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004506s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000122s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000141s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000753s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000810s ]
+
+[ 2020-12-13T21:58:07+08:00 ] 120.229.74.206 /Member/my.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000362s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `vv_sign` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `vv_sign` WHERE `date` = '20201213' AND `user_id` = 13 LIMIT 1   [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000129s ]
+NOTIC: [8] Undefined index: gonggao /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 167 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 557 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 558 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 559 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 562 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 563 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 564 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 565 行.
+NOTIC: [8] Undefined index: thirdcode /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 606 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 630 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 631 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 632 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 635 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 636 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 637 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 638 行.
+NOTIC: [8] Undefined index: thirdcode /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 679 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014585s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014611s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000160s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000181s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000322s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000346s ]
+
+[ 2020-12-13T21:59:19+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000323s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000924s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000970s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004604s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004632s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000119s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000140s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000362s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000389s ]
+
+[ 2020-12-13T21:59:50+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000382s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000068s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005021s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005048s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000157s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000339s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000366s ]
+
+[ 2020-12-13T21:59:59+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000369s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004957s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004982s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000148s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000362s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000387s ]
+
+[ 2020-12-13T22:01:56+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000350s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0013s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 110 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 110 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 110 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004723s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004750s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000123s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000145s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000408s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000436s ]
+
+[ 2020-12-13T22:02:42+08:00 ] 120.229.74.206 /Member/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000384s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000097s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010136s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010170s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000156s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000332s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000377s ]
+
+[ 2020-12-13T22:05:34+08:00 ] 120.229.74.206 /Member/password.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000068s ]
+NOTIC: [8] Use of undefined constant Member - assumed 'Member' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 111 行.
+NOTIC: [8] Use of undefined constant my - assumed 'my' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 111 行.
+NOTIC: [2] Division by zero /www/wwwkroot/pxs/Application/Runtime/Cache/Home/5733deea5ea9e600a54a5c5d41e7bf9e.php 第 111 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004593s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004622s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000135s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000156s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000363s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000388s ]
+
+[ 2020-12-13T22:06:11+08:00 ] 120.229.74.206 /Member/logout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+
+[ 2020-12-13T22:06:11+08:00 ] 120.229.74.206 /Member/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+NOTIC: [8] Undefined index: parent /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 138 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000095s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005411s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005449s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000162s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000189s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000347s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000372s ]
+
+[ 2020-12-13T22:06:19+08:00 ] 120.229.74.206 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `vv_mh_list` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%5%' ORDER BY id desc LIMIT 6   [ RunTime:0.0143s ]
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%6%' ORDER BY id desc LIMIT 6   [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%7%' ORDER BY id desc LIMIT 6   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%8%' ORDER BY id desc LIMIT 6   [ RunTime:0.0017s ]
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%9%' ORDER BY id desc LIMIT 6   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `vv_mh_list` WHERE `free_type` = 1 ORDER BY id desc LIMIT 10   [ RunTime:0.0004s ]
+NOTIC: [2] Missing argument 2 for Common\Util\ddwechat::setParam(), called in /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php on line 32 and defined /www/wwwkroot/pxs/Application/Common/Util/ddwechat.class.php 第 39 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000110s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 227 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 228 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 229 行.
+NOTIC: [8] Undefined index: thirdcode /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 276 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015794s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015842s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000164s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000189s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000348s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000377s ]
+
+[ 2020-12-13T22:06:25+08:00 ] 120.229.74.206 /Member/my.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `vv_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 135 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+SQL: SELECT * FROM `vv_user` WHERE `id` = 13 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `vv_sign` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `vv_sign` WHERE `date` = '20201213' AND `user_id` = 13 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000135s ]
+NOTIC: [8] Undefined index: gonggao /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 167 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 557 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 558 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 559 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 562 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 563 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 564 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 565 行.
+NOTIC: [8] Undefined index: thirdcode /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 606 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 630 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 631 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 632 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 635 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 636 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 637 行.
+NOTIC: [8] Undefined variable: jssdk /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 638 行.
+NOTIC: [8] Undefined index: thirdcode /www/wwwkroot/pxs/Application/Runtime/Cache/Home/cb5c7d1f4bac61ef1c68c37e575be8cc.php 第 679 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011558s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011585s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000134s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000154s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000358s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000383s ]
+
+[ 2020-12-13T23:33:37+08:00 ] 47.101.202.90 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000948s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0012s ]
+NOTIC: [8] Undefined index: imei /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 33 行.
+NOTIC: [8] Undefined index: chapid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 43 行.
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 69 行.
+NOTIC: [8] Undefined index: user_id /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 77 行.
+NOTIC: [8] Undefined index: parent /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 138 行.
+NOTIC: [8] Undefined index: uloginid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 147 行.
+NOTIC: [8] Undefined index: zidongzhuce /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `vv_data` [ RunTime:0.0151s ]
+SQL: SELECT * FROM `vv_data` WHERE ( date=20201212 ) LIMIT 1   [ RunTime:0.0129s ]
+NOTIC: [8] Undefined index: isopen /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 182 行.
+NOTIC: [8] Undefined variable: adsPic /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 215 行.
+NOTIC: [8] Undefined index: uid /www/wwwkroot/pxs/Application/Home/Controller/HomeController.class.php 第 216 行.
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SHOW COLUMNS FROM `vv_mh_list` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%5%' ORDER BY id desc LIMIT 6   [ RunTime:0.0027s ]
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%6%' ORDER BY id desc LIMIT 6   [ RunTime:0.0014s ]
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%7%' ORDER BY id desc LIMIT 6   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%8%' ORDER BY id desc LIMIT 6   [ RunTime:0.0017s ]
+NOTIC: [8] Undefined index: sort /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php 第 23 行.
+SQL: SELECT * FROM `vv_mh_list` WHERE `mhcate` LIKE '%9%' ORDER BY id desc LIMIT 6   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `vv_mh_list` WHERE `free_type` = 1 ORDER BY id desc LIMIT 10   [ RunTime:0.0003s ]
+NOTIC: [2] Missing argument 2 for Common\Util\ddwechat::setParam(), called in /www/wwwkroot/pxs/Application/Home/Controller/MhController.class.php on line 32 and defined /www/wwwkroot/pxs/Application/Common/Util/ddwechat.class.php 第 39 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000078s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000127s ]
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 151 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 227 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 228 行.
+NOTIC: [8] Undefined variable: share /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 229 行.
+NOTIC: [8] Undefined index: thirdcode /www/wwwkroot/pxs/Application/Runtime/Cache/Home/67199abba7efdab949490dffef721944.php 第 276 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024137s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024182s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000837s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000868s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001510s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001539s ]
+

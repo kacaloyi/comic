@@ -1,0 +1,1203 @@
+[ 2020-12-08T11:54:50+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Notice&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000886s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001602s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001665s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0047s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_notice` [ RunTime:0.0012s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_notice` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `vv_notice` ORDER BY id desc LIMIT 0,25   [ RunTime:0.0018s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000063s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000103s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029042s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029086s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001880s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001912s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000388s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000416s ]
+
+[ 2020-12-08T16:52:01+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000617s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000702s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000073s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000535s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022858s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022921s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000160s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000192s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000383s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000408s ]
+
+[ 2020-12-08T16:52:02+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=1&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184604543030008345.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000086s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006714s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006774s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000175s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000390s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000416s ]
+
+[ 2020-12-08T16:52:02+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=3&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184607981930002144.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000065s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003833s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003867s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000134s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000335s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000361s ]
+
+[ 2020-12-08T16:52:02+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=2&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184606387766007216.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000337s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000372s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000063s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003937s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003970s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000112s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000132s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000356s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000387s ]
+
+[ 2020-12-08T16:52:02+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=4&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184609663299005216.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000090s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004278s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004309s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000133s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000327s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000351s ]
+
+[ 2020-12-08T17:54:14+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Admin&a=welcome
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000345s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: cben /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 86 行.
+NOTIC: [8] Undefined variable: acharge /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 86 行.
+NOTIC: [8] Undefined variable: info /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 88 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000089s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056926s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.057010s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000326s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000462s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000519s ]
+
+[ 2020-12-08T17:54:31+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=site
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000108s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+NOTIC: [8] Undefined index: dailisms /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 341 行.
+NOTIC: [8] Undefined index: zidongzhuce /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 368 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010465s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010498s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000132s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000320s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000356s ]
+
+[ 2020-12-08T17:54:31+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPic&url=%2FPublic%2Fupload%2Fimages%2F2012%2F04%2F153925843008003262.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000059s ]
+NOTIC: [8] Undefined index: cur_index /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/42684e41b5d7d3bd6b9e714a62a1e7f6.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004859s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004885s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000155s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000341s ]
+
+[ 2020-12-08T18:17:45+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=site
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000366s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000063s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+NOTIC: [8] Undefined index: dailisms /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 341 行.
+NOTIC: [8] Undefined index: zidongzhuce /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 368 行.
+NOTIC: [8] Undefined index: newurl /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 387 行.
+NOTIC: [8] Undefined index: appdownload /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 391 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010865s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010894s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000190s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000321s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000346s ]
+
+[ 2020-12-08T18:17:45+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPic&url=%2FPublic%2Fupload%2Fimages%2F2012%2F04%2F153925843008003262.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000085s ]
+NOTIC: [8] Undefined index: cur_index /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/42684e41b5d7d3bd6b9e714a62a1e7f6.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004857s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004889s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000197s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000490s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000530s ]
+
+[ 2020-12-08T18:18:34+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=site
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: UPDATE `vv_config` SET `value`='a:23:{s:4:\"name\";s:15:\"窝头儿聚合\";s:9:\"subscribe\";s:6:\"关注\";s:10:\"send_money\";s:3:\"100\";s:3:\"uid\";s:0:\"\";s:5:\"token\";s:0:\"\";s:8:\"paymodel\";s:1:\"1\";s:4:\"kfqq\";s:8:\"55667788\";s:6:\"weixin\";s:8:\"cmj16888\";s:3:\"vip\";s:3:\"300\";s:5:\"vipsb\";s:0:\"\";s:4:\"rate\";s:3:\"100\";s:7:\"mhmoney\";s:2:\"20\";s:7:\"xsmoney\";s:2:\"20\";s:4:\"sign\";s:3:\"100\";s:6:\"mobile\";s:15:\"微信：badugf\";s:9:\"dailiopen\";s:1:\"1\";s:7:\"smsuser\";s:0:\"\";s:6:\"smspsw\";s:0:\"\";s:7:\"smssign\";s:15:\"窝头儿说：\";s:11:\"weixinlogin\";s:1:\"1\";s:6:\"qrcode\";s:52:\"/Public/upload/images/2012/04/153925843008003262.png\";s:6:\"newurl\";s:24:\"http://bxs.haogame98.com\";s:11:\"appdownload\";s:36:\"http://bxs.haogame98.com/?download=1\";}' WHERE `name` = 'site' [ RunTime:0.0014s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000066s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004916s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004955s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000119s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000138s ]
+
+[ 2020-12-08T18:18:35+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=site
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000391s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000062s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000094s ]
+NOTIC: [8] Undefined index: dailisms /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 341 行.
+NOTIC: [8] Undefined index: zidongzhuce /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 368 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010033s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000138s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000158s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000305s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000330s ]
+
+[ 2020-12-08T18:18:35+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPic&url=%2FPublic%2Fupload%2Fimages%2F2012%2F04%2F153925843008003262.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000761s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000028s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000057s ]
+NOTIC: [8] Undefined index: cur_index /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/42684e41b5d7d3bd6b9e714a62a1e7f6.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004320s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004344s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000122s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000141s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000297s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000320s ]
+
+[ 2020-12-08T22:43:35+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Book&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000689s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000374s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined index: title /www/wwwkroot/pxs/Application/Admin/Controller/BookController.class.php 第 7 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Admin/Controller/BookController.class.php 第 14 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/BookController.class.php 第 18 行.
+SQL: SHOW COLUMNS FROM `vv_book` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_book` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `vv_book` ORDER BY sort desc LIMIT 0,25   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000064s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+NOTIC: [8] Undefined index: title /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 272 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 285 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 287 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 298 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 300 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 304 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 306 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 310 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/afa8c6529ef554789834553d1ae7ec47.php 第 312 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014350s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014392s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000157s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000180s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000326s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000349s ]
+
+[ 2020-12-08T22:43:46+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Book&a=edit&id=1045
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_book` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_book` WHERE `id` = 1045 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000068s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000099s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011927s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011961s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000150s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000312s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000336s ]
+
+[ 2020-12-08T22:43:46+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Book&a=upload&event=setPics&url=
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000063s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005007s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005043s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000123s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000144s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000349s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000377s ]
+
+[ 2020-12-08T22:44:29+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Book&a=edit&id=1045
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_book` [ RunTime:0.0005s ]
+SQL: UPDATE `vv_book` SET `title`='幸福像流星',`author`='幸福流星',`sort`='1',`free_type`='2',`pay_num`='16',`reader`='93933',`likes`='8813',`collect`='4082',`is_new`='1',`is_recomm`='1',`status`='2',`cover_pic`='http://i.mixs.cn/upload/cover/147/147974/147974.jpg',`detail_pic`='http://i.mixs.cn/upload/cover/147/147974/147974.jpg',`share_title`='幸福像流星',`share_desc`='十一年的等待，五十多天的忐忑，五个小时的颠簸，此时，只化做欧阳雨脸上淡淡的笑，独自一个人离开熟悉的家乡和亲友，拥着一份喜悦和期待来到这座陌生的城市求学',`share_pic`='',`summary`='十一年的等待，五十多天的忐忑，五个小时的颠簸，此时，只化做欧阳雨脸上淡淡的笑，独自一个人离开熟悉的家乡和亲友，拥着一份喜悦和期待来到这座陌生的城市求学，心中有种说不出的感受，欧阳雨突然好想小雪，想起临行前她的无奈和叮嘱，她的微笑和生气时嘴嘟嘟那可爱摸样，她的长发，她的眼神和熟悉的味道，想到了小雪的一切，但现在什么都不在，又什么都在……',`cateids`='3',`bookcate`='5,6,7,9',`update_time`='1607438669' WHERE ( id=1045 ) [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000067s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004530s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004563s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000541s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000566s ]
+
+[ 2020-12-08T22:44:30+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Book&a=edit&id=1045
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_book` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_book` WHERE `id` = 1045 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000066s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000094s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011094s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011124s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000149s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000326s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000350s ]
+
+[ 2020-12-08T22:44:30+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Book&a=upload&event=setPics&url=
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000061s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003983s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004013s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000118s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000138s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000380s ]
+
+[ 2020-12-08T22:44:52+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Admin&a=welcome
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0012s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined variable: cben /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 86 行.
+NOTIC: [8] Undefined variable: acharge /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 86 行.
+NOTIC: [8] Undefined variable: info /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 88 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000099s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029072s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029141s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000254s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000439s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000471s ]
+
+[ 2020-12-08T22:44:54+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=site
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000093s ]
+NOTIC: [8] Undefined index: dailisms /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 341 行.
+NOTIC: [8] Undefined index: zidongzhuce /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 368 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010643s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010675s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000124s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000144s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000361s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000387s ]
+
+[ 2020-12-08T22:44:54+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPic&url=%2FPublic%2Fupload%2Fimages%2F2012%2F04%2F153925843008003262.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000059s ]
+NOTIC: [8] Undefined index: cur_index /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/42684e41b5d7d3bd6b9e714a62a1e7f6.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003897s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003941s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000116s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000136s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000343s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000383s ]
+
+[ 2020-12-08T22:45:15+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=site
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: UPDATE `vv_config` SET `value`='a:23:{s:4:\"name\";s:15:\"窝头儿聚合\";s:9:\"subscribe\";s:6:\"关注\";s:10:\"send_money\";s:3:\"100\";s:3:\"uid\";s:0:\"\";s:5:\"token\";s:0:\"\";s:8:\"paymodel\";s:1:\"1\";s:4:\"kfqq\";s:8:\"55667788\";s:6:\"weixin\";s:8:\"cmj16888\";s:3:\"vip\";s:3:\"300\";s:5:\"vipsb\";s:0:\"\";s:4:\"rate\";s:3:\"100\";s:7:\"mhmoney\";s:2:\"50\";s:7:\"xsmoney\";s:2:\"50\";s:4:\"sign\";s:3:\"100\";s:6:\"mobile\";s:15:\"微信：badugf\";s:9:\"dailiopen\";s:1:\"1\";s:7:\"smsuser\";s:0:\"\";s:6:\"smspsw\";s:0:\"\";s:7:\"smssign\";s:15:\"窝头儿说：\";s:11:\"weixinlogin\";s:1:\"1\";s:6:\"qrcode\";s:52:\"/Public/upload/images/2012/04/153925843008003262.png\";s:6:\"newurl\";s:24:\"http://bxs.haogame98.com\";s:11:\"appdownload\";s:36:\"http://bxs.haogame98.com/?download=1\";}' WHERE `name` = 'site' [ RunTime:0.0019s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000064s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003841s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003873s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000114s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000133s ]
+
+[ 2020-12-08T22:45:16+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=site
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000137s ]
+NOTIC: [8] Undefined index: dailisms /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 341 行.
+NOTIC: [8] Undefined index: zidongzhuce /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/e089353d3177b37e965d353d9ef4f07c.php 第 368 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011346s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011379s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000162s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000329s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000356s ]
+
+[ 2020-12-08T22:45:16+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPic&url=%2FPublic%2Fupload%2Fimages%2F2012%2F04%2F153925843008003262.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000058s ]
+NOTIC: [8] Undefined index: cur_index /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/42684e41b5d7d3bd6b9e714a62a1e7f6.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003916s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003942s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000111s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000130s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000311s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000352s ]
+
+[ 2020-12-08T22:46:35+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Product&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined index: title /www/wwwkroot/pxs/Application/Admin/Controller/ProductController.class.php 第 7 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Admin/Controller/ProductController.class.php 第 14 行.
+NOTIC: [8] Undefined variable: where /www/wwwkroot/pxs/Application/Admin/Controller/ProductController.class.php 第 18 行.
+SQL: SHOW COLUMNS FROM `vv_mh_list` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `vv_mh_list` LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `vv_mh_list` ORDER BY sort desc,id desc LIMIT 0,25   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000074s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000113s ]
+NOTIC: [8] Undefined index: title /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 272 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 285 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 287 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 298 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 300 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 304 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 306 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 310 行.
+NOTIC: [8] Undefined index: order /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/34e4b095905075aaede5ee9039415509.php 第 312 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013294s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013328s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000135s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000157s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000341s ]
+
+[ 2020-12-08T22:46:43+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Product&a=edit&id=32
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_mh_list` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_mh_list` WHERE `id` = 32 LIMIT 1   [ RunTime:0.0172s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000082s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000125s ]
+NOTIC: [8] Undefined index: isvip普通 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/b3c4eeadefc336ccc37682b1e72f6690.php 第 341 行.
+NOTIC: [8] Undefined index: isvip /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/b3c4eeadefc336ccc37682b1e72f6690.php 第 342 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029858s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029889s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000158s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000371s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000399s ]
+
+[ 2020-12-08T22:46:43+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Product&a=upload&event=setPics&url=https%3A%2F%2Foss.mkzcdn.com%2Fcomic%2Fcover%2F20170608%2F5938fdf5c54e5-600x800.jpg%21cover-400
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000028s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000056s ]
+NOTIC: [8] Undefined index: cur_index /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/42684e41b5d7d3bd6b9e714a62a1e7f6.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003785s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003810s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000132s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000295s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000317s ]
+
+[ 2020-12-08T22:47:01+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Product&a=edit&id=32
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000719s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000754s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_mh_list` [ RunTime:0.0006s ]
+SQL: UPDATE `vv_mh_list` SET `title`='妖神记',`author`='踏雪动漫',`sort`='1',`free_type`='2',`pay_num`='16',`reader`='600202',`likes`='10056',`collect`='7544',`is_new`='1',`is_recomm`='1',`status`='1',`cover_pic`='https://oss.mkzcdn.com/comic/cover/20170608/5938fdf5c54e5-600x800.jpg!cover-400',`detail_pic`='https://oss.mkzcdn.com/comic/cover/20170608/5938fdf5c54e5-600x800.jpg!cover-400',`share_title`='妖神记',`share_desc`='妖神一出，谁与争锋？ 这是一个妖灵的世界，融合了妖灵，就可以成为强大的妖灵师。 因为一本时空妖灵之书，时空发生了扭转，当一切重新开始之时，命运之轮缓缓转动。',`share_pic`='https://oss.mkzcdn.com/comic/cover/20170608/5938fdf5c54e5-600x800.jpg!cover-400',`summary`='妖神一出，谁与争锋？ 这是一个妖灵的世界，融合了妖灵，就可以成为强大的妖灵师。 因为一本时空妖灵之书，时空发生了扭转，当一切重新开始之时，命运之轮缓缓转动。',`mhcate`='5,7',`cateids`='1,21',`update_time`='1607438821' WHERE ( id=32 ) [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000063s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004681s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004711s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000132s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.001368s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001018s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000273s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000006s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.001180s ]
+
+[ 2020-12-08T22:47:02+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Product&a=edit&id=32
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000362s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `vv_mh_list` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_mh_list` WHERE `id` = 32 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000135s ]
+NOTIC: [8] Undefined index: isvip普通 /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/b3c4eeadefc336ccc37682b1e72f6690.php 第 341 行.
+NOTIC: [8] Undefined index: isvip /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/b3c4eeadefc336ccc37682b1e72f6690.php 第 342 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012971s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000140s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000159s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000801s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000832s ]
+
+[ 2020-12-08T22:47:02+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Product&a=upload&event=setPics&url=https%3A%2F%2Foss.mkzcdn.com%2Fcomic%2Fcover%2F20170608%2F5938fdf5c54e5-600x800.jpg%21cover-400
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000789s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000483s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000118s ]
+NOTIC: [8] Undefined index: cur_index /www/wwwkroot/pxs/Application/Runtime/Cache/Admin/42684e41b5d7d3bd6b9e714a62a1e7f6.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005903s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005942s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000172s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000202s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000949s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000988s ]
+
+[ 2020-12-08T22:50:04+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009948s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009979s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000315s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000339s ]
+
+[ 2020-12-08T22:50:05+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=2&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184606387766007216.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000386s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000034s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003905s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003939s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000118s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000138s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000349s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000374s ]
+
+[ 2020-12-08T22:50:05+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=1&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184604543030008345.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000064s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003837s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003869s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000114s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000134s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000315s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000338s ]
+
+[ 2020-12-08T22:50:05+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=3&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184607981930002144.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000737s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000775s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000064s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004405s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004441s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000154s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000176s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000337s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000362s ]
+
+[ 2020-12-08T22:50:05+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=4&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184609663299005216.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000366s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003843s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000135s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000155s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000328s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000351s ]
+
+[ 2020-12-08T22:53:13+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=1&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184604543030008345.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined index: field /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 161 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000079s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004504s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004611s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000542s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000575s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000359s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000386s ]
+
+[ 2020-12-08T22:53:21+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=2&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184606387766007216.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000346s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000382s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined index: field /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 161 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000061s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004088s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004120s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000110s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000131s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000309s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000339s ]
+
+[ 2020-12-08T22:53:27+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=3&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184607981930002144.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined index: field /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 161 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000041s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003822s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003850s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000110s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000128s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000302s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000338s ]
+
+[ 2020-12-08T22:53:34+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=4&url=.%2FPublic%2Fupload%2Fimages%2F1907%2F07%2F184609663299005216.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] Undefined index: field /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 161 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000058s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003993s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004027s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000116s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000135s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000358s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000408s ]
+
+[ 2020-12-08T22:53:35+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000362s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+SQL: UPDATE `vv_config` SET `value`='a:4:{i:1;a:2:{s:3:\"pic\";s:52:\"/Public/upload/images/2012/08/225313050605004637.jpg\";s:5:\"money\";s:3:\"100\";}i:2;a:2:{s:3:\"pic\";s:52:\"/Public/upload/images/2012/08/225321080192005862.jpg\";s:5:\"money\";s:3:\"200\";}i:3;a:2:{s:3:\"pic\";s:52:\"/Public/upload/images/2012/08/225327812523001177.jpg\";s:5:\"money\";s:3:\"300\";}i:4;a:2:{s:3:\"pic\";s:52:\"/Public/upload/images/2012/08/225334049227003569.jpg\";s:5:\"money\";s:3:\"500\";}}' WHERE `name` = 'send' [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003819s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003848s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000108s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000128s ]
+
+[ 2020-12-08T22:53:36+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0008s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000062s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009686s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009723s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000143s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000176s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000369s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000396s ]
+
+[ 2020-12-08T22:53:37+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=1&url=%2FPublic%2Fupload%2Fimages%2F2012%2F08%2F225313050605004637.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000412s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0116s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000062s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003940s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003987s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000163s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000189s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000337s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000360s ]
+
+[ 2020-12-08T22:53:37+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=2&url=%2FPublic%2Fupload%2Fimages%2F2012%2F08%2F225321080192005862.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0214s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0003s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000065s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003991s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004024s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000161s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000362s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000394s ]
+
+[ 2020-12-08T22:53:37+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=4&url=%2FPublic%2Fupload%2Fimages%2F2012%2F08%2F225334049227003569.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000063s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003981s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004016s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000115s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000135s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000359s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000387s ]
+
+[ 2020-12-08T22:53:37+08:00 ] 120.229.74.49 /efucms.php?m=Admin&c=Config&a=upload&event=setPath&cur_index=3&url=%2FPublic%2Fupload%2Fimages%2F2012%2F08%2F225327812523001177.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+SQL: SHOW COLUMNS FROM `vv_config` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `vv_config`  [ RunTime:0.0002s ]
+NOTIC: [8] unserialize(): Error at offset 75 of 79 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+NOTIC: [8] unserialize(): Error at offset 45 of 108 bytes /www/wwwkroot/pxs/Application/Admin/Controller/AdminController.class.php 第 37 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000034s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000065s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003828s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003860s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000115s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000135s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000321s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000346s ]
+
