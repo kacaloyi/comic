@@ -1,0 +1,120 @@
+
+<section class="content-header">
+	<div>
+		<ol class="breadcrumb" style="background: none; margin-bottom: 0px;">
+			<li><a href="{:U('Index/index')}" style="color: #333;"><i class=" fa fa-home"></i> Home</a></li>
+			<li class="active">数据信息</li>
+			<li class="active">推广统计</li>
+		</ol>
+	</div>
+</section>
+
+<!-- Main content -->
+<section class="content">
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h4 class="box-title"></h4>
+				<div style="float: left;margin-left: 10px">
+					<form method="post" class="clearfix">
+						<div class="input-group input-group-sm" style="width: 200px;float: left;margin-left: 5px">
+							<input type="text" name="keyword" class="form-control" value="{$_GET['keyword']}" id="keyword" style="width: 200px" placeholder="推广名称/书名/备注">
+						</div>
+						<div class="input-group input-group-sm" style="width: 200px;float:left;margin-left:5px;">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<input type="text" class="form-control date" name="time1" placeholder="开始时间" value="{$_GET['time1']}">
+						</div>
+						<div class="input-group input-group-sm" style="width: 200px;float:left;margin-left:5px;">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<input type="text" class="form-control date" name="time2" placeholder="结束时间" value="{$_GET['time2']}">
+						</div>
+						<div class="input-group input-group-sm" style="width: 50px;float: left">
+							<div class="input-group-btn">
+								<button type="submit" class="btn btn-info btn-sm">搜索</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table class="table table-bordered table-hover table-striped text-center">
+					<tbody>
+						<tr>
+							<th>id</th>
+							<th>所属代理</th>
+							<th>推广名称</th>
+							<th>引导人数</th>
+							<th>关注人数</th>
+							<th>关注人数/比例</th>
+							<th>充值金额</th>
+							<th>充值金额/引导人数</th>
+							<th>备注</th>
+							<th>创建时间</th>
+							<th>操作</th>
+						</tr>
+						<foreach name="list" item="v">
+						<tr>
+							<td>{$v.id}</td>
+							<td>
+								<if condition="$v['mname']">
+									{$v.mname}
+								<else />
+									总平台
+								</if>
+							</td>
+							<td>{$v.title}</td>
+							<td>{$v.pernums}</td>
+							<td>{$v.subnums}</td>
+							<td>{:sprintf("%.2f",$v['subnums']/$v['pernums']*100)}%</td>
+							<td>{$v.charge}</td>
+							<td>{:sprintf("%.2f",$v['charge']/$v['pernums']*100)}%</td>
+							<td>{$v.msg}</td>
+							<td>{$v.create_time|date="Y-m-d H:i:s",###}</td>
+							<td>
+								<a href="{:U('Chapter/editChapter',array('id'=>$v['id']))}" class="btn btn-xs btn-info">
+									<i class="fa fa-edit"></i>
+									修改
+								</a>
+							</td>
+						</tr>
+						</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+			<div class="page">{$page|default="<p style='text-align:center'>暂时没有数据</p>"}</div>
+		</div>
+	</div>
+</div>
+</section>
+<script>
+ $.fn.datetimepicker.dates['zh-CN'] = {
+	days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+	daysShort: ["日", "一", "二", "三", "四", "五", "六", "日"],
+	daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+	months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+	monthsShort: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"],
+	meridiem: ["上午", "下午"],
+	today: "今天"
+};
+
+
+$('.date').datetimepicker({
+	format: 'yyyy-mm-dd',
+	language: 'zh-CN',
+	weekStart: 1,
+	todayBtn: 1,
+	autoclose: 1,
+	todayHighlight: 1,
+	startView: 2,
+	minView: 2,
+	forceParse: 0,
+	showMeridian: 1
+});
+</script>

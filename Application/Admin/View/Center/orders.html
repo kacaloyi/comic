@@ -1,0 +1,433 @@
+<script src="__PUBLIC__/plugins/My97DatePicker/WdatePicker.js"></script>
+
+<div class="pageheader notab">
+            <h1 class="pagetitle">订单统计</h1>
+            <span class="pagedesc">管理平台中的订单统计</span>
+            
+</div>
+<style>        
+
+.row{
+    display: table;
+    content: " ";
+    
+    box-sizing: border-box;
+    display: block;
+}
+
+.col-md-4{
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 5px;
+    padding-left: 6px;
+    display: block;
+    box-sizing: border-box;
+    width: 33.33%;
+}
+
+.col-sm-4 {
+    float: left;
+    padding:auto;
+    margin:auto;
+    position: relative;
+    min-height: 10px;
+    display: block;
+    width: 33.33333333%;
+}
+
+b, strong {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+.text-primary {
+    color: #337ab7;
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+
+   display: block;
+   box-sizing: border-box;
+}
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    display: table;
+    content: " ";
+}
+
+
+</style>
+
+ <div id="contentwrapper" class="contentwrapper lineheight21">
+<!--<section class="content"> -->
+	<div class="row" id="order-summary-stats-panel">
+		<div class="col-md-4">
+			<div class="well">
+				<b>
+					今日充值 <i class="fa fa-question-circle" title="不含当日，统计实时数据"></i>
+				</b>
+				<div class="text-primary" style="font-size:32px;margin:5px 0">
+					¥<span>{$tcharge['total']|default="0.00"}</span>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-4" style="padding:0">
+							<strong>普通充值</strong>
+							<div>
+								<b class="text-warning">{$tcharge['ptotal']|default="0.00"}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$tcharge['pnums']}</b> 笔</div>
+							<div>未支付: <b class="text-warning">{$tcharge['pwnums']}</b>笔</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $tcharge['pnums']+$tcharge['pwnums'];
+										$lv = sprintf("%.2f",$tcharge['pnums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+						<div class="col-sm-4" style="padding:0">
+							<strong>年费VIP</strong>
+							<div>
+								<b class="text-warning">{$tcharge['ytotal']|default="0.00"}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$tcharge['ynums']}</b> 笔</div>
+							<div>未支付: <b class="text-warning">{$tcharge['ywnums']}</b>笔</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $tcharge['ynums']+$tcharge['ywnums'];
+										$lv = sprintf("%.2f",$tcharge['ynums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+						<div class="col-sm-4" style="padding:0">
+							<strong>终生VIP</strong>
+							<div>
+								<b class="text-warning">{$tcharge['ztotal']|default="0.00"}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$tcharge['znums']}</b> 笔</div>
+							<div>未支付: <b class="text-warning">{$tcharge['zwnums']}</b>笔</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $tcharge['znums']+$tcharge['zwnums'];
+										$lv = sprintf("%.2f",$tcharge['znums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="well">
+				<b>昨日充值	<i class="fa fa-question-circle" title="不含当日，统计实时数据"></i></b>
+				<div class="text-primary" style="font-size:32px;margin:5px 0">
+					¥<span>{$yescharge['total']|default="0.00"}</span>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-4" style="padding:0">
+							<strong>普通充值</strong>
+							<div>
+								<b class="text-warning">{$yescharge['ptotal']|default="0.00"}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$yescharge['pnums']}</b> 笔
+							</div>
+							<div>未支付: <b class="text-warning">{$yescharge['pwnums']}</b>
+								笔
+							</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $yescharge['pnums']+$yescharge['pwnums'];
+										$lv = sprintf("%.2f",$yescharge['pnums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+						<div class="col-sm-4" style="padding:0">
+							<strong>年费VIP</strong>
+							<div>
+								<b class="text-warning">{$yescharge['ytotal']}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$yescharge['ynums']}</b> 笔
+							</div>
+							<div>未支付: <b class="text-warning">{$yescharge['ywnums']}</b>
+								笔
+							</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $yescharge['ynums']+$yescharge['ywnums'];
+										$lv = sprintf("%.2f",$yescharge['ynums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+						<div class="col-sm-4" style="padding:0">
+							<strong>终生VIP</strong>
+							<div>
+								<b class="text-warning">{$yescharge['ztotal']}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$yescharge['znums']}</b> 笔
+							</div>
+							<div>未支付: <b class="text-warning">{$yescharge['zwnums']}</b>
+								笔
+							</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $yescharge['znums']+$yescharge['zwnums'];
+										$lv = sprintf("%.2f",$yescharge['znums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well">
+				<b>累计充值 (含当日) <i class="fa fa-question-circle" title="含当日，统计实时数据"></i> </b>
+				<div class="text-primary" style="font-size:32px;margin:5px 0">
+					¥<span>{$acharge['total']|default="0.00"}</span>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-4" style="padding:0">
+							<strong>普通充值</strong>
+							<div>
+								<b class="text-warning">{$acharge['ptotal']|default="0.00"}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$acharge['pnums']}</b>笔</div>
+							<div>未支付: <b class="text-warning">{$acharge['pwnums']}</b>笔
+							</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $acharge['pnums']+$acharge['pwnums'];
+										$lv = sprintf("%.2f",$acharge['pnums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+						<div class="col-sm-4" style="padding:0">
+							<strong>年费VIP</strong>
+							<div>
+								<b class="text-warning">{$acharge['ytotal']|default="0.00"}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$acharge['ynums']}</b>笔</div>
+							<div>未支付: <b class="text-warning">{$acharge['ywnums']}</b>笔
+							</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $acharge['ynums']+$acharge['ywnums'];
+										$lv = sprintf("%.2f",$acharge['ynums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+						<div class="col-sm-4" style="padding:0">
+							<strong>终生VIP</strong>
+							<div>
+								<b class="text-warning">{$acharge['ztotal']|default="0.00"}</b>
+							</div>
+							<div>已支付: <b class="text-warning">{$acharge['znums']}</b>笔</div>
+							<div>未支付: <b class="text-warning">{$acharge['zwnums']}</b>笔
+							</div>
+							<div>
+								完成率:
+								<b class="text-warning">
+									<?php 
+										$all = $acharge['znums']+$acharge['zwnums'];
+										$lv = sprintf("%.2f",$acharge['znums']/$all)*100;
+									?>
+									<span>{$lv}</span>%
+								</b>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--------------下面是表格------------------------------------->	
+	<div class="tableoptions" id="order-daily-stats-panel">
+		    <b class="panel-heading">
+			    <h3 class="panel-title" >历史充值统计</h3>
+		    </b>
+
+		<div class="tableoptions">
+
+		    <form  method="post">
+					
+						<input type="text" name="time1" class="smallinput" style="width:100px;" placeholder="开始时间" value="{$_GET['time1']}"  onclick="WdatePicker()">
+						
+						<span>-</span>
+						
+						<input type="text" name="time2" class="smallinput" style="width:100px;" placeholder="结束时间" value="{$_GET['time1']}"  onclick="WdatePicker()">
+						
+						<input type="submit" value="查询数据" class="btn btn-sm btn-success">
+						
+		    </form>
+        </div><!--tableoptions-->
+        
+		<table class="table table-bordered table-striped table-hover">	
+			<tr >
+				<th><b>日期</b></th>
+				<th class="text-right"><b>充值金额</b></th>
+				<th class="text-right"><b>普通充值</b></th>
+				<th class="text-right"><b>普通充值支付订单数</b></th>
+				<th class="text-right"><b>年费会员</b></th>
+				<th class="text-right"><b>年费会员支付订单数</b></th>
+				<th class="text-right"><b>终生会员</b></th>
+				<th class="text-right"><b>终生会员支付订单数</b></th>
+			</tr>
+			</thead>
+			<tbody>
+				<foreach name="list" item="v">
+				<tr>
+					<td><span>{$v.date}</span></td>
+					<td class="text-right">
+						<b>¥ <span>{$v.charge_total}</span></b>
+					</td>
+					
+					<td class="text-right">
+						¥ <span>{$v.pcharge}</span>
+						<div class="text-muted" style="font-size:13px;margin-top:5px">
+							充值人数: <span>{$v.pchargeperson}</span>,
+							人均: ¥ <span>
+							{$v['pcharge']/$v['pchargeperson']}
+							</span>
+						</div>
+					</td>
+					<td class="text-right">
+						<span>{$v.pchargenums}</span> 笔
+						<div class="text-muted" style="font-size:13px;margin-top:5px">
+							<span>{$v.pchargewnums}</span> 笔未支付,
+							完成率: <span>
+							<?php 
+								$all = $v['pchargenums'] + $v['pchargewnums'];
+								$lv = sprintf("%.2f",$v['pchargenums']/$all)*100;
+								echo $lv;
+							?>
+							</span> %
+						</div>
+					</td>
+					
+					<td class="text-right">
+						¥ <span>{$v.ycharge}</span>
+						<div class="text-muted" style="font-size:13px;margin-top:5px">
+							充值人数: <span>{$v.ychargeperson}</span>,
+							人均: ¥ <span>
+							{$v['ycharge']/$v['ychargeperson']}
+							</span>
+						</div>
+					</td>
+					<td class="text-right">
+						<span>{$v.ychargenums}</span> 笔
+						<div class="text-muted" style="font-size:13px;margin-top:5px">
+							<span>{$v.ychargewnums}</span> 笔未支付,
+							完成率: <span>
+							<?php 
+								$all = $v['ychargenums'] + $v['ychargewnums'];
+								$lv = sprintf("%.2f",$v['ychargenums']/$all)*100;
+								echo $lv;
+							?>
+							</span> %
+						</div>
+					</td>
+					
+					<td class="text-right">
+						¥ <span>{$v.zcharge}</span>
+						<div class="text-muted" style="font-size:13px;margin-top:5px">
+							充值人数: <span>{$v.zchargeperson}</span>,
+							人均: ¥ <span>
+							{$v['zcharge']/$v['zchargeperson']}
+							</span>
+						</div>
+					</td>
+					<td class="text-right">
+						<span>{$v.zchargenums}</span> 笔
+						<div class="text-muted" style="font-size:13px;margin-top:5px">
+							<span>{$v.zchargewnums}</span> 笔未支付,
+							完成率: <span>
+							<?php 
+								$all = $v['zchargenums'] + $v['zchargewnums'];
+								$lv = sprintf("%.2f",$v['zchargenums']/$all)*100;
+								echo $lv;
+							?>
+							</span> %
+						</div>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+	</div>
+<!--</section>-->
+</div>
+
+<script>
+        $.fn.datetimepicker.dates['zh-CN'] = {
+            days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+            daysShort: ["日", "一", "二", "三", "四", "五", "六", "日"],
+            daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+            months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+            monthsShort: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"],
+            meridiem: ["上午", "下午"],
+            today: "今天"
+        };
+
+        $('.reservationtime').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+</script>

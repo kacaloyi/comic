@@ -1,0 +1,87 @@
+
+<section class="content-header">
+	<div>
+		<ol class="breadcrumb" style="background: none; margin-bottom: 0px;">
+			<li><a href="{:U('Index/index')}" style="color: #333;"><i class=" fa fa-home"></i> Home</a></li>
+			<li class="active">数据信息</li>
+			<li class="active">举报统计</li>
+		</ol>
+	</div>
+</section>
+
+<!-- Main content -->
+<section class="content">
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h4 class="box-title"></h4>
+				<div style="float: left;margin-left: 10px">
+					<form method="post" class="clearfix">
+						<div class="input-group input-group-sm" style="float: left;margin-left: 5px">
+							<select class="select-get-attention" name="btype" style="height: 30px;" default="{$_GET['btype']}">
+								<option value="" selected="">类型（全部）</option>
+								<option value="1">漫画</option>
+								<option value="2">小说</option>
+							</select>
+						</div>
+						<div class="input-group input-group-sm" style="width: 200px;float: left;margin-left: 5px">
+							<input type="text" name="title" class="form-control" value="{$_GET['title']}" id="title" style="width: 200px" placeholder="书名">
+						</div>
+						<div class="input-group input-group-sm" style="width: 50px;float: left">
+							<div class="input-group-btn">
+								<button type="submit" class="btn btn-info btn-sm">搜索</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table class="table table-bordered table-hover table-striped text-center">
+					<tbody>
+						<tr>
+							<th>书名</th>
+							<th>所属类型</th>
+							<th>被举报色情次数</th>
+							<th>被举报血腥次数</th>
+							<th>被举报暴力次数/比例</th>
+							<th>被举报违法次数</th>
+							<th>被举报盗版次数</th>
+							<th>被举报其他次数</th>
+							<th>总举报次数</th>
+							<th>操作</th>
+						</tr>
+						<foreach name="list" item="v">
+						<tr>
+							<td>{$v.title}</td>
+							<td>
+								<if condition="$v['btype'] eq 1">
+									漫画
+								<else />
+									小说
+								</if>
+							</td>
+							<td>{$v.seqing}</td>
+							<td>{$v.xuexing}</td>
+							<td>{$v.baoli}</td>
+							<td>{$v.weifa}</td>
+							<td>{$v.daoban}</td>
+							<td>{$v.qita}</td>
+							<td>{$v.nums}</td>
+							<td>
+								<a href="javascript:;" onclick="deleteAmTables('lodge',{$v.id})" class="cannel_vip btn bg-maroon margin">
+									<i class="fa fa-times"></i>删除
+								</a>
+							</td>
+						</tr>
+						</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+			<div class="page">{$page|default="<p style='text-align:center'>暂时没有数据</p>"}</div>
+		</div>
+	</div>
+</div>
+</section>

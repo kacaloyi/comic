@@ -1,0 +1,203 @@
+<section class="content-header">
+	<div>
+		<ol class="breadcrumb" style="background: none; margin-bottom: 0px;">
+			<li><a href="{:U('Index/index')}" style="color: #333;"><i class=" fa fa-home"></i> Home</a></li>
+			<li class="active">数据信息</li>
+			<li class="active"> 用户统计</li>
+		</ol>
+	</div>
+</section>
+
+<section class="content">
+<div class="row" id="member-summary-stats-panel">
+	<div class="col-md-3">
+		<div class="well">
+			<b>今日新增</b>
+			<div class="text-primary" style="font-size:32px;margin:5px 0">
+				<span>{$tuser['all']|default="0"}人</span>
+				<div style="font-size:13px;" class="text-muted">
+					<b class="text-warning">{$tuser['nuser']|default="0"}人</b> 男性,
+					<b class="text-warning">{$tuser['vuser']|default="0"}人</b> 女性,
+					<b class="text-warning" title="用户未设置性别或未关注而无法获取性别">{$tuser['wuser']|default="0"}</b>
+					未知
+				</div>
+			</div>
+			<div>
+				已关注:
+				<b class="text-warning">
+				<span>{$tuser['subuser']|default="0"}人</span>
+				(<span>{:sprintf("%0.2f",$tuser['subuser']/$tuser['all']*100)}</span>%)
+				</b>
+			</div>
+			<div>
+				已付费:
+				<b class="text-warning">
+				<span>{$tuser['payuser']|default="0"}人</span>
+				(<span>{:sprintf("%0.2f",$tuser['payuser']/$tuser['all']*100)}</span>%)
+				</b>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="well">
+			<b>昨日新增</b>
+			<div class="text-primary" style="font-size:32px;margin:5px 0">
+				<span>{$yuser['all']|default="0"}人</span>
+				<div style="font-size:13px;" class="text-muted">
+					<b class="text-warning">{$yuser['nuser']|default="0"}人</b> 男性,
+					<b class="text-warning">{$yuser['vuser']|default="0"}人</b> 女性,
+					<b class="text-warning" title="用户未设置性别或未关注而无法获取性别">{$yuser['wuser']|default="0"}</b>
+					未知
+				</div>
+			</div>
+			<div>
+				已关注:
+				<b class="text-warning">
+				<span>{$yuser['subuser']|default="0"}人</span>
+				(<span>{:sprintf("%0.2f",$yuser['subuser']/$yuser['all']*100)}</span>%)
+				</b>
+			</div>
+			<div>
+				已付费:
+				<b class="text-warning">
+				<span>{$yuser['payuser']|default="0"}人</span>
+				(<span>{:sprintf("%0.2f",$yuser['payuser']/$yuser['all']*100)}</span>%)
+				</b>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="well">
+			<b>本月新增 (包含当日) <i class="fa fa-question-circle" title="包含当日，实时统计数据"></i></b>
+			<div class="text-primary" style="font-size:32px;margin:5px 0">
+				<span>{$muser['all']|default="0"}人</span>
+				<div style="font-size:13px;" class="text-muted">
+					<b class="text-warning">{$muser['nuser']|default="0"}人</b> 男性,
+					<b class="text-warning">{$muser['vuser']|default="0"}人</b> 女性,
+					<b class="text-warning" title="用户未设置性别或未关注而无法获取性别">{$muser['wuser']|default="0"}</b>
+					未知
+				</div>
+			</div>
+			<div>
+				已关注:
+				<b class="text-warning">
+				<span>{$muser['subuser']|default="0"}人</span>
+				(<span>{:sprintf("%0.2f",$muser['subuser']/$muser['all']*100)}</span>%)
+				</b>
+			</div>
+			<div>
+				已付费:
+				<b class="text-warning">
+				<span>{$muser['payuser']|default="0"}人</span>
+				(<span>{:sprintf("%0.2f",$muser['payuser']/$muser['all']*100)}</span>%)
+				</b>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="well">
+			<b>所有时间 <i class="fa fa-question-circle" title="包含当日，实时统计数据"></i></b>
+			<div class="text-primary" style="font-size:32px;margin:5px 0">
+				<span>{$auser['all']|default="0"}人</span>
+				<div style="font-size:13px;" class="text-muted">
+					<b class="text-warning">{$auser['nuser']|default="0"}人</b> 男性,
+					<b class="text-warning">{$auser['vuser']|default="0"}人</b> 女性,
+					<b class="text-warning" title="用户未设置性别或未关注而无法获取性别">{$auser['wuser']|default="0"}</b>
+					未知
+				</div>
+			</div>
+			<div>
+				已关注:
+				<b class="text-warning">
+				<span>{$auser['subuser']|default="0"}人</span>
+				(<span>{:sprintf("%0.2f",$auser['subuser']/$auser['all']*100)}</span>%)
+				</b>
+			</div>
+			<div>
+				已付费:
+				<b class="text-warning">
+				<span>{$auser['payuser']|default="0"}人</span>
+				(<span>{:sprintf("%0.2f",$auser['payuser']/$auser['all']*100)}</span>%)
+				</b>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="box">
+			<div class="box-header with-border">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="fa fa-calendar"></i> 每日汇总统计</h3>
+				</div>
+			</div>
+			<div class="box-body">
+				<table class="table table-bordered table-hover table-striped">
+					<tbody>
+						<tr>
+							<th colspan="10">
+								<form class="form-inline" method="post">
+									<div class="input-group input-group-sm">
+										<input type="text" name="time1" autocomplete="off" class="form-control reservationtime" placeholder="开始时间" value="{$_GET['time1']}">
+									</div>
+									<span>-</span>
+									<div class="input-group input-group-sm">
+										<input type="text" name="time2" autocomplete="off" class="form-control reservationtime" placeholder="结束时间" value="{$_GET['time2']}">
+									</div>
+									<div class="input-group input-group-sm">
+										<input type="submit" value="查询" class="btn btn-sm btn-success">
+									</div>
+								</form>
+							</th>
+						</tr>
+						<tr>
+							<td>日期</td>
+							<td>新增用户</td>
+							<td>已关注</td>
+							<td>已付费</td>
+							<td>男性</td>
+							<td>女性</td>							
+						</tr>
+						<foreach name="list" item="v">
+						<tr>
+							<td>{$v.date}</td>
+							<td>{$v.joinperson}</td>
+							<td>{$v.subperson}</td>
+							<td>{:ceil($v['joinpersonpay']*$v['joinperson']/100)}</td>
+							<td>{$v.sexaperson}</td>
+							<td>{$v.sexvperson}</td>
+						</tr>
+						</foreach>
+					</tbody>
+				</table>
+			</div>
+			<div class="page">{$page|default="<p style='text-align:center'>暂时没有数据</p>"}</div>
+		</div>
+	</div>
+</div>
+
+</section>
+<script>
+        $.fn.datetimepicker.dates['zh-CN'] = {
+            days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+            daysShort: ["日", "一", "二", "三", "四", "五", "六", "日"],
+            daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+            months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+            monthsShort: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"],
+            meridiem: ["上午", "下午"],
+            today: "今天"
+        };
+
+        $('.reservationtime').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+</script>
