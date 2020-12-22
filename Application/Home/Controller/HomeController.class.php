@@ -27,10 +27,13 @@ class HomeController extends Controller
         $this->getGrant();
        
         $config = M('config')->select();
+       
+        
         if (!is_array($config)) {
             $_var_0('请先在后台设置好各参数');
         }
-        if ($_GET['imei']) {//看身份，是不是某个代理网站 代理网站形如http://HOST/index.php?imei=6871239a94f92c329c9d187c855ab45d
+        if ($_GET&&isset($_GET['imei'])) {
+            //看身份，是不是某个代理网站 代理网站形如http://HOST/index.php?imei=6871239a94f92c329c9d187c855ab45d
             $member = M('member')->where(array('imei' => $_GET['imei']))->find();
             if ($member) {
                 $imei = xmd5($member['salt']);
@@ -40,7 +43,7 @@ class HomeController extends Controller
                 }
             }
         }
-        if ($_GET['chapid']) {//看是否是通过推广链接进来的，所谓推广链接，是指在管理员后台生成的文案链接。
+        if ($_GET&&isset($_GET['chapid'])) {//看是否是通过推广链接进来的，所谓推广链接，是指在管理员后台生成的文案链接。
             $chapter = M('chapter')->where(array('id'=>intval($_GET['chapid'])))->find();
             if ($chapter) {
                 session('chapter', $chapter);
@@ -55,7 +58,7 @@ class HomeController extends Controller
             session('chapter', null);
         }
         
-        if(isset($_GET['parent'])){
+        if($_GET&&isset($_GET['parent'])){
             session('parent',intval($_GET['parent']));
         }
         
@@ -171,7 +174,11 @@ class HomeController extends Controller
             $this->user = M('user')->where(array('id'=>$uid))->find();
             session('user',$this->user);
         }else{
-            $no_login = array('Index/index', 'Mh/index', 'Book/index','Yook/index');
+            $no_login = array('Index/index', 
+                'Mh/index', 'Mh/book_last', 'Mh/book_hot', 'Mh/book_cate', 
+                'Book/index','Book/book_last','Book/book_hot','Book/book_cate',
+                'Yook/index','Yook/book_last','Yook/book_hot','Yook/book_cate',
+                'Member/login','Member/register');
             if (!$this->user && !in_array(CONTROLLER_NAME . '/' . ACTION_NAME, $no_login)) {
                 redirect(U('Member/login', array('parent' => $_GET['parent'], 'fr' => base64_encode(get_current_url()))));
             }
@@ -223,7 +230,7 @@ class HomeController extends Controller
                 flog($user_id, "money", $this->_site['send_money'], 13);
                 $dd = new \Common\Util\ddwechat();
                 $dd->setParam($this->_mp);
-                $html = "尊敬的" . $shuser['nickname'] . "，您分享的漫画小说被用户" . $this->user['nickname'] . '阅读观看了，恭喜您获得' . $this->_site['send_money'] . '元书币奖励，分享更多内容可获得更多奖励哦！';
+                $html = "尊敬的" . $shuser['nickname'] . "，您分享的漫画小说被用户" . $this->user['nickname'] . '阅读观看了，恭喜您获得' . $this->_site['send_money'] . '书币奖励，分享更多内容可获得更多奖励哦！';
                 $dd->send_msg($shuser['openid'], $html);
             }
         }
