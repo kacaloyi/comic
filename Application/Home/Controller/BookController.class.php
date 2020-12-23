@@ -105,6 +105,25 @@ class BookController extends HomeController {
     	$this->display();
     }
 	
+	protected function getChapContent($bid,$ji_no){
+	    $no =intval ($bid/1000) ;
+	    $fileName = $this->_site['txtdir'].$no."/".$bid."/".$ji_no.".txt";
+	    
+	   if(file_exists($fileName)){
+				$content = @file_get_contents($fileName);
+				$content ="<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$content;
+				$content =preg_replace('/\n|\r\n/','</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',$content);// @str_replace("\r\n","<br>",$content);
+				//$content = @str_replace(" ","&nbsp;",$content);
+				return $content;
+		}
+			else{
+				return "章节TXT文件不存在，请检查！";
+				//die();
+		}
+	    
+	    return $cont;
+	    
+	}
 	 /**
      * 分集详情
      */
@@ -199,6 +218,8 @@ class BookController extends HomeController {
     	if(empty($info) || empty($binfo)) {
     		$this->error('小说数据缺失！', U('Book/bookinfo')."&bid={$bid}");
     	}
+    	
+        $info['info']=$this->getChapContent($info['bid'],$info['ji_no']);
 
 		//若有文案链接的增加文案阅读量
 		if($this->chapter){

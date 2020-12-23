@@ -18,6 +18,90 @@ class BookController extends AdminController {
 		$this -> _list('book',$where, $order);
 	}
 	
+		/**
+	 * 保存文件
+	 *
+	 * @param string $fileName 文件名（含相对路径）
+	 * @param string $text 文件内容
+	 * @return boolean
+	 */
+	protected function saveFile($fileName, $text) {
+	    
+		if (!$fileName || !$text)
+			return false;
+		if ($this->makeDir(dirname($fileName))) {
+			if ($fp = fopen($fileName, "w")) {
+				if (@fwrite($fp, $text)) {
+					fclose($fp);
+				
+					return true;
+				} else {
+					fclose($fp);
+					return false;
+				}
+			}
+		}
+		return false;
+	}
+	/**
+	 * 连续创建目录
+	 *
+	 * @param string $dir 目录字符串
+	 * @param int $mode 权限数字
+	 * @return boolean
+	 */
+	protected function makeDir($dir, $mode=0777) {
+		 /*function makeDir($dir, $mode="0777") { 此外0777不能加单引号和双引号，
+	 加了以后，"0400" = 600权限，处以为会这样，我也想不通*/
+		if (!dir) return false;
+		if(!file_exists($dir)) {
+		    
+			$x= mkdir($dir,$mode,true);
+			return $x;
+		} else {
+			return true;
+		}
+	}
+	
+	public function saveChap2File($bid,$ji_no,$info){
+	    $no =intval ($bid/1000) ;
+	    $fileName = $this->_site['txtdir'].$no."/".$bid."/".$ji_no.".txt";
+	    $this->saveFile($fileName,$info);
+	}
+	
+	public function getChapContent($bid,$ji_no){
+	    $no =intval ($bid/1000) ;
+	    $fileName = $this->_site['txtdir'].$no."/".$bid."/".$ji_no.".txt";
+	    
+	   if(file_exists($fileName)){
+				$content = @file_get_contents($fileName);
+				$content = @str_replace("\r\n","<br/>",$content);
+				$content = @str_replace(" ","&nbsp;",$content);
+				return $content;
+		}
+			else{
+				return "章节TXT文件不存在，请检查！";
+				//die();
+		}
+	    
+	    return $cont;
+	    
+	}
+	
+	
+	public function rtChapt(){
+	    $clist = M('book_episodes')->where("1")->select();
+	    
+	    foreach ($clist as $t){
+	        $bid = $t['bid'];
+	        $ji_no = $t['ji_no'];
+	        $this->saveChap2File($bid,$ji_no,$t['info']);
+	        
+	    }
+	    die("OK");
+	    
+	}
+	
 	// 编辑、添加小说
 	public function edit(){
 		if(IS_POST){
@@ -166,7 +250,12 @@ class BookController extends AdminController {
 	public function episodesedit(){
 		$bid = I('bid', 0, 'intval');
 		if(IS_POST){
-			$bid = I('post.bid');
+			$bid   = I('post.bid');
+			$ji_no = I('post.ji_no', 0, 'intval');
+		    $cont  = I('post.info', "", 'string');
+		    $this->saveChap2File($bid,$ji_no,$cont);
+		    $_POST['info']=""; //存储到文件中，不存储到数据库中。
+		    
 			if(isset($_GET['id'])) { // 修改
 				$_POST['update_time'] = NOW_TIME;
 				$rs = M('book_episodes') -> where('id='.intval($_GET['id'])) -> save($_POST);
