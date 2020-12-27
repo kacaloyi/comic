@@ -562,8 +562,14 @@ class BookController extends HomeController {
 			        $list = M('mh_episodes')->where(array('mhid'=>$id))->order('ji_no asc')->limit($start,50)->select();
 				    
 				    //$money = M('mh_episodes')->where(array('ji_no'=>$i,'mhid'=>$id))->getField('money');
-				    foreach ($list as $vo)
+				    foreach ($list as $k=>$vo)
 				    {
+				        $arr_pics=getPicArray($vo['pics']);
+			            //$list[$k]['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
+			            //$list[$k]['pics']="";//减少一点儿传输量。
+			            
+			            $vo['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
+				        
 				        $money = $vo['money'];
     					if(!$money || $money<=0){
     						$money = $this->_site['mhmoney'];
@@ -581,7 +587,11 @@ class BookController extends HomeController {
     					   $html.= '<div class="item">';
     				   }
     				   
-    				   $html.='<a href="'.U('Mh/'.$id.'/'.$vo['ji_no']).'" class="">'.$vo['title'];
+    				   $html.='<a href="'.U('Mh/'.$id.'/'.$vo['ji_no']).'" class="">';
+    				   $html.='<span class="imgHead" style="float:left"><img class="lazyload" src="';
+    				   $html.=$vo['imgHead'].'" data-src="'.$vo['imgHead'].'" style='."width:100%".' ></span>';
+ 
+    				   $html.=$vo['title'];
     				   $html.='<span>'.$money.'书币</span>';
     				   $html.='</a>';
     				   $html.='</div>';

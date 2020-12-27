@@ -386,6 +386,11 @@ class MhController extends HomeController {
 		//	$huas_num = range(1,$huas);
 		//}
 		
+		foreach ($huas as $k=> $h){
+			$arr_pics = getPicArray($h['pics']);
+			$huas[$k]['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
+			$huas[$k]['pics']="";//减少一点儿传输量。
+		}
     	$asdata = array(
     			'info'			=> $info,
     			'arr_catename'	=> $arr_catename,
@@ -516,6 +521,7 @@ class MhController extends HomeController {
     	$likes = M('mh_likes')->where("mhid={$mhid} and ji_no={$ji_no} and user_id=".$this->user['id'])->find();
     	$collect = M('mh_collect')->where(array("mhid"=>$bid , "user_id"=>$this->user['id'],"type"=>"mh"))->find();
     	
+    	/*
     	$arr_pics = array();
     	$pics = $jiinfo['pics'];
     	if(!empty($pics)) {
@@ -525,6 +531,9 @@ class MhController extends HomeController {
 		foreach($arr_pics as $k=>$v){
 			$arr_pics[$k] = $url.$v;
 		}
+		*/
+		
+		$arr_pics = getPicArray($jiinfo['pics']);
 		//dump($arr_pics);exit;
     	
     	$asdata = array(
@@ -556,6 +565,7 @@ class MhController extends HomeController {
     	$this->display();
     }
     
+
     /**
      * 收藏ajax
      */

@@ -49,6 +49,20 @@ function complete_url($url){
 	
 }
 
+function getPicArray($str_pics){
+        $arr_pics = array();
+    	$pics = $str_pics;
+    	if(!empty($pics)) {
+    		$arr_pics = explode(',', $pics);
+    	}
+		$url=C('mh_config_url');
+		foreach($arr_pics as $k=>$v){
+			$arr_pics[$k] = $url.$v;
+		}
+        return $arr_pics;
+    
+}
+
 
 /**
  * 对称加密算法之加密
