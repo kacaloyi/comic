@@ -101,7 +101,8 @@
     <div class="list" id="html_box">
     <volist name="huas" id="vo">
 	<?php 
-		$money = M('mh_episodes')->where(array('ji_no'=>$vo,'mhid'=>$info['id']))->getField('money');
+		//$money = M('mh_episodes')->where(array('ji_no'=>$vo,'mhid'=>$info['id']))->getField('money');
+		$money = $vo['money'];
 		if(!$money || $money<=0){
 			$money = $_site['mhmoney'];
 		}
@@ -112,23 +113,23 @@
 		<if condition="$vo egt $info['pay_num'] and $info['pay_num'] gt 0">
 			<if condition="$read">
 				<div class="item">
-					<a href="{:U('Mh/'.$info['id'].'/'.$vo)}" class="">
-						{$vo}话
+					<a href="{:U('Mh/'.$info['id'].'/'.$vo['ji_no'])}" class="">
+						{$vo['title']}
 						<span>{$money}书币</span>
 					</a>
 				</div>
 			<else />
 				<div class="item lock">
-					<a href="{:U('Mh/'.$info['id'].'/'.$vo)}" class="">
-						{$vo}话
+					<a href="{:U('Mh/'.$info['id'].'/'.$vo['ji_no'])}" class="">
+						{$vo['title']}
 						<span>{$money}书币</span>
 					</a>
 				</div>
 			</if>
 		<else />
 			<div class="item">
-				<a href="{:U('Mh/'.$info['id'].'/'.$vo)}" class="" style="text-align:center;">
-					{$vo}话
+				<a href="{:U('Mh/'.$info['id'].'/'.$vo['ji_no'])}" class="" >
+					{$vo['title']}
 					<span></span>
 				</a>
 			</div>

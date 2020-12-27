@@ -376,20 +376,21 @@ class MhController extends HomeController {
     			!empty($cateid) && $arr_catename[] = get_mh_cate_name($cateid);
     		}
     	}
-    	$first = M('mh_episodes')->where("mhid={$mhid}")->order('ji_no asc')->find();
+    	//$first = M('mh_episodes')->where("mhid={$mhid}")->order('ji_no asc')->find();
     	
-		$huas = M('mh_episodes')->where(array('mhid'=>$mhid))->count();
-		if($huas>15){
-			$huas_num = range(1,15);
-		}else{
-			$huas_num = range(1,$huas);
-		}
+		$huas = M('mh_episodes')->where(array('mhid'=>$mhid))->order('ji_no asc')->limit(0,16)->select();// ->count();
+		$first = current($huas);
+		//if($huas>15){
+		//	$huas_num = range(1,15);
+		//}else{
+		//	$huas_num = range(1,$huas);
+		//}
 		
     	$asdata = array(
     			'info'			=> $info,
     			'arr_catename'	=> $arr_catename,
     			'first'			=> $first,
-    			'huas'			=> $huas_num,
+    			'huas'			=> $huas,
     			'tag'			=> $tag,
     			'lock'			=> $lock,
     	);

@@ -862,7 +862,21 @@ function sms($mobile, $con){
 	}
 }
 
+function curl_file_get_contents($durl){
 
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $durl);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+  //curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)');
+  //curl_setopt($ch, CURLOPT_REFERER,_REFERER_);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  $r = curl_exec($ch);
+  $errorno = curl_errno($ch);
+  $errinfo = curl_getinfo($ch);
+  curl_close($ch);
+  
+  return $r;
+}
 
 
 

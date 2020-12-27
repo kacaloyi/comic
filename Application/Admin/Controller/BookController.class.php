@@ -29,7 +29,7 @@ class BookController extends AdminController {
 	    
 		if (!$fileName || !$text)
 			return false;
-		if ($this->makeDir(dirname($fileName))) {
+		if ($this -> makeDir(dirname($fileName))) {
 			if ($fp = fopen($fileName, "w")) {
 				if (@fwrite($fp, $text)) {
 					fclose($fp);
@@ -66,7 +66,42 @@ class BookController extends AdminController {
 	public function saveChap2File($bid,$ji_no,$info){
 	    $no =intval ($bid/1000) ;
 	    $fileName = $this->_site['txtdir'].$no."/".$bid."/".$ji_no.".txt";
-	    $this->saveFile($fileName,$info);
+	    $this -> saveFile($fileName,$info);
+	}
+	
+	public function saveCoverPic($bid,$filename){
+	    $no  =intval ($bid/1000) ;
+	    $ext =pathinfo($filename,PATHINFO_EXTENSION); 
+	    
+	    $desname=trim($this->_site['txtdir'].$no."/".$bid."/".$bid."s.".$ext);
+	    /*$dirok=$this->makeDir(dirname($desname));
+	    
+	    
+	    //$content = @curl_file_get_contents($filename);
+	    
+	    //if($dirok&&$content)
+	    {
+	    //    @file_put_contents($desname, $content);
+	    }
+	    
+	    $opts = array(
+          "http"=>array(
+          "method"=>"GET",
+          "header"=>"",
+          "timeout"=>30)
+        );
+        $context = stream_context_create($opts);
+        
+        if(@copy($filename, $desname, $context)) {
+          //$http_response_header
+          //return $file;
+        }
+        
+	    die("这里".$desname."那里".$filename);*/
+	    return "/Public/file/txt/".$no."/".$bid."/".$bid."s.".$ext;;
+	    
+	    //$this->success("OK");
+	    
 	}
 	
 	public function getChapContent($bid,$ji_no){
@@ -88,7 +123,45 @@ class BookController extends AdminController {
 	    
 	}
 	
+	//采集上传增加书的接口，必须保证bid的唯一性。
+	public function addBook(){
+	   if(IS_POST){
+	      if(!$_POST['bid']||!$_POST['cover_pic'])
+	      {
+	           die("Book info have mistakes");
+	      }
+	      
+	      $bid =intval( $_POST['bid']);
+	      unset($_POST['bid']);
+	      //封面图送进来一个有效url就行，会自动转储到本地。
+	      $des = $this -> saveCoverPic($bid,$_POST['cover_pic']);
+	      
+	      $_POST['cover_pic']=$des;
+	   
+	      $_POST['detail_pic']=$_POST['cover_pic'];
+	      $_POST['share_pic']=$_POST['cover_pic'];
+	      $_POST['share_desc']= $_POST['summary'];
+	      $_POST['update_time'] = NOW_TIME;
+	   
+	      //die(var_dump($_POST));     
+	           
+		   $find = M('book')->where('id='.$bid)->find();
+	      if(!$find)
+	      {
+	         $_POST['id'] = $bid;
+	         $_POST['create_time'] = NOW_TIME;
+	         M('book')->add($_POST); 
+	      }
+	      else{
+	          M('book')->where('id='.$bid)->save($_POST); 
+	      }
+	      
+	    
+	   }
+	   die("OK");
+	}
 	
+	//临时的工具函数，把数据库中的info转存到文件中。
 	public function rtChapt(){
 	    $clist = M('book_episodes')->where("1")->select();
 	    

@@ -1618,7 +1618,8 @@ body {
 }
 
 .ac-box > .list .item {
-    width: 33.33%;
+    width: 95%;
+    margin:0 0.2rem
 }
 
 .ac-box > .list > .item a {

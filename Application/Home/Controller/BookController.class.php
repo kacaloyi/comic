@@ -69,20 +69,26 @@ class BookController extends HomeController {
     			!empty($cateid) && $arr_catename[] = get_mh_cate_name($cateid);
     		}
     	}
-    	$first = M('book_episodes')->where("bid={$bid}")->order('ji_no asc')->find();
+    	//$first = M('book_episodes')->where("bid={$bid}")->order('ji_no asc')->find();
     	
-		$huas = M('book_episodes')->where(array('bid'=>$bid))->count();
+		//$huas = M('book_episodes')->where(array('bid'=>$bid))->count();
+		
+		$huas = M('book_episodes')->where("bid={$bid}")->order('ji_no asc')->limit(1,15)->select();
+		$first = current($huas);
+		
+		/*
 		if($huas>15){
 			$huas_num = range(1,15);
 		}else{
 			$huas_num = range(1,$huas);
 		}
+		*/
 		
     	$asdata = array(
     			'info'			=> $info,
     			'arr_catename'	=> $arr_catename,
     			'first'			=> $first,
-    			'huas'			=> $huas_num,
+    			'huas'			=> $huas,
     			'tag'			=> $tag,
     			'lock'			=> $lock,
     	);
@@ -216,7 +222,7 @@ class BookController extends HomeController {
     	$info = M('book_episodes')->where("bid={$bid} and ji_no={$ji_no}")->find();
 
     	if(empty($info) || empty($binfo)) {
-    		$this->error('小说数据缺失！', U('Book/bookinfo')."&bid={$bid}");
+    		$this->error('小说数据缺失！', U("/Book/$bid"));
     	}
     	
         $info['info']=$this->getChapContent($info['bid'],$info['ji_no']);
@@ -550,51 +556,65 @@ class BookController extends HomeController {
 			if($end>=$info['episodes']){
 				$end = $info['episodes'];
 			}
-		    for($i=$start;$i<=$end;$i++){
+		    /*for($i=$start;$i<=$end;$i++)*/
+		    {
 			   if($type == 'mh'){
-				    $money = M('mh_episodes')->where(array('ji_no'=>$i,'mhid'=>$id))->getField('money');
-					if(!$money || $money<=0){
-						$money = $this->_site['mhmoney'];
-					}
-					$money = intval($money);
-					$read = M('read')->where(array('episodes'=>$i,'rid'=>$id,'user_id'=>$this->user['id'],'type'=>$type))->find();
-				    if($i>=$info['pay_num'] && $info['pay_num']>0){
-					   if($read){
-						   $html.= '<div class="item">';
-					   }else{
-						   $html.= '<div class="item lock">'; 
-					   }
-				   }else{
-					   $money = 0;
-					   $html.= '<div class="item">';
-				   }
-				   
-				   $html.='<a href="'.U('Mh/'.$id.'/'.$i).'" class="">'.$i.'话';
-				   $html.='<span>'.$money.'书币</span>';
-				   $html.='</a>';
-				   $html.='</div>';
+			        $list = M('mh_episodes')->where(array('mhid'=>$id))->order('ji_no asc')->limit($start,50)->select();
+				    
+				    //$money = M('mh_episodes')->where(array('ji_no'=>$i,'mhid'=>$id))->getField('money');
+				    foreach ($list as $vo)
+				    {
+				        $money = $vo['money'];
+    					if(!$money || $money<=0){
+    						$money = $this->_site['mhmoney'];
+    					}
+    					$money = intval($money);
+    					$read = M('read')->where(array('episodes'=>$vo['ji_no'],'rid'=>$id,'user_id'=>$this->user['id'],'type'=>$type))->find();
+    				    if($i>=$info['pay_num'] && $info['pay_num']>0){
+    					   if($read){
+    						   $html.= '<div class="item">';
+    					   }else{
+    						   $html.= '<div class="item lock">'; 
+    					   }
+    				   }else{
+    					   $money = 0;
+    					   $html.= '<div class="item">';
+    				   }
+    				   
+    				   $html.='<a href="'.U('Mh/'.$id.'/'.$vo['ji_no']).'" class="">'.$vo['title'];
+    				   $html.='<span>'.$money.'书币</span>';
+    				   $html.='</a>';
+    				   $html.='</div>';
+				    }
 			   }else{
-					$money = M('book_episodes')->where(array('ji_no'=>$i,'bid'=>$id))->getField('money');
-					if(!$money || $money<=0){
-						$money = $this->_site['xsmoney'];
-					}
-					$money = intval($money);
-					$read = M('read')->where(array('episodes'=>$i,'rid'=>$id,'user_id'=>$this->user['id'],"type"=>$type))->find();
-				   if($i>=$info['pay_num'] && $info['pay_num']>0){
-					   if($read){
-						   $html.= '<div class="item">';
-					   }else{
-						   $html.= '<div class="item lock">'; 
-					   }
-				   }else{
-					   $money = 0;
-					   $html.= '<div class="item">';
-				   }
-				   
-				   $html.='<a href="'.U('Book/'.$id.'/'.$i).'" class="">'.$i.'章';
+			        $list = M('book_episodes')->where("bid={$id}")->order('ji_no asc')->limit($start,50)->select();
+					//$money = M('book_episodes')->where(array('ji_no'=>$i,'bid'=>$id))->getField('money');
+					foreach ($list as $vo)
+				    {	
+    					$money = $vo['money'];
+    					if(!$money || $money<=0){
+    						$money = $this->_site['xsmoney'];
+    					}
+    					$money = intval($money);
+    					
+    					$read = M('read')->where(array('episodes'=>$vo['ji_no'],'rid'=>$id,'user_id'=>$this->user['id'],"type"=>$type))->find();
+    				    if($i>=$info['pay_num'] && $info['pay_num']>0){
+    					   if($read){
+    						   $html.= '<div class="item">';
+    					   }else{
+    						   $html.= '<div class="item lock">'; 
+    					   }
+    				    }else{
+    					   $money = 0;
+    					   $html.= '<div class="item">';
+    				   }
+    				   
+				   $html.='<a href="'.U('Book/'.$id.'/'.$vo['ji_no']).'"  style="">'.$vo['title'];
 				   $html.='<span>'.$money.'书币</span>';
 				   $html.='</a>';
 				   $html.='</div>';
+				   
+			       }
 			   }
 		   }
 		   if($html){
