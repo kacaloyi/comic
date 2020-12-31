@@ -98,7 +98,8 @@ class BookController extends AdminController {
         }
         
 	    die("这里".$desname."那里".$filename);*/
-	    return "/Public/file/txt/".$no."/".$bid."/".$bid."s.".$ext;;
+	    return $filename;
+	    //return "/Public/file/txt/".$no."/".$bid."/".$bid."s.".$ext;;
 	    
 	    //$this->success("OK");
 	    
@@ -128,7 +129,7 @@ class BookController extends AdminController {
 	   if(IS_POST){
 	      if(!$_POST['bid']||!$_POST['cover_pic'])
 	      {
-	           die("Book info have mistakes");
+	           die("Book info have mistakes:".$_POST['bid']." ".$_POST['cover_pic']);
 	      }
 	      
 	      $bid =intval( $_POST['bid']);
@@ -329,9 +330,12 @@ class BookController extends AdminController {
 		    $this->saveChap2File($bid,$ji_no,$cont);
 		    $_POST['info']=""; //存储到文件中，不存储到数据库中。
 		    
-			if(isset($_GET['id'])) { // 修改
+		    $rs = M('book_episodes') -> where(array('bid'=>intval($bid),'ji_no'=>intval($ji_no))) ->find();
+		    
+			if($rs) { // 修改
+			    unset($_POST['id']);
 				$_POST['update_time'] = NOW_TIME;
-				$rs = M('book_episodes') -> where('id='.intval($_GET['id'])) -> save($_POST);
+				$rs = M('book_episodes') -> where('id='.intval($rs['id'])) -> save($_POST);
 			} else { // 添加
 				$_POST['create_time'] = NOW_TIME;
 				$_POST['update_time'] = NOW_TIME;
@@ -340,7 +344,7 @@ class BookController extends AdminController {
 			}
 			
 			$cnt = M('book_episodes')->where("bid={$bid}")->count();
-			M('book')->where("id={$bid}")->setField('episodes', $cnt);
+			M('book')->where("id={$bid}")->setField(array('episodes'=>$cnt,'update_time'=>NOW_TIME));
 			
 			$this -> success('操作成功！', U('episodes')."&bid={$bid}");
 			exit;

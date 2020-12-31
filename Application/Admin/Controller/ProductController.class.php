@@ -18,6 +18,154 @@ class ProductController extends AdminController {
 		$this -> _list('mh_list',$where, $order);
 	}
 	
+	public function addchapt()
+	{
+	    $binfo = $this->findComic();
+	    if(!$binfo){
+	        die('错误，没有书的信息，无法添加章节');
+	    }
+	    
+	    if(IS_POST){
+	        $bookname=$_POST['bookname'];//书名
+            $author=$_POST['author'];//作者
+
+    	    $bookid = $_POST['bid'];//书id
+    	    $chapid = $_POST['cid'];//章节id
+          
+            $ctitle=$_POST['ctitle'];//漫画标题
+            //$jino=$_POST['jino'];//漫画编号
+            $mhbody=$_POST['content'];//漫画内容
+
+      	    $minfo = M('mh_episodes')->where(array('mhid'=>$bookid,'ji_no'=>$chapid))->find();
+      	    
+      	    if($minfo){
+      	         M('mh_episodes')->where(array('mhid'=>$bookid,'ji_no'=>$chapid))
+      	         ->save(array( 'title'=>$ctitle, 'pics'=>$mhbody,'update_time' => NOW_TIME )  );
+      	         
+      	    }else{
+      	        M('mh_episodes')->add( array(
+      	               'mhid'=>$bookid,
+      	               'ji_no'=>$chapid,
+      	               'title'=>$ctitle,
+      	               'pics'=>$mhbody,
+      	               'create_time' => NOW_TIME,
+				       'update_time' => NOW_TIME
+      	              )); 
+      	    }
+      	    
+      	  
+	    
+	      $cnt = M('mh_episodes')->where(array('mhid'=>$bookid))->count();
+	      M('mh_list')->where(array('mhid'=>$bookid))->save(array('episodes'=>$cnt,'update_time' => NOW_TIME));  
+	        
+	    }
+	    
+	    die('操作成功OK');
+	    
+	}
+	
+	public function findComic(){
+	    if(IS_POST){
+    	    $bookname=$_POST['bookname'];//书名
+            $author=$_POST['author'];//作者
+            $bookid = $_POST['bid'];//书id
+
+	        if(!$bookname||!$author||!$bookid)
+	        {
+	            die("错误,没有书名和作者名,书id");
+	        }
+	        
+	        $binfo = M('mh_list')->where(array('title'=>$bookname))->find();
+	        
+	        if(!$binfo){
+        // 漫画阅读数（3万-70万之间）
+                $reads_mh=mt_rand(30000, 700000);
+                // 漫画点赞数（1万-2万之间）
+                $dz_mh=mt_rand(10000, 20000);
+                // 章节点赞数（1万-2万之间）
+                $dzzj_mh=mt_rand(10000, 20000);
+                // 收藏数（5000-9000之间）
+                $sc_mh=mt_rand(5000, 9000);
+                // 打赏数（1000-5000之间）
+                $ds_mh=mt_rand(1000, 5000);
+                // 小说阅读数（1万-10万之间）
+                $reads_book=mt_rand(10000, 100000);
+                // 小说点赞数（3000-1万之间）
+                $dz_book=mt_rand(3000, 10000);
+                // 章节点赞数（3000-1万之间）
+                $dzzj_book=$dz_book;
+                // 收藏数（3000-5000之间）
+                $sc_book=mt_rand(3000, 5000);
+                // 打赏数（1000-3000之间）
+                $ds_book=mt_rand(1000, 3000);
+                
+        	    $bookid = $_POST['bid'];//书id
+        	    $chapid = $_POST['cid'];//章节id
+                $des=$_POST['des'];//简介
+                $tstype=$_POST['tstype'];//漫画首页分类
+                $sstype=$_POST['sstype'];//所属分类
+                //$zishu=$_POST['zishu'];//简介
+                $litpic=$_POST['litpic'];//封面图
+                //$time=$_POST['time'];//发布时间
+                //$sharetitle=$_POST['sharetitle'];//发布时间
+                //$mhtitle=$_POST['title'];//漫画标题
+                //$jino=$_POST['jino'];//漫画编号
+                //$mhbody=$_POST['content'];//漫画内容
+                //$jine=$_POST['jine'];//阅读金额
+                
+                $sex=$_POST['sex'];//男生女生
+                
+                $send=$_POST['send'];//打赏金额
+                $status=$_POST['status'];//小说状态(连载1/完结2)
+                $free_type=$_POST['free_type'];//属性(免费1/收费2)
+                $pay_num=$_POST['pay_num'];//第n话开始需要付费	            
+	           M('mh_list')->add(array(
+	                'id'=>$bookid,
+	                'title'=>$bookname,
+	                'mhcate'=>$tstype,//猜你喜欢
+	                'send'=>$send,
+	                'cateids'=>$sstype,//1总裁2穿越等等
+	                'author'=>$author,
+	                'summary'=>$des,
+	                'cover_pic'=>$litpic,
+	                'detail_pic'=>$litpic,
+	                'sort'=>1,
+	                'status'=>$status,
+	                'free_type'=>$free_type,
+	                'episodes'=>0,
+	                'pay_num'=>$pay_num,
+	                'reader'=>$reads_book,
+	                'likes'=>$dz_mh,
+	                'collect'=>$sc_mh,
+	                'is_new'=>1,
+	                'is_recomm'=>1,
+	                'readnum'=>$reads_book,
+	                'chargenum'=>0,
+	                'chargemoney'=>0,
+	                
+	                'share_title'=>$bookname,
+	                'share_pic'=>$litpic,
+	                'share_desc'=>$des,
+	                'create_time' => NOW_TIME,
+				    'update_time' => NOW_TIME
+	                ));
+	           
+	           $binfo = M('mh_list')->where(array('title'=>$bookname))->find();     
+	          
+	        }
+	        
+	        if($binfo['id']!=$bookid){
+	            die('错误，漫画ID'.$bookid.'冲突，有同名漫画ID='.$binfo['id']);
+	        }
+	        
+	         return $binfo;
+	        
+	    }
+	    
+	    return null;
+	    
+	}
+	
 	// 编辑、添加漫画
 	public function edit(){
 		if(IS_POST){	

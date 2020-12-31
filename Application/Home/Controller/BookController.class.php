@@ -73,7 +73,7 @@ class BookController extends HomeController {
     	
 		//$huas = M('book_episodes')->where(array('bid'=>$bid))->count();
 		
-		$huas = M('book_episodes')->where("bid={$bid}")->order('ji_no asc')->limit(1,15)->select();
+		$huas = M('book_episodes')->where("bid={$bid}")->order('ji_no asc')->limit(0,15)->select();
 		$first = current($huas);
 		
 		/*
@@ -130,6 +130,59 @@ class BookController extends HomeController {
 	    return $cont;
 	    
 	}
+	
+	//给指定的小说做章节排序。
+	//给小说的每个章节填写好before和next.
+	//当处理inforeedit章节内容时，发现before/next没有赋值，自动触发这个功能。
+	public function sortChapts($bid){
+	    
+	    //$bid = 76644;
+	    
+	    $huas = M('book_episodes')->where(array('bid'=>$bid))->order('ji_no asc')->select();
+	    
+	    $before = 0; //前一章ji_no
+        $current = 0;//当前ji_no
+        $next=1;     //下一章ji_no
+        $cid = 0;    //当前数据行id
+        
+        foreach ($huas as $k=>$v)
+        {
+            $next = $v['ji_no'];
+            if($current == 0) //解决第一个
+            {
+                $current = $v['ji_no'];
+                $before  = $current;
+                $cid = $v['id'];
+                //echo ("b:".$before." C:".$current." n:".$next ."<br>");
+                continue; //因为要知道next的数值，所以要从第二个开始处理。
+            }
+            
+            //echo ("b:".$before." C:".$current." n:".$next .">".$cid."<br>");
+            M('book_episodes')->where(array('id'=>$cid))->setField(
+                 array(
+                     'before'=>$before,
+                     'next'=>$next
+                     )
+                );
+                
+            $before = $current;
+            $current = $next;
+            $cid = $v['id'];
+        }
+        //解决最后一个
+        //echo ("b:".$before." C:".$current." n:".$next.">".$cid ."<br>");
+        M('book_episodes')->where(array('id'=>$cid))->setField(
+                 array(
+                     'before'=>$before,
+                     'next'=>$next+1 //故意在最后造成一个错误，好触发新的自动章节排序。
+                     )
+                );
+	    
+	    //$this->success("成功");
+	    //echo("成功");
+	}
+	
+
 	 /**
      * 分集详情
      */
@@ -158,9 +211,10 @@ class BookController extends HomeController {
 		$maxjino = M('book_episodes')->where(array('bid'=>$bid))->max('ji_no'); 
 		
     	if($ji_no>$maxjino){
-			redirect(U('Public/mbover',array('status'=>$binfo['status'],'type'=>'xs')));
+    	   	redirect(U('Public/mbover',array('status'=>$binfo['status'],'type'=>'xs')));
 			exit;
 		}
+		
     	$userinfo = M('user')->where(array("user_id"=>$this->user['id']))->find();
 		
 		//查看该用户是否看过本小说的章节
@@ -221,8 +275,17 @@ class BookController extends HomeController {
 		
     	$info = M('book_episodes')->where("bid={$bid} and ji_no={$ji_no}")->find();
 
-    	if(empty($info) || empty($binfo)) {
-    		$this->error('小说数据缺失！', U("/Book/$bid"));
+    	if(empty($info) || empty($binfo)) {//empty($info)说明章节数据有错，那就需要重建章节顺序，同时回到书的开始的地方。
+    	    $this->sortChapts($bid);
+    		$this->success('小说数据正在重构，请刷新后阅读！', U("/Book/$bid"));
+    		exit();
+    	}
+    	
+    	if($info['before']==0 || $info['next']==0){//这种情况是本章没有好好排序，排序后会恢复正常。
+    	    //发现了没有排序的章节。新书上架会自动调用到。但是后面增加章节，如果一直点“下一章”，可能不会激发到这一步。
+    	    $this->sortChapts($bid);
+    	    $this->success('本章数据需要重构，请刷新后阅读！', U("/Book/$bid"));
+    	    exit();
     	}
     	
         $info['info']=$this->getChapContent($info['bid'],$info['ji_no']);
@@ -425,8 +488,12 @@ class BookController extends HomeController {
      */
     public function booklist(){
 		$bookcate = I("get.cate");
+		if($bookcate)
 		$where['bookcate'] = array('like','%'.$bookcate.'%');
-    	$list = M('book')->where($where)->order('is_new desc,id desc')->limit(50)->select();
+		else
+		$where='1';
+		
+    	$list = M('book')->where($where)->order('update_time desc')->limit(50)->select();
 		$this->assign('list',$list);
     	$this->display();
     }
@@ -576,7 +643,7 @@ class BookController extends HomeController {
     					}
     					$money = intval($money);
     					$read = M('read')->where(array('episodes'=>$vo['ji_no'],'rid'=>$id,'user_id'=>$this->user['id'],'type'=>$type))->find();
-    				    if($i>=$info['pay_num'] && $info['pay_num']>0){
+    				    if($vo['ji_no']>=$info['pay_num'] && $info['pay_num']>0){
     					   if($read){
     						   $html.= '<div class="item">';
     					   }else{
@@ -608,7 +675,7 @@ class BookController extends HomeController {
     					$money = intval($money);
     					
     					$read = M('read')->where(array('episodes'=>$vo['ji_no'],'rid'=>$id,'user_id'=>$this->user['id'],"type"=>$type))->find();
-    				    if($i>=$info['pay_num'] && $info['pay_num']>0){
+    				    if($vo['ji_no']>=$info['pay_num'] && $info['pay_num']>0){
     					   if($read){
     						   $html.= '<div class="item">';
     					   }else{
