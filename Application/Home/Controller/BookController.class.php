@@ -196,12 +196,12 @@ class BookController extends HomeController {
 		
 		//查询是否用户阅读
 		if(!M('rlog')->where(array('rid'=>$bid,'ji_no'=>$ji_no,'user_id'=>$this->user['id'],'type'=>'xs'))->find()){
-			/*M('rlog')->add(array(
+			M('rlog')->add(array(
 				"rid"=>$bid,
 				"user_id"=>$this->user['id'],
 				"ji_no"=>$ji_no,
 				"type"=>'xs',
-			));*/
+			));
 			M('book_episodes')->where(array('bid'=>$bid,'ji_no'=>$ji_no))->setInc('readnums',1);
 		}
 		

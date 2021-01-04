@@ -133,37 +133,95 @@ class BookController extends AdminController {
 	      }
 	      
 	      $bid =intval( $_POST['bid']);
-	      unset($_POST['bid']);
-	      //封面图送进来一个有效url就行，会自动转储到本地。
-	      $des = $this -> saveCoverPic($bid,$_POST['cover_pic']);
-	      
-	      $_POST['cover_pic']=$des;
-	   
-	      $_POST['detail_pic']=$_POST['cover_pic'];
-	      $_POST['share_pic']=$_POST['cover_pic'];
-	      $_POST['share_desc']= $_POST['summary'];
-	      $_POST['update_time'] = NOW_TIME;
-	   
 	      //die(var_dump($_POST));     
 	           
-		   $find = M('book')->where('id='.$bid)->find();
+		  $find = M('book')->where('id='.$bid)->find();
 	      if(!$find)
 	      {
 	         $_POST['id'] = $bid;
+	         // unset($_POST['bid']);
+    	      //封面图送进来一个有效url就行，会自动转储到本地。
+    	     $des = $this -> saveCoverPic($bid,$_POST['cover_pic']);
+    	      
+    	     $_POST['cover_pic']=$des;
+    	   
+    	     $_POST['detail_pic']=$_POST['cover_pic'];
+    	     $_POST['share_pic']=$_POST['cover_pic'];
+    	     $_POST['share_desc']= $_POST['summary'];
+    	     $_POST['update_time'] = NOW_TIME;
 	         $_POST['create_time'] = NOW_TIME;
-	         M('book')->add($_POST); 
+             // 漫画阅读数（3万-70万之间）
+             $reads_mh=mt_rand(30000, 700000);
+             // 漫画点赞数（1万-2万之间）
+             $dz_mh=mt_rand(10000, 20000);
+             // 章节点赞数（1万-2万之间）
+             $dzzj_mh=mt_rand(10000, 20000);
+             // 收藏数（5000-9000之间）
+             $sc_mh=mt_rand(5000, 9000);
+             // 打赏数（1000-5000之间）
+             $ds_mh=mt_rand(1000, 5000);
+             // 小说阅读数（1万-10万之间）
+             $reads_book=mt_rand(10000, 100000);
+             // 小说点赞数（3000-1万之间）
+             $dz_book=mt_rand(3000, 10000);
+             // 章节点赞数（3000-1万之间）
+             $dzzj_book=$dz_book;
+             // 收藏数（3000-5000之间）
+             $sc_book=mt_rand(3000, 5000);
+             // 打赏数（1000-3000之间）
+             $ds_book=mt_rand(1000, 3000);
+                
+	         M('book')->add(array(
+	             'id'=>$bid,
+	             'title'=>$_POST['booktitle'],
+	             'author'=>$_POST['author'],
+	             'summary'=>$_POST['summary'],
+	             'cover_pic'=>$_POST['cover_pic'],
+	             'detail_pic'=>$_POST['cover_pic'],
+	             
+	             'cateids'=>$_POST['cateids'],
+	             'bookcate'=>$_POST['bookcate'],
+	             'send'=>$sc_mh,
+	             'sort'=>1,
+	             'status'=>$_POST['status'],
+	             'free_type'=>$_POST['free_type'],
+	             
+	             'episodes'=>0,
+	             'pay_num'=>0,
+	             'reader'=>$reads_book,
+	             'like'=>$dz_book,
+	             'collect'=>$sc_book,
+	             
+	             'is_new'=>0,
+	             'is_recomm'=>0,
+	             
+	             'create_time'=>NOW_TIME,
+	             'update_time'=>NOW_TIME,
+	             'readnum'=>0,
+	             'chargenum'=>0,
+	             'chargemoney'=>0,
+	             
+	             'share_title'=>$_POST['booktitle'],
+	             'share_pic'=>$_POST['cover_pic'],
+	             'share_desc'=>$_POST['summary']
+	         
+	         )); 
+	         
+	         return true;
 	      }
-	      else{
-	          M('book')->where('id='.$bid)->save($_POST); 
+	      else{//只增加不更新，避免覆盖掉人工的编辑成果。
+	         // M('book')->where('id='.$bid)->save($_POST); 
+	         return true;
 	      }
 	      
 	    
 	   }
-	   die("OK");
+	   //echo ("OK");
+	   return  false;
 	}
 	
 	//临时的工具函数，把数据库中的info转存到文件中。
-	public function rtChapt(){
+	protected function _rtChapt(){
 	    $clist = M('book_episodes')->where("1")->select();
 	    
 	    foreach ($clist as $t){
@@ -233,7 +291,7 @@ class BookController extends AdminController {
 						$this -> error('上传错误');
 					}
 					$this->addEpisodes($path,$product_id);
-					 $this -> success('操作成功！', U('index'));
+					$this -> success('操作成功！');
 					// $this -> success('操作成功！', U('index'));
 					exit;
 				}
@@ -322,6 +380,9 @@ class BookController extends AdminController {
 	
 	// 编辑、添加小说分集
 	public function episodesedit(){
+	    
+	    $this->addBook();
+	    
 		$bid = I('bid', 0, 'intval');
 		if(IS_POST){
 			$bid   = I('post.bid');
@@ -333,14 +394,22 @@ class BookController extends AdminController {
 		    $rs = M('book_episodes') -> where(array('bid'=>intval($bid),'ji_no'=>intval($ji_no))) ->find();
 		    
 			if($rs) { // 修改
-			    unset($_POST['id']);
+			    //unset($_POST['id']);
 				$_POST['update_time'] = NOW_TIME;
-				$rs = M('book_episodes') -> where('id='.intval($rs['id'])) -> save($_POST);
+				$rs = M('book_episodes') -> where('id='.intval($rs['id'])) -> save(array(
+				    'title'=>$_POST['title'],
+				    'info'=>$_POST['info'],
+				    ));
 			} else { // 添加
 				$_POST['create_time'] = NOW_TIME;
 				$_POST['update_time'] = NOW_TIME;
 				$_POST['bid'] = $bid;
-				$rs = M('book_episodes') -> add($_POST);
+				$rs = M('book_episodes') -> add(array(
+				    'title'=>$_POST['title'],
+				    'info'=>$_POST['info'],
+				    'bid'=>$bid,
+				    'ji_no'=>$ji_no
+				    ));
 			}
 			
 			$cnt = M('book_episodes')->where("bid={$bid}")->count();

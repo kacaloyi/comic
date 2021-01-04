@@ -9,9 +9,9 @@ class ProductController extends AdminController {
 			$_GET['title'] = $_POST['title'];
 			$where['title'] = array('like','%'.$_POST['title'].'%');
 		}
-		$order = "sort desc,id desc";
+		$order = "sort desc,update_time desc";
 		// 组合排序方式
-		if(in_array($_GET['order'], array('id','readnum','chargenum', 'chargemoney'))){
+		if(in_array($_GET['order'], array('id','readnum','chargenum', 'chargemoney','update_time'))){
 			$type = $_GET['type'] == 'asc' ? 'asc' : 'desc';
 			$order = $_GET['order'].' '.$type;
 		}
@@ -56,7 +56,7 @@ class ProductController extends AdminController {
       	  
 	    
 	      $cnt = M('mh_episodes')->where(array('mhid'=>$bookid))->count();
-	      M('mh_list')->where(array('mhid'=>$bookid))->save(array('episodes'=>$cnt,'update_time' => NOW_TIME));  
+	      M('mh_list')->where(array('id'=>$bookid))->save(array('episodes'=>$cnt,'update_time' => NOW_TIME));  
 	        
 	    }
 	    

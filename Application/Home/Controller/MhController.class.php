@@ -185,11 +185,11 @@ class MhController extends HomeController {
 			}
 			if($order == "cate1"){
 				$where['mhcate'] = array('like','%9%');
-				$order = "sort desc";
+				$order = "sort desc ,reader desc";
 			}
 			if($order == "cate2"){
 				$where['mhcate'] = array('like','%11%');
-				$order = "sort desc";
+				$order = "sort desc ,reader desc";
 			}
 		}else{
 			$order = "sort desc";
@@ -229,7 +229,7 @@ class MhController extends HomeController {
      */
     public function book_last(){
    
-    	$list = M('mh_list')->where("")->order('sort desc')->limit(50)->select();
+    	$list = M('mh_list')->where("")->order('update_time desc')->limit(50)->select();
     	if(!empty($list) && is_array($list)) {
     		foreach ($list as $k => &$v) {
     			$arr_catename = '';
@@ -418,6 +418,57 @@ class MhController extends HomeController {
 		$this->display();
     }
     
+    //给指定的小说做章节排序。
+	//给小说的每个章节填写好before和next.
+	//当处理inforeedit章节内容时，发现before/next没有赋值，自动触发这个功能。
+	public function sortChapts($mhid){
+	    
+	    //$bid = 76644;
+	    
+	    $huas = M('mh_episodes')->where(array('mhid'=>$mhid))->order('ji_no asc')->select();
+	    
+	    $before = 0; //前一章ji_no
+        $current = 0;//当前ji_no
+        $next=1;     //下一章ji_no
+        $cid = 0;    //当前数据行id
+        
+        foreach ($huas as $k=>$v)
+        {
+            $next = $v['ji_no'];
+            if($current == 0) //解决第一个
+            {
+                $current = $v['ji_no'];
+                $before  = $current;
+                $cid = $v['id'];
+                //echo ("b:".$before." C:".$current." n:".$next ."<br>");
+                continue; //因为要知道next的数值，所以要从第二个开始处理。
+            }
+            
+            //echo ("b:".$before." C:".$current." n:".$next .">".$cid."<br>");
+            M('mh_episodes')->where(array('id'=>$cid))->setField(
+                 array(
+                     'before'=>$before,
+                     'next'=>$next
+                     )
+                );
+                
+            $before = $current;
+            $current = $next;
+            $cid = $v['id'];
+        }
+        //解决最后一个
+        //echo ("b:".$before." C:".$current." n:".$next.">".$cid ."<br>");
+        M('mh_episodes')->where(array('id'=>$cid))->setField(
+                 array(
+                     'before'=>$before,
+                     'next'=>$next+1 //故意在最后造成一个错误，好触发新的自动章节排序。
+                     )
+                );
+	    
+	    //$this->success("成功");
+	    //echo("成功");
+	}
+	
     /**
      * 分集详情
      */
@@ -515,7 +566,16 @@ class MhController extends HomeController {
 		
     	$jiinfo = M('mh_episodes')->where("mhid={$mhid} and ji_no={$ji_no}")->find();
     	if(empty($jiinfo) || empty($mhinfo)) {
-    		$this->error('漫画数据缺失！', U('Mh/bookinfo')."&mhid={$mhid}");
+    	    $this->sortChapts($mhid);
+    		$this->success('漫画数据正在重构，刷新后再看！', U("/Mh/$mhid"));
+    		exit();
+    	}
+    	
+    	if($jiinfo['before']==0 || $jiinfo['next']==0){//这种情况是本章没有好好排序，排序后会恢复正常。
+    	    //发现了没有排序的章节。新书上架会自动调用到。但是后面增加章节，如果一直点“下一章”，可能不会激发到这一步。
+    	    $this->sortChapts($mhid);
+    	    $this->success('本章数据需要重构，请刷新后阅读！', U("/Mh/$mhid"));
+    	    exit();
     	}
     	
     	$likes = M('mh_likes')->where("mhid={$mhid} and ji_no={$ji_no} and user_id=".$this->user['id'])->find();
