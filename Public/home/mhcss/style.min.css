@@ -512,6 +512,14 @@ body {
 .bm-box > .head .title {
     float: left;
     font-size: .4267rem;
+    width: 80%;
+}
+
+.bm-box > .head .title .ax {
+    float: right;
+    font-size: smaller;
+    padding-right: 1em;
+    color: #fde23d;
 }
 
 .bm-box > .head .pull-right {

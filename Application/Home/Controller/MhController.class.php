@@ -21,11 +21,11 @@ class MhController extends HomeController {
 			if($v['show'] == 2 && $v['isshow']){
 				$mhcate[$k]['name'] = $v['name'];
 				$mhcate[$k]['sort'] = $v['sort'];
-				$mhcate[$k]['list'] = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('id desc')->limit(6)->select();
+				$mhcate[$k]['list'] = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('rand()')->limit(6)->select();
 			}
 		}
 		$this->assign('mhcate',$mhcate);
-		$this->assign('mf',M('mh_list')->where(array('free_type'=>1))->order('id desc')->limit(10)->select());
+		$this->assign('mf',M('mh_list')->where(array('free_type'=>1))->order('rand()')->limit(10)->select());
 		
 		
 		$dd = new \Common\Util\ddwechat();

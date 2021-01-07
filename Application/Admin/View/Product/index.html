@@ -98,6 +98,7 @@
 						</td>
 						
 						<td class="center">
+						    <a href="javascript:;" onclick="sort({$vo['id']});">章节整理</a> | 
 							<a href="javascript:;" onclick="showP({$vo['id']});">评论</a> | 
 							<a href="javascript:;" onclick="showPs({$vo['id']});">打赏记录</a> | 
 							<a href="{:U('edit', 'id='.$vo['id'])}">修改</a> | 
@@ -116,6 +117,16 @@
 		<script src="__PUBLIC__/layer/layer.js"></script>
 		<script>
 			var $ = jQuery;
+			function sort(id){
+			   layer.open({
+					type: 2,
+					title: '章节排序',
+					shadeClose: true,
+					shade: 0.8,
+					area: ['80%', '80%'],
+					content: "{:U('Product/chaptsort')}&id="+id
+				});  
+			}
 			function showP(id){
 				layer.open({
 					type: 2,

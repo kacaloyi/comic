@@ -530,6 +530,9 @@ function get_mh_cate_name($status){
 		case 27: $status_str = '励志'; break;
 		case 28: $status_str = '同人'; break;
 		case 29: $status_str = '真人'; break;
+		case 30: $status_str = '剧情'; break;
+		case 31: $status_str = '萝莉'; break;
+		case 32: $status_str = '都市'; break;
 	}
 	return $status_str;
 }

@@ -18,6 +18,20 @@ class ProductController extends AdminController {
 		$this -> _list('mh_list',$where, $order);
 	}
 	
+	public function chaptsort(){
+	    $bid = I('get.id');
+	    
+	   
+	    //查询小说最大章节
+		$maxjino = M('mh_episodes')->where(array('mhid'=>$bid))->max('ji_no'); 
+		
+		//die("/book/".$bid.'/'.$maxjino.".html");
+    	redirect("/Mh/".$bid.'/'.$maxjino.".html");
+		exit;
+		
+	    
+	}
+	
 	public function addchapt()
 	{
 	    $binfo = $this->findComic();
@@ -31,6 +45,11 @@ class ProductController extends AdminController {
 
     	    $bookid = $_POST['bid'];//书id
     	    $chapid = $_POST['cid'];//章节id
+    	    
+    	    if(intval($chapid)<=0)
+    	    {
+    	        die('操作成功,没有章节ID，不增加新的章节');
+    	    }
           
             $ctitle=$_POST['ctitle'];//漫画标题
             //$jino=$_POST['jino'];//漫画编号
@@ -66,18 +85,24 @@ class ProductController extends AdminController {
 	
 	public function findComic(){
 	    if(IS_POST){
-    	    $bookname=$_POST['bookname'];//书名
-            $author=$_POST['author'];//作者
             $bookid = $_POST['bid'];//书id
 
-	        if(!$bookname||!$author||!$bookid)
+	        if(!$bookid)
 	        {
-	            die("错误,没有书名和作者名,书id");
+	            die("错误,没有漫画id");
 	        }
 	        
-	        $binfo = M('mh_list')->where(array('title'=>$bookname))->find();
+	        $binfo = M('mh_list')->where(array('id'=>$bookid))->find();
 	        
 	        if(!$binfo){
+	            
+        	    $bookname=$_POST['bookname'];//书名
+                $author=$_POST['author'];//作者
+                if(!$bookname||!$author)
+    	        {
+    	            die("错误,没有书名和作者名");
+    	        }
+            
         // 漫画阅读数（3万-70万之间）
                 $reads_mh=mt_rand(30000, 700000);
                 // 漫画点赞数（1万-2万之间）

@@ -9,7 +9,7 @@ class BookController extends AdminController {
 			$_GET['title'] = $_POST['title'];
 			$where['title'] = array('like','%'.$_POST['title'].'%');
 		}
-		$order = "sort desc";
+		$order = "update_time desc";
 		// 组合排序方式
 		if(in_array($_GET['order'], array('id','readnum','chargenum', 'chargemoney'))){
 			$type = $_GET['type'] == 'asc' ? 'asc' : 'desc';
@@ -43,6 +43,19 @@ class BookController extends AdminController {
 		}
 		return false;
 	}
+	public function chaptsort(){
+	    $bid = I('get.id');
+	    
+	   
+	    //查询小说最大章节
+		$maxjino = M('book_episodes')->where(array('bid'=>$bid))->max('ji_no'); 
+		
+		//die("/book/".$bid.'/'.$maxjino.".html");
+    	redirect("/Book/".$bid.'/'.$maxjino.".html");
+		exit;
+		
+	    
+	}
 	/**
 	 * 连续创建目录
 	 *
@@ -73,7 +86,8 @@ class BookController extends AdminController {
 	    $no  =intval ($bid/1000) ;
 	    $ext =pathinfo($filename,PATHINFO_EXTENSION); 
 	    
-	    $desname=trim($this->_site['txtdir'].$no."/".$bid."/".$bid."s.".$ext);
+	    //$desname=trim($this->_site['txtdir'].$no."/".$bid."/".$bid."s.".$ext);
+	    $desname=trim("/Public/file/cover/".$bid."s.".$ext);
 	    /*$dirok=$this->makeDir(dirname($desname));
 	    
 	    
@@ -98,7 +112,7 @@ class BookController extends AdminController {
         }
         
 	    die("这里".$desname."那里".$filename);*/
-	    return $filename;
+	    return $desname;
 	    //return "/Public/file/txt/".$no."/".$bid."/".$bid."s.".$ext;;
 	    
 	    //$this->success("OK");

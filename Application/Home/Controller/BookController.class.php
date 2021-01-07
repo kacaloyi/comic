@@ -19,11 +19,11 @@ class BookController extends HomeController {
     	foreach ($this->_bookcate as $k=>$v){
 			if($v['show'] == 2 && $v['isshow']){
 				$bookcate[$k]['name'] = $v['name'];
-				$bookcate[$k]['list'] = M('book')->where(array('bookcate'=>array('like','%'.$k.'%')))->order('id desc')->limit(6)->select();
+				$bookcate[$k]['list'] = M('book')->where(array('bookcate'=>array('like','%'.$k.'%')))->order('rand()')->limit(6)->select();
 			}
 		}
 		$this->assign('bookcate',$bookcate);
-		$this->assign('mf',M('book')->where(array('free_type'=>1))->order('id desc')->select());
+		$this->assign('mf',M('book')->where(array('free_type'=>1))->order('rand()')->select());
 		
 		$dd = new \Common\Util\ddwechat();
         $dd->setParam($this->_mp);
@@ -408,15 +408,15 @@ class BookController extends HomeController {
 				$order = "sort desc";
 			}
 			if($order == "cate1"){
-				$where['mhcate'] = array('like','%9%');
+				$where['mhcate'] =array('like',"%9%");
 				$order = "sort desc";
 			}
 			if($order == "cate2"){
-				$where['mhcate'] = array('like','%8%');
+				$where['mhcate'] = array('like',"%8%");
 				$order = "sort desc";
 			}
 		}else{
-			$order = "sort desc";
+			$order = "update_time desc";
 		}
     	$list = M('book')->where($where)->order($order)->select();
     	if(!empty($list) && is_array($list)) {
