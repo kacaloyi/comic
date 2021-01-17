@@ -264,6 +264,13 @@ class MhController extends HomeController {
      */
     public function book_shelf(){
     	$list = M('mh_collect')->where(array("user_id"=>$this->user['id']))->select();
+    	
+    	foreach($list as $k=> $v){
+    	    $esp= M('read')->where(array('user_id'=>$this->user['id'],'rid'=>$v['mhid']))->order('create_time desc')->find();
+    	    $list[$k]['ji_no'] = $esp['episodes'];
+    	   
+    	}
+    	
     	$asdata = array(
     			'list'	=> $list,
     			'cnt'	=> count($list),
@@ -277,10 +284,16 @@ class MhController extends HomeController {
      * 书架  历史
      */
     public function book_recent_read(){ 
-		$dis = M('read')->distinct(true)->field('rid,type')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->select();
-		//dump($dis);
+        //$dis = M('read')->distinct(true)->field('rid,type')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->limit(0,20)->select();
+        
+        $tb = C('DB_PREFIX')."read";
+        $sqlstr = "SELECT DISTINCT t.rid,t.type FROM ( SELECT rid,type,title,create_time FROM ".$tb;
+        $sqlstr = $sqlstr."  WHERE user_id = ".$this->user['id']." ORDER BY create_time DESC ) as t limit 0,20";
+       
+        $dis = M()->query($sqlstr);
+        //die(var_dump($dis));
 		foreach($dis as $k=>$v){
-			$list[] = M('read')->where(array('user_id'=>$this->user['id'],'rid'=>$v['rid']))->order('episodes desc')->find();
+			$list[] = M('read')->where(array('user_id'=>$this->user['id'],'rid'=>$v['rid']))->order('create_time desc')->find();
 		}
 		$this->assign('list',$list);
 		//dump($list);
@@ -556,6 +569,12 @@ class MhController extends HomeController {
 				'create_time'=>NOW_TIME,
 				'type'=>'mh',
 			));
+		}else{
+		    M('read')->where(array('rid'=>$mhid,'user_id'=>$this->user['id'],'episodes'=>$ji_no,'type'=>'mh'))->save(
+		        array(
+		            'create_time'=>NOW_TIME
+		            )
+		        );
 		}
 		
 		

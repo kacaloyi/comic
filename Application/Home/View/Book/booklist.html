@@ -155,7 +155,7 @@
     </div>
     {{# } }}
 </script>
-<script type="text/javascript">
+<!---<script type="text/javascript">
     $(function () {
         var fontSize = $(window).width() / 25;
         $("html").css("font-size", fontSize);
@@ -176,11 +176,43 @@
             html_box_offtop = html_box.getBoundingClientRect().top, html_box_minheight = clientHeight - html_box_offtop;
         html_box.style['minHeight'] = html_box_minheight + 'px';
     })();
-</script>
+</script> -->
+
+<!-- 滚动到底部获取新的分页 -->
+<script type="text/javascript">
+    $(function () {
+      $(".main").bind("scroll", function (e) {
+        var sum = this.scrollHeight;
+        if (sum <= $(this).scrollTop() + $(this).height()) {
+          AddSth();
+        }
+      });
+    });
+    function AddSth() {
+        $("#html_box").append("<div>滚动到底了 </div>");
+     /* $.ajax({
+        type: 'POST',
+        url: "index.aspx/ReturnSth",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        //data: "",
+        success: function (data) {
+          json = $.parseJSON(data.d);
+          for (var i in json) {
+            var tbBody = "<ul><li>" + json[i].sth + "</li></ul>";
+            $(".main").append(tbBody);
+          }
+          $(".main").append("<hr />");
+        }
+      });
+      */
+    }
+  </script>
+
 <!-- 统计 -->
 <script type="text/javascript" href="__PUBLIC__/home/mhimages/gcoupon.min.js"></script>
 <script type="text/javascript">
-    function addLoadEvent(func) {
+    /*function addLoadEvent(func) {
         if (typeof window.addEventListener != "undefined") {
             window.addEventListener("load", func, false);
         } else {
@@ -223,6 +255,7 @@
         }
         p_img = p_userid = c_auth = p_reload = null;
     });
+    */
     //update byefucms 20170906 某些手机系统下，旋转屏幕出现页面混乱问题，通过延时500ms滚动页面1个单位得以恢复正常
     var evt = "onorientationchange" in window ? "orientationchange" : "resize";
     window.addEventListener(evt, function () {

@@ -141,9 +141,9 @@ class BookController extends AdminController {
 	//采集上传增加书的接口，必须保证bid的唯一性。
 	public function addBook(){
 	   if(IS_POST){
-	      if(!$_POST['bid']||!$_POST['cover_pic'])
+	      if(!$_POST['bid'])
 	      {
-	           die("Book info have mistakes:".$_POST['bid']." ".$_POST['cover_pic']);
+	           die("Book info have mistakes: 书号：".$_POST['bid']." 封面图： ".$_POST['cover_pic']);
 	      }
 	      
 	      $bid =intval( $_POST['bid']);
@@ -435,6 +435,8 @@ class BookController extends AdminController {
 	
 		if(intval($_GET['id'])>0) {
 			$info = M('book_episodes') -> find($_GET['id']);
+			
+			$info['info'] = $this->getChapContent($info['bid'],$info['ji_no']);
 			
 			$asdata = array(
 					'info'			=> $info,

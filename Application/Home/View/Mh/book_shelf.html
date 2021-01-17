@@ -19,7 +19,7 @@
     <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
     <!-- 共用引入资源.结束 -->
     <script type="text/javascript" src="__PUBLIC__/home/mhjs/saved_resource"></script>
-    <script>(function(){new Image().src='//res.efucms.com/wap_v3/images/placeholder-unruly.png?v=20171208';})();</script>
+    <script>/**(function(){new Image().src='//res.efucms.com/wap_v3/images/placeholder-unruly.png?v=20171208';})();**/</script>
 </head>
 <body style="font-size: 12px;">
 <div class="navbar flt" style="background:#f97915">
@@ -50,9 +50,9 @@
         <volist name="list" id="vo">
         <div class="item" data-looking="0">
 			<if condition="$vo['type'] eq 'xs'">
-				<a href="{:U('Book/'.$vo.['mhid'])}">
+				<a href="{:U('Book/'.$vo['mhid'].'/'.$vo['ji_no'])}">
 			<else />
-				<a href="{:U('Mh/'.$vo['mhid'])}">
+				<a href="{:U('Mh/'.$vo['mhid'].'/'.$vo['ji_no'])}">
 			</if>
             
                 <div class="cover">
@@ -315,6 +315,7 @@
         var r = window.location.search.substr(1).match(reg);
         if (r!=null) return unescape(r[2]); return null;
     }
+    /**
     addLoadEvent(function(){
         var error_img = new Image(),channel=tj_getcookie('qrmh_channel'),channel_type=tj_getcookie('qrmh_channel_type');
         error_img.onerror=null;
@@ -335,6 +336,7 @@
         }
         p_img=p_userid=c_auth=p_reload=null;
     });
+    **/
     //update byefucms 20170906 某些手机系统下，旋转屏幕出现页面混乱问题，通过延时500ms滚动页面1个单位得以恢复正常
     var evt = "onorientationchange" in window ? "orientationchange" : "resize";
     window.addEventListener(evt, function() {
