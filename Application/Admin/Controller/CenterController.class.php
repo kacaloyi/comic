@@ -5,18 +5,19 @@ class CenterController extends AdminController {
    
     //用户数据
 	public function users(){
+	    
 		//今日用户数
-		$tuser['all'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-d')))))->count();
+		$tuser['all'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-d')))))->count();
 		//今日男性用户
-		$tuser['nuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-d'))),'sex'=>1))->count();
+		$tuser['nuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-d'))),'sex'=>1))->count();
 		//今日女性用户
-		$tuser['vuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-d'))),'sex'=>2))->count();
+		$tuser['vuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-d'))),'sex'=>2))->count();
 		//今日未知性别用户
-		$tuser['wuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-d'))),'sex'=>array('not in','1,2')))->count();
+		$tuser['wuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-d'))),'sex'=>array('not in','1,2')))->count();
 		//今日已关注用户
-		$tuser['subuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-d'))),'subscribe'=>1))->count();
+		$tuser['subuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-d'))),'subscribe'=>1))->count();
 		//今日付费用户
-		$tuser['payuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-d'))),'charge_total'=>array('gt',0)))->count();
+		$tuser['payuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-d'))),'btotal'=>array('gt',0)))->count();
 		//渲染数据
 		$this->assign('tuser',$tuser);
 		
@@ -25,35 +26,35 @@ class CenterController extends AdminController {
 		$etime = strtotime('today');
 		$stime = $etime - 86400;
 		//昨日用户数
-		$yuser['all'] = M('user')->where(array('join_time'=>array(array('egt',$stime),array('elt',$etime))))->count();
+		$yuser['all'] = M('user')->where(array('create_time'=>array(array('egt',$stime),array('elt',$etime))))->count();
 
 		//昨日男性用户
-		$yuser['nuser'] = M('user')->where(array('join_time'=>array(array('egt',$stime),array('elt',$etime)),'sex'=>1))->count();
+		$yuser['nuser'] = M('user')->where(array('create_time'=>array(array('egt',$stime),array('elt',$etime)),'sex'=>1))->count();
 		//昨日女性用户
-		$yuser['vuser'] = M('user')->where(array('join_time'=>array(array('egt',$stime),array('elt',$etime)),'sex'=>2))->count();
+		$yuser['vuser'] = M('user')->where(array('create_time'=>array(array('egt',$stime),array('elt',$etime)),'sex'=>2))->count();
 		//昨日未知性别用户
-		$yuser['wuser'] = M('user')->where(array('join_time'=>array(array('egt',$stime),array('elt',$etime)),'sex'=>array('not in','1,2')))->count();
+		$yuser['wuser'] = M('user')->where(array('create_time'=>array(array('egt',$stime),array('elt',$etime)),'sex'=>array('not in','1,2')))->count();
 		//昨日已关注用户
-		$yuser['subuser'] = M('user')->where(array('join_time'=>array(array('egt',$stime),array('elt',$etime)),'subscribe'=>1))->count();
+		$yuser['subuser'] = M('user')->where(array('create_time'=>array(array('egt',$stime),array('elt',$etime)),'subscribe'=>1))->count();
 		//昨日付费用户
-		$yuser['payuser'] = M('user')->where(array('join_time'=>array(array('egt',$stime),array('elt',$etime)),'charge_total'=>array('gt',0)))->count();
+		$yuser['payuser'] = M('user')->where(array('create_time'=>array(array('egt',$stime),array('elt',$etime)),'btotal'=>array('gt',0)))->count();
 		//渲染数据
 		$this->assign('yuser',$yuser);
 		
 		/**昨日统计结束**/
 		
 		//本月用户数
-		$muser['all'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-01')))))->count();
+		$muser['all'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-01')))))->count();
 		//本月男性用户
-		$muser['nuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-01'))),'sex'=>1))->count();
+		$muser['nuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-01'))),'sex'=>1))->count();
 		//本月女性用户
-		$muser['vuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-01'))),'sex'=>2))->count();
+		$muser['vuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-01'))),'sex'=>2))->count();
 		//本月未知性别用户
-		$muser['wuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-01'))),'sex'=>array('not in','1,2')))->count();
+		$muser['wuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-01'))),'sex'=>array('not in','1,2')))->count();
 		//本月已关注用户
-		$muser['subuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-01'))),'subscribe'=>1))->count();
+		$muser['subuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-01'))),'subscribe'=>1))->count();
 		//本月付费用户
-		$muser['payuser'] = M('user')->where(array('join_time'=>array('egt',strtotime(date('Y-m-01'))),'charge_total'=>array('gt',0)))->count();
+		$muser['payuser'] = M('user')->where(array('create_time'=>array('egt',strtotime(date('Y-m-01'))),'btotal'=>array('gt',0)))->count();
 		//渲染数据
 		$this->assign('muser',$muser);
 		
@@ -70,11 +71,11 @@ class CenterController extends AdminController {
 		//所有已关注用户
 		$auser['subuser'] = M('user')->where(array('subscribe'=>1))->count();
 		//所有付费用户
-		$auser['payuser'] = M('user')->where(array('charge_total'=>array('gt',0)))->count();
+		$auser['payuser'] = M('user')->where(array('btotal'=>array('gt',0)))->count();
 		//渲染数据
 		$this->assign('auser',$auser);
 		
-		
+	
 		if(IS_POST){
 			$_GET  = array_merge($_GET, $_POST);
 			$_GET['p'] = 1; //如果是post的话回到第一页
@@ -95,7 +96,8 @@ class CenterController extends AdminController {
 		}
 		
 		$where['mch'] = 0;
-		$this -> _list('data',$where,'id desc');
+		//$this->display();
+		$this -> _list('mchdata',$where,'id desc');
 	}
 	
 	//充值数据
@@ -409,7 +411,7 @@ class CenterController extends AdminController {
 		
 		$where['mch'] = 0;
 		
-		$this->_list('data',$where,'date desc');
+		$this->_list('mchdata',$where,'date desc');
 	}
 	
 	

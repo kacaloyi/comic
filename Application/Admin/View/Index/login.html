@@ -6,6 +6,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>登录页面_{$_CFG.site.name}</title>
 <link rel="stylesheet" href="__PUBLIC__/admin/css/style.default.css" type="text/css" />
+
+<link rel="stylesheet" href="__PUBLIC__/admin/css/bootstrap.min.css">
+<link href="__PUBLIC__/admin/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/admin/css/AdminLTE.min.css">
+<link rel="stylesheet" href="__PUBLIC__/admin/css/blue.css">
+<link rel="stylesheet" href="__PUBLIC__/layer/skin/default/layer.css">
+
+<script src="/Public/admin/js/jquery-2.2.3.min.js"></script>
+<script src="/Public/admin/js/bootstrap.min.js"></script>
+<script src="/Public/layer/layer.js"></script>
+
+<style type="text/css">
+	#captcha_change {
+		cursor: pointer;
+	}
+	.wrap_box_n {
+		width: 100%;
+		height: 100%;
+		min-height: 700px;
+		display: -webkit-box;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		flex-direction: column;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+	}
+	
+	.loginbox .codedinner {
+    background: #eee url(/Public/admin/images/icons/info.png) no-repeat 13px center;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    margin: 20px 0;
+    overflow: hidden;
+   }
+	
+	.loginbox .codedinner input {
+    padding: 15px 10px;
+    border: 0;
+    font-size: 14px;
+    width: 55%;
+    box-shadow: none;
+    color: #666;
+    font-family: 'RobotoCondensed', Arial, Helvetica, sans-serif;
+  }
+
+</style>
+<style scoped="">
+	.panel-body{
+		padding: 30px 20px 20px;
+	}
+	.form-group{
+		margin-bottom: 20px;
+	}
+	.form-horizontal .form-group:last-child{
+		margin-top: 35px;
+	}
+</style>
+
 <script type="text/javascript" src="__PUBLIC__/admin/js/plugins/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/admin/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/admin/js/plugins/jquery.cookie.js"></script>
@@ -21,6 +86,8 @@
 <!--[if lt IE 9]>
 	<script src="js/plugins/css3-mediaqueries.js"></script>
 <![endif]-->
+	
+
 </head>
 
 <body class="loginpage">
@@ -28,7 +95,8 @@
     	<div class="loginboxinner">
         	
             <div class="logo">
-            	<h1 class="logo">EFUCMS<span>小说漫画</span></h1>
+            	<h3 class="logo">云享空间</span></h3>
+            	<h1 class="logo"><span>文化创作聚合推广</span></h1>
 				<span class="slogan">后台管理系统</span>
             </div><!--logo-->
             
@@ -54,6 +122,14 @@
                     </div>
                 </div>
                 
+                <div class="codedinner">
+					<input id="code" placeholder="输入右侧验证码" type="captcha" name="code" value="" required="" />
+				
+					<span >
+						<img src="{:U('Index/verify')}" id="verify_img" style="width:42%;padding:0;" title="点击更换验证码">
+					</span>
+				</div>
+                
                 <button>登录</button>
                 
                 <div class="keep"><input type="checkbox" name="remember" value="1" /> 记住用户名</div>
@@ -63,6 +139,14 @@
         </div><!--loginboxinner-->
     </div><!--loginbox-->
 
-
+<script>
+	$("#verify_img").click(function() {
+		var verifyURL = "{:U('Index/verify')}";
+		var time = new Date().getTime();
+		$("#verify_img").attr({
+			"src" : verifyURL + "&" + time
+		});
+	});
+</script>
 </body>
 </html>

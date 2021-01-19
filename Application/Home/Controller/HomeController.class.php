@@ -168,7 +168,7 @@ class HomeController extends Controller
             }
             $uid = M('user')->add($user_info);
             $nickname = "u".$uid.rand(100,999);
-            $userpwd = "p".rand(10000,99999);
+            $userpwd = xmd5("123456");
             M('user')->where(array('id'=>$uid))->save(array('nickname'=>$nickname,'userpwd'=>$userpwd,'username'=>$nickname));
             setcookie("uloginid",rand(100,999).$uid,time()+5*365*24*3600);
             $this->user = M('user')->where(array('id'=>$uid))->find();

@@ -15,6 +15,11 @@ class IndexController extends AdminController {
 	// 登录
 	public function login(){
 		if(IS_POST){
+		    
+		    if($_SESSION['admin_verify'] != strtolower($_POST['code']) ){
+				$this->error('验证码错误！');
+			}
+		    
 			if(empty($_POST['user']) || empty($_POST['pass'])){
 				$this -> assign('errmsg', '账号密码不能为空！');
 			}else {
@@ -42,6 +47,21 @@ class IndexController extends AdminController {
 		}
 		$this -> display();
 	}
+	
+		/* 生成验证码 */
+    public function verify(){
+		$im = new \Common\Util\ValidateCode;
+		$im->doimg();
+		$_SESSION['admin_verify'] = $im->getCode();
+    }
+
+	
+	/* 验证码校验 */
+    private function check_verify($code, $id = ''){
+        $verify = new \Think\Verify();
+		$res = $verify->check($code, $id);
+        return $res;
+    }
 	
 	//  退出
 	public function logout(){
