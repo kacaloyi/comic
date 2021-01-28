@@ -1,0 +1,44 @@
+
+<foreach name="list" item="v">
+<div class="item clearfix">
+	<if condition="$v['btype'] eq 3">
+		<a href="{:U('Index/stInfo',array('id'=>$v['id']))}" class="clearfix">
+	<else />
+		<a href="{:U('Index/info',array('id'=>$v['id']))}" class="clearfix">
+	</if>
+		<div class="cover">
+			<img width="75" height="100" class="" src="{$v.coverpic}" data-original="{$v.coverpic}" style="background: rgb(238, 238, 238); display: block;">
+		</div>
+		<div class="body">
+			<div class="title">{$v.title}</div>
+			<div class="col">
+				<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<circle cx="12" cy="7" r="6" fill="#ccc"></circle>
+					<path d="M12 11a10 10 0 0 1 10 10 2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 10 10 0 0 1 10-10z" fill="#ccc"></path>
+				</svg>
+					{$v.author}
+			</div>
+			<?php
+				$cates = explode(",",$v['cateids']);
+				if($v['btype'] == 1){
+					$cArr = $_mhStore;
+				}else{
+					$cArr = $_xsStore;
+				}
+				foreach($cates as $k=>$val){
+					if($k==0){
+						$arr_catename = "<label class='tag'>".$cArr[$val]."</label>";
+					} else {
+						$arr_catename .= "<label class='tag' style='margin-left:4px;'>".$cArr[$val]."</label>";
+					}
+				}
+			?>
+
+			<div class="col">
+				{$arr_catename}
+			</div>
+			<div class="col">更新至：第{$v.allchapter}话 </div>
+		</div>
+	</a>
+</div>
+</foreach>

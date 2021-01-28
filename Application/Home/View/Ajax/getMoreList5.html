@@ -1,0 +1,34 @@
+
+<foreach name="list" item="v">
+<?php
+	$cates = explode(",",$v['cateids']);
+	if($v['btype'] == 1){
+		$cArr = $_mhStore;
+	}else{
+		$cArr = $_xsStore;
+	}
+	foreach($cates as $k=>$val){
+		if($k<=1){
+			$arr_catename = "<label class='tag'>".$cArr[$val]."</label>";
+		} else {
+			$arr_catename .= "<label class='tag' style='margin-left:4px;'>".$cArr[$val]."</label>";
+		}
+	}
+?>
+<li class="section-block">	
+	<if condition="$v['btype'] eq 3">
+		<a href="{:U('Index/stInfo',array('id'=>$v['id']))}" class="client-url section-data">
+
+	<else />
+		<a href="{:U('Index/info',array('id'=>$v['id']))}" class="client-url section-data">
+	</if>				
+			
+		<div class="r_img"><img alt="{$v.title}" src="__PUBLIC__/home/img/icon/default_img.png" data-original="{$v.coverpic}"><eq name="v.isfw" value="2"><strong>限免</strong></eq></div>						
+		<div class="r_img_text">							
+			<h3>{$v.title}</h3>							
+			<p>{$v.remark}</p>							
+			<div class="i_images_txt_other"><strong><i style="color: #ffc701;">{$v['status']==1?连载中:已完结}</i><b>{$arr_catename}</b></strong><em>0人在追</em></div>						
+		</div>					
+	</a>				
+</li>
+</foreach>

@@ -1,0 +1,43 @@
+			<foreach name="list" item="v">
+			<li class="section-block" >
+				<if condition="$v['btype'] eq 3">
+					<a href="{:U('Index/stInfo',array('id'=>$v['id']))}">
+						<div class="w-bookPic">
+							<img src="{$v.coverpic}" style="object-fit: cover;"/>
+							<div class="classifly-chapter"></div>
+						</div>
+						<div class="w-bookName">{$v.title}</div>
+					</a>
+			    <else />
+					<a href="{:U('Index/info',array('id'=>$v['id']))}" class="section-data">
+						<div class="r_img">
+							<img src="__PUBLIC__/home/img/icon/default_img.png" data-original="{$v.selectpic}"/>
+						</div>
+						<div class="r_img_text">
+								<h3>{$v.title}</h3>
+								<p>{$v.remark}</p>
+								<div class="i_images_txt_other">
+									<strong>
+									<if condition="$v['iswz'] eq 2">
+									
+									<i>已完结</i>
+									<else />
+									<i style="color: #ffc701;">连载中</i>
+									</if>
+									<b>{$mtitle}</b>
+									</strong>
+									<em>人在追</em>
+								</div>
+						</div>
+					</a>
+				</if>
+
+			</li>
+			</foreach>
+<script>
+    $(function () {
+		$('img').picLazyLoad({
+			effect : "fadeIn"
+		});
+	})
+</script>	

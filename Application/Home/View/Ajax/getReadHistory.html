@@ -1,0 +1,29 @@
+<foreach name="list" item="v">
+
+<div class="item item-lists">
+	<a href="{:U('Index/readAnime',array('anid'=>$v['anid'],'chaps'=>$v['chaps']))}" class="link">
+		<div class="cover">
+			<img class="img-ajax-lazy" src="{$v.coverpic}" style="background: rgb(238, 238, 238); display: block;">
+		</div>
+		<div class="body">
+			<div class="title">
+				{$v.title}
+			</div>
+			<div class="author">
+				{$v.remark}
+			</div>
+			<div class="text">
+				{$v.chaps} 话
+			</div>
+		</div>
+	</a>
+	<div class="action">
+		<a href="{:U('Index/readAnime',array('anid'=>$v['anid'],'chaps'=>$v['chaps']))}" class="btn">续看</a>
+	</div>
+	<div class="cp-box" style="display:none;">
+		<input type="checkbox" name="edit_history_books" class="selected-switch selected" value="{$v.id}" onclick="choose(this);" />
+		<div class="swtich"></div>
+	</div>
+</div>
+
+</foreach>

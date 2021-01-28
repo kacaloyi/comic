@@ -1,0 +1,23 @@
+			<foreach name="list" item="v">
+			<li class="w-shelfBookinfo" >
+				<if condition="$v['btype'] eq 3">
+					<a href="{:U('Index/stInfo',array('id'=>$v['id']))}">
+						<div class="w-bookPic">
+							<img src="{$v.coverpic}" style="object-fit: cover;"/>
+							<div class="classifly-chapter"></div>
+						</div>
+						<div class="w-bookName">{$v.title}</div>
+					</a>
+			    <else />
+					<a href="{:U('Index/info',array('id'=>$v['id']))}">
+						<div class="w-bookPic">
+							<img src="{$v.selectpic}" style="object-fit: cover;"/>
+							<div class="classifly-chapter"></div>
+						</div>
+						<div class="w-bookName">{$v.title}</div>
+					</a>
+				</if>
+
+			</li>
+			</foreach>
+	

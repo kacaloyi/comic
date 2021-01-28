@@ -1,0 +1,30 @@
+
+<foreach name="list" item="v">
+
+<div class="item">
+		<a href="{:U('Index/info',array('id'=>$v['id']))}" class="link">
+		<div class="cover">
+			<img width="63" height="84" class="" src="{$v.coverpic}" style="background: rgb(238, 238, 238); display: block;">
+		</div>
+		<div class="body">
+			<div class="title">
+				{$v.title}
+			</div>
+			<div class="author">
+				作者：{$v.author}
+			</div>
+			<div class="text">
+				{$v.remark}
+			</div>
+			<div class="bottom">
+				<span class="col"><i class="icon-gray-hot"></i> {$v.hots}</span>
+				<span class="col"><i class="icon-hand"></i> {$v.likes}</span>
+			</div>
+		</div>
+		</a>
+		<div class="action">
+			<a href="{:U('Index/info',array('id'=>$v['id']))}" class="btn">阅读</a>
+		</div>
+	</div>
+
+</foreach>

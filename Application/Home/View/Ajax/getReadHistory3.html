@@ -1,0 +1,44 @@
+<foreach name="list" item="v">
+	<!--<div class="w-historyTime">过去一周</div>-->
+	<!--<ul class="mui-table-view w-historyList">-->
+	<li class="mui-table-view-cell mui-media" >
+		<div class="mui-checkbox w-checkbox2" >
+			<label></label>
+			<input name="checked" value="{$v.id}" type="checkbox">
+		</div>
+		<if condition="$v['btype'] eq 3">
+		<a href="{:U('Index/stInfo',array('id'=>$v['anid']))}" >
+			<img class="mui-pull-left w-bookPic" src="{$v.coverpic}">
+			<div class="mui-media-body" >
+				<div class="w-bookName">{$v.title}</div>
+				<!-- 		<div class="w-bookTag">
+                            {$v.remark}
+                        </div> -->
+				<div class="w-bookChapter">{$v.chaps} 话</div>
+			</div>
+
+			<div class="w-bookContinue"><a href="{:U('Index/stInfo',array('id'=>$v['anid']))}">续听</a></div>
+		</a>
+
+		<else />
+			<a href="{:U('Index/readAnime',array('anid'=>$v['anid'],'chaps'=>$v['chaps']))}" >
+				<img class="mui-pull-left w-bookPic" src="{$v.coverpic}">
+				<div class="mui-media-body" >
+					<div class="w-bookName">{$v.title}</div>
+					<!-- 		<div class="w-bookTag">
+                                {$v.remark}
+                            </div> -->
+					<div class="w-bookChapter">{$v.chaps} 话</div>
+				</div>
+
+
+
+					<div class="w-bookContinue"><a href="{:U('Index/readAnime',array('anid'=>$v['anid'],'chaps'=>$v['chaps']))}">续看</a></div>
+
+
+
+			</a>
+		</if>
+	</li>
+	<!--</ul>-->
+</foreach>

@@ -1,0 +1,38 @@
+<foreach name="list" item="v">
+    <li class="w-shelfBookinfo">
+        <if condition="$v['btype'] neq 3">
+            <a class="read_a" href="{:U('Index/info',array('id'=>$v['anid']))}">
+                <div class="w-bookPic">
+                    <div class="w-bookNew">
+                        <span>NEW</span>
+                        <script>$('.w-shelfUpdate').show();
+                        $('.updateCount').html(1)</script>
+                    </div>
+                    <img src="{$v.coverpic}"/>
+                    <div class="mui-checkbox w-checkbox1">
+                        <input name="checked" value="{$v.id}" type="checkbox">
+                    </div>
+                </div>
+                <div class="w-bookName">{$v.title}</div>
+                <div class="w-bookChapter"></div>
+            </a>
+            <else/>
+            <a class="read_a" href="{:U('Index/stInfo',array('id'=>$v['anid']))}">
+                <div class="w-bookPic">
+                    <div class="w-bookNew">
+                        <span>NEW</span>
+                        <script>$('.w-shelfUpdate').show();
+                        $('.updateCount').html(1)</script>
+                    </div>
+                    <img src="{$v.coverpic}"/>
+                    <div class="mui-checkbox w-checkbox1">
+                        <input name="checked" value="{$v.id}" type="checkbox">
+                    </div>
+                </div>
+                <div class="w-bookName">{$v.title}</div>
+                <div class="w-bookChapter"></div>
+            </a>
+        </if>
+    </li>
+
+</foreach>

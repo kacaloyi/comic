@@ -1,0 +1,23 @@
+
+<foreach name="list" item="v">
+
+<div class="item"  style="height:3.2rem;">
+	<a href="{:U('Index/info',array('id'=>$v['id']))}">
+		<div class="cover">
+			<img src="{$v.selectpic}" style="width: 2.45rem;height: 3rem;border-radius: .2rem;box-shadow: 0px 0px 8px #c1c1c1;">
+		</div>
+		<div class="body">
+			<div class="title">
+				{$v.title}
+			</div>
+			<div class="text">
+				{$v.remark}
+			</div>
+			<div class="bottom">
+				<span class="col"><i class="icon-gray-hot"></i> {$v.hots}</span><span class="col"><i class="icon-hand"></i>{$v.likes}</span>
+			</div>
+		</div>
+	</a>
+</div>
+
+</foreach>

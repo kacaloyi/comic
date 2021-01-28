@@ -1,0 +1,22 @@
+<foreach name="list" item="v">
+<li sbid = "{$v['anid']}">
+<a href="{:U('Index/readAnime',array('anid'=>$v['anid'],'chaps'=>$v['chaps']))}">
+	<div class="r_img">
+		<img src="__PUBLIC__/home/img/icon/default_img.png" data-original=" {$v.coverpic}" />
+		<span></span>
+	</div>
+	<div class="r_img_text">
+		<h3>{$v.title}</h3>
+		<div class="r_img_chaptername">上次读到：第 {$v.chaps} 章</div>
+		<div class="r_img_chaptername">更新至：第 {$v.allchapter} 章</div>
+	</div>
+</a>
+</li>
+</foreach>
+<script type="text/javascript">
+ $(function () {
+		$('img').picLazyLoad({
+		effect : "fadeIn"
+		});
+		})
+	</script>

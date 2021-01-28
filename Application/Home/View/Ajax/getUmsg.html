@@ -1,0 +1,11 @@
+<foreach name="list" item="v">
+<a href="{:U('Index/umsgInfo',array('id'=>$v['id']))}">
+	<li>
+		<i></i>
+		<div class="txts">
+			<h1>系统公告<span>{$v.create_time|date="Y-m-d H:i:s",###}</span></h1>
+			<p>{$v.title}</p>
+		</div>
+	</li>
+</a>
+</foreach>
