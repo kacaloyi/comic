@@ -964,6 +964,47 @@ class AjaxController extends HomeController {
             $this->error('非法请求！');
         }  
     }
+    
+    public function book_titl(){
+        if(IS_POST){
+            $cate = I('cate');
+            $list = null;
+            
+           
+            
+            switch ($cate) {
+                case 'free':
+                     $list =  M('mh_list')->where(array('free_type'=>1))->order('rand()')->limit(10)->select();
+                    break;
+                case 'like':
+                     $mhid = I('mhid');
+                     $list = M('mh_list')->where(array('id'=>array('neq',$mhid)))->order('rand()')->limit(6)->select();
+                    break;
+                default:
+                    $list = M('mh_list')->where(array('mhcate'=>array('like','%'.$cate.'%')))->order('rand()')->limit(6)->select();
+                    break;
+            }
+            
+           
+            
+        	if ($list) {
+                $this->assign('list', $list);
+                
+                if($cate == "free"){
+                  $html = $this->fetch("book_titl_free");
+                }else{
+                  $html = $this->fetch();
+                }
+                $this->success($html);
+            } else {
+                $this->error('没有该类数据！');
+            }
+
+        } else {
+            $this->error('非法请求！');
+        }    
+            
+    }
 	
 	public function book_list(){
 	    if(IS_POST){

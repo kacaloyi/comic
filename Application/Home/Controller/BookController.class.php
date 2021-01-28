@@ -73,7 +73,7 @@ class BookController extends HomeController {
     	
 		//$huas = M('book_episodes')->where(array('bid'=>$bid))->count();
 		
-		$huas = M('book_episodes')->where("bid={$bid}")->order('ji_no asc')->limit(0,15)->select();
+		$huas = M('book_episodes')->where("bid={$bid}")->order('ji_no asc')->limit(0,10)->select();
 		$first = current($huas);
 		
 		/*
@@ -615,18 +615,18 @@ class BookController extends HomeController {
 			}
 			$p = I('post.p');
 			if($p == 1){
-				$start = ($p - 1)*50+16;
+				$start = ($p - 1)*10+10;
 			}else{
-				$start = ($p - 1)*50+17;
+				$start = ($p - 1)*10+10;
 			}
-			$end = ($p)*50+16;
+			$end = ($p)*10;
 			if($end>=$info['episodes']){
 				$end = $info['episodes'];
 			}
 		    /*for($i=$start;$i<=$end;$i++)*/
 		    {
 			   if($type == 'mh'){
-			        $list = M('mh_episodes')->where(array('mhid'=>$id))->order('ji_no asc')->limit($start,50)->select();
+			        $list = M('mh_episodes')->where(array('mhid'=>$id))->order('ji_no asc')->limit($start,10)->select();
 				    
 				    //$money = M('mh_episodes')->where(array('ji_no'=>$i,'mhid'=>$id))->getField('money');
 				    foreach ($list as $k=>$vo)
@@ -664,7 +664,7 @@ class BookController extends HomeController {
     				   $html.='</div>';
 				    }
 			   }else{
-			        $list = M('book_episodes')->where("bid={$id}")->order('ji_no asc')->limit($start,50)->select();
+			        $list = M('book_episodes')->where("bid={$id}")->order('ji_no asc')->limit($start,10)->select();
 					//$money = M('book_episodes')->where(array('ji_no'=>$i,'bid'=>$id))->getField('money');
 					foreach ($list as $vo)
 				    {	

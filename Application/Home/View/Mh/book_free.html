@@ -237,6 +237,7 @@
 	});    
     
     function getData(){
+        $('.loading_box').html('<span>正在加載中，请稍候......</span>').show();
         // 滚动到底部获取新的分页
         var url = "{:U('/Ajax/book_list')}";
         var data = {cate: cate, p: p}

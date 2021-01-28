@@ -406,7 +406,7 @@ class MhController extends HomeController {
     	}
     	//$first = M('mh_episodes')->where("mhid={$mhid}")->order('ji_no asc')->find();
     	
-		$huas = M('mh_episodes')->where(array('mhid'=>$mhid))->order('ji_no asc')->limit(0,16)->select();// ->count();
+		$huas = M('mh_episodes')->where(array('mhid'=>$mhid))->order('ji_no asc')->limit(0,10)->select();// ->count();
 		$first = current($huas);
 		//if($huas>15){
 		//	$huas_num = range(1,15);
