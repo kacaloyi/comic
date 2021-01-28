@@ -68,6 +68,7 @@
     <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
     <!-- 共用引入资源.结束 -->
     <script type="text/javascript" src="__PUBLIC__/home/mhjs/saved_resource"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.lazyload.js"></script>
     <!--<script>(function () {
         new Image().src = '//res.efucms.com/wap_v3/images/placeholder-unruly.png?v=20171208';
     })();</script>-->
@@ -103,26 +104,7 @@
 <div class="br-box free-box rank-view clearfix">
     <div class="tl"><i class="wbg"></i></div>
     <div class="list clearfix" id="html_box" style="min-height: 740px;">
-        <!-- <div class="item clearfix"><a href="https://m.efucms.com/book/10094/" class="clearfix">
-            <div class="cover"><img width="75" height="100" class=""
-                                    href="__PUBLIC__/home/mhimages/5a27984f0cef1.jpg"
-                                    data-original="https://p.efucms.com/uploads/book/201712/5a27984f0cef1.jpg"
-                                    style="background: rgb(238, 238, 238); display: block;"></div>
-            <div class="body">
-                <div class="title">丧尸纪元</div>
-                <div class="col">
-                    <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <circle cx="12" cy="7" r="6" fill="#ccc"></circle>
-                        <path d="M12 11a10 10 0 0 1 10 10 2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 10 10 0 0 1 10-10z"
-                              fill="#ccc"></path>
-                    </svg>
-                    周刀刀
-                </div>
-                <div class="col"><label class="tag">热血</label><label class="tag" style="margin-left:4px;">悬疑</label>
-                </div>
-                <div class="col">更新至：第39话 堵门</div>
-            </div>
-        </a></div> -->
+       <!--
         <volist name="list" id="vo">
         <div class="item clearfix">
         <a href="{:U('Mh/'.$vo['id'])}" class="clearfix">
@@ -141,63 +123,74 @@
                 <div class="col">
                 {$vo.arr_catename}
                 </div>
-                <div class="col">更新至：第{$vo.episodes}话 <!-- 跟我有一腿的，是你 --></div>
+                <div class="col">更新至：第{$vo.episodes}话</div>
             </div>
         </a>
         </div>
-        </volist>
+        </volist> -->
     </div>
 </div>
 <div class="backtop" id="icon-top" style="display:none;right: 1rem;">
     <a href="javascript:void(0);" class="top">顶部</a>
 </div>
-<script id="itemTpl" type="text/html">
-    {{# for(var i = 0, len = d.length; i < len; i++){ var data = d[i]; }}
-    <div class="item clearfix">
-        <a href="{:U('Book/'.$data.book.id)}" class="clearfix">
-            <!--<div class="cover">
-                <img width="75" height="100" class="img-ajax-lazy"
-                     src="//res.efucms.com/wap_v3/images/placeholder-unruly.png?v=20171208"
-                     data-original="{{ data.book.book_unruly }}"/>
-            </div>-->
-            <div class="body">
-                <div class="title">{{ data.book.book_name }}</div>
-                <div class="col">
-                    <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <circle cx="12" cy="7" r="6" fill="#ccc"/>
-                        <path d="M12 11a10 10 0 0 1 10 10 2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 10 10 0 0 1 10-10z"
-                              fill="#ccc"/>
-                    </svg>
-                    {{ data.book.book_author }}
-                </div>
-                <div class="col">{{ showBookTags(data.book.book_tags)}}</div>
-                <div class="col">{{ (data.book.end_state==1?'已完结：':'更新至：')+data.lastChapter.chapter_name }}</div>
-            </div>
-        </a>
-    </div>
-    {{# } }}
-</script>
+
 <script type="text/javascript">
+      $(function(){
+        $("img.lazy").lazyload({effect:"fadeIn"});
+      });
+  
     $(function () {
         var fontSize = $(window).width() / 25;
         $("html").css("font-size", fontSize);
     })
-    var p = 1;
-    var cate = "free";
-    $(function () {
-        // 滚动到底部获取新的分页
-        var url = "/rank/ajax_ranking_info_book";
-        var data = {cate: cate, p: p}
-        if (p == 1) {
-            get_page_data(url, data);
-        }
-        list_page(url, data);
-    });
+    
     (function () {
         var clientHeight = window.screen.height, html_box = document.querySelector('#html_box'),
             html_box_offtop = html_box.getBoundingClientRect().top, html_box_minheight = clientHeight - html_box_offtop;
         html_box.style['minHeight'] = html_box_minheight + 'px';
     })();
+</script>
+<script type="text/javascript">
+    var p = 1;
+    var wait = true;
+    var cate = "free";
+    
+	$(function () {
+		getData();
+		$(window).bind("scroll", function (event) {
+			if(!wait) return;
+			var top = document.documentElement.scrollTop + document.body.scrollTop;
+			var textheight = $(document).height();
+			if (textheight - top - $(window).height() <= 100) {
+				p++;
+				wait = false;
+				getData();
+			}
+		});
+	});    
+    
+    function getData(){
+        // 滚动到底部获取新的分页
+        var url = "{:U('/Ajax/book_list')}";
+        var data = {cate: cate, p: p}
+		$.post(url,data,function(d){
+			if(d){
+				if(d.status){
+					$('#html_box').append(d.info);
+					$("img.lazy").lazyload({effect:"fadeIn"});
+					wait = true;
+					
+				}else{
+					if(p == 1 && $('#nolist').length == 0){
+						$('#html_box').append('<li id="nolist" style="text-align:center;line-height: 3rem;list-style: none;font-size: .35rem;" class="mui-table-view-cell mui-media">抱歉，平台管理员很偷懒，还没上传哦！</li>');
+					}
+					wait = false;
+				}
+			}else{
+				bh_msg_tips('加载失败！');
+			}
+		})
+    };
 </script>
 <!-- 统计 -->
 <script type="text/javascript" src="__PUBLIC__/home/mhjs/gcoupon.min.js"></script>
@@ -223,6 +216,7 @@
         if (r != null) return unescape(r[2]);
         return null;
     }
+    /**
     addLoadEvent(function () {
         var error_img = new Image(), channel = tj_getcookie('qrmh_channel'),
             channel_type = tj_getcookie('qrmh_channel_type');
@@ -244,7 +238,7 @@
             }
         }
         p_img = p_userid = c_auth = p_reload = null;
-    });
+    });**/
     //update byefucms 20170906 某些手机系统下，旋转屏幕出现页面混乱问题，通过延时500ms滚动页面1个单位得以恢复正常
     var evt = "onorientationchange" in window ? "orientationchange" : "resize";
     window.addEventListener(evt, function () {

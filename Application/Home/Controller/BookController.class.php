@@ -656,7 +656,7 @@ class BookController extends HomeController {
     				   
     				   $html.='<a href="'.U('Mh/'.$id.'/'.$vo['ji_no']).'" class="">';
     				   $html.='<span class="imgHead" style="float:left"><img class="lazyload" src="';
-    				   $html.=$vo['imgHead'].'" data-src="'.$vo['imgHead'].'" style='."width:100%".' ></span>';
+    				   $html.=$vo['imgHead'].'" data-original="'.$vo['imgHead'].'" style='."width:100%".' ></span>';
  
     				   $html.=$vo['title'];
     				   $html.='<span>'.$money.'书币</span>';

@@ -2480,7 +2480,7 @@ body {
     margin-top: 1rem;
 }
 
-.br-box > .tl i.wbg {
+.tl i.wbg {
     width: 320px;
     background-image: url(../mhimages/rt_tl.png);
     background-repeat: no-repeat;

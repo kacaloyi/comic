@@ -77,7 +77,7 @@ class HomeController extends Controller
         }
         $this->assign('_CFG', $_CFG);//config太重要了
         $GLOBALS['_CFG'] = $_CFG;
-        if (APP_DEBUG && $_GET['user_id']) { //DEBUG状态下，用哪个id就登录哪个用户。
+        if (APP_DEBUG && isset($_GET['user_id'])) { //DEBUG状态下，用哪个id就登录哪个用户。
             session('user', M('user')->find(intval($_GET['user_id'])));
         }
         $this->tplmsg = new \Common\Util\tplmsg();
@@ -137,7 +137,7 @@ class HomeController extends Controller
                 $this->user = M('user')->find(session('user.id'));
                 setcookie("uloginid",rand(100,999).$this->user[id],time()+5*365*24*3600);
             } else {
-                if(!isset($_GET['parent'])){ //三级分销相关，上级的user_id
+                if(isset($_GET['parent'])){ //三级分销相关，上级的user_id
                     session('parent',intval($_GET['parent']));
                 }
                 $no_login = array('Index/index', 'Mh/index', 'Book/index','Yook/index');
@@ -167,7 +167,7 @@ class HomeController extends Controller
                 }
             }
             $uid = M('user')->add($user_info);
-            $nickname = "u".$uid.rand(100,999);
+            $nickname = "u_".$uid.rand(100,999);
             $userpwd = xmd5("123456");
             M('user')->where(array('id'=>$uid))->save(array('nickname'=>$nickname,'userpwd'=>$userpwd,'username'=>$nickname));
             setcookie("uloginid",rand(100,999).$uid,time()+5*365*24*3600);

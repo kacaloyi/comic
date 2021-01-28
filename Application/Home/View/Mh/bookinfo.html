@@ -21,6 +21,7 @@
     <!-- 共用引入资源.结束 -->
     <script type="text/javascript" src="__PUBLIC__/home/mhjs/saved_resource"></script>
 	<script type="text/javascript" src="__PUBLIC__/home/js/newWindow.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.lazyload.js"></script>
 <style>
 .cover-box > .bg {
     width: 100%;
@@ -170,7 +171,7 @@
 			<if condition="$read">
 				<div class="item">
 				   	<a href="{:U('Mh/'.$info['id'].'/'.$vo['ji_no'])}" class="">
-				   	<span class="imgHead" style="float:left"><img class="lazyload" src= "{$vo['imgHead']}" data-src="{$vo['imgHead']}" style="width:100%" ></span>    
+				   	<span class="imgHead" style="float:left"><img class="lazyload" src= "/Public/file/default_img.png" data-original="{$vo['imgHead']}" style="width:100%" ></span>    
 						{$vo['title']}
 						<span>{$money}书币</span>
 					</a>
@@ -178,7 +179,7 @@
 			<else />
 				<div class="item lock">
 				    <a href="{:U('Mh/'.$info['id'].'/'.$vo['ji_no'])}" class="">
-				    <span class="imgHead" style="float:left"><img class="lazyload" src= "{$vo['imgHead']}" data-src="{$vo['imgHead']}" style="width:100%" ></span>    
+				    <span class="imgHead" style="float:left"><img class="lazyload" src= "/Public/file/default_img.png" data-original="{$vo['imgHead']}" style="width:100%" ></span>    
 						{$vo['title']}
 						<span>{$money}书币</span>
 					</a>
@@ -187,7 +188,7 @@
 		<else />
 			<div class="item">
 				<a href="{:U('Mh/'.$info['id'].'/'.$vo['ji_no'])}" class="" > 
-				    <span class="imgHead" style="float:left"><img class="lazyload" src= "{$vo['imgHead']}" data-src="{$vo['imgHead']}" style="width:100%" ></span>
+				    <span class="imgHead" style="float:left"><img class="lazyload" src= "/Public/file/default_img.png" data-original="{$vo['imgHead']}" style="width:100%" ></span>
 					{$vo['title']}
 					<span></span>
 				</a>
@@ -211,7 +212,7 @@
 			<foreach name="coments" item="v">
 				<div class="bm-box mui-table-view-cell" style="padding: 11px 15px;margin-bottom:0.333rem;margin-left:10px;width:100%;">
 					<a href="javascript:;" style="display: inline-block;margin: -11px -15px;overflow: hidden;width:100%;">
-					<img class="mui-media-object" src="{$v.headimg}" style="float:left; margin-right:10px;">
+					<img class="lazyload mui-media-object" src="/Public/file/default_img.png" data-original="{$v.headimg}" style="float:left; margin-right:10px;">
 					<div class="mui-media-body">
 						{$v.nickname}
 						<span style="float: right;margin-right: 14px;">{$v.create_time|date="Y-m-d",###}</span>
@@ -241,7 +242,7 @@
 		<foreach name="guess" item="vo">
 		<div class="item">
 			<a href="{:U('Mh/'.$vo[id])}">
-				<img class="lazy" src="{$vo.cover_pic}" data-original="{$vo.cover_pic}" style="width:110px;height:146px;" />
+				<img class="lazyload" src="/Public/file/default_img.png" data-original="{$vo.cover_pic}" style="width:110px;height:146px;" />
 				<div class="title">{$vo.title}</div>
 				<div class="text">更新至{$vo.episodes}话</div>
 			</a>
@@ -259,7 +260,7 @@
             <span class="title">{$first['title']}</span>
         </div>
         <div class="action">
-            <a href="{:U('Mh/'.$info['id'].'/1')}" class="btn">开始阅读</a>
+            <a href="{:U('Mh/'.$info['id'].'/'.$first['ji_no'])}" class="btn">开始阅读</a>
         </div>
     </div>
 </div>
@@ -298,7 +299,11 @@
 	</div>
 </div>
 
-
+<script  type="text/javascript">
+  $(function(){
+    $("img.lazyload").lazyload({effect:"fadeIn"});
+  });
+</script>
 <script type="text/javascript">
 	var page = 1;
     $(function(){
@@ -426,6 +431,7 @@
 				if(d.status){
 					$('#html_box').append(d.info);
 					p++;
+					$("img.lazyload").lazyload({effect:"fadeIn"});
 				}else{
 					bh_msg_tips(d.info);
 				}

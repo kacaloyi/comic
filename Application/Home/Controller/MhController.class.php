@@ -100,7 +100,7 @@ class MhController extends HomeController {
     	$cateid 	= I('cateid', 0, 'intval');
     	$status 	= I('status', 0, 'intval');
     	$free_type 	= I('free_type', 0, 'intval');
-    	
+    	/*
     	$cond = array(
     			'status'	=> $status,
     			'free_type'	=> $free_type,
@@ -125,7 +125,15 @@ class MhController extends HomeController {
     			'free_type'	=> $free_type,
     	);
     	 
-    	$this->assign($asdata);
+    	$this->assign($asdata);*/
+    	
+    	$selfurl = U('/Mh/book_cate')."?"."cateid=".$cateid."&status=".$status."&free_type=".$free_type;
+	
+
+    	$this->assign('selfurl', $selfurl);
+    	$this->assign('cateid',$cateid);
+    	$this->assign('status',$status);
+    	$this->assign('free_type',$free_type);
     	$this->display();
     }
     
@@ -133,7 +141,7 @@ class MhController extends HomeController {
      * 免费排行
      */
     public function book_free(){
-    	$list = M('mh_list')->where("free_type=1")->order('sort desc')->limit(50)->select();
+    	/**$list = M('mh_list')->where("free_type=1")->order('sort desc')->limit(10)->select();
     	if(!empty($list) && is_array($list)) {
     		foreach ($list as $k => &$v) {
     			$arr_catename = '';
@@ -159,7 +167,8 @@ class MhController extends HomeController {
     			'list'	=> $list,
     	);
     	 
-    	$this->assign($asdata);
+    	$this->assign($asdata); **/
+    	$this->assign('cate','last');
     	$this->display();
     }
     
@@ -167,7 +176,8 @@ class MhController extends HomeController {
      * 人气排行
      */
     public function book_hot(){
-		$order = I('get.order');
+		$order = I('order');
+		/*
 		if($order){
 			if($order == "reader"){
 				$order = "reader desc";
@@ -194,7 +204,7 @@ class MhController extends HomeController {
 		}else{
 			$order = "sort desc";
 		}
-    	$list = M('mh_list')->where($where)->order($order)->limit(50)->select();
+    	$list = M('mh_list')->where($where)->order($order)->limit(10)->select();
     	if(!empty($list) && is_array($list)) {
     		foreach ($list as $k => &$v) {
     			$arr_catename = '';
@@ -221,6 +231,8 @@ class MhController extends HomeController {
     	);
     	//dump($list);
     	$this->assign($asdata);
+    	*/
+    	$this->assign('order',$order);
     	$this->display();
     }
     
@@ -228,8 +240,8 @@ class MhController extends HomeController {
      * 最近更新
      */
     public function book_last(){
-   
-    	$list = M('mh_list')->where("")->order('update_time desc')->limit(50)->select();
+        /**
+    	$list = M('mh_list')->where("")->order('update_time desc')->limit(10)->select();
     	if(!empty($list) && is_array($list)) {
     		foreach ($list as $k => &$v) {
     			$arr_catename = '';
@@ -254,8 +266,11 @@ class MhController extends HomeController {
     	$asdata = array(
     			'list'	=> $list,
     	);
+    	
     	 
     	$this->assign($asdata);
+    	*/
+    	$this->assign('cate','last');
     	$this->display();
     }
     
@@ -322,7 +337,7 @@ class MhController extends HomeController {
      * 精选推荐
      */
     public function book_recomm(){
-    	$list = M('mh_list')->where("")->order('sort desc')->limit(50)->select();
+    	$list = M('mh_list')->where("")->order('sort desc')->limit(10)->select();
     	if(!empty($list) && is_array($list)) {
     		foreach ($list as $k => &$v) {
     			$arr_catename = '';
@@ -744,7 +759,7 @@ class MhController extends HomeController {
     	//dump($key);exit;
     	$cond = array();
     	$cond['title|author'] = array('like', "%{$key}%");
-    	$list = M('mh_list')->where($cond)->order('sort desc')->limit(50)->select();
+    	$list = M('mh_list')->where($cond)->order('sort desc')->limit(10)->select();
     	$asdata = array(
     			'key'	=> $key,
     			'list'	=> $list,

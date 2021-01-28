@@ -2,9 +2,11 @@
 namespace Admin\Controller;
 use Think\Controller;
 class IndexController extends AdminController {
+    
+
     public function index(){
 		// 入口，已登录调到首页，未登录跳转到登陆
-		
+		 die("IndexController index");
 		if(session('?admin'))
 			
 			redirect(U('Admin/welcome'));
@@ -70,6 +72,7 @@ class IndexController extends AdminController {
 	}
 	
 	
+
 	public function test(){
 		$path = "./Public/xiaoshuo/ff1f75a539329871e74c99373104fb78/";
 		$temp = array();

@@ -22,7 +22,7 @@ class AdminController extends Controller
         }
     }
     public function _initialize()
-    {
+    {  
         $this->getGrant();
         if (CONTROLLER_NAME != 'Index' && !session('?admin')) {
             $this->error('请登陆后操作!', U('Index/login'));
@@ -31,15 +31,20 @@ class AdminController extends Controller
         if (substr(ACTION_NAME, 0, 1) == '_') {
             $this->error('访问地址错误！', U('Index/index'));
         }
+       
         $config = M('config')->select();
         foreach ($config as $v) {
             $key = '_' . $v['name'];
             $this->{$key} = unserialize($v['value']);
             $_CFG[$v['name']] = $this->{$key};
         }
+       
         $this->assign('_CFG', $_CFG);
         $GLOBALS['_CFG'] = $_CFG;
         $this->assign('murl', "http://" . $_SERVER['HTTP_HOST'] . __ROOT__ . "/index.php?m=");
+        
+        $this->_census();
+       
     }
     public function welcome()
     {
@@ -63,29 +68,29 @@ class AdminController extends Controller
 			$where['date'] = array('elt', $time2);
 		}
 		$where['mch'] = $this->mch['id'];
+		*/
 		
-		
-		//今日充值
-		$this->assign('dcharge',M('charge')->where(array('create_time'=>array('egt',strtotime(date('Y-m-d'))),'status'=>2,'mch'=>$this->mch['id'],'separate'=>1))->sum('money'));
+		//今日充值  separate 是否显示给代理看，1表示给，0表示扣量
+	    //需要改表，chapter增加成本cost，charge增加扣量标志	separate
+		$this->assign('dcharge',M('charge')->where(array('create_time'=>array('egt',strtotime(date('Y-m-d'))),'status'=>2,'mid'=>$this->mch['id'],'separate'=>1))->sum('money'));
 		//本月充值
-		$this->assign('ycharge',M('charge')->where(array('create_time'=>array('egt',strtotime(date('Y-m-01'))),'status'=>2,'mch'=>$this->mch['id'],'separate'=>1))->sum('money'));
+		$this->assign('ycharge',M('charge')->where(array('create_time'=>array('egt',strtotime(date('Y-m-01'))),'status'=>2,'mid'=>$this->mch['id'],'separate'=>1))->sum('money'));
 		//累计充值
-		$acharge = M('charge')->where(array('status'=>2,'mch'=>$this->mch['id'],'separate'=>1))->sum('money');
+		$acharge = M('charge')->where(array('status'=>2,'mid'=>$this->mch['id'],'separate'=>1))->sum('money');
 		$this->assign('acharge',$acharge);
 		//已提现金额
-		$this->assign('ymoney',M('withdraw')->where(array('status'=>2,'mch'=>$this->mch['id']))->sum('money'));
+		$this->assign('ymoney',M('withdraw')->where(array('status'=>2,'user_id'=>$this->mch['id']))->sum('money'));
 		//未结算金额
-		$this->assign('wmoney',M('withdraw')->where(array('status'=>1,'mch'=>$this->mch['id']))->sum('money'));
+		$this->assign('wmoney',M('withdraw')->where(array('status'=>1,'user_id'=>$this->mch['id']))->sum('money'));
 		
-		//累计成本
-		$cben = M('chapter')->where(array('mch'=>$this->mch['id']))->sum('cost');
+		//累计成本  cost 在推广中花的钱。
+		$cben = M('chapter')->where(array('memid'=>$this->mch['id']))->sum('cost');
 		$this->assign('cben',$cben);
-		*/
+		
 		
 		//累计利润
 		$this->assign('lirun',$acharge-$cben);
         
-        $this->assign('info', $info);
         $this->display();
     }
     public function set_col($table = null)
@@ -209,4 +214,135 @@ class AdminController extends Controller
         M($table)->where(array("id" => $id))->save(array($field => intval($status)));
         $this->success('操作成功！');
     }
+    
+    
+    	
+	//统计昨日数据
+	private function _census(){
+		//定义初始开始统计日期
+		$date = '20210101';
+		$mch = $this->mch['id']?$this->mch['id']:0;
+		
+		{
+			//昨天的日期
+			$date = date('Ymd', strtotime('-1 day'));
+			$info = M('mchdata') -> where(array('date'=>$date,'mch'=>$mch)) -> find();
+            
+			// 如果有昨天的记录则结束
+			if($info){
+			   
+				return;
+			}else{
+				
+				//查询统计的截止时间
+				$last = M('mchdata')->where(array('mch'=>$mch))->order('date desc')->find();
+		        
+		        if(is_array($last)&&isset($last['date']))
+				    $start = strtotime($last['date']);
+				else
+				    $start = strtotime($date);
+				    
+				$start = $start +86400;
+				$today = strtotime('today');
+				$endtime = $today - 86400;
+				for($start;$start<=$endtime;$start+=86400){
+					
+					$date = date('Ymd',$start);
+					$stime = $start;
+					$etime = $start+86400;
+					//当日总充值金额
+					$charge_total = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2))->sum('money');
+					
+					//当日普通充值金额
+					$pcharge = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>0,'is_status'=>0))->sum('money');
+					//当日普通充值人数
+					$pchargeperson = M('charge')->distinct(true)->field('user_id')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>0,'is_status'=>0))->select();
+					//当日普通充值笔数
+					$pchargenums = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>0,'is_status'=>0))->count();
+					//当日普通未在支付笔数
+					$pchargewnums = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>1,'isvip'=>0,'is_status'=>0))->count();
+					
+					//当日年费充值金额
+					$ycharge = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>1,'is_status'=>0))->sum('money');
+					//当日年费充值人数
+					$ychargeperson = M('charge')->distinct(true)->field('user_id')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>1,'is_status'=>0))->select();
+					//当日年费充值笔数
+					$ychargenums = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>1,'is_status'=>0))->count();
+					//当日年费未在支付笔数
+					$ychargewnums = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>1,'isvip'=>1,'is_status'=>0))->count();
+					
+					
+					//当日终生充值金额
+					$zcharge = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>0,'is_status'=>1))->sum('money');
+					//当日终生充值人数
+					$zchargeperson = M('charge')->distinct(true)->field('user_id')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>0,'is_status'=>1))->select();
+					//当日终生充值笔数
+					$zchargenums = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2,'isvip'=>0,'is_status'=>1))->count();
+					//当日年费未在支付笔数
+					$zchargewnums = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>1,'isvip'=>0,'is_status'=>1))->count();
+					
+					
+					//付费人数
+					$nums = M('charge')->distinct(true)->field('user_id')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2))->select();
+					$payperson = count($nums);
+					//付费笔数
+					$paynums = M('charge')->where(array('create_time'=>array('between', array($stime, $etime)),'status'=>2))->count();
+					//新增用户数
+					$joinperson = M('user')->where(array('create_time'=>array('between', array($stime, $etime))))->count();
+					//新增关注人数
+					$subperson = M('user')->where(array('create_time'=>array('between', array($stime, $etime)),'subscribe'=>1))->count();
+					//新用户付费人数
+					$joinpersonpay = sprintf('%0.2f',$payperson/$joinperson*100);
+					//新用户充值金额
+					$joinpersoncharge = M('user')->where(array('create_time'=>array('between', array($stime, $etime))))->sum('btotal');
+					//累计所有用户
+					$allusers = M('user')->where(array('create_time'=>array('elt', $etime)))->count();
+					//累计所有关注用户
+					$allsubusers = M('user')->where(array('create_time'=>array('elt', $etime),'subscribe'=>1))->count();
+					//新增男性人数
+					$sexaperson = M('user')->where(array('create_time'=>array('between', array($stime, $etime)),'sex'=>1))->count();
+					//新增女性人数
+					$sexvperson = M('user')->where(array('create_time'=>array('between', array($stime, $etime)),'sex'=>2))->count();
+					M('mchdata')->add(array(
+						"date"=>$date,
+						"mch"=>0,
+						"charge_total"=>$charge_total?$charge_total:0,
+						
+						"pcharge"=>$pcharge?$pcharge:0,
+						"pchargeperson"=>count($pchargeperson),
+						"pchargenums"=>$pchargenums?$pchargenums:0,
+						"pchargewnums"=>$pchargewnums?$pchargewnums:0,
+						
+						"ycharge"=>$ycharge?$ycharge:0,
+						"ychargeperson"=>count($ychargeperson),
+						"ychargenums"=>$ychargenums?$ychargenums:0,
+						"ychargewnums"=>$ychargewnums?$ychargewnums:0,
+						
+						"zcharge"=>$zcharge?$zcharge:0,
+						"zchargeperson"=>count($zchargeperson),
+						"zchargenums"=>$zchargenums?$zchargenums:0,
+						"zchargewnums"=>$zchargewnums?$zchargewnums:0,
+						
+						"payperson"=>$payperson,
+						"paynums"=>$paynums,
+						"joinperson"=>$joinperson,
+						"subperson"=>$subperson,
+						"joinpersonpay"=>$joinpersonpay,
+						"joinpersoncharge"=>$joinpersoncharge,
+						"allusers"=>$allusers,
+						"allsubusers"=>$allsubusers,
+						"sexaperson"=>$sexaperson,
+						"sexvperson"=>$sexvperson,
+					));
+				}
+			}
+		}
+		
+	
+	}
+	
+    
+    
+    
+    
 }

@@ -1,7 +1,7 @@
 
         <div class="pageheader notab">
             <h1 class="pagetitle">欢迎界面</h1>
-            <span class="pagedesc">欢迎使用EFUCMS漫画小说分销系统管理后台</span>
+            <span class="pagedesc">欢迎使用云享空间漫画小说分销系统管理后台</span>
             
         </div><!--pageheader-->
         
@@ -15,37 +15,26 @@
 					<col class="con1" />
 					<col class="con0" />
 				</colgroup>
-				<tbody>				
-					<tr>
-						<td width="15%">今日订单数</td>
-						<td width="35%">{$info.orders_total}</td>
-						<td width="15%">今日销售额</td>
-						<td width="35%">{$info.total_today}</td>
+				<tbody>	
+				    <tr>
+						<td width="15%">今日充值(元)</td>
+						<td width="35%">{$dcharge}</td>
+						<td width="15%">本月充值(元)</td>
+						<td width="35%">{$ycharge}</td>
 					</tr>
 					<tr>
-						<td width="15%">今日余额支付总额</td>
-						<td width="35%">{$info.money_pay}</td>
-						<td width="15%">今日积分支付总额</td>
-						<td width="35%">{$info.points_pay}</td>
+						<td width="15%">累计充值(元)</td>
+						<td width="35%">{$acharge}</td>
+						<td width="15%">已提现金额(元)</td>
+						<td width="35%">{$ymoney}</td>
 					</tr>
 					<tr>
-						<td width="15%">今日微信支付总额</td>
-						<td width="35%">{$info.wxpay_pay}</td>
-						<td width="15%"></td>
-						<td width="35%"></td>
+						<td width="15%">未提现金额(元)</td>
+						<td width="35%">{$wmoney}</td>
+						<td width="15%">总成本</td>
+						<td width="35%">{$cben}</td>
 					</tr>
-					<tr>
-						<td width="15%">待结算佣金</td>
-						<td width="35%">{$info.expense1}</td>
-						<td width="15%">已结算佣金</td>
-						<td width="35%">{$info.expense4}</td>
-					</tr>
-					<tr>
-						<td width="15%">会员积分总额</td>
-						<td width="35%">{$info.points_total}</td>
-						<td width="15%">会员余额总额</td>
-						<td width="35%">{$info.money_total}</td>
-					</tr>
+					
 				</tbody>
 			</table>
 

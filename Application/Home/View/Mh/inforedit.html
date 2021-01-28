@@ -43,7 +43,7 @@
 <!--顶部广告代码结束-->
     <volist name="arr_pics" id="vo">
     <figure class="item" style="">
-        <img class="show-menu" src="{$vo}" data-id="2" data-original="{$vo}" style="background: rgb(238, 238, 238); display: block;">
+        <img class="lazy show-menu" src="" data-id="2" data-original="{$vo}" style="background: rgb(238, 238, 238); display: block;">
     </figure>
     </volist>
 </article>
@@ -262,7 +262,10 @@
 	}
 
 	$(function() {  
-		$("img.lazy").lazyload();
+		$("img.lazy").lazyload({
+		    placeholder : "/Public/file/default_img.png",
+		    effect: "fadeIn"
+		    });
 
 		$('.btn-tip-menu').click(function(){
 			$(".ds").fadeIn(300);

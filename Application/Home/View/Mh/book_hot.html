@@ -25,8 +25,9 @@
 <!-- lib.flexible 移动端相对适应比例 必须在浏览器head类 -->
 <script type="text/javascript">
     !function (a, b) { function c() { var b = f.getBoundingClientRect().width; b / i > 540 && (b = 540 * i); var c = b / 10; f.style.fontSize = c + "px", k.rem = a.rem = c } var d, e = a.document, f = e.documentElement, g = e.querySelector('meta[name="viewport"]'), h = e.querySelector('meta[name="flexible"]'), i = 0, j = 0, k = b.flexible || (b.flexible = {}); if (g) {  var l = g.getAttribute("content").match(/initial\-scale=([\d\.]+)/); l && (j = parseFloat(l[1]), i = parseInt(1 / j)) } else if (h) { var m = h.getAttribute("content"); if (m) { var n = m.match(/initial\-dpr=([\d\.]+)/), o = m.match(/maximum\-dpr=([\d\.]+)/); n && (i = parseFloat(n[1]), j = parseFloat((1 / i).toFixed(2))), o && (i = parseFloat(o[1]), j = parseFloat((1 / i).toFixed(2))) } } if (!i && !j) { var p = (a.navigator.appVersion.match(/android/gi), a.navigator.appVersion.match(/iphone/gi)), q = a.devicePixelRatio; i = p ? q >= 3 && (!i || i >= 3) ? 3 : q >= 2 && (!i || i >= 2) ? 2 : 1 : 1, j = 1 / i } if (f.setAttribute("data-dpr", i), !g) if (g = e.createElement("meta"), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + 1 + ", maximum-scale=" + 1 + ", minimum-scale=" + 1 + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g); else { var r = e.createElement("div"); r.appendChild(g), e.write(r.innerHTML) } a.addEventListener("resize", function () { clearTimeout(d), d = setTimeout(c, 300) }, !1), a.addEventListener("pageshow", function (a) { a.persisted && (clearTimeout(d), d = setTimeout(c, 300)) }, !1), "complete" === e.readyState ? e.body.style.fontSize = 12 * i + "px" : e.addEventListener("DOMContentLoaded", function () { e.body.style.fontSize = 12 * i + "px" }, !1), c(), k.dpr = a.dpr = i, k.refreshRem = c, k.rem2px = function (a) { var b = parseFloat(a) * this.rem; return "string" == typeof a && a.match(/rem$/) && (b += "px"), b }, k.px2rem = function (a) { var b = parseFloat(a) / this.rem; return "string" == typeof a && a.match(/px$/) && (b += "rem"), b } }(window, window.lib || (window.lib = {}));
-    </script>
+</script>
 <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.lazyload.js"></script>
 <style type="text/css">
       #banner-container { display: block; position: relative; z-index: 1; width: 100%; overflow: hidden; }
       #banner-container .loading { display: block; width: 70px; text-align: center; font-size: 0; position: absolute; top: 50%; left: 50%; -webkit-transform: translate3d(-50%,-50%,0); transform: translate3d(-50%,-50%,0); }
@@ -119,7 +120,7 @@
 	</div>
 </div>
 <div class="books-res" id="html_box" name="top">
-	<foreach name="list" item="v">
+ <!--	<foreach name="list" item="v">
 	<div class="item">
 		<a href="{:U('Mh/'.$v['id'])}" class="link">
 			<div class="cover">
@@ -145,7 +146,7 @@
 			<a href="{:U('Mh/'.$v['id'])}" class="btn">阅读</a>
 		</div>
 	</div>
-	</foreach>
+	</foreach> -->
 </div>
 </div>
 <div class="backtop" id="icon-top" style="display:none;">
@@ -209,6 +210,64 @@
 		}, 2000);
 	}
 </script>
+<script  type="text/javascript">
+  $(function(){
+    $("img.lazy").lazyload({effect:"fadeIn"});
+  });
+  
+
+  
+  (function(){
+        var clientHeight = window.screen.height, html_box = document.querySelector('#html_box'),
+            html_box_offtop = html_box.getBoundingClientRect().top, html_box_minheight = clientHeight - html_box_offtop;
+        html_box.style['minHeight'] = html_box_minheight + 'px';
+   })();
+</script>
+
+<script type="text/javascript">
+    var p = 1;
+    var wait = true;
+    var cate = "last";
+    
+    
+	$(function () {
+		getData();
+		$(window).bind("scroll", function (event) {
+			if(!wait) return;
+			var top = document.documentElement.scrollTop + document.body.scrollTop;
+			var textheight = $(document).height();
+			if (textheight - top - $(window).height() <= 100) {
+				p++;
+				wait = false;
+				getData();
+			}
+		});
+	});    
+    
+    function getData(){
+        // 滚动到底部获取新的分页
+        var url = "{:U('/Ajax/book_hot')}";
+        var data = {cate: cate, p: p,order:"{$order}"}
+		$.post(url,data,function(d){
+			if(d){
+				if(d.status){
+					$('#html_box').append(d.info);
+					$("img.lazy").lazyload({effect:"fadeIn"});
+					wait = true;
+					
+				}else{
+					if(p == 1 && $('#nolist').length == 0){
+						$('#html_box').append('<li id="nolist" style="text-align:center;line-height: 3rem;list-style: none;font-size: .35rem;" class="mui-table-view-cell mui-media">抱歉，平台管理员很偷懒，还没上传哦！</li>');
+					}
+					wait = false;
+				}
+			}else{
+				bh_msg_tips('加载失败！');
+			}
+		})
+    };
+</script>
+
 <include file="include/footer" />
 </body>
 </html>
