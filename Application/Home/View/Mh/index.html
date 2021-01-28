@@ -124,7 +124,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="books-row">
+		<div class="books-row" id="row{$k}">
 			<volist name="v['list']" id="vo">
 			<div class="item">
 				<!--a href="{:U('Mh/bookinfo')}&mhid={$vo.id}"-->
@@ -155,7 +155,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="books-row">
+	<div class="books-row" id="rowfree">
 		<volist name="mf" id="vo">
 			<div style="width:100%;padding-bottom: 20px;border-bottom: 1px solid #ddd;position:relative;">
 				<img class="lazy"  src="/Public/file/default_img.png" data-original="{$vo.cover_pic}" style="width:88px;height:110px;float:left;margin:10px;" />

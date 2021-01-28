@@ -976,7 +976,12 @@ class AjaxController extends HomeController {
 	              break;
 	          case 'free':
 	               $list =M('mh_list')->where("free_type=1")->order('sort desc')->limit($page*10,10)->select();
-	              break;   
+	              break; 
+	         case 'mhcate':
+	               $mhcate = I("mhcate");
+	               $where['mhcate'] = array('like','%'.$mhcate.'%');
+	               $list = M('mh_list')->where($where)->order('id desc')->limit($page*10,10)->select();
+	              break;          
 	          
 	          default:
 	              // code...

@@ -42,13 +42,13 @@ class MhController extends HomeController {
      */
     public function mhlist(){
 		$mhcate = I("get.cate");
-		$page=I("get.page",1);
+		//$page=I("get.page",1);
 
-		$where['mhcate'] = array('like','%'.$mhcate.'%');
-    	$list = M('mh_list')->where($where)->order('id desc')->limit(0,$page*10)->select();
-    	$this->assign('page',$page);
-		$this->assign('cate',$mhcate);
-		$this->assign('list',$list);
+		//$where['mhcate'] = array('like','%'.$mhcate.'%');
+    	//$list = M('mh_list')->where($where)->order('id desc')->limit(0,$page*10)->select();
+    	//$this->assign('page',$page);
+		$this->assign('mhcate',$mhcate);
+		//$this->assign('list',$list);
     	$this->display();
     }
 	
