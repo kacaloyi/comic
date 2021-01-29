@@ -132,7 +132,7 @@
         <a href="javascript:void(0)" type="info" class="active">详情</a>
     </div>
     <div class="item">
-        <a href="javascript:void(0)" type="chapters" id="btn_chap">选集</a>
+        <a href="javascript:showpic()" type="chapters" id="btn_chap">选集</a>
     </div>
 </nav>
 <div class="ac-box" id="book-info">
@@ -301,8 +301,13 @@
 
 <script  type="text/javascript">
   $(function(){
-    $("img.lazyload").lazyload({effect:"fadeIn"});
+    showpic();
   });
+  
+  function showpic(){
+      $("img.lazyload").lazyload({effect:"fadeIn"});
+  }
+  
 </script>
 <script type="text/javascript">
 	var page = 1;

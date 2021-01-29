@@ -859,6 +859,44 @@ class AjaxController extends HomeController {
         }
     }
     
+    public function bbook_cate(){
+     if(IS_POST){
+        $page = I('post.p')-1;
+      	$cateid 	= I('cateid', 0, 'intval');
+    	$status 	= I('status', 0, 'intval');
+    	$free_type 	= I('free_type', 0, 'intval');
+    	
+    	$cond = array(
+    			'status'	=> $status,
+    			'free_type'	=> $free_type,
+    	);
+    	
+    	if(0 == $status) {
+    		unset($cond['status']);
+    	}
+    	if(0 == $free_type) {
+    		unset($cond['free_type']);
+    	}
+    	if($cateid > 0) {
+    		$cond['_string'] =  'FIND_IN_SET('.$cateid.',cateids)';
+    	}
+    	
+    	$list = M('book')->where($cond)->order('sort desc')->limit($page*10,10)->select();
+    	
+	      
+	        if ($list) {
+                $this->assign('list', $list);
+                $html = $this->fetch();
+                $this->success($html);
+            } else {
+                $this->error('没有该类数据！');
+            }
+
+        } else {
+            $this->error('非法请求！');
+        }      
+    }
+    
     public function book_cate(){
      if(IS_POST){
 	      $page = I('post.p')-1;
@@ -895,6 +933,73 @@ class AjaxController extends HomeController {
         } else {
             $this->error('非法请求！');
         }      
+    }
+    
+     public function bbook_hot(){
+        if(IS_POST){
+	      $page = I('post.p')-1;
+	      $order = I('order');
+
+		if($order){
+			if($order == "reader"){
+				$order = "reader desc";
+			}
+			if($order == "time"){
+				$order = "create_time desc";
+			}
+			if($order == "overs"){
+				$where['status'] = 2;
+				$order = "sort desc";
+			}
+			if($order == "free"){
+				$where['free_type'] = 1;
+				$order = "sort desc";
+			}
+			if($order == "cate1"){
+				$where['mhcate'] =array('like',"%9%");
+				$order = "sort desc";
+			}
+			if($order == "cate2"){
+				$where['mhcate'] = array('like',"%8%");
+				$order = "sort desc";
+			}
+		}else{
+			$order = "update_time desc";
+		}
+    	$list = M('book')->where($where)->order($order)->limit($page*10,10)->select();
+    	if(!empty($list) && is_array($list)) {
+    		foreach ($list as $k => &$v) {
+    			$arr_catename = '';
+    			$cateids = $v['cateids'];
+    			if(!empty($cateids)) {
+    				$arr_cateids = explode(',', $cateids);
+    				foreach ($arr_cateids as $k => $cateid) {
+    					if(!empty($cateid)) {
+    						$cname= get_mh_cate_name($cateid);
+    						if('' == $arr_catename) {
+    							$arr_catename = "<label class='tag'>{$cname}</label>";
+    						} else {
+    							$arr_catename .= "<label class='tag' style='margin-left:4px;'>{$cname}</label>";
+    						}
+    					}
+    				}
+    			}
+    			$v['arr_catename'] = $arr_catename;
+    		}
+    	}
+    	    
+	    
+	    if ($list) {
+                $this->assign('list', $list);
+                $html = $this->fetch();
+                $this->success($html);
+            } else {
+                $this->error('没有该类数据！');
+            }
+
+        } else {
+            $this->error('非法请求！');
+        }  
     }
     
     public function book_hot(){
@@ -965,6 +1070,48 @@ class AjaxController extends HomeController {
         }  
     }
     
+    public function bbook_titl(){
+        if(IS_POST){
+            $cate = I('cate');
+            $list = null;
+            
+           
+            
+            switch ($cate) {
+                case 'free':
+                     $list =  M('book')->where(array('free_type'=>1))->order('rand()')->limit(6)->select();
+                    break;
+                case 'like':
+                     $bid = I('mhid');
+                     $list = M('book')->where(array('id'=>array('neq',$bid)))->order('rand()')->limit(6)->select();
+                    break;
+                default:
+                    $list = M('book')->where(array('bookcate'=>array('like','%'.$cate.'%')))->order('rand()')->limit(6)->select();
+                    break;
+            }
+            
+           
+            
+        	if ($list) {
+                $this->assign('list', $list);
+                
+                if($cate == "free"){
+                  $html = $this->fetch("bbook_titl_free");
+                }else{
+                  $html = $this->fetch();
+                }
+                $this->success($html);
+            } else {
+                $this->error('没有该类数据！');
+            }
+
+        } else {
+            $this->error('非法请求！');
+        }    
+            
+    }
+    
+    
     public function book_titl(){
         if(IS_POST){
             $cate = I('cate');
@@ -974,7 +1121,7 @@ class AjaxController extends HomeController {
             
             switch ($cate) {
                 case 'free':
-                     $list =  M('mh_list')->where(array('free_type'=>1))->order('rand()')->limit(10)->select();
+                     $list =  M('mh_list')->where(array('free_type'=>1))->order('rand()')->limit(6)->select();
                     break;
                 case 'like':
                      $mhid = I('mhid');
@@ -1005,6 +1152,84 @@ class AjaxController extends HomeController {
         }    
             
     }
+    
+    public function bbook_list(){
+	    if(IS_POST){
+	      $page = I('post.p')-1;
+	      $cate = I('cate');
+	      
+	      switch ($cate) {
+	          case 'last':
+	               $list = M('book')->where("")->order('update_time desc')->limit($page*10,10)->select();
+	              break;
+	          case 'free':
+	               $list = M('book')->where("free_type=1")->order('sort desc')->limit($page*10,10)->select();
+	              break; 
+	         case 'mhcate':
+	               $mhcate = I("mhcate");
+	               $where['bookcate'] = array('like','%'.$mhcate.'%');
+	               $list = M('book')->where($where)->order('update_time desc')->limit($page*10,10)->select();
+	              break;          
+	          
+	          default:
+	              // code...
+	              break;
+	      }
+	    	  
+	      if(!empty($list) && is_array($list)) {
+        		foreach ($list as $k => &$v) {
+        			$arr_catename = '';
+        			$cateids = $v['cateids'];
+        			if(!empty($cateids)) {
+        				$arr_cateids = explode(',', $cateids);
+        				foreach ($arr_cateids as $k => $cateid) {
+        					if(!empty($cateid)) {
+        						$cname= get_mh_cate_name($cateid);
+        						if('' == $arr_catename) {
+        							$arr_catename = "<label class='tag'>{$cname}</label>";
+        						} else {
+        							$arr_catename .= "<label class='tag' style='margin-left:4px;'>{$cname}</label>";
+        						}
+        					}
+        				}
+        			}
+        			$v['arr_catename'] = $arr_catename;
+        		}
+        	}
+    	
+          /*if(!empty($list) && is_array($list)) {
+           		foreach ($list as $k => &$v) {
+            			$arr_catename = '';
+            			$cateids = $v['cateids'];
+            			if(!empty($cateids)) {
+            				$arr_cateids = explode(',', $cateids);
+            				foreach ($arr_cateids as $k => $cateid) {
+            					if(!empty($cateid)) {
+            						$cname= get_mh_cate_name($cateid);
+            						if('' == $arr_catename) {
+        	    						$arr_catename = "<label class='tag'>{$cname}</label>";
+            						} else {
+            							$arr_catename .= "<label class='tag' style='margin-left:4px;'>{$cname}</label>";
+            						}
+            					}
+            				}
+            			}
+            			$v['arr_catename'] = $arr_catename;
+            	}
+            }*/
+            	
+	    	if ($list) {
+                $this->assign('list', $list);
+                $html = $this->fetch();
+                $this->success($html);
+            } else {
+                $this->error('没有该类数据！');
+            }
+
+        } else {
+            $this->error('非法请求！');
+        }
+	}
 	
 	public function book_list(){
 	    if(IS_POST){
