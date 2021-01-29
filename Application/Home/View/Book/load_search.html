@@ -19,6 +19,7 @@
     <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
     <!-- 共用引入资源.结束 -->
     <script type="text/javascript" src="__PUBLIC__/home/mhjs/public.js"></script>
+    <include file="include/headcode" />
 </head>
 <body style="font-size: 12px;">
 <div class="search-bar">
@@ -88,72 +89,6 @@
 		window.location.href = "/Book/search.html?key="+key_v;
 	}
 </script>
-<!-- 统计 -->
-<!--<script type="text/javascript" src="__PUBLIC__/home/mhimages/gcoupon.min.js"></script>
-<script type="text/javascript">
-    function addLoadEvent(func){
-        if (typeof window.addEventListener != "undefined") {
-            window.addEventListener("load",func,false);
-        } else {
-            window.attachEvent("onload",func) ;
-        }
-    }
-    function tj_getcookie(name){
-        var nameValue = "";
-        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg)) {
-            nameValue = decodeURI(arr[2]);
-        }
-        return nameValue;
-    }
-    function getQueryString(name){
-        var reg = new RegExp("(^|&)"+name+"=([^&]*)(&|$)","i");
-        var r = window.location.search.substr(1).match(reg);
-        if (r!=null) return unescape(r[2]); return null;
-    }
-    addLoadEvent(function(){
-        var error_img = new Image(),channel=tj_getcookie('qrmh_channel'),channel_type=tj_getcookie('qrmh_channel_type');
-        error_img.onerror=null;
-        error_img.src="//www.efucms.com/stats/?c="+channel+"&ct="+channel_type+"&rnd="+(+new Date);
-        error_img=null;
-        //某些地方页面缓存-检测
-        var p_img =new Image(), p_userid = parseInt("5414066"),c_auth=tj_getcookie('qrmh_auth'),p_reload = getQueryString('p_reload');
-        if(p_userid>0&&c_auth==''){
-            if(p_reload==null){
-                var url = window.location.href;
-                //刷新一次页面
-                window.location.href=url.indexOf("?")>0?(url+'&p_reload=1&reload_time='+(+new Date)):(url+'?p_reload=1&reload_time='+(+new Date));
-            }else{
-                //还是出现这个问题的话，就记录下来
-                p_img.onerror=null;
-                p_img.src="//www.efucms.com/page_stats/?p_userid="+p_userid+"&rnd="+(+new Date);
-            }
-        }
-        p_img=p_userid=c_auth=p_reload=null;
-    });
-    //update byefucms 20170906 某些手机系统下，旋转屏幕出现页面混乱问题，通过延时500ms滚动页面1个单位得以恢复正常
-    var evt = "onorientationchange" in window ? "orientationchange" : "resize";
-    window.addEventListener(evt, function() {
-        setTimeout(function(){
-            window.scrollTo(0, window.pageYOffset+1);
-        },500);
-    }, false);
-</script> -->
-<!-- 统计 -->
-<!-- 第三方qq统计 -->
-<!-- <script type="text/javascript">
-    var _mtac = {};
-    (function() {
-        setTimeout(function(){
-            var mta = document.createElement("script");
-            mta.src = (("https:" == document.location.protocol) ? "https://" : "http://")+"pingjs.qq.com/h5/stats.js?v2.0.4";
-            mta.setAttribute("name", "MTAH5");
-            mta.setAttribute("sid", "500462993");
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(mta, s);
-        },888);
-    })();
-</script> -->
-<!-- 第三方qq统计 -->
 
+<include file="include/footer" />
 </body></html>
