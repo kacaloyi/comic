@@ -43,8 +43,8 @@
 
 <!--顶部广告代码结束-->
     <volist name="arr_pics" id="vo">
-    <figure class="item" style="">
-        <img class="lazy show-menu" src="" data-id="2" data-original="{$vo}" style="background: rgb(238, 238, 238); display: block;">
+    <figure class="item" >
+        <img class="lazy show-menu"  data-original="{$vo}" style="background: rgb(238, 238, 238); display: block; width:800; height:1600">
     </figure>
     </volist>
 </article>
@@ -261,11 +261,15 @@
 		}
 		$.post(url,data,fun1,'json');
 	}
+	
+
 
 	$(function() {  
 		$("img.lazy").lazyload({
-		    placeholder : "/Public/file/default_img.png",
-		    effect: "fadeIn"
+		    placeholder_data_img : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAMAAACuX0YVAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAGUExURdTU1LS0tHd5WkQAAAAOSURBVHjaYmBgYAQIMAAABQACh4LffgAAAABJRU5ErkJggg==',
+		    effect: "fadeIn",
+		    failure_limit : 1,
+		    no_fake_img_loader:true
 		    });
 
 		$('.btn-tip-menu').click(function(){
