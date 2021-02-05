@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0036)https://m.efucms.com/book/10227/ -->
 <html data-dpr="1" style="font-size: 43.1px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{$info.title}_{$info.title}漫画_{$info.title}漫画全集在线阅读 - {$_CFG['site']['name']}</title>
+    <title>{$info.title}_{$info.title}漫画全集在线阅读 - {$_CFG['site']['name']}</title>
     <meta name="keywords" content="{$info.title},{$info.title}漫画,{$info.title}漫画全集,{$info.title}漫画免费阅读,漫画大全,好看的漫画">
     <meta name="description" content="{$info.summary} {$_CFG['site']['name']}诚意呈献">
     <!-- 共用引入资源.开始 -->
@@ -115,7 +115,7 @@
             <path d="M21.56 39.47a2 2 0 0 1-1.38-.56L.44 20 20.18 1.09A2.01 2.01 0 1 1 22.95 4L6.23 20l16.72 16a2 2 0 0 1-1.38 3.44z" fill="#fff"></path></svg>
         </a>
         <div id="showcollect">
-        <if condition="$tag eq 1">
+        <if condition="($tag eq 1)">
         	<a href="javascript:void(0);" onclick="user_add_book_shelf({$info.id});" class="btn gray">
 		       	已收藏
 		    </a>
@@ -166,10 +166,10 @@
 			$money = $_site['mhmoney'];
 		}
 		$money = intval($money);
-		$read = M('mh_read')->where(array('ji_no'=>$vo,'mhid'=>$info['id'],'user_id'=>$user['id']))->find();
+		$read = false;// M('mh_read')->where(array('ji_no'=>$vo,'mhid'=>$info['id'],'user_id'=>$user['id']))->find();
 	?>
     
-		<if condition="$vo egt $info['pay_num'] and $info['pay_num'] gt 0">
+		<if condition="$vo['ji_no'] egt $info['pay_num'] and $info['pay_num'] gt 0">
 			<if condition="$read">
 				<div class="item">
 				   	<a href="{:U('Mh/'.$info['id'].'/'.$vo['ji_no'])}" class="">
@@ -505,7 +505,7 @@
                 }
             } else {
             	alert(data2.info);
-            	location.href = "index.php?m=Home&c=MhPublic&a=login";
+            	location.href = '{:U("Member/login")}';
             }
         }
         $.post(url1,data1,fun1,'json');

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0044)https://m.efucms.com/book/{:U('Mh/book_cate')} -->
 <html data-dpr="1" style="font-size: 41.6px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{$info.title}无弹窗_{$info.title}最新章节列表_{$_CFG['site']['name']}小说网</title>
+    <title>{$info.title}小说最新章节列表_{$_CFG['site']['name']}</title>
     <meta name="keywords" content="{$info.title},{$info.title}网络小说,{$info.author}">
     <meta name="description" content="{$info.summary} {$_CFG['site']['name']}诚意呈献">
     <!-- 共用引入资源.开始 -->
@@ -93,7 +93,7 @@
             <path d="M21.56 39.47a2 2 0 0 1-1.38-.56L.44 20 20.18 1.09A2.01 2.01 0 1 1 22.95 4L6.23 20l16.72 16a2 2 0 0 1-1.38 3.44z" fill="#fff"></path></svg>
         </a>
         <div id="showcollect">
-        <if condition="$tag eq 1">
+        <if condition="($tag eq 1)">
         	<a href="javascript:void(0);" onclick="user_add_book_shelf({$info.id});" class="btn gray">
 		       	已收藏
 		    </a>
@@ -479,7 +479,7 @@
                 }
             } else {
             	alert(data2.info);
-            	location.href = "index.php?m=Home&c=MhPublic&a=login";
+            	location.href =  '{:U("Member/login")}';
             }
         }
         $.post(url1,data1,fun1,'json');
