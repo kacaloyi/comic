@@ -17,13 +17,14 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/mhcss/style.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/vendor.css">
     <!--script type="text/javascript" src="__PUBLIC__/home/mhjs/fundebug.0.1.7.min.js" apikey="ba3a0e0d938e92b44f279067dffb8d071ee87fc35eb75918b7a900e8581a955d"></script-->
-    <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
+ 
+</head>
+<body style="font-size: 12px;">
+   <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
     <!-- 共用引入资源.结束 -->
     <!--script type="text/javascript" src="__PUBLIC__/home/mhjs/saved_resource"></script-->
 	<script type="text/javascript" src="__PUBLIC__/home/js/newWindow.js"></script>
-	<script type="text/javascript" src="__PUBLIC__/js/jquery.lazyload.min.js"></script>
-</head>
-<body style="font-size: 12px;">
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.lazyload.min.js"></script>    
 <div class="rt-bar" style="position: absolute">
     <div class="row">
         <div class="col icon">
@@ -262,15 +263,19 @@
 		$.post(url,data,fun1,'json');
 	}
 	
-
-
-	$(function() {  
-		$("img.lazy").lazyload({
+    function lazystart(){
+        $("img.lazy").lazyload({
 		    placeholder_data_img : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAMAAACuX0YVAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAGUExURdTU1LS0tHd5WkQAAAAOSURBVHjaYmBgYAQIMAAABQACh4LffgAAAABJRU5ErkJggg==',
-		    effect: "fadeIn",
+		   // effect: "fadeIn",
 		    failure_limit : 1,
 		    no_fake_img_loader:true
 		    });
+        
+    }
+
+	$(function() {  
+	    
+        lazystart();
 
 		$('.btn-tip-menu').click(function(){
 			$(".ds").fadeIn(300);
@@ -333,11 +338,19 @@
         }
         monitor();
 
+        var lazycount = 0 ;
         $(window).scroll(function(){
             var arr=monitor();
             var winH=arr[0];
             var winST = arr[1];
             var docH = arr[2];
+            
+            lazycount ++;
+            if(lazycount>60){
+                lazycount =0;
+                lazystart();
+            }
+            
             if(winST<=winH/10){
                 $('.chapter-menu').hide(); //在首屏时隐藏
                 $('.rt-bar').removeClass('flt');

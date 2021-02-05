@@ -14,10 +14,10 @@
     </script>
     <include file="include/headcode" />  
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/mhcss/style.min.css">
-    <script type="text/javascript" src="__PUBLIC__/home/mhjs/fundebug.0.1.7.min.js" apikey="ba3a0e0d938e92b44f279067dffb8d071ee87fc35eb75918b7a900e8581a955d"></script>
+    <!--script type="text/javascript" src="__PUBLIC__/home/mhjs/fundebug.0.1.7.min.js" apikey="ba3a0e0d938e92b44f279067dffb8d071ee87fc35eb75918b7a900e8581a955d"></script-->
     <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
     <!-- 共用引入资源.结束 -->
-    <script type="text/javascript" src="__PUBLIC__/home/mhjs/saved_resource"></script>
+    <!--script type="text/javascript" src="__PUBLIC__/home/mhjs/saved_resource"></script-->
 <style>
         @media screen and (min-width:320px) {html {font-size:63.3%!important}}
         @media screen and (min-width:375px) {html {font-size:62.5%!important}}
@@ -96,7 +96,6 @@
     })();
 </script>
 <!-- 统计 -->
-<script type="text/javascript" src="__PUBLIC__/home/mhjs/gcoupon.min.js"></script>
 <script type="text/javascript">
     function addLoadEvent(func){
         if (typeof window.addEventListener != "undefined") {
@@ -118,26 +117,7 @@
         var r = window.location.search.substr(1).match(reg);
         if (r!=null) return unescape(r[2]); return null;
     }
-    addLoadEvent(function(){
-        var error_img = new Image(),channel=tj_getcookie('qrmh_channel'),channel_type=tj_getcookie('qrmh_channel_type');
-        error_img.onerror=null;
-        error_img.src="//www.efucms.com/stats/?c="+channel+"&ct="+channel_type+"&rnd="+(+new Date);
-        error_img=null;
-        //某些地方页面缓存-检测
-        var p_img =new Image(), p_userid = parseInt("0"),c_auth=tj_getcookie('qrmh_auth'),p_reload = getQueryString('p_reload');
-        if(p_userid>0&&c_auth==''){
-            if(p_reload==null){
-                var url = window.location.href;
-                //刷新一次页面
-                window.location.href=url.indexOf("?")>0?(url+'&p_reload=1&reload_time='+(+new Date)):(url+'?p_reload=1&reload_time='+(+new Date));
-            }else{
-                //还是出现这个问题的话，就记录下来
-                p_img.onerror=null;
-                p_img.src="//www.efucms.com/page_stats/?p_userid="+p_userid+"&rnd="+(+new Date);
-            }
-        }
-        p_img=p_userid=c_auth=p_reload=null;
-    });
+
     //update byefucms 20170906 某些手机系统下，旋转屏幕出现页面混乱问题，通过延时500ms滚动页面1个单位得以恢复正常
     var evt = "onorientationchange" in window ? "orientationchange" : "resize";
     window.addEventListener(evt, function() {
