@@ -282,7 +282,10 @@ class MhController extends HomeController {
     	
     	foreach($list as $k=> $v){
     	    $esp= M('read')->where(array('user_id'=>$this->user['id'],'rid'=>$v['mhid']))->order('create_time desc')->find();
+    	    if($esp)
     	    $list[$k]['ji_no'] = $esp['episodes'];
+    	    else
+    	    $list[$k]['ji_no'] = 0;
     	   
     	}
     	

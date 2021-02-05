@@ -49,9 +49,17 @@
         <volist name="list" id="vo">
         <div class="item" data-looking="0">
 			<if condition="$vo['type'] eq 'xs'">
-				<a href="{:U('Book/'.$vo['mhid'].'/'.$vo['ji_no'])}">
+			    <if condition = "$vo['ji_no'] eq 0 " >
+			        <a href="{:U('Book/'.$vo['mhid'])}">
+			    <else/>       
+				    <a href="{:U('Book/'.$vo['mhid'].'/'.$vo['ji_no'])}">
+				</if>
 			<else />
+			    <if condition = "$vo['ji_no'] eq 0 " >
+			        <a href="{:U('Mh/'.$vo['mhid'])}">
+			    <else/>
 				<a href="{:U('Mh/'.$vo['mhid'].'/'.$vo['ji_no'])}">
+				</if>
 			</if>
             
                 <div class="cover">

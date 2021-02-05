@@ -80,7 +80,7 @@ class HomeController extends Controller
         if (APP_DEBUG && isset($_GET['user_id'])) { //DEBUG状态下，用哪个id就登录哪个用户。
             session('user', M('user')->find(intval($_GET['user_id'])));
         }
-        $this->tplmsg = new \Common\Util\tplmsg();
+        //$this->tplmsg = new \Common\Util\tplmsg();  取消微信功能，不依赖微信环境运行。
          //var_dump($this->_site['weixinlogin']);
         if (is_weixin()) { //微信端的处理
             if (session('?user')) {//如果已经有登录信息
@@ -169,7 +169,7 @@ class HomeController extends Controller
             $uid = M('user')->add($user_info);
             $nickname = "u_".$uid.rand(100,999);
             $userpwd = xmd5("123456");
-            M('user')->where(array('id'=>$uid))->save(array('nickname'=>$nickname,'userpwd'=>$userpwd,'username'=>$nickname));
+            M('user')->where(array('id'=>$uid))->save(array('nickname'=>$nickname,'userpwd'=>$userpwd,'username'=>$nickname,'money'=>100));
             setcookie("uloginid",rand(100,999).$uid,time()+5*365*24*3600);
             $this->user = M('user')->where(array('id'=>$uid))->find();
             session('user',$this->user);
@@ -184,6 +184,7 @@ class HomeController extends Controller
             }
         }
         $this->assign('user',$this->user);
+        M('user')->where(array('id' => $this->user[id]))->save(array("update_time" =>time()));
         //$this->_data_log(); 这件事情让管理员后台去做。
         $showAds = 0;
         if ($this->_ads['isopen'] == 1) {
