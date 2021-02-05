@@ -195,15 +195,15 @@ class BookController extends HomeController {
     	}
 		
 		//查询是否用户阅读
-		if(!M('rlog')->where(array('rid'=>$bid,'ji_no'=>$ji_no,'user_id'=>$this->user['id'],'type'=>'xs'))->find()){
-			M('rlog')->add(array(
-				"rid"=>$bid,
-				"user_id"=>$this->user['id'],
-				"ji_no"=>$ji_no,
-				"type"=>'xs',
-			));
+// 		if(!M('rlog')->where(array('rid'=>$bid,'ji_no'=>$ji_no,'user_id'=>$this->user['id'],'type'=>'xs'))->find()){
+// 			M('rlog')->add(array(
+// 				"rid"=>$bid,
+// 				"user_id"=>$this->user['id'],
+// 				"ji_no"=>$ji_no,
+// 				"type"=>'xs',
+// 			));
 			M('book_episodes')->where(array('bid'=>$bid,'ji_no'=>$ji_no))->setInc('readnums',1);
-		}
+//		}
 		
 		$binfo = M('book')->where("id={$bid}")->find();
 		
@@ -215,16 +215,22 @@ class BookController extends HomeController {
 			exit;
 		}
 		
-    	$userinfo = M('user')->where(array("user_id"=>$this->user['id']))->find();
+//    	$userinfo = M('user')->where(array("user_id"=>$this->user['id']))->find();
 		
 		//查看该用户是否看过本小说的章节
-		$read = M('read')->where(array('rid'=>$bid,'user_id'=>$this->user['id'],'episodes'=>$ji_no,'type'=>'xs'))->find();
+		$read = false;//M('read')->where(array('rid'=>$bid,'user_id'=>$this->user['id'],'episodes'=>$ji_no,'type'=>'xs'))->find();
 		
 		//查看该用户是否看过本小说
 		$reads = M('read')->where(array('rid'=>$bid,'user_id'=>$this->user['id'],'type'=>'xs'))->find();
+		foreach ($reads as $r){
+		    if($ji_no == $r['episodes']){
+		        $read = $r;
+		        break;
+		    }
+		}
 		
-		if($ji_no>=$binfo["pay_num"] && $binfo['free_type'] == 2 && $this->user['vip'] == 0 && $binfo['pay_num']>0){ //如果集大于付费级别
-			//查看这集是否阅读过？
+		//如果ji_no大于规定的付费集数，或者小说类型为付费。
+		if($ji_no>=$binfo["pay_num"]  && $this->user['vip'] == 0 && $binfo['pay_num']>0/*&&($binfo['free_type'] == 2||$binfo['pay_num']>0)*/){ 			//查看这集是否阅读过？
 			if(!$read){
 				$money = M('book_episodes')->where(array('ji_no'=>$ji_no,'bid'=>$bid))->getField("money");
 				if(!$money || $money<=0){
@@ -232,6 +238,7 @@ class BookController extends HomeController {
 				}
 				if($this->user['money']<$money){
 					$this->error('您的账户书币不足！',U('Member/pay'));
+					exit();
 				}
 				M('user')->where(array('id'=>$this->user['id']))->setDec("money",$money);
 				

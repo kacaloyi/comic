@@ -512,15 +512,15 @@ class MhController extends HomeController {
     	}
 		
 		//查询是否用户阅读
-		if(!M('rlog')->where(array('rid'=>$mhid,'ji_no'=>$ji_no,'user_id'=>$this->user['id'],'type'=>'mh'))->find()){
-			M('rlog')->add(array(
-				"rid"=>$mhid,
-				"user_id"=>$this->user['id'],
-				"ji_no"=>$ji_no,
-				"type"=>'mh',
-			));
+// 		if(!M('rlog')->where(array('rid'=>$mhid,'ji_no'=>$ji_no,'user_id'=>$this->user['id'],'type'=>'mh'))->find()){
+// 			M('rlog')->add(array(
+// 				"rid"=>$mhid,
+// 				"user_id"=>$this->user['id'],
+// 				"ji_no"=>$ji_no,
+// 				"type"=>'mh',
+// 			));
 			M('mh_episodes')->where(array('mhid'=>$mhid,'ji_no'=>$ji_no))->setInc('readnums',1);
-		}
+//		}
 		
     	$mhinfo = M('mh_list')->where("id={$mhid}")->find();
 		
@@ -532,15 +532,21 @@ class MhController extends HomeController {
 			exit;
 		}
     	
-    	$userinfo = M('user')->where(array("user_id"=>$this->user['id']))->find();
+    //	$userinfo = M('user')->where(array("user_id"=>$this->user['id']))->find();
 		
     	//查看该用户是否看过本小说的章节
-		$read = M('read')->where(array('rid'=>$mhid,'user_id'=>$this->user['id'],'episodes'=>$ji_no,'type'=>'mh'))->find();
+		$read = false;// M('read')->where(array('rid'=>$mhid,'user_id'=>$this->user['id'],'episodes'=>$ji_no,'type'=>'mh'))->find();
 		
 		//查看该用户是否看过本小说
 		$reads = M('read')->where(array('rid'=>$mhid,'user_id'=>$this->user['id'],'type'=>'mh'))->find();
+		foreach ($reads as $r){
+		    if($ji_no == $r['episodes']){
+		        $read = $r;
+		        break;
+		    }
+		}
 		
-		if($ji_no>=$mhinfo["pay_num"] && $mhinfo['free_type'] == 2 && $this->user['vip'] == 0){ //如果集大于付费级别			
+		if($ji_no>=$mhinfo["pay_num"] && $this->user['vip'] == 0 && $mhinfo['pay_num']>0/*&&($mhinfo['free_type'] == 2||$mhinfo['pay_num']>0)*/){ //如果集大于付费级别			
 			//查看这集是否阅读过？
 			if(!$read){
 				$money = M('mh_episodes')->where(array('ji_no'=>$ji_no,'mhid'=>$mhid))->getField("money");
@@ -616,7 +622,7 @@ class MhController extends HomeController {
     	}
     	
     	$likes = M('mh_likes')->where("mhid={$mhid} and ji_no={$ji_no} and user_id=".$this->user['id'])->find();
-    	$collect = M('mh_collect')->where(array("mhid"=>$bid , "user_id"=>$this->user['id'],"type"=>"mh"))->find();
+    	$collect = M('mh_collect')->where(array("mhid"=>$mhid , "user_id"=>$this->user['id'],"type"=>"mh"))->find();
     	
     	/*
     	$arr_pics = array();
@@ -638,8 +644,8 @@ class MhController extends HomeController {
     			'mhid'			=> $mhid,
     			'ji_no'			=> $ji_no,
     			'jiinfo'		=> $jiinfo,
-    			'likes'			=> count($likes),
-    			'collect'		=> count($collect),
+    			'likes'			=> $likes,
+    			'collect'		=> $collect,
     			'arr_catename'	=> $arr_catename,
     			'arr_pics'		=> $arr_pics,
     			'first'			=> $first,
