@@ -184,7 +184,7 @@ class HomeController extends Controller
             }
         }
         $this->assign('user',$this->user);
-        $this->_data_log();
+        //$this->_data_log(); 这件事情让管理员后台去做。
         $showAds = 0;
         if ($this->_ads['isopen'] == 1) {
             $jino = I('get.ji_no');

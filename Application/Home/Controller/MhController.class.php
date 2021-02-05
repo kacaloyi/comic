@@ -28,10 +28,10 @@ class MhController extends HomeController {
 		$this->assign('mf',M('mh_list')->where(array('free_type'=>1))->order('rand()')->limit(10)->select());
 		
 		
-		$dd = new \Common\Util\ddwechat();
-        $dd->setParam($this->_mp);
-        $jssdk = $dd->getsignpackage();
-        $this->assign('jssdk', $jssdk);
+// 		$dd = new \Common\Util\ddwechat();
+//         $dd->setParam($this->_mp);
+//         $jssdk = $dd->getsignpackage();
+//         $this->assign('jssdk', $jssdk);
 		
 		$this->display();
     }
@@ -438,10 +438,10 @@ class MhController extends HomeController {
 		
     	$this->assign($asdata);
 		
-		$dd = new \Common\Util\ddwechat();
-        $dd->setParam($this->_mp);
-        $jssdk = $dd->getsignpackage();
-        $this->assign('jssdk', $jssdk);
+// 		$dd = new \Common\Util\ddwechat();
+//         $dd->setParam($this->_mp);
+//         $jssdk = $dd->getsignpackage();
+//         $this->assign('jssdk', $jssdk);
 		
 		$this->display();
     }
@@ -650,10 +650,10 @@ class MhController extends HomeController {
 		}
 		
 		
-		$dd = new \Common\Util\ddwechat();
-        $dd->setParam($this->_mp);
-        $jssdk = $dd->getsignpackage();
-        $this->assign('jssdk', $jssdk);
+// 		$dd = new \Common\Util\ddwechat();
+//         $dd->setParam($this->_mp);
+//         $jssdk = $dd->getsignpackage();
+//         $this->assign('jssdk', $jssdk);
 		
     	$this->assign($asdata);
     	$this->display();

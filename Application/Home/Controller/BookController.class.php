@@ -25,10 +25,10 @@ class BookController extends HomeController {
 		$this->assign('bookcate',$bookcate);
 		$this->assign('mf',M('book')->where(array('free_type'=>1))->order('rand()')->limit(6)->select());
 		
-		$dd = new \Common\Util\ddwechat();
-        $dd->setParam($this->_mp);
-        $jssdk = $dd->getsignpackage();
-        $this->assign('jssdk', $jssdk);
+// 		$dd = new \Common\Util\ddwechat();
+//         $dd->setParam($this->_mp);
+//         $jssdk = $dd->getsignpackage();
+//         $this->assign('jssdk', $jssdk);
 		
 		$this->display();
     }
@@ -50,7 +50,7 @@ class BookController extends HomeController {
     	
     	$tag = 2; //未收藏
     	$lock = 1; //1锁 2不锁
-    	if(session('user_id') > 0) {
+    	if(session('user.id') > 0) {
 	    	$old = M('mh_collect')->where(array("mhid"=>$bid , "user_id"=>$this->user['id'],"type"=>"xs"))->find();
 	    	if($old) {
 	    		$tag = 1;
@@ -103,10 +103,10 @@ class BookController extends HomeController {
 		
     	$this->assign($asdata);
 		
-		$dd = new \Common\Util\ddwechat();
-        $dd->setParam($this->_mp);
-        $jssdk = $dd->getsignpackage();
-        $this->assign('jssdk', $jssdk);
+// 		$dd = new \Common\Util\ddwechat();
+//         $dd->setParam($this->_mp);
+//         $jssdk = $dd->getsignpackage();
+//         $this->assign('jssdk', $jssdk);
 		
     	$this->display();
     }
@@ -308,10 +308,10 @@ class BookController extends HomeController {
 		$this->assign('likes',$likes);
     	
 	
-		$dd = new \Common\Util\ddwechat();
-        $dd->setParam($this->_mp);
-        $jssdk = $dd->getsignpackage();
-        $this->assign('jssdk', $jssdk);
+// 		$dd = new \Common\Util\ddwechat();
+//         $dd->setParam($this->_mp);
+//         $jssdk = $dd->getsignpackage();
+//         $this->assign('jssdk', $jssdk);
 	
     	$this->display();
     }
@@ -654,7 +654,7 @@ class BookController extends HomeController {
     						$money = $this->_site['mhmoney'];
     					}
     					$money = intval($money);
-    					$read = M('read')->where(array('episodes'=>$vo['ji_no'],'rid'=>$id,'user_id'=>$this->user['id'],'type'=>$type))->find();
+    					$read =  false;//M('read')->where(array('episodes'=>$vo['ji_no'],'rid'=>$id,'user_id'=>$this->user['id'],'type'=>$type))->find();
     				    if($vo['ji_no']>=$info['pay_num'] && $info['pay_num']>0){
     					   if($read){
     						   $html.= '<div class="item">';
@@ -671,7 +671,7 @@ class BookController extends HomeController {
     				   $html.=$vo['imgHead'].'" data-original="'.$vo['imgHead'].'" style='."width:100%".' ></span>';
  
     				   $html.=$vo['title'];
-    				   $html.='<span>'.$money.'书币</span>';
+    				   if($money>0) $html.='<span>'.$money.'书币</span>';
     				   $html.='</a>';
     				   $html.='</div>';
 				    }
@@ -686,7 +686,7 @@ class BookController extends HomeController {
     					}
     					$money = intval($money);
     					
-    					$read = M('read')->where(array('episodes'=>$vo['ji_no'],'rid'=>$id,'user_id'=>$this->user['id'],"type"=>$type))->find();
+    					$read = false;// M('read')->where(array('episodes'=>$vo['ji_no'],'rid'=>$id,'user_id'=>$this->user['id'],"type"=>$type))->find();
     				    if($vo['ji_no']>=$info['pay_num'] && $info['pay_num']>0){
     					   if($read){
     						   $html.= '<div class="item">';
@@ -699,7 +699,7 @@ class BookController extends HomeController {
     				   }
     				   
 				   $html.='<a href="'.U('Book/'.$id.'/'.$vo['ji_no']).'"  style="">'.$vo['title'];
-				   $html.='<span>'.$money.'书币</span>';
+				   if($money>0) $html.='<span>'.$money.'书币</span>';
 				   $html.='</a>';
 				   $html.='</div>';
 				   
