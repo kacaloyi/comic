@@ -35,8 +35,8 @@ class IndexController extends AdminController {
 						/* if(isset($_POST['remember'])){
 							cookie('admin_user', $_POST['user']);
 						} */
-					
-						redirect(U('Admin/welcome'));
+					    $this->success("登录成功",U('Admin/welcome'));
+						//redirect(U('Admin/welcome'));
 						exit;
 					}else{
 						$this -> assign('errmsg', '密码不对');
