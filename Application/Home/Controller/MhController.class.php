@@ -419,7 +419,8 @@ class MhController extends HomeController {
 		
 		foreach ($huas as $k=> $h){
 			$arr_pics = getPicArray($h['pics']);
-			$huas[$k]['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
+			//$huas[$k]['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
+			$huas[$k]['imgHead']= $arr_pics[0]; 
 			$huas[$k]['pics']="";//减少一点儿传输量。
 		}
     	$asdata = array(

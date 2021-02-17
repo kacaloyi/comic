@@ -363,6 +363,7 @@ class MemberController extends HomeController {
     	$msgid = I('msgid',0,'intval');
     	$cond = array('id' => $msgid);
     	$info = M('notice')->where($cond)->find();
+
     	$asdata = array(
     			'info'	=> $info,
     	);
@@ -1029,8 +1030,10 @@ class MemberController extends HomeController {
    public function getRecord(){
 	   if(IS_POST){
 		   $model = I('post.model');
-		   $page = I('post.page');
+		   $page = intval(I('post.page'));
+		   if($page<=1) $page = 1;
 		   $size = 20;
+		   $start =($page-1)*$size;
 		   $end = ($page)*$size;
 		   $list =array();
 
@@ -1039,7 +1042,7 @@ class MemberController extends HomeController {
            switch (intval($model)) {
                 case 1:
                     {
-                    $list = M('charge')->where(array('user_id'=>$this->user['id'],'status'=>2))->order('create_time desc')->limit(0,$end)->select();  //->limit($start,$size)
+                    $list = M('charge')->where(array('user_id'=>$this->user['id'],'status'=>2))->order('create_time desc')->limit($start,$size)->select();  //->limit($start,$size)
     				foreach($list as $k=>$v){
 						$rule = $this->_getChargeConfig($v['money']);
 						if($rule['isVIP']==0)
@@ -1052,14 +1055,14 @@ class MemberController extends HomeController {
                     break;
                 case 2:
                     {
-                    $list = M('sign')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->limit(0,$end)->select();
+                    $list = M('sign')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->limit($start,$size)->select();
     				foreach($list as $k=>$v){
     					$list[$k]['time'] = date('Y-m-d H:i:s',$v['create_time']);
     				}}
                     break;
                 case 3:
                     {
-                    $list = M('reward_task')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->limit(0,$end)->select();
+                    $list = M('reward_task')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->limit($start,$size)->select();
     				foreach($list as $k=>$v){
     					$list[$k]['time'] = date('Y-m-d H:i:s',$v['create_time']);
     				}}
@@ -1067,7 +1070,7 @@ class MemberController extends HomeController {
                 case 0:
                     {
                      
-                    $list = M('read_charge')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->limit(0,$end)->select();
+                    $list = M('read_charge')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->limit($start,$size)->select();
                     //$this->error('进来了'.sizeof($list)."userid=".$this->user['id']);
                     foreach($list as $k=>$v){
     					$list[$k]['time'] = date('Y-m-d H:i:s',$v['create_time']);
