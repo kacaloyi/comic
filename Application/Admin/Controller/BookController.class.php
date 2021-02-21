@@ -85,6 +85,7 @@ class BookController extends AdminController {
 	public function saveCoverPic($bid,$filename){
 	    $no  =intval ($bid/1000) ;
 	    $ext =pathinfo($filename,PATHINFO_EXTENSION); 
+	    if(!$filename) $ext = ".jpg";
 	    
 	    //$desname=trim($this->_site['txtdir'].$no."/".$bid."/".$bid."s.".$ext);
 	    $desname=trim("/Public/file/cover/".$bid."s.".$ext);
@@ -203,7 +204,7 @@ class BookController extends AdminController {
 	             'episodes'=>0,
 	             'pay_num'=>0,
 	             'reader'=>$reads_book,
-	             'like'=>$dz_book,
+	             'likes'=>$dz_book,
 	             'collect'=>$sc_book,
 	             
 	             'is_new'=>0,
@@ -236,6 +237,7 @@ class BookController extends AdminController {
 	
 	//临时的工具函数，把数据库中的info转存到文件中。
 	protected function _rtChapt(){
+	    die("这个工具已经停用，需要使用请联系超级管理员");
 	    $clist = M('book_episodes')->where("1")->select();
 	    
 	    foreach ($clist as $t){
@@ -248,7 +250,7 @@ class BookController extends AdminController {
 	    
 	}
 	
-	// 编辑、添加小说
+	// 手工编辑、添加小说
 	public function edit(){
 		if(IS_POST){
 			$cateids = implode(',', $_POST['arrcateids']);
@@ -265,23 +267,71 @@ class BookController extends AdminController {
 				$rs = M('book') -> where('id='.intval($_GET['id'])) -> save($_POST);
 		
 				$product_id = intval($_GET['id']);
-				$this->success('操作成功！');
+				//$this->success('操作成功！');
 			}else{
+			    //新建
+			    // 小说阅读数（1万-10万之间）
+                $reads_book=mt_rand(10000, 100000);
+                // 小说点赞数（3000-1万之间）
+                $dz_book=mt_rand(3000, 10000);
+                // 章节点赞数（3000-1万之间）
+                $dzzj_book=$dz_book;
+                // 收藏数（3000-5000之间）
+                $sc_book=mt_rand(3000, 5000);
+                // 打赏数（1000-3000之间）
+                $ds_book=mt_rand(1000, 3000);
 				$_POST['create_time'] = NOW_TIME;
 				$_POST['update_time'] = NOW_TIME;
+				$_POST['reader']  =$reads_book;
+	            $_POST['likes']   =$dz_book;
+	            $_POST['collect']=$sc_book;
+	            
 				$rs = M('book') -> add($_POST);
+				$des = $this -> saveCoverPic($rs,$_POST['cover_pic']);
+    	      
+    	        $_POST['cover_pic']=$des;
+    	        $_POST['detail_pic']=$_POST['cover_pic'];
+    	        $_POST['share_pic']=$_POST['cover_pic'];
+    	     
 				$product_id = $rs;
+				$_GET['id'] = $rs;
 				
-				//若上传了分集压缩包
-				if(!empty($_FILES['cert'])){
-					 $upload = new \Think\Upload();
-					 $upload->maxSize   =     10000*1024*1024 ;
-					 $upload->exts      =     array('zip','rar');
-					 $upload->rootPath  =     './Public/xiaoshuo/';
-					 $upload->savePath  =     xmd5(time().rand()).'/';
-					 $upload ->autoSub = false;
+				M('book') -> where('id='.$rs) -> save(array(
+	                'cover_pic'=>$_POST['cover_pic'],
+	                'detail_pic'=>$_POST['cover_pic'],
+	                'share_title'=>$_POST['title'],
+	                'share_pic'=>$_POST['cover_pic'],
+	                'share_desc'=>$_POST['summary']
+				     
+				     ));
+			}
+			
+			if(!$product_id){
+			    $this->error("小说参数错误，没有相应的小说ID");
+			}
+			//若上传了分集压缩包
+			//(每一章单独一个小文件，文件名用章节id，文件内容是“章节标题###章节内容”,然后所有文件打包成一个zip。
+			//zip文件不带根目录，这个zip文件解压后，是把所有章节文件放在与zip文件相同的目录下。
+			if(!empty($_FILES['cert']["name"])){
+			    
+			    $this -> error('不要用\"分集压缩包\"，章节多的时候非常容易出错!');
+			    die();
+			    
+			         $config = array(
+                        'maxSize' => 100*1024*1024 ,
+                        'exts' => array('zip','rar','jpg','png','gif','jpeg'),
+                        'rootPath' => './Public/file/zip/',
+                        'savePath' => $product_id.'/',
+                        'saveName' => '',
+                        'autoSub' => true,
+                        'subName' => array('date','Ymd'),
+                     );
+                     $upload = new \Think\Upload($config);
+
+					 
 					 $info   =   $upload->upload();
-					 if($info){
+					
+    				 if($info){
 						$info = $info['cert'];
 						// 解压
 						$path = $upload->rootPath . $info['savepath'];
@@ -299,19 +349,19 @@ class BookController extends AdminController {
 								$this -> error('解压失败!');
 							}
 						}else{
-							$this -> error('系统没找到上传的文件');
+							$this -> error($upload->getError());
 						}
-					}else {
-						$this -> error('上传错误');
+
+					    $this->addEpisodes($path,$product_id);
+					    $this -> success('上传章节文件操作成功！');
+					
 					}
-					$this->addEpisodes($path,$product_id);
-					$this -> success('操作成功！');
 					// $this -> success('操作成功！', U('index'));
-					exit;
+				
 				}
-			}
 			
-			exit;
+			
+		//	exit;
 		}
 		
 		if(intval($_GET['id'])>0) {
@@ -347,13 +397,18 @@ class BookController extends AdminController {
 				foreach ($temp as $v) {
 					$str = file_get_contents($path.$v);
 					
-					$str = "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$str;
+					$info = explode('###',$str);
+					$title =trim(substr($info[0],0,64));//章节标题最长64，过长的部分会被截断。
+					
+					$str = "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$info[1];
 
 					$str = preg_replace('/\n|\r\n/','</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',$str);
 
 					$before = $i-1;
 					$next = $i+1;
-					$title = trim(substr($v,0,-4));
+					
+					$ji_no=pathinfo($path.$v, PATHINFO_FILENAME);
+					
 					// var_dump(iconv('GBK','UTF-8',$v));
 					$str = iconv('GBK','UTF-8',$str);
 					$title = iconv('GBK','UTF-8',$title);
@@ -361,17 +416,19 @@ class BookController extends AdminController {
 					$ds = array(
 						"bid"=>$bid,
 						"title"=>$title,
-						"ji_no"=>$i,
-						"info"=>$str,
+						"ji_no"=>$ji_no,
+						"info"=>"",
 						"like"=>0,
-						"before"=>$before,
-						"next"=>$next,
+						"before"=>0,
+						"next"=>0,
 						"money"=>0,
-						"create_time"=>time(),
-						"update_time"=>0,
+						"create_time"=>NOW_TIME,
+						"update_time"=>NOW_TIME,
 					);
-					M('book')->where(array('id'=>$bid))->save(array('episodes'=>$i));
 					M('book_episodes')->add($ds);
+					$this->saveChap2File($bid,$i,$str);
+					$cnt = M('book_episodes')->where("bid={$bid}")->count();
+			        M('book')->where("id={$bid}")->setField(array('episodes'=>$cnt,'update_time'=>NOW_TIME));
 					$i++;
 				}	
 			}
