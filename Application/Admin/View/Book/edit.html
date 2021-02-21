@@ -127,6 +127,7 @@
 							<input type="text" name="detail_pic" id="detail_pic" value="{$info.detail_pic}" class="smallinput" />
 						</td>
 					</tr>
+
 					
 					<tr>
 						<th class="title">
@@ -137,6 +138,7 @@
 							<input type="file" name="cert" />
 						</td>
 					</tr>
+					
 					
 					
 					<tr>
@@ -163,7 +165,7 @@
 						</th>
 						<td>
 							<iframe src="{:U('upload', 'event=setPics&url='.$info['share_pic'])}" scrolling="no" width="100" height="100"></iframe>
-							<input type="hidden" name="share_pic" id="share_pic" value="{$info['share_pic']}" class="smallinput" />
+							<input type="text" name="share_pic" id="share_pic" value="{$info['share_pic']}" class="smallinput" />
 							<script>
 							function setPics(url){
 								document.getElementById('share_pic').value = url;
