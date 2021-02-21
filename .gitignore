@@ -1,4 +1,6 @@
 # CakePHP 3
+/www/wwwroot/xs/Public/file 
+/www/wwwroot/xs/Application/Runtime
 
 /vendor/*
 /config/app.php
