@@ -1,5 +1,8 @@
 # CakePHP 3
 
+/www/wwwkroot/pxs/Application/Runtime/*
+/www/wwwkroot/pxs/.user.ini
+
 /vendor/*
 /config/app.php
 
