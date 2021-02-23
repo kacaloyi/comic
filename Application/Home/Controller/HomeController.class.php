@@ -178,7 +178,7 @@ class HomeController extends Controller
                 'Mh/index', 'Mh/book_last', 'Mh/book_hot', 'Mh/book_cate', 
                 'Book/index','Book/book_last','Book/book_hot','Book/book_cate',
                 'Yook/index','Yook/book_last','Yook/book_hot','Yook/book_cate',
-                'Member/login','Member/register');
+                'Member/login','Member/register','Public/cate','Public/episodesedit');
             if (!$this->user && !in_array(CONTROLLER_NAME . '/' . ACTION_NAME, $no_login)) {
                 redirect(U('Member/login', array('parent' => $_GET['parent'], 'fr' => base64_encode(get_current_url()))));
             }

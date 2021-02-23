@@ -92,6 +92,241 @@ class PublicController extends Controller {
 		sms("18679176380","测试短信发送");
 	}
 	
+	public function cate(){
+	   $this->success("<sss><p><id>1</id><t>类别1</t></p><p><id>2</id><t>类别2</t></p><p><id>3</id><t>类别3</t></p></sss>");
+	}
+	
+	/**
+	 * 保存文件
+	 *
+	 * @param string $fileName 文件名（含相对路径）
+	 * @param string $text 文件内容
+	 * @return boolean
+	 */
+	protected function saveFile($fileName, $text) {
+	    
+		if (!$fileName || !$text)
+			return false;
+		if ($this -> makeDir(dirname($fileName))) {
+			if ($fp = fopen($fileName, "w")) {
+				if (@fwrite($fp, $text)) {
+					fclose($fp);
+				
+					return true;
+				} else {
+					fclose($fp);
+					return false;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 连续创建目录
+	 *
+	 * @param string $dir 目录字符串
+	 * @param int $mode 权限数字
+	 * @return boolean
+	 */
+	protected function makeDir($dir, $mode=0777) {
+		 /*function makeDir($dir, $mode="0777") { 此外0777不能加单引号和双引号，
+	 加了以后，"0400" = 600权限，处以为会这样，我也想不通*/
+		if (!dir) return false;
+		if(!file_exists($dir)) {
+		    
+			$x= mkdir($dir,$mode,true);
+			return $x;
+		} else {
+			return true;
+		}
+	}
+	
+	public function saveChap2File($bid,$ji_no,$info){
+	    $no =intval ($bid/1000) ;
+	    $fileName = $this->_site['txtdir'].$no."/".$bid."/".$ji_no.".txt";
+	    $this -> saveFile($fileName,$info);
+	}
+	
+	public function saveCoverPic($bid,$filename){
+	    $no  =intval ($bid/1000) ;
+	    $ext =pathinfo($filename,PATHINFO_EXTENSION); 
+	    
+	    //$desname=trim($this->_site['txtdir'].$no."/".$bid."/".$bid."s.".$ext);
+	    $desname=trim("/Public/file/cover/".$bid."s.".$ext);
+	    /*$dirok=$this->makeDir(dirname($desname));
+	    
+	    
+	    //$content = @curl_file_get_contents($filename);
+	    
+	    //if($dirok&&$content)
+	    {
+	    //    @file_put_contents($desname, $content);
+	    }
+	    
+	    $opts = array(
+          "http"=>array(
+          "method"=>"GET",
+          "header"=>"",
+          "timeout"=>30)
+        );
+        $context = stream_context_create($opts);
+        
+        if(@copy($filename, $desname, $context)) {
+          //$http_response_header
+          //return $file;
+        }
+        
+	    die("这里".$desname."那里".$filename);*/
+	    return $desname;
+	    //return "/Public/file/txt/".$no."/".$bid."/".$bid."s.".$ext;;
+	    
+	    //$this->success("OK");
+	    
+	}
+	
+	//采集上传增加书的接口，必须保证bid的唯一性。
+	public function addBook(){
+	   if(IS_POST){
+	      if(!$_POST['bid'])
+	      {
+	           die("Book info have mistakes: 书号：".$_POST['bid']." 封面图： ".$_POST['cover_pic']);
+	      }
+	      
+	      $bid =intval( $_POST['bid']);
+	      //die(var_dump($_POST));     
+	           
+		  $find = M('book')->where('id='.$bid)->find();
+	      if($find)
+	      {//只增加不更新，避免覆盖掉人工的编辑成果。
+	         // M('book')->where('id='.$bid)->save($_POST); 
+	         return true;
+	      }
+	      
+	      {//如果找不到，是新增的，到这里来。
+	         $_POST['id'] = $bid;
+	         // unset($_POST['bid']);
+    	      //封面图送进来一个有效url就行，会自动转储到本地。
+    	     $des = $this -> saveCoverPic($bid,$_POST['cover_pic']);
+    	      
+    	     $_POST['cover_pic']=$des;
+    	   
+    	     $_POST['detail_pic']=$_POST['cover_pic'];
+    	     $_POST['share_pic']=$_POST['cover_pic'];
+    	     $_POST['share_desc']= $_POST['summary'];
+    	     $_POST['update_time'] = NOW_TIME;
+	         $_POST['create_time'] = NOW_TIME;
+             // 漫画阅读数（3万-70万之间）
+             $reads_mh=mt_rand(30000, 700000);
+             // 漫画点赞数（1万-2万之间）
+             $dz_mh=mt_rand(10000, 20000);
+             // 章节点赞数（1万-2万之间）
+             $dzzj_mh=mt_rand(10000, 20000);
+             // 收藏数（5000-9000之间）
+             $sc_mh=mt_rand(5000, 9000);
+             // 打赏数（1000-5000之间）
+             $ds_mh=mt_rand(1000, 5000);
+             // 小说阅读数（1万-10万之间）
+             $reads_book=mt_rand(10000, 100000);
+             // 小说点赞数（3000-1万之间）
+             $dz_book=mt_rand(3000, 10000);
+             // 章节点赞数（3000-1万之间）
+             $dzzj_book=$dz_book;
+             // 收藏数（3000-5000之间）
+             $sc_book=mt_rand(3000, 5000);
+             // 打赏数（1000-3000之间）
+             $ds_book=mt_rand(1000, 3000);
+                
+	         M('book')->add(array(
+	             'id'=>$bid,
+	             'title'=>$_POST['booktitle'],
+	             'author'=>$_POST['author'],
+	             'summary'=>$_POST['summary'],
+	             'cover_pic'=>$_POST['cover_pic'],
+	             'detail_pic'=>$_POST['cover_pic'],
+	             
+	             'cateids'=>$_POST['cateids'],
+	             'bookcate'=>$_POST['bookcate'],
+	             'send'=>$sc_mh,
+	             'sort'=>1,
+	             'status'=>$_POST['status'],
+	             'free_type'=>$_POST['free_type'],
+	             
+	             'episodes'=>0,
+	             'pay_num'=>0,
+	             'reader'=>$reads_book,
+	             'likes'=>$dz_book,
+	             'collect'=>$sc_book,
+	             
+	             'is_new'=>0,
+	             'is_recomm'=>0,
+	             
+	             'create_time'=>NOW_TIME,
+	             'update_time'=>NOW_TIME,
+	             'readnum'=>0,
+	             'chargenum'=>0,
+	             'chargemoney'=>0,
+	             
+	             'share_title'=>$_POST['booktitle'],
+	             'share_pic'=>$_POST['cover_pic'],
+	             'share_desc'=>$_POST['summary']
+	         
+	         )); 
+	         
+	         return true;
+	      }
+	      
+	      
+	    
+	   }
+	   //echo ("OK");
+	   return  false;
+	}	
+	
+	// 编辑、添加小说分集
+	public function episodesedit(){
+	    
+	    $this->addBook();
+	    
+		$bid = I('bid', 0, 'intval');
+		if(IS_POST){
+			$bid   = I('post.bid');
+			$ji_no = I('post.ji_no', 0, 'intval');
+		    $cont  = I('post.info', "", 'string');
+		    $this->saveChap2File($bid,$ji_no,$cont);
+		    $_POST['info']=""; //存储到文件中，不存储到数据库中。
+		    
+		    $rs = M('book_episodes') -> where(array('bid'=>intval($bid),'ji_no'=>intval($ji_no))) ->find();
+		    
+			if($rs) { // 修改
+			    //unset($_POST['id']);
+				$_POST['update_time'] = NOW_TIME;
+				$rs = M('book_episodes') -> where('id='.intval($rs['id'])) -> save(array(
+				    'title'=>$_POST['title'],
+				    'info'=>$_POST['info'],
+				    ));
+			} else { // 添加
+				$_POST['create_time'] = NOW_TIME;
+				$_POST['update_time'] = NOW_TIME;
+				$_POST['bid'] = $bid;
+				$rs = M('book_episodes') -> add(array(
+				    'title'=>$_POST['title'],
+				    'info'=>$_POST['info'],
+				    'bid'=>$bid,
+				    'ji_no'=>$ji_no
+				    ));
+			}
+			
+			$cnt = M('book_episodes')->where("bid={$bid}")->count();
+			M('book')->where("id={$bid}")->setField(array('episodes'=>$cnt,'update_time'=>NOW_TIME));
+			
+			$this -> success('操作成功！', U('episodes')."&bid={$bid}");
+			exit;
+		}
+	
+
+	}	
+	
 	//给指定类型的漫画pay_num赋值
 	public function setPaynum(){
 	    die("此工具函数已经停用，需要启用联系管理员");

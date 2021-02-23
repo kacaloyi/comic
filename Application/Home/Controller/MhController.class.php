@@ -176,7 +176,7 @@ class MhController extends HomeController {
      * 人气排行
      */
     public function book_hot(){
-		$order = I('order');
+		$order = I('order',"reader");
 		/*
 		if($order){
 			if($order == "reader"){

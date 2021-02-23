@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset >
+    <volist name="list" id="vo">
+        
+        <url>
+            <loc>{$vo.url}</loc>
+            <title>{$vo.title}</title>
+            <lastmod>{$vo.update_time}</lastmod>
+            <changefreq>{$vo.changefreq}</changefreq>
+            <priority>{$vo.priority}</priority>
+        </url>
+        
+    </volist>
+</urlset>
+
+	    
+
+
+

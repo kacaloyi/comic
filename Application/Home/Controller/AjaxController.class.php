@@ -975,19 +975,19 @@ class AjaxController extends HomeController {
 			}
 			if($order == "overs"){
 				$where['status'] = 2;
-				$order = "sort desc";
+				$order = "sort,reader desc";
 			}
 			if($order == "free"){
 				$where['free_type'] = 1;
-				$order = "sort desc";
+				$order = "sort,reader desc";
 			}
 			if($order == "cate1"){
 				$where['mhcate'] =array('like',"%9%");
-				$order = "sort desc";
+				$order = "sort,reader desc";
 			}
 			if($order == "cate2"){
 				$where['mhcate'] = array('like',"%8%");
-				$order = "sort desc";
+				$order = "sort,reader desc";
 			}
 		}else{
 			$order = "update_time desc";
@@ -1039,26 +1039,26 @@ class AjaxController extends HomeController {
     				$order = "reader desc";
     			}
     			if($order == "time"){
-    				$order = "create_time desc";
+    				$order = "update_time desc";
     			}
     			if($order == "overs"){
     				$where['status'] = 2;
-    				$order = "sort desc";
+    				$order = "sort,reader desc";
     			}
     			if($order == "free"){
     				$where['free_type'] = 1;
-    				$order = "sort desc";
+    				$order = "sort,read desc";
     			}
     			if($order == "cate1"){
     				$where['mhcate'] = array('like','%9%');
-    				$order = "sort desc ,reader desc";
+    				$order = "sort ,reader desc";
     			}
     			if($order == "cate2"){
     				$where['mhcate'] = array('like','%11%');
-    				$order = "sort desc ,reader desc";
+    				$order = "sort ,reader desc";
     			}
     		}else{
-    			$order = "sort desc";
+    			$order = "sort,reader desc";
     		}
         	$list = M('mh_list')->where($where)->order($order)->limit($page*10,10)->select();
         	if(!empty($list) && is_array($list)) {
