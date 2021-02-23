@@ -19,9 +19,10 @@
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/vendor.css">
 <!--script type="text/javascript" src="__PUBLIC__/home/mhjs/fundebug.0.1.7.min.js" apikey="ba3a0e0d938e92b44f279067dffb8d071ee87fc35eb75918b7a900e8581a955d"></script-->
 <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.lazyload.js"></script>
 <!-- 共用引入资源.结束 -->
 <!--script type="text/javascript" src="__PUBLIC__/home/mhjs/saved_resource"></script-->
-<script type="text/javascript" src="__PUBLIC__/home/js/newWindow.js"></script>
+<!--script type="text/javascript" src="__PUBLIC__/home/js/newWindow.js"></script-->
 <include file="include/headcode" />
 </head>
 <style>
@@ -325,7 +326,6 @@ padding:10px;
 <article class="read-article">
 
 <!--顶部广告代码开始-->
-
 <!--顶部广告代码结束-->
     <volist name="arr_pics" id="vo">
     <figure class="item" style="">
@@ -437,10 +437,11 @@ padding:10px;
     </div>
 <if condition="$user['vip']">
 <else />
-     <div class="row">
-      <a href="{:U('Member/pay')}"style="text-align:center;">
+     <div class="row" id="intro">
+      <!--a href="{:U('Member/pay')}"style="text-align:center;">
         <img width="100%" class="slide_loading" src="/Public/Uploads/banner/vip-img.png" data-original="/Public/Uploads/banner/vip-img.png" alt="升级VIP" />
-        </a>
+        </a-->
+        
     </div>
 </if>  
     <div class="control clearfix">
@@ -549,13 +550,37 @@ padding:10px;
 </a>
 
 <script>
-$(function(){
-	var showAds = "{$showAds}";
-		adsPic = "{$adsPic}";
-	if(showAds == "1" && adsPic !=""){
-	//	$('.picpos').show();
-	}
-})
+// $(function(){
+// 	var showAds = "{$showAds}";
+// 		adsPic = "{$adsPic}";
+// 	if(showAds == "1" && adsPic !=""){
+// 	//	$('.picpos').show();
+// 	}
+// })
+//     $("#intro").load("/Ajax/ads.html");
+    
+    var wait = true;
+	$(function (){
+        // 滚动到底部获取新的分页
+        if(wait==false) return;
+        
+        wait= false;
+        //var url = "/Ajax/bbook_titl.html";
+        var url = "/Ajax/ads.html";
+        var data = {type: 'book',pos:'bottom'};
+		$.post(url,data,function(d){
+
+			if(d){
+				if(d.status){
+				   $('#intro').html(d.info)
+				   $("img.lazy").lazyload({effect:"fadeIn"});
+				   wait = true;	
+				}
+			}
+		})
+    });    
+    
+    
 </script>
 
 <script type="text/javascript">

@@ -96,10 +96,10 @@
     </div>
 <if condition="$user['vip']">
 <else />
-     <div class="row">
-      <a href="{:U('Member/pay')}"style="text-align:center;">
+     <div class="row" id="intro">
+      <!--a href="{:U('Member/pay')}"style="text-align:center;">
        <img width="100%" class="slide_loading" src="/Public/Uploads/banner/vip-img.png" data-original="/Public/Uploads/banner/vip-img.png" alt="升级VIP" />
-        </a>
+        </a-->
     </div>
 </if>  
 	<div class="control clearfix">
@@ -215,13 +215,36 @@
 </a>
 
 <script type="text/javascript">
-	$(function(){
-		var showAds = "{$showAds}";
-			adsPic = "{$adsPic}";
-		if(showAds == "1" && adsPic !=""){
-		//	$('.picpos').show();
-		}
-	})
+// 	$(function(){
+// 		var showAds = "{$showAds}";
+// 			adsPic = "{$adsPic}";
+// 		if(showAds == "1" && adsPic !=""){
+// 		//	$('.picpos').show();
+// 		}
+// 	})
+	
+	var wait = true;
+	$(function (){
+        // 滚动到底部获取新的分页
+        if(wait==false) return;
+        
+        wait= false;
+        //var url = "/Ajax/bbook_titl.html";
+        var url = "/Ajax/ads.html";
+        var data = {type: 'book',pos:'bottom'};
+		$.post(url,data,function(d){
+
+			if(d){
+				if(d.status){
+				   $('#intro').html(d.info)
+				   $("img.lazy").lazyload({effect:"fadeIn"});
+				   wait = true;	
+				}
+			}
+		})
+    }); 
+	
+	
 
 	function chapter_dianzan(mhid, ji_no) {
 		var url1 = '{:U("Mh/chapter_dianzan_ajax")}';
