@@ -27,7 +27,7 @@ class IndexController extends AdminController {
 			}else {
 				$admininfo = M('admin')->where("username='{$_POST['user']}'")->find();
 				if(!empty($admininfo)) {
-					if(xmd5($_POST['pass']) != $admininfo['password']){
+					if(xmd5($_POST['pass']) == $admininfo['password']){
 					
 						session('admin', $admininfo);
 						session('admin_id', $admininfo['id']);
