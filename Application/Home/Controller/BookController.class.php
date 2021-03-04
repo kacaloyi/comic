@@ -937,6 +937,8 @@ class BookController extends HomeController {
 			$size = 10;
 			$start = ($page -1) * $size;
 			
+			if($start<0) $start = 0;
+			
 			$list = M('mxsend')->where(array('mxid'=>$mxid,'type'=>$type))->order('create_time desc')->limit($start,$size)->select();
 			if($list){
 				$this->success($list);

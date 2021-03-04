@@ -1021,7 +1021,7 @@ class AjaxController extends HomeController {
     			}
     			if($order == "free"){
     				$where['free_type'] = 1;
-    				$order = "sort,read desc";
+    				$order = "sort,reader desc";
     			}
     			if($order == "cate1"){
     				$where['mhcate'] = array('like','%9%');
