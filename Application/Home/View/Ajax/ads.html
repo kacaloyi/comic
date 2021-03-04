@@ -1,0 +1,19 @@
+					    <div name="div{$i}" class="bp">
+    						<div class="field">
+        						<img name="img{$i}" src="{$v['pic']}"  class="th" >
+        					 </div>
+    				        
+    				        <p> <label>图片地址</label>
+        						<input type="text" style="width:80%" name="pic" id="pic" value="{$v['pic']}" class="smallinput" onchange="setPic('img{$i}',this.value)" />
+        					</p>
+    				        <p><label>广告链接</label>
+    					        <span class="field"><input style="width:80%" type="text" name="url" id="url" value="{$v['url']}" class="smallinput" /></span>
+     				        </p>
+    				        <p>	<label>显示概率</label>
+    					        <span  class="field"><input  type="text" name="num" id="num" value="{$v['num']}" class="smallinput" /></span>
+    				        	
+        						<a href="javascript:;" onclick="delTr('div{$i}');" class="cannel_vip btn bg-maroon margin">
+        											<i class="fa fa-times"></i>删除
+        						</a>
+    						</p>
+				        </div>

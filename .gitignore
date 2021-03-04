@@ -2,6 +2,11 @@
 /www/wwwroot/xs/Public/file 
 /www/wwwroot/xs/Application/Runtime
 
+/www/wwwkroot/pxs/Application/Runtime/
+/www/wwwkroot/pxs/.user.ini
+/Application/Runtime/
+/Public/file/
+
 /vendor/*
 /config/app.php
 
@@ -25,3 +30,5 @@
 /app/Config/core.php
 /app/Config/database.php
 /vendors/*
+
+

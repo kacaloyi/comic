@@ -117,6 +117,32 @@ class AjaxController extends HomeController {
 		echo json_encode($data);
 	}
 	
+	public function ads(){
+	    
+	    if(IS_POST){
+	        //送入参数，留作扩展
+	        $type= I('type');
+	        $pos = I('pos');
+	        //type: 'book' 'mh',
+	        //pos:'top' 'mid'  'bottom'
+	        
+	    }
+	    
+	    
+        $ads=$this->_ads;
+	    $html = "";
+	    
+	    if(is_array($ads)&&sizeof($ads>0)){
+	        $cnt =   mt_rand(0,9999)%sizeof($ads);//完全平均随机 
+	        $html = $ads[$cnt]['code'];
+	    
+	    }
+	    
+
+		$this->success($html);
+	    
+	}
+	
 	//打赏
 	public function postPrize(){
 		if(IS_POST){

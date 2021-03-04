@@ -1,54 +1,165 @@
+<style>
+a.btn {
+     background-image: none; 
+}
 
-        <div class="pageheader notab">
-            <h1 class="pagetitle">广告设置</h1>
-            <span class="pagedesc">设置网站的小说漫画弹出广告信息</span>
-            
-        </div><!--pageheader-->
+.th{
+    min-height: 1px;
+    max-width: 95%;
+}
+
+.bp {
+    border-top-width: 1px;
+    border-top-color: rgb(229, 228, 228);
+    /* border-style: solid; */
+    border-style: solid;
+}
+</style>
+<section class="content">
+  
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title"></h3>
+				<a href="javascript:;" onclick="addTr();" class="btn btn-success ">添加广告</a>
+			</div>
+            <div  id = "test" style="max-width:96%;min-height:10px">
+        						<!--img name="img{$i}" src="{$v['pic']}"  class="th" /-->
+            </div>  
+			<!-- /.box-header -->
+			<div class="box-body">
+				<form class="form-horizontal" style="margin-top:30px" method="post"  >
+
+					<div id = "fm">		
+					<volist name="_ads" id="v" key="i">
+					    <div name="div{$i}" class="bp">
+    				        
+    				        <p> <label>推广代码</label>
+        					<textarea  cols="40" rows="4" style="width:95% OVERFLOW: hidden"  name="code{$i}" id="code{$i}" >{$v['code']}
+        					</textarea></p>    
+        					
+    				        <!--p><label>广告链接</label>
+    					        <span class="field"><input style="width:80%" type="text" name="url" id="url" value="{$v['url']}" class="smallinput" /></span>
+     				        </p-->
+    				        <p>	<label>显示概率</label>
+    					        <span  class="field"><input  type="text" name="num{$i}" id="num{$i}" value="{$v['num']}" class="smallinput" /></span>
+    				        	
+        						<a href="javascript:;" onclick="delTr('div{$i}');" class="cannel_vip btn bg-maroon margin">
+        											<i class="fa fa-times"></i>删除
+        						</a>
+        						<a href="javascript:;" onclick="setCode({$i});" class="cannel_vip btn bg-maroon margin">
+        											<i class="fa fa-times"></i>测试
+        						</a>
+    						</p>
+				        </div>
+					</volist>
+					</div>	
+
+					
+					<div class="box-footer">
+					    <p class="stdformbutton">
+					        <button class="submit radius2">提交</button>
+					        <!--input type="reset" class="reset radius2" value="重置" /-->
+				        </p>
+						
+					</div>
+				</form>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+    
+    // $(':submit').on('click',function(){
+    //     var codes = document.getElementsByName("code");
+    //     var nums = document.getElementsByName("num");
+    //     var arr = new Array();
         
-        <div id="contentwrapper" class="contentwrapper lineheight21">
+    //     for(i=0;i<codes.length;i++){
+    //         arr.push(new Map('code'=codes[i].value,'num'=nums[i].value));
+    //     }
         
-        
-            <form class="stdform stdform2" method="post">
-				<p>
-					<label>是否开启广告功能<small></small></label>
-					<span class="field">
-						<input type="checkbox" name="isopen" id="isopen" value="1" class="smallinput" <if condition="$_ads['isopen'] eq 1">checked</if> />&nbsp;&nbsp;是
-					</span>
-				</p>
-				<p>
-					<label>广告图片链接<small>若上传广告图片，优先显示上传图片</small></label>
-					<span class="field"><input type="text" name="url" id="url" value="{$_ads.url}" class="smallinput" /></span>
-				</p>
-				<p>
-					<label>广告图片</label>
-					<span class="field">
-						<iframe src="{:U('upload', 'event=setPic&url='.$_ads['pic'])}" scrolling="no" width="100" height="150"></iframe>
-						<input type="hidden" name="pic" id="pic" value="{$_ads['pic']}" class="smallinput" />
-						<script>
-						function setPic(url){
-							document.getElementById('pic').value = url;
-						}
-						</script>
-					</span>
-				</p>
-				<p>
-					<label>某一章节显示<small>若设置，则在该章节显示广告图，若不设置不填写或填写0</small></label>
-					<span class="field"><input type="text" name="chapter" id="chapter" value="{$_ads.chapter}" class="smallinput" /></span>
-				</p>
-				<p>
-					<label>多章节显示<small>若设置，则在该章节显示广告图，多个章节用英文逗号(,)隔开，若不设置不填写或填写0</small></label>
-					<span class="field"><input type="text" name="achapter" id="achapter" value="{$_ads.achapter}" class="smallinput" /></span>
-				</p>
-				<p>
-					<label>章节倍数显示<small>若设置，则在该章节显示广告图，显示关系为该章节倍数，若不设置不填写或填写0</small></label>
-					<span class="field"><input type="text" name="xchapter" id="xchapter" value="{$_ads.xchapter}" class="smallinput" /></span>
-				</p>
-				<p class="stdformbutton">
-					<button class="submit radius2">提交</button>
-					<input type="reset" class="reset radius2" value="重置" />
-				</p>
-			</form>
-        
-        
-        </div><!--contentwrapper-->
-        
+    //     $.ajax({
+    //         url:"{U('/Config/ads')}",
+    //         type:"POST",
+    //         data:arr,
+    //         contentType:"x-www-form-unlencoded",  //缺失会出现URL编码，无法转成json对象
+    //         success:function(){
+    //             alert("成功");
+    //         }
+    //     });
+    // });
+    
+
+    function setCode(fid){
+        var ir = document.getElementsByName("code"+fid);
+    	var code = ir[0].value;
+    	//ir.html( code);
+    	$('#test').html(code);
+    }
+    
+    String.prototype.replaceAll = function(s1,s2){
+　　    return this.replace(new RegExp(s1,"gm"),s2);
+　　}
+    
+    var wait = false;
+	function addTr(){
+	    
+	    var html='<div name="div_n_" class="bp">';
+    		html+='        <p> <label>推广代码</label>';
+        	html+='			<textarea  cols="40" rows="4" style="width:95% OVERFLOW: hidden"  name="code_n_" id="code_n_"  > <h3>这里填入推广代码<h3>   					</textarea></p>    ';
+        					
+    		html+='       <p>	<label>显示概率</label>';
+    		html+='	        <span  class="field"><input  type="text" name="num_n_" id="num_n_" value="100%" class="smallinput" /></span>';
+    				        	
+        	html+='			<a href="javascript:;" onclick="delTr(div_n_);" class="cannel_vip btn bg-maroon margin">';
+        	html+='								<i class="fa fa-times"></i>删除';
+        	html+='			</a>';
+        	html+='         <a href="javascript:;" onclick="setCode(_n_);" class="cannel_vip btn bg-maroon margin">';
+        	html+='									<i class="fa fa-times"></i>测试 ';
+        	html+='			</a>';
+    		html+='		</p>';
+			html+=' </div>';
+	    
+	    
+		var dv =document.getElementsByClassName("bp");	
+		var size_r = dv.length+1;
+		$("#fm").append(html.replaceAll('_n_',size_r));
+		
+// 		var url = "{U('/Ajax/ads.html')}";
+//         var data = {i: size_r};
+//         if(wait == false){
+//             wait = true;
+//     		$.post(url,data,function(d){
+//     			if(d){
+//     				if(d.status){
+//     					$("#fm").append(d.info);
+//                         wait = false;
+    					
+//     				}
+//     			}
+//     		});
+    		
+// 		}
+		
+	}
+	
+	function delTr(ob){
+		//$(ob).parents('div').remove();
+		var tr = document.getElementsByName(ob);
+		tr[0].remove();
+	}
+	
+	function setPath(url){
+		if(cur_index==null)return;
+		index = cur_index;cur_index= null;
+		jQuery("#tables").find("tr").eq(index).find("td:eq(0)").find("input[type=hidden]").val(url);
+	}
+</script>
+
+

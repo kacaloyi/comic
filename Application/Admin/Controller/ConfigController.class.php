@@ -7,8 +7,60 @@ class ConfigController extends AdminController {
 	}
 	
 	public function _empty(){
+	    
 		$this -> _save();
 		$this -> display();
+	}
+	
+	private function _reload(){
+	    $config = M('config')->select();
+        foreach ($config as $v) {
+            $key = '_' . $v['name'];
+            $this->{$key} = unserialize($v['value']);
+            $_CFG[$v['name']] = $this->{$key};
+        }
+       
+        $this->assign('_CFG', $_CFG);
+        $GLOBALS['_CFG'] = $_CFG;
+	}
+	
+	
+	public function ads() {
+	    if(IS_POST){
+	        
+	        //var_dump($_POST);
+	        $codes = array();
+	        $nums = array();
+	        
+	        foreach ($_POST as $k=>$v){
+	          if(false!=strstr($k,"code"))
+	             $codes[]=trim($v);
+	          elseif(false!=strstr($k,"num"))
+	             $nums[]=intval($v);
+	            
+	        }
+	        //var_dump($_POST);
+	        //var_dump($codes);
+	        //var_dump($nums);
+
+	        $_POST = array();
+	        while(sizeof($codes)>0)
+	        {
+	           $_POST[]=array(
+	             'code'=>array_shift($codes),
+	             'num'=>array_shift($nums)
+	           ); 
+	        }
+	        //var_dump($_POST);
+	        
+	        $this -> _save();
+	        $this->_reload();
+	        
+	    }
+	   // var_dump($this->_ads);
+	   // die();
+		$this -> display();
+	    
 	}
 	
 	public function bookcate(){
