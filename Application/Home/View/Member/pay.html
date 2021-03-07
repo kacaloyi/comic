@@ -165,7 +165,7 @@
         <div class="item">
            <if condition="$v['isVIP'] neq 0">    
         		<input type="radio" name="recharge" value="{$v['money']}">
-        		<a href="javascript:void(0);" class="container" data-fee="{$v['send']}" _vip="{$v['isVIP']}">
+        		<a href="javascript:void(0);" class="container" data-fee="{$v['money']}" _vip="{$v['isVIP']}">
         			<div class="body">
         			    <if condition="$v['tip'] neq '' ">
         				 <div class="num">{$v['title']}<san class="tip">{$v['tip']}</san></div>
