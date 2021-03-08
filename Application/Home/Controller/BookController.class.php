@@ -633,15 +633,15 @@ class BookController extends HomeController {
 				$info = M('book')->where(array('id'=>$id))->find();
 			}
 			$p = I('post.p');
-			if($p == 1){
+			if($p >= 1){
 				$start = ($p - 1)*10+10;
 			}else{
-				$start = ($p - 1)*10+10;
+				$start = 0;
 			}
-			$end = ($p)*10;
-			if($end>=$info['episodes']){
-				$end = $info['episodes'];
-			}
+			//$end = ($p)*10;
+			//if($end>=$info['episodes']){
+			//	$end = $info['episodes'];
+			//}
 		    /*for($i=$start;$i<=$end;$i++)*/
 		    {
 			   if($type == 'mh'){
