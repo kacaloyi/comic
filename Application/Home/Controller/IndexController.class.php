@@ -6,12 +6,17 @@ class IndexController extends HomeController {
 		parent::_initialize();
 	}
 	
-	
+
 	// 商城首页
     public function index(){
 		$banner = arraySort($this->_banner['config'],'sort');
 		$this->assign('banner',$banner);
     	$this -> display();
+    }
+    
+    public function robot(){
+        $this->assign('host',$_SERVER["HTTP_HOST"]);
+        $this->display();
     }
     
     public function test(){
