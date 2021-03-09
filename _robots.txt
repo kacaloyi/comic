@@ -1,6 +1,6 @@
 User-agent:*
 Allow:/
-Disallow:/*?*
+
 Disallow:/Member/
 Disallow:/Mh/book_last.html
 Disallow:/Mh/book_hot.html
