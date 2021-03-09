@@ -1,5 +1,7 @@
 <?php
 namespace Home\Controller;
+
+
 use Think\Controller;
 class PublicController extends Controller {
 	public function _initialize(){
@@ -375,9 +377,51 @@ class PublicController extends Controller {
 	}
 	
 	
+	private function push_article($urls){
+	    
+	 $tokens=array (
+	     'www.biquyx.com'=>'kE0yTYA79GDby5hZ',
+         'm.biquyx.com'=>'kE0yTYA79GDby5hZ',
+         'xxs.haogame98.com'=>'kE0yTYA79GDby5hZ'
+     );
+     
+     $token = $tokens[$_SERVER['HTTP_HOST']];
+     $root  = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
+    	
+     $api = "http://data.zz.baidu.com/urls?site=".$root."&token=".$token;
+     $ch = curl_init();
+     $options =  array(
+     CURLOPT_URL => $api,
+     CURLOPT_POST => true,
+     CURLOPT_RETURNTRANSFER => true,
+     CURLOPT_POSTFIELDS => implode("\n", $urls),
+     CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+     );
+     curl_setopt_array($ch, $options);
+     $result = curl_exec($ch);
+     $result= $result."\n";
+    
+     //print_r($urls);
+     //echo($result);
+     return $result;	
+    }
+	
 	//G:\www\bxs\api 主动向百度推送更新 
 	public function baidu_push(){
+	    $root = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
+	    $list = array();
 	    
+	    $mhlist = M('mh_list')->order('update_time desc')->field('id,title,update_time')->select();      
+        foreach ($mhlist as $k=>$v){
+            $list[]= $root.'/Mh/'.$v['id'].'.html' ;
+        }
+        $bklist = M('book')->order('update_time desc')->field('id,title,update_time')->select();  
+        foreach ($bklist as $k=>$v){
+            $list[]= $root.'/Book/'.$v['id'].'.html';
+        }
+	    
+
+	    echo $this->push_article($list);
 	}
 	
 	//G:\www\bxs\api 生成sitmap，方便搜索引擎 
