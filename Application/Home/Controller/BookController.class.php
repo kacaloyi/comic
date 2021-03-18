@@ -240,11 +240,14 @@ class BookController extends HomeController {
 					$this->error('您的账户书币不足！',U('Member/pay'));
 					exit();
 				}
-				M('user')->where(array('id'=>$this->user['id']))->setDec("money",$money);
+			
 				
 				//查询是否有充值记录
-				$read_charge = M('read_charge')->where(array('user_id'=>$this->user['id'],'rid'=>$bid,'type'=>'xs'))->find();
+				$read_charge = M('read_charge')->where(array('user_id'=>$this->user['id'],'rid'=>$bid,'ji_no'=>$ji_no,'type'=>'xs'))->find();
 				if(!$read_charge){
+				    M('user')->where(array('id'=>$this->user['id']))->setDec("money",$money);
+					flog($this->user['id'], "money", "-".$money, 8);
+					
 					M('read_charge')->add(array(
 						'user_id'=>$this->user['id'],
 						'rid'=>$bid,
@@ -254,10 +257,11 @@ class BookController extends HomeController {
 						'create_time'=>NOW_TIME,
 					));
 					M('book')->where(array('id'=>$bid))->setInc('chargenum',1);
+					M('book')->where(array('id'=>$bid))->setInc('chargemoney',$money);
 				}
-				M('book')->where(array('id'=>$bid))->setInc('chargemoney',$money);
+				
 
-				flog($this->user['id'], "money", "-".$money, 8);					
+									
 			}
 		}
 		

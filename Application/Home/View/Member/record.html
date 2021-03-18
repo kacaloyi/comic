@@ -175,7 +175,7 @@
 	            title = "签到+";
 	            }
 	            break;
-	        case 2:
+	        case 3:
 	            {
 	            title = "奖励+";
 	            }
@@ -189,8 +189,8 @@
 	    
         for (var i in bills) {
             var li = '<div class="item"> <div class="title">' + title + '</div> <div class="body"> <div class="typo-orange">' ;
-			if(bills[i].isvip == 1){
-				li+= "vip会员"+'</div> <div class="typo-gray">' + bills[i].time + '</div> </div> </div>';
+			if(bills[i].isvip > 0){
+				li+= bills[i].money+"天VIP"+'</div> <div class="typo-gray">' + bills[i].time + '</div> </div> </div>';
 			}else{
 				li+= bills[i].money + '书币</div> <div class="typo-gray">' + bills[i].time + '</div> </div> </div>';
 			}

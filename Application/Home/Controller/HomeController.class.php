@@ -146,6 +146,7 @@ class HomeController extends Controller
                 }
             }
         }
+       
         if(!$this->user){ //到底是根据哪个数据判断当前已经登录的用户的身份？
             $uloginid = $_COOKIE['uloginid'];
             if($uloginid){
@@ -183,8 +184,16 @@ class HomeController extends Controller
                 redirect(U('Member/login', array('parent' => $_GET['parent'], 'fr' => base64_encode(get_current_url()))));
             }
         }
+        
+        $saveinfo = array("update_time" =>time());
+        if($this->user['vip']!=0 && $this->user['vip_e_time']<time()){
+            $this->user['vip']=0;
+            $saveinfo['vip'] = 0;
+            //检测VIP是否还在时限之内。
+        }
+        
         $this->assign('user',$this->user);
-        M('user')->where(array('id' => $this->user[id]))->save(array("update_time" =>time()));
+        M('user')->where(array('id' => $this->user[id]))->save($saveinfo);
         //$this->_data_log(); 这件事情让管理员后台去做。
         $showAds = 0;
         if ($this->_ads['isopen'] == 1) {
