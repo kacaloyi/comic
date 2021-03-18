@@ -332,6 +332,7 @@ class MemberController extends HomeController {
      */
     public function my(){
     	$user = M('user')->where(array("id"=>$this->user['id']))->find();
+    	
     	$asdata = array(
     			'user'	=> $user,
     	);
@@ -430,6 +431,7 @@ class MemberController extends HomeController {
      */
     public function pay_ajax() {   	
     	$money = I('post.money');
+    	$send  = I('post.send');
 		$vip = I('post.vip');
 
     	if(!$money) {
@@ -437,16 +439,13 @@ class MemberController extends HomeController {
     	}
 		$sn = $this->user['id'].date('Ymdhis').rand(10000,99999);
 		//添加充值订单
-		
-		//需要减去扣除分成
-		$separate = session('member.separate')*$money/100;
-		//$desc = session('member.declv')*$money/100;
-		$separate = $separate - $desc;		
+
 		$data = array(
 			'user_id' => $this->user['id'],
 			'mid'=>session('member.id'),
 			'sn' => $sn,
 			'money' => $money,
+			'smoney'=> $send,
 			'dmoney' => $separate,
 			'way' => $this->_yyb['name'],
 			'create_time'=>time(),
@@ -465,10 +464,15 @@ class MemberController extends HomeController {
 		/***********应该等订单支付之后，再来做分成的动作。******/
 		//添加分成记录 
 		$data['id'] = $cid;
-		$this->separate($data);
+		//$this->separate($data);
 		
 		//若有代理   ，还没有支付成功呢，就给加盟商分账？有钱吗？
 		if(session('member')){
+		    //判断是否需要扣量
+		    $separate = session('member.separate')*$money/100;
+		    $desc = session('member.declv')*$money/100;
+		    $separate = $separate - $desc;				    
+		    
 			M('member_separate')->add(array(
 				'date'=>date('Ymd'),
 				'sn'=>$sn,
@@ -519,8 +523,8 @@ class MemberController extends HomeController {
 					$this->error($json['msg']);
 				 }
 						
-				}else if($paymodel == 4){
-					  $this->success(array('sn'=>$sn));    	
+				}else if($paymodel == 4){//支付宝，送回去订单号，让客户端带订单号跳转支付宝支付地址。
+					  $this->success(array('sn'=>$sn,'url'=>U('/Alipay/ali_pay',array('sn'=>$sn,'table'=>'charge'))));    	
 			   }
 		}
     }
@@ -664,6 +668,7 @@ class MemberController extends HomeController {
      * 赠送佣金
      */
     public function send_money() {
+        die("功能已经取消");
     	$user_info = M('user')->where(array("user_id"=>$this->user['id']))->find();
     	
     	if(IS_POST){
@@ -723,6 +728,7 @@ class MemberController extends HomeController {
 
     //提现
     public function withdraw(){ 
+        die("功能已经取消");
     	if(IS_POST){
     		$status = $_POST['status'];
     		$money = $_POST['money'];
@@ -1045,10 +1051,10 @@ class MemberController extends HomeController {
                     $list = M('charge')->where(array('user_id'=>$this->user['id'],'status'=>2))->order('create_time desc')->limit($start,$size)->select();  //->limit($start,$size)
     				foreach($list as $k=>$v){
 						$rule = $this->_getChargeConfig($v['money']);
-						if($rule['isVIP']==0)
-    					$list[$k]['money'] = $v['money']*$this->_site['rate']+$rule['send'];//买书币各种充值都有大量赠送。
+						if($v['isvip']==0)
+    					$list[$k]['money'] = $v['money']*$this->_site['rate']+$v['smoney'];//买书币各种充值都有大量赠送。
 						else
-						$list[$k]['money'] = $rule['send']; //买VIP的，就只有赠送 
+						$list[$k]['money'] = $v['isvip']; //买VIP的，就只有赠送 
 					 
     					$list[$k]['time'] = date('Y-m-d H:i:s',$v['create_time']);
     				}}
@@ -1064,6 +1070,10 @@ class MemberController extends HomeController {
                     {
                     $list = M('reward_task')->where(array('user_id'=>$this->user['id']))->order('create_time desc')->limit($start,$size)->select();
     				foreach($list as $k=>$v){
+    				    if(0<$list[$k]['days']){
+    				       $list[$k]['isvip']=$list[$k]['days'];
+    				       $list[$k]['money']=$list[$k]['days'];
+    				    }
     					$list[$k]['time'] = date('Y-m-d H:i:s',$v['create_time']);
     				}}
                     break;

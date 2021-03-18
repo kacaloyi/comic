@@ -30,7 +30,7 @@ class NotifyBaseController extends Controller {
 	
 	//给分享者奖励 ,这个要改，不再给分享者现金奖励。因为分享来的用户可以刷。
 	//每次分享，来一个新用户，如果充值了，给1天的VIP好了。
-	private function _give_moeny_2_sharer($order_id){
+	private function _give_money_2_sharer($order_id){
 		//给用户奖励。
 		$logs = M('separate_log')->where(array('order_id'=>$order_id,'status'=>1))->select();
 		if($logs){
@@ -41,10 +41,10 @@ class NotifyBaseController extends Controller {
 				M('reward_task')->add(
 				  array(
 				    'user_id'=>$v['id'],
-					'days'=>1,  //奖励1天VIP 用户要去消费清单中领取。或者去任务中心领取。任务中心设计三种任务：分享充值用户得VIP天数，点击广告得书币，签到得书币。奖励的内容都记录在reward_record中。
-					'money'=>0, //奖励0书币  
+					'days'=>0,  //奖励1天VIP 用户要去消费清单中领取。或者去任务中心领取。任务中心设计三种任务：分享充值用户得VIP天数，点击广告得书币，签到得书币。奖励的内容都记录在reward_record中。
+					'money'=>200, //奖励200书币  
 					'statu'=>1, //状态 1尚未领取，0已经领取。
-					'create_time'=>time();
+					'create_time'=>time()
 				  )
 				);
 				M('separate_log')->where(array('id'=>$v['id']))->save(array('status'=>4));
@@ -56,6 +56,8 @@ class NotifyBaseController extends Controller {
 	
 	//给加盟代理商奖励
 	private function _give_money_2_member($mid,$cid){
+		
+		return;//暂时不考虑加盟商
 		
 		if($mid){
 			$member = M('member')->where(array('id'=>$mid))->find();
@@ -72,38 +74,54 @@ class NotifyBaseController extends Controller {
 
 
 	}
-	
-	private function _give_money($userid,$money){
-		$rule = $this->_getChargeConfig($money);
-		if($rule == null ) $this->error_log("找不到对应的付费项目:".$money);
+    
+    /***
+     * 用户IP ,充值元 ，赠送币,vip时长(天)
+     * *///
+	private function _give_money($userid,$money,$send,$gvip){
+		//$rule = $this->_getChargeConfig($money);
+		//if($rule == null ) $this->error_log("找不到对应的付费项目:".$money);
 		
-		$stime = 0;
-		$etime = 0;
-		$gmoney = $rule['send'];
-		$gvip = $rule['isVIP'];
+		
+		//$gmoney = $rule['send'];
+		//$gvip = $rule['isVIP'];
+		$gmoney = $send;
+		$user = M('user')->where(array('id'=>$userid))->find();
+		
+		$stime = $user['vip_s_time'];
+		$etime = $user['vip_e_time'];
+		
+		
 		if(0 == $gvip){
 		//说明买的是书币，要把钱换成书币，加入送的书币中。
 			$gmoney = $gmoney + $money * $this->_site['rate'];
 			
 		}else {	
-		//说明买的是VIP时间，开始算时间长度。	
-			$stime = time();
+		//说明买的是VIP时间，开始算时间长度。
+		    $now = time();
+		    
+		    if($user['vip_e_time']<$now)
+			  $stime = $now;
+			else//这种情况是用户还有VIP时间，他要延长时间。
+			  $stime = $user['vip_e_time'];
+			
 			$etime = $stime + $gvip * 24 * 60 * 60 ;//商品中表明的是天，换算成秒
+			$stime = $now;
 		}
 		
-		
-		$user = M('user')->where(array('id'=>$userid))->find();
-		
+		$timestr = date('Y-m-d H:i',$etime);
+		echo("<br>给{$userid}加币{$gmoney},gvip为{$gvip},uservip为{$user['vip']}，结束时{$stime}间{$etime}是{$timestr}<br>");
 		$ok   = M('user')->where(array('id'=>$userid))->save(array(
 							'money'=>$gmoney+$user['money'],
-							"vip"=>($gvip+$user['vip']>0 ?1,0),
-							"vip_s_time"=>$s_time,
-							"vip_e_time"=>$e_time,
+							'vip'=>($gvip+$user['vip']>0 ?1:0),
+							'vip_s_time'=>$stime,
+							'vip_e_time'=>$etime
 						));
 		//不要覆盖掉原来的VIP信息和书币信息，只能加。
 		
 	}
 	
+
 	//订单完成充值后，分钱。
     //$params
     //$sn 在本站的订单号
@@ -117,9 +135,11 @@ class NotifyBaseController extends Controller {
 	 //把订单状态改成“2 已支付”。
 		 $charge =  M('charge')->where(array('sn'=>$sn))->find();
 		 if($charge == null ) return false;
-		 
+		
 		 if($charge['status'] == 1){
 				$money = $charge['money'];//金额 
+				$gvip  = $charge['isvip'];//vip时长
+				$send  = $charge['smoney'];//赠送的币
 				$result = M('charge')->where(array('sn'=>$sn))->save(array(
 					'pay_time' => $paytime,
 					'remark' => $remark,
@@ -133,7 +153,7 @@ class NotifyBaseController extends Controller {
 			//拿到手的money，开始分钱。
 			//根据加盟商memberid，分钱。
 			//按用户的上级分享者，发奖。
-			$this->_give_money($userid,$money);
+			$this->_give_money($userid,$money,$send,$gvip);
 			
 			//记录日志
 			flog($userid, "money", $money, 1); 
@@ -155,8 +175,7 @@ class NotifyBaseController extends Controller {
 	 
 
 	}
+
+
 	
-}
-
-
-
+}?>

@@ -32,10 +32,10 @@ class NotifyController extends NotifyBaseController{
 		//订单信息
 		$order_info = M($table) -> find($order_id);
 		
-		$this->_charge($data['out_trade_no']),
+		$this->_charge($data['out_trade_no'],
 					   $data['out_trade_no'],
 					   $data['out_trade_no'],
-					   strtotime($data['time_end']);
+					   strtotime($data['time_end']));
 		
 		M('charge')->where(array('sn'=>$data['out_trade_no']))->save(array(
 					'pay_time' => strtotime($data['time_end']),

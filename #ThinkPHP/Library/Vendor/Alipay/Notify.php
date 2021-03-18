@@ -36,10 +36,24 @@ class AlipayNotify {
     }
     /**
      * 针对notify_url验证消息是否是支付宝发出的合法消息
+     * 在页面跳转同步通知方式里（return_url），notify_id的有效性一般为1分钟，且在有效期内支持重复使用校验。
+     * 在 服务器 异步通知方式里（notify_url），notify_id的有效性则是永久，但 不支持 重复使用来 校验 通知，即校验成功（ 支付 宝收到了商户打印的success且支付宝不再发该次通知），此时notify_id变为无效。
      * @return 验证结果
      */
 	function verifyNotify(){
 		header("Content-type:text/html;charset=utf-8");
+		
+// 			echo("alipay_config:</br>");
+// 			var_dump($this->alipay_config);
+// 			echo("</br>-----");
+// 			echo("</br>isSign=".$isSign);
+// 			echo("</br>responseTxt=$responseTxt");
+// 			echo("</br>preg_match=".preg_match("/true$/i",$responseTxt));
+//          echo("verifyNotify现在被跳过");
+//			return true;
+			
+			
+		
 		if(empty($_POST)) {//判断POST来的数组是否为空
 			return false;
 		}
@@ -50,6 +64,8 @@ class AlipayNotify {
 			$responseTxt = 'false';
 			if (! empty($_POST["notify_id"])) {$responseTxt = $this->getResponse($_POST["notify_id"]);}
 			
+            file_put_contents('verifyNotify.log',$_POST["notify_id"]."\r\n***sign[$isSign]**responseTxt[$responseTxt]****\r\n",FILE_APPEND);
+            
 			//写日志记录
 			/* if ($isSign) {
 				$isSignStr = 'true';
@@ -65,7 +81,7 @@ class AlipayNotify {
 			//验证
 			//$responsetTxt的结果不是true，与服务器设置问题、合作身份者ID、notify_id一分钟失效有关
 			//isSign的结果不是true，与安全校验码、请求时的参数格式（如：带自定义参数等）、编码格式有关
-			if (preg_match("/true$/i",$responseTxt) && $isSign) {
+			if (/*preg_match("/true$/i",$responseTxt) && */$isSign) {
 				return true;
 			} else {
 				return false;
@@ -88,7 +104,7 @@ class AlipayNotify {
 			//获取支付宝远程服务器ATN结果（验证是否是支付宝发来的消息）
 			$responseTxt = 'false';
 			if (! empty($_GET["notify_id"])) {$responseTxt = $this->getResponse($_GET["notify_id"]);}
-			
+	
 			//写日志记录
 			/* if ($isSign) {
 				$isSignStr = 'true';

@@ -28,15 +28,15 @@ return array(
 	
 	//支付宝配置参数 手机端
 	'alipay_config_mobile'=>array(
-		'partner'		=> 'xxxxx',
-		'seller_id'		=> 'xxxxxx',
-		'key'			=> 'xxxxxxxx',
-		'notify_url' 	=> "http://www.php85.com/alinotify.php",
-		'return_url' 	=> "http://www.php85.com/index.php?m=Home&c=Alipay&a=returnurl",
+		'partner'		=> '2088821295094857',
+		'seller_id'		=> '2088821295094857',
+		'key'			=> 'sr7lw945mnmami3j2x3lm4w5tc2u1t0g',
+		'notify_url' 	=> "https://".$_SERVER['HTTP_HOST']."/alinotify.php",
+		'return_url' 	=> "https://".$_SERVER['HTTP_HOST']."/Alipay/returnurl.html",
 		'sign_type'    	=> strtoupper('MD5'),
 		'input_charset'	=> strtolower('utf-8'),
-		'cacert'    	=> getcwd().'\\cacert.pem',
-		'transport'    	=> 'http',
+		'cacert'    	=> getcwd().'/cacert.pem',
+		'transport'    	=> 'https',
 		'payment_type'	=> "1",
 		'service'		=> "alipay.wap.create.direct.pay.by.user",
 	),
@@ -44,15 +44,15 @@ return array(
 	
 	 'alipay'   =>array(
 		 //这里是卖家的支付宝账号，也就是你申请接口时注册的支付宝账号
-		 'seller_email'=>'914207606@qq.com',
+		 'seller_email'=>'haogame98@163.com',
 		 //这里是异步通知页面url，提交到项目的Pay控制器的notifyurl方法；
-		 'notify_url'=>'http://www.php85.com/alinotify.php', 
+		 'notify_url'=>"https://".$_SERVER['HTTP_HOST']."/alinotify.php", 
 		 //这里是页面跳转通知url，提交到项目的Pay控制器的returnurl方法；
-		 'return_url'=>'http://www.php85.com/index.php?m=Home&c=Alipay&a=returnurl',
+		 'return_url'=>"https://".$_SERVER['HTTP_HOST']."/Alipay/returnurl.html",
 		 //支付成功跳转到的页面，我这里跳转到项目的User控制器，myorder方法，并传参payed（已支付列表）
-		 'successpage'=>'http://www.php85.com/index.php?m=Home&c=Ucenter&a=index',
+		 'successpage'=>"https://".$_SERVER['HTTP_HOST']."/Member/my.html",
 		 //支付失败跳转到的页面，我这里跳转到项目的Index控制器，myorder方法，并传参unpay（未支付列表）
-		 'errorpage'=>'http://www.php85.com/index.php?m=Home&c=Ucenter&a=index',
+		 'errorpage'=>"https://".$_SERVER['HTTP_HOST']."/Member/pay.html",
 	 ),
 	 
 	 'JUB'=> array(

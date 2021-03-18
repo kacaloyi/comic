@@ -1,42 +1,36 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class AlipayController extends Controller {
+class AlipayController extends NotifyBaseController {
       //在类初始化方法中，引入相关类库    
        public function _initialize() {
+        parent::_initialize();
+           
         vendor('Alipay.Corefunction');
         vendor('Alipay.Md5function');
         vendor('Alipay.Notify');
         vendor('Alipay.Submit');
 		
-		// 加载配置
-		$config = M('config') -> select();
-		if(!is_array($config)){
-			die('请先在后台设置好各参数');
-		}
-		foreach($config as $v){
-			$key = '_'.$v['name'];
-			$this -> $key = unserialize($v['value']);
-			$_CFG[$v['name']] = $this -> $key;
-		}
-		$GLOBALS['_CFG'] = $_CFG;
-	
     }
 	
 	//支付宝支付
 	public function ali_pay(){
 		header("Content-type:text/html;charset=utf-8");
-		$order = I('get.order');
-		$table = I('get.table');
-		if(!is_array($order)){
-			$order = M($table)->find(intval($order));
-		}
-		$user = M('user')->find(intval($order['user_id']));
 		
-        if(empty($order)) {
-			echo "<script>alert('订单未找到！');</script>";
+		$sn = I('sn');
+		$table = I('table',"charge");
+		if(empty($sn)){
+		  die("没有订单号，阿里不能再赔");  	
+		}
+		
+		$order = M($table)->where(array('sn'=>$sn))->find();
+	    
+        if(!is_array($order)) {
+			echo "<script>alert($sn'订单未找到！');</script>";
 			exit;
 		}
+		
+		//$user = M('user')->find(intval($order['user_id']));
 		
 		$create_time = time();
 		$time_start = date("YmdHis", $create_time); //交易起始时间
@@ -48,11 +42,13 @@ class AlipayController extends Controller {
 			'order_id' => $order['id'], 
 			'time_start'=>$time_start,
 			'time_expire'=>$time_expire,
-			'body'	=> $this->_site['name'] . '在线支付',
+			'body'	=> '支付宝在线支付',
 			'ordbody'	=> '支付',
-			'ordshow_url'	=> U('Goods/index'),
+			'ordshow_url'	=> U('Member/my'),
 			'type' =>$table,
-		); 
+		);
+		
+		
 		//调用支付接口
 		$this->assign('pay_array',$pay_array);
 		$this->display();
@@ -78,7 +74,7 @@ class AlipayController extends Controller {
 		
 		$type = $_POST['type'];
         /************************************************************/
-    
+        //echo("is_mobile=$is_mobile");
         //构造要请求的参数数组，无需改动
 		if(1 == $is_mobile) {
 			$alipay_config=C('alipay_config_mobile');
@@ -96,7 +92,9 @@ class AlipayController extends Controller {
 				"show_url"		=> $show_url,
 				//"app_pay"		=> "Y",//启用此参数能唤起钱包APP支付宝
 				"body"			=> $body,
+
 			);
+
 
 			//建立请求
 			$alipaySubmit = new \Vendor\Alipay\AlipaySubmit($alipay_config);
@@ -105,26 +103,42 @@ class AlipayController extends Controller {
 		} 	
     }
     
-	
-	/******************************
-		服务器异步通知页面方
-	*******************************/
-    public function notifyurl(){
-        $alipay_config=C('alipay_config');
-        //计算得出通知验证结果
+    /********
+    //验证签名是否正确，回调支付宝服务器，验证notify_id是否有效。
+    //支付宝远程服务器ATN验证，结果$responsetTxt的结果不是true，与服务器设置问题、合作身份者ID、notify_id一分钟失效有关
+	//签名结果果不是true，与安全校验码、请求时的参数格式（如：带自定义参数等）、编码格式有关
+    **********/
+    private function _verify($isnotify=true){
+        $alipay_config=C('alipay_config_mobile');
+       //计算得出通知验证结果
         $alipayNotify = new \Vendor\Alipay\AlipayNotify($alipay_config);
-        $verify_result = $alipayNotify->verifyNotify();
-		file_put_contents('a.txt','走了11111',FILE_APPEND);
-        if($verify_result) {
-           //验证成功 
-           $out_trade_no   = $_POST['out_trade_no'];      //商户订单号
-           $trade_no       = $_POST['trade_no'];          //支付宝交易号
-           $trade_status   = $_POST['trade_status'];      //交易状态
-           $total_fee      = $_POST['total_fee'];         //交易金额
-           $notify_id      = $_POST['notify_id'];         //通知校验ID。
-           $notify_time    = $_POST['notify_time'];       //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
-           $buyer_email    = $_POST['buyer_email'];       //买家支付宝帐号；
+        $verify_result =  false;
+        if($isnotify)
+          $verify_result = $alipayNotify->verifyNotify();
+        else
+          $verify_result = $alipayNotify->verifyReturn();
+          
+        return $verify_result;
+    }
+    
+    //记账
+    private function _fee(){
+           $body           = I('body');              //订单所使用的表名在这里面。
+           $is_success     = I('is_success');        //成功是'T'
+           $out_trade_no   = I('out_trade_no');      //商户订单号
+           $trade_no       = I('trade_no');          //支付宝交易号
+           $trade_status   = I('trade_status');      //交易状态
+           $total_fee      = I('total_fee');         //交易金额
+           $notify_id      = I('notify_id');         //通知校验ID。
+           $notify_time    = I('notify_time');       //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
+           $notify_type    = I('notify_type');       //trade _status_sync
+           $seller_id      = I('seller_id');         //卖方ID
+           $subject        = I('subject');           //商品标题
+           $buyer_email    = I('buyer_email');       //买家支付宝帐号；
            $parameter = array(
+             "subject"       => base64_decode($subject),
+             "body"          => $body,
+             "is_success"    => $is_success,
              "out_trade_no"  => $out_trade_no, //商户订单编号；
              "trade_no"      => $trade_no,     //支付宝交易号；
              "total_fee"     => $total_fee,    //交易金额；
@@ -132,63 +146,90 @@ class AlipayController extends Controller {
              "notify_id"     => $notify_id,    //通知校验ID。
              "notify_time"   => $notify_time,  //通知的发送时间。
              "buyer_email"   => $buyer_email,  //买家支付宝帐号；
-           );
-		   
-		   file_put_contents('a.txt',var_export($_POST),FILE_APPEND);
-		   
-           if ($_POST['trade_status'] == 'TRADE_SUCCESS' || $_POST['trade_status'] == 'TRADE_FINISHED') {
-			   $table = $_POST['type'];
-			   file_put_contents('a.txt',$table.'11111' ,FILE_APPEND);
-			   if(!checkorderstatus($out_trade_no)){
-					//进行订单处理，并传送从支付宝返回的参数；
-					$order_info = M($table)->where("sn='{$out_trade_no}'")->find(); 
-					$order_id = $order_info['id'];
+           );  
+           
+        //file_put_contents('fee.log',implode(",",$parameter),FILE_APPEND);
+		//file_put_contents('pay_notify.log',"检验结果:verify_result=".intval($verify_result),FILE_APPEND);  
+           
+        if ($trade_status == 'TRADE_SUCCESS' || $trade_status == 'TRADE_FINISHED') {
+			   $table = $body;
+			   
+			//进行订单处理，并传送从支付宝返回的参数；
+			$order_info = M($table)->where(array('sn'=>$out_trade_no))->find(); 
+			$order_id = $order_info['id'];
 					
-					$this->user = M('user')->where(array('id'=>$order_info['user_id']))->find();
-					if(!$order_info){
-						die('FAIL');
-					}
+			if(!$order_info){
+				return ;// die ('FAIL');
+			}
 					
-					if($order_info['status'] !=1){
-						die('FAIL');
-					}
-					$paid_fee = $order_info['alipay'] + $data['total_fee'];
+			if($order_info['status'] !=1){//1代表没有处理过，处理过之后已经用户加过金币，就不能再次处理了。
+			   return ;//	die('FAIL');
+			}
+			
+		
+			$paid_fee =  $total_fee;
 					
-					// 已支付全部费用
-					if($paid_fee >= $order_info['money']){
+			// 实际支付费用要大于等于订单记录中约定的费用。
+			if($paid_fee >= $order_info['money']){
 						
-						file_put_contents('a.txt',$paid_fee.'MONEY',FILE_APPEND);
+			//file_put_contents('a.txt',$paid_fee.'MONEY',FILE_APPEND);
 						
-						$save['status'] = 2;
-						$save['pay_time'] = NOW_TIME;
-						if($table == 'order'){
-							M('separate_log') -> where(array('order_id'=>$order_id)) -> setField('status', 2);
-							//更新用户销售业绩+等级+分拥+购买额度
-							upUser($order_info);
-						}
+			$save['status'] = 2;
+			$save['pay_time'] = NOW_TIME;
 						
-						//如果是预存信息
-						if($table =='agent'){
-							//给用户充值金额和变更代理等级
-							$userData['money'] = array('exp', 'money+'.$paid_fee);
-							$save['pay_type'] = 2;
-							if(!$this->user['join_lv_time']){
-								$userData['join_lv_time'] = time();
-							}
-							if($this->user['lv']<$order_info['lv']){
-								$userData['lv'] = $order_info['lv'];
-							}
-							M('user')->where(array('id'=>$this->user['id']))->save($userData);
-							flog($this -> user['id'],'money',$data['total_fee']/100, 1); // 记录财务日志
-							
-						}
-						
+			switch ($table){
+			    case  'order':
+					M('separate_log') -> where(array('order_id'=>$order_id)) -> setField('status', 2);
+					//更新用户销售业绩+等级+分拥+购买额度
+					//upUser($order_info);
+				    break;
+				
+				//如果是预存信息
+				case 'agent':
+					{
+    				//给用户充值金额和变更代理等级
+    				    $this->user = M('user')->where(array('id'=>$order_info['user_id']))->find();
+    					$userData['money'] = array('exp', 'money+'.$paid_fee);
+    					$save['pay_type'] = 2;
+    					if(!$this->user['join_lv_time']){
+    				    	$userData['join_lv_time'] = time();
+    					}
+    					if($this->user['lv']<$order_info['lv']){
+    						$userData['lv'] = $order_info['lv'];
+    					}
+    					M('user')->where(array('id'=>$this->user['id']))->save($userData);
+    					flog($this -> user['id'],'money',$data['total_fee']/100, 1); // 记录财务日志
+    							
 					}
-					M($table) -> where('id='.$order_id) -> save($save);;
-               } else {
-				  
-			   }
-            }
+					break;
+				default:
+					$this->_charge($out_trade_no,$subject,$trade_no,$notify_time);	      
+				   break;
+				}
+						
+				M($table) -> where('id='.$order_id) -> save($save);	
+			
+              } 
+            }   
+        
+    }
+	
+	/******************************
+		服务器异步通知页面方 这个接口支付宝会自动地反复通知，直到你返回它一个success
+		notify_url为服务器通知，支付宝可以保证99.9999%的通知到达率，前提是您的网络通畅。
+		
+		notify_url: 服务器后台通知,这个页面是支付宝服务器端自动调用这个页面的链接地址,
+		这个页面根据支付宝反馈过来的信息修改网站的定单状态,更新完成后需要返回一个success给支付宝.,不能含有任何其它的字符包括html语言.
+		
+        流 程:
+        买家付完款(trade_status=WAIT_SELLER_SEND_GOODS)—>支付宝通知 notify_url—>如果反馈给支付宝的是success(表示成功,这个状态下不再反馈,如果不是继续通知,一般第一次发送和第二次发送 的时间间隔是3分钟)
+        剩下的过程,卖家发货,买家确认收货,交易成功都是这个流程
+	*******************************/
+    public function notifyurl(){
+        header("Content-type:text/html;charset=utf-8");
+        if($this->_verify(true)) {
+           //验证成功
+                $this->_fee();
                 echo "success";        //请不要修改或删除
          }else {
 			//验证失败
@@ -197,94 +238,35 @@ class AlipayController extends Controller {
     }
 	
     
-    /*
-     页面跳转处理方法；
-    */
+    /******************************************
+     return_url为网页重定向通知，是由客户的浏览器触发的一个通知，若客户去网银支付，也会受银行接口影响，由于各种影响因素特别多，所以该种类型的通知支付宝不保证其到达率。
+     页面跳转处理方法； 这个接口，由客户端完成付款后，客户端的浏览器跳转过来，只跳转一次，而且可以被客户端打断，并不可靠。
+     买家付款成功后,会跳到 return_url所在的页面,这个页面可以展示给客户看,这个页面只有付款成功才会跳转,并且只跳转一次
+     
+    *************************/
     public function returnurl(){
-		header("Content-type:text/html;charset=utf-8");
-        $alipay_config= C('alipay_config_mobile');
-        $alipayNotify = new \Vendor\Alipay\AlipayNotify($alipay_config);//计算得出通知验证结果
-        $verify_result = $alipayNotify->verifyReturn();
-        if($verify_result) {
-            //验证成功
-            //获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表
-			$out_trade_no   = $_GET['out_trade_no'];      //商户订单号
-			$trade_no       = $_GET['trade_no'];          //支付宝交易号
-			$trade_status   = $_GET['trade_status'];      //交易状态
-			$total_fee      = $_GET['total_fee'];         //交易金额
-			$notify_id      = $_GET['notify_id'];         //通知校验ID。
-			$notify_time    = $_GET['notify_time'];       //通知的发送时间。
-			$buyer_email    = $_GET['buyer_email'];       //买家支付宝帐号；
-				
-			$data = array(
-				"out_trade_no"     => $out_trade_no,      //商户订单编号；
-				"trade_no"     => $trade_no,          //支付宝交易号；
-				"total_fee"      => $total_fee,         //交易金额；
-				"trade_status"     => $trade_status,      //交易状态
-				"notify_id"      => $notify_id,         //通知校验ID。
-				"notify_time"    => $notify_time,       //通知的发送时间。
-				"buyer_email"    => $buyer_email,       //买家支付宝帐号
-			);
-
-			
-			//区分每个表的订单
-			$table = $_GET['body'];
-			//file_put_contents('a.txt',$table.'222',FILE_APPEND);
-			if($_GET['trade_status'] == 'TRADE_FINISHED' || $_GET['trade_status'] == 'TRADE_SUCCESS') {
-					//echo '支付宝支付完成';
-					//进行订单处理，并传送从支付宝返回的参数；
-					$order_info = M($table)->where("sn='{$out_trade_no}'")->find(); 
-					$order_id = $order_info['id'];
-					
-					$this->user = M('user')->where(array('id'=>$order_info['user_id']))->find();
-					if(!$order_info){
-						die('FAIL');
-					}
-					
-					if($order_info['status'] !=1){
-						die('FAIL');
-					}
-					$paid_fee = $order_info['alipay'] + $data['total_fee'];
-					
-					// 已支付全部费用
-					if($paid_fee >= $order_info['money']){
-						
-						file_put_contents('a.txt',$paid_fee.'MONEY',FILE_APPEND);
-						
-						$save['status'] = 2;
-						$save['pay_time'] = NOW_TIME;
-						if($table == 'order'){
-							M('separate_log') -> where(array('order_id'=>$order_id)) -> setField('status', 2);
-							//更新用户销售业绩+等级+分拥+购买额度
-							upUser($order_info);
-						}
-						
-						//如果是预存信息
-						if($table =='agent'){
-							//给用户充值金额和变更代理等级
-							$userData['money'] = array('exp', 'money+'.$paid_fee);
-							$save['pay_type'] = 2;
-							if(!$this->user['join_lv_time']){
-								$userData['join_lv_time'] = time();
-							}
-							if($this->user['lv']<$order_info['lv']){
-								$userData['lv'] = $order_info['lv'];
-							}
-							M('user')->where(array('id'=>$this->user['id']))->save($userData);
-							flog($this -> user['id'],'money',$data['total_fee']/100, 1); // 记录财务日志
-							
-						}
-						
-					}
-					M($table) -> where('id='.$order_id) -> save($save);
-			}else {
-				echo "trade_status=".$_GET['trade_status'];
-				echo "支付失败!";//跳转到配置项中配置的支付失败页面；
-			}
-			echo "success";        //请不要修改或删除
-		}else {
-			echo "支付失败！";	
-		}
+           $body           = I('body');              //订单所使用的表名在这里面。
+           $is_success     = I('is_success');        //成功是'T'
+           $out_trade_no   = I('out_trade_no');      //商户订单号
+           $trade_no       = I('trade_no');          //支付宝交易号
+           $trade_status   = I('trade_status');      //交易状态
+           $total_fee      = I('total_fee');         //交易金额
+           $notify_id      = I('notify_id');         //通知校验ID。
+           $notify_time    = I('notify_time');       //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
+           $notify_type    = I('notify_type');       //trade _status_sync
+           $seller_id      = I('seller_id');         //卖方ID
+           $subject        = I('subject');           //商品标题
+           $buyer_email    = I('buyer_email');       //买家支付宝帐号；
+        
+        $this->assign("subject",$subject);
+        $this->assign("total_fee",$total_fee);
+        
+        if ($trade_status == 'TRADE_SUCCESS')
+            $this->assign("trade_status","<span style='color:red'>支付成功！</span>");
+        else{
+            $this->assign("trade_status","<span style='color:green'>订单尚未到账。</span>");
+        }
+        $this->display();
 	}
 	
 }?>

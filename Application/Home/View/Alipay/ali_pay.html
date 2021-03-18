@@ -22,6 +22,36 @@
 <body>
 <style>
 	html{background:#e0e0e0;}
+
+     .btn-primary {
+        color: #fff;
+        border-color: #f60;
+        background-color: #f60;
+        margin-left: 1.5em;
+    }
+     .btn-bottom {
+        margin-left: 5px;
+        padding: 0px 10px;
+        line-height: 28px;
+        vertical-align: middle;
+    }
+    
+    .dlg{
+        
+        position: absolute;
+        z-index: 99;
+        /* padding-top: 5em; */
+        /* margin-top: 1em; */
+        width: 95%;
+        top: 20px;
+        padding: 25px 10px;
+        margin: 0 auto;
+        border-style: line;
+        border-color:black;
+        
+    
+    }
+
 </style>
 
 <div class="page">
@@ -40,7 +70,7 @@
 </section>
 
 
-<div style="display:none;">
+<div  style="display:none;">
 	<form id="ali_form" action="{:U('Alipay/doalipay')}" method="post" >
 		<input type="text" id="trade_no" name="trade_no" value="{$pay_array['out_trade_no']}" />
 		<input type="text" id="ordsubject" name="ordsubject" value="{$pay_array['body']}" />
@@ -52,6 +82,17 @@
 	</form>
 </div>
 
+<div id="dlg" class="dlg"  style="display:none">
+    <div style="background:#eee;text-align: center;">
+		<div style="padding-top:15px;  ">完成支付后点击确定</div>
+		<div style="font-size:26px;color:red;padding-top:20px;">是否已经完成支付？</div>
+		<div style="padding-top:30px;padding-bottom:50px;">
+			<input class="btn-primary" value="确定" type="button"  onclick="javascript:getOrderStatus();" >
+			<input class="btn-primary" value="取消" type="button" onclick="javascript:getOrderStatus();" >
+		</div>
+	</div>
+
+</div>
 
 <script type="text/javascript">
 $(function(){
@@ -61,7 +102,7 @@ $(function(){
 	}else{
 		setTimeout($('#ali_form').submit(),1000);
 	}
-	var int = self.setInterval("getOrderStatus()",3000);
+	var int = self.setTimeout("$('#dlg').show()",10000);
 });
 		
 function is_weixin(){
@@ -75,23 +116,29 @@ function is_weixin(){
 
 
 function getOrderStatus(){
+    
+    $('#dlg').hide();
+    
 	var type = $('#type').val();
 		sn = $('#trade_no').val();
-	$.post("{:U('IndexAjax/getOrderStatus')}",{sn:sn,type:type},function(data){
+	$.post("{:U('Member/getOrderStatus')}",{sn:sn,type:type},function(data){
 		if(data){
 			//alert(data.status);
 			if(data.status){
 				
-				if(type==1){
-					location.href="{:U('Index/order_list')}";
-				}else{
-					location.href="{:U('Staff/order_list')}";
-				}
+				// if(type==1){
+				// 	location.href="{:U('Index/order_list')}";
+				// }else{
+				// 	location.href="{:U('Staff/order_list')}";
+				// }
+				location.href="{:U('Member/my')}";
 			}else{
-				console.log(1111);
+				//location.reload(true);
+				//self.setTimeout("getOrderStatus()",2000);
+				$('#dlg').show();
 			}
 		}else{
-			alert('网络异常');
+			alert('网络拥挤，等一下再刷新');
 			return false;
 		}
 	});

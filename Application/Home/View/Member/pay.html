@@ -165,7 +165,7 @@
         <div class="item">
            <if condition="$v['isVIP'] neq 0">    
         		<input type="radio" name="recharge" value="{$v['money']}">
-        		<a href="javascript:void(0);" class="container" data-fee="{$v['money']}" _vip="{$v['isVIP']}">
+        		<a href="javascript:void(0);" class="container" data-fee="{$v['money']}" _send="{$v['send']}"  _vip="{$v['isVIP']}">
         			<div class="body">
         			    <if condition="$v['tip'] neq '' ">
         				 <div class="num">{$v['title']}<san class="tip">{$v['tip']}</san></div>
@@ -186,7 +186,7 @@
     	    <else />
 		  
     			<input type="radio" name="recharge" value="{$v['money']}">
-    			<a href="javascript:void(0);" class="container" data-fee="{$v['money']}" _vip="0">
+    			<a href="javascript:void(0);" class="container" data-fee="{$v['money']}" _send="{$v['send']}" _vip="0">
     				<div class="body">
     					<div class="num">{$v['money']}元</div>
     					<div class="bio">{$v['money']*$_site['rate']}+{$v['send']}书币</div>
@@ -247,6 +247,7 @@
 	$(".action .wap-btn").click(function(){
 		var that = $('.recharge-list > .item.active .container')
 		var fee = that.attr('data-fee');
+		var send = that.attr('_send');
 		vip = that.attr('_vip');
 
 		if(fee == undefined || fee == ""){
@@ -256,40 +257,40 @@
 
 		var model = "{$model}";
 		tips('数据正在请求中，请稍等...');
-		$.post("{:U('Member/pay_ajax')}",{money:fee,vip:vip},function(d){
+		$.post("{:U('Member/pay_ajax')}",{money:fee,send:send,vip:vip},function(d){
 			$('#pay-coin-tips').remove();
 			console.log(d);
 			if(d){
 				if(d.status){
 					if(model == 1){
 						//调起微信支付js
-						var jsapi =  d.info;
-						var jsApiParameters = eval('(' +jsapi + ')');
-						WeixinJSBridge.invoke(
-							'getBrandWCPayRequest',
-							jsApiParameters,
-							function(res){
-								WeixinJSBridge.log(res.err_msg);
-								if(res.err_msg == "get_brand_wcpay_request:ok"){
-									tips('充值成功');
-									setTimeout(function(){
-										location.href="{:U('Member/my')}";
-									},2000)
-								}else if(res.err_msg == "get_brand_wcpay_request:cancel"){
-										//tips('您取消了支付');
+				// 		var jsapi =  d.info;
+				// 		var jsApiParameters = eval('(' +jsapi + ')');
+				// 		WeixinJSBridge.invoke(
+				// 			'getBrandWCPayRequest',
+				// 			jsApiParameters,
+				// 			function(res){
+				// 				WeixinJSBridge.log(res.err_msg);
+				// 				if(res.err_msg == "get_brand_wcpay_request:ok"){
+				// 					tips('充值成功');
+				// 					setTimeout(function(){
+				// 						location.href="{:U('Member/my')}";
+				// 					},2000)
+				// 				}else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+				// 						//tips('您取消了支付');
 								
-									  get_order_status();
-								}else{
-									tips('支付失败，请重试！');
-								}
-							}
-						);
+				// 					  get_order_status();
+				// 				}else{
+				// 					tips('支付失败，请重试！');
+				// 				}
+				// 			}
+				// 		);
 					}else if(model == 2){
 						location.href=d.info;
 					}else if(model == 3){
 						location.href = "{:U('Member/paysApi')}&qrcode="+d.info.qrcode+"&sn="+d.info.sn;
 					}else if(model == 4){
-					   	location.href = "{:U('Member/payChinaxingChange')}&sn="+d.info.sn;
+					   	location.href = d.info.url;
 					}
 				}else{
 					tips(d.info);
