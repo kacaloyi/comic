@@ -243,7 +243,7 @@ class BookController extends HomeController {
 			
 				
 				//查询是否有充值记录
-				$read_charge = M('read_charge')->where(array('user_id'=>$this->user['id'],'rid'=>$bid,'ji_no'=>$ji_no,'type'=>'xs'))->find();
+				$read_charge = false;// M('read_charge')->where(array('user_id'=>$this->user['id'],'rid'=>$bid,'ji_no'=>$ji_no,'type'=>'xs'))->find();
 				if(!$read_charge){
 				    M('user')->where(array('id'=>$this->user['id']))->setDec("money",$money);
 					flog($this->user['id'], "money", "-".$money, 8);
