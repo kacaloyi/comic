@@ -115,7 +115,8 @@ class NotifyBaseController extends Controller {
 							'money'=>$gmoney+$user['money'],
 							'vip'=>($gvip+$user['vip']>0 ?1:0),
 							'vip_s_time'=>$stime,
-							'vip_e_time'=>$etime
+							'vip_e_time'=>$etime,
+							'btotal'=>$money+$user['btotal']//记录此用户生命周期的全部充值
 						));
 		//不要覆盖掉原来的VIP信息和书币信息，只能加。
 		
