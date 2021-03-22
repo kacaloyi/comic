@@ -642,9 +642,10 @@ class MhController extends HomeController {
 		
 		$arr_pics = getPicArray($jiinfo['pics']);
 		$arr_pics = str_replace("/Public/file",C('urlcdn'),$arr_pics);
+		
 		if($this->user['vip']<=0){
 		    foreach($arr_pics as $k=>$v){
-		  	   $arr_pics[$k] = $v."?x-oss-process=image/resize,p_30";
+		  	   $arr_pics[$k] = $v."?x-oss-process=image/resize,p_40";
 		}
 		}
 		//dump($arr_pics);exit;
