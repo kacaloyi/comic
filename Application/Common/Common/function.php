@@ -49,15 +49,19 @@ function complete_url($url){
 	
 }
 
-function getPicArray($str_pics){
+//oss可用用add来控制图片的显示大小和质量。减少传输量。
+function getPicArray($str_pics,$add){
         $arr_pics = array();
     	$pics = $str_pics;
     	if(!empty($pics)) {
     		$arr_pics = explode(',', $pics);
     	}
-		$url=C('mh_config_url');
-		foreach($arr_pics as $k=>$v){
-			$arr_pics[$k] = $url.$v;
+		//$url=C('mh_config_url');
+		
+		if($add){
+    		foreach($arr_pics as $k=>$v){
+    			$arr_pics[$k] = $v.$add;
+    		}
 		}
         return $arr_pics;
     
@@ -143,7 +147,7 @@ function getSinaShortUrl($url_long){
 //举报类型
 function getJutxt($k){
 	$list = C('JUB');
-	dump($list);
+	//dump($list);
 	return $list[$k]?$list[$k]:"未知";
 }
 

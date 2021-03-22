@@ -419,8 +419,9 @@ class MhController extends HomeController {
 		
 		foreach ($huas as $k=> $h){
 			$arr_pics = getPicArray($h['pics']);
+			$arr_pics=str_replace("/Public/file",C('urlcdn'),$arr_pics);
 			//$huas[$k]['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
-			$huas[$k]['imgHead']= $arr_pics[0]; 
+			$huas[$k]['imgHead']= $arr_pics[0]."?x-oss-process=image/resize,w_100 "; 
 			$huas[$k]['pics']="";//减少一点儿传输量。
 		}
     	$asdata = array(
@@ -640,6 +641,12 @@ class MhController extends HomeController {
 		*/
 		
 		$arr_pics = getPicArray($jiinfo['pics']);
+		$arr_pics = str_replace("/Public/file",C('urlcdn'),$arr_pics);
+		if($this->user['vip']<=0){
+		    foreach($arr_pics as $k=>$v){
+		  	   $arr_pics[$k] = $v."?x-oss-process=image/resize,p_30";
+		}
+		}
 		//dump($arr_pics);exit;
     	
     	$asdata = array(

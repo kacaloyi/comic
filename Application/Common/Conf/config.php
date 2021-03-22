@@ -64,6 +64,9 @@ return array(
 		"qita"=>"其他",
 	),
 	
+	//CDN地址
+	'urlcdn'=>"https://oss.biquyx.com",
+	
 	//漫画图片地址
 	'mh_config_url'=>'',
 	'auth'=>'9777b5f6-407b-11e7-9a00-00163e021565'

@@ -91,7 +91,23 @@ class PublicController extends Controller {
 	}
 	
 	public function test(){
-		sms("18679176380","测试短信发送");
+		//sms("18679176380","测试短信发送");
+		
+        $ok = array(
+            "/Public/file/iix/45/20016/448256.jpg",
+            "/Public/file/iix/45/20016/448257.jpg",
+            "/Public/file/iix/45/20016/448258.jpg",
+            "/Public/file/iix/45/20016/448259.jpg"
+        );
+        
+        //if($this->user['vip']>0)
+        $ok = str_replace("/Public/file","https://oss.biquyx.com",$ok);
+        print_r($ok);
+        echo("<div>user_vip=".intval($this->user['vip']) .  "<img width=600 src=".$ok[1]." /></div>");
+        echo("<div>user_vip=".intval($this->user['vip']) .  "<img width = 600 src=".$ok[1]."?x-oss-process=image/resize,p_30 /></div>");
+        echo("<div>user_vip=".intval($this->user['vip']) .  "<img width = 100 src=".$ok[1]."?x-oss-process=image/indexcrop,y_100,i_2/resize,w_100 /></div>");
+        echo("<div>user_vip=".intval($this->user['vip']) .  "<img width = 100 src=".$ok[1]."?x-oss-process=image/resize,w_100 /></div>");
+		
 	}
 	
 	public function cate(){
