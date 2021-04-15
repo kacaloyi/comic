@@ -1,7 +1,7 @@
 		<volist name="list" id="vo">
 			<div class="item">
-				<a href="{:U('Book/'.$vo[id])}">
-					<img class="lazy" src="/Public/file/default_img.png" data-original="{$vo.cover_pic}" style="width:110px;height:146px;" />
+				<a href="{:U('Book/'.$vo[id])}" title="{$vo.title} {$vo.title}小说">
+					<img class="lazy" src="/Public/file/default_img.png" alt="{$vo.title}小说" data-original="{$vo.cover_pic}" style="width:110px;height:146px;" />
 					<div class="title">{$vo.title}</div>
 					<div class="text">更新至{$vo.episodes}章</div>
 				</a>

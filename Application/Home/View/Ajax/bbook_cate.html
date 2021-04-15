@@ -1,7 +1,7 @@
     <volist name="list" id="vo">
     <div class="item"> 
-    <a href="{:U('Book/'.$vo['id'])}"> 
-    <div class="cover"> <img  class = "lazy" width="160" height="90" src="{$vo.cover_pic}"> </div> 
+    <a href="{:U('Book/'.$vo['id'])}" title="{$vo.title} {$vo.title}小说"> 
+    <div class="cover"> <img  class = "lazy" width="160" height="90" src="{$vo.cover_pic}" alt="{$vo.title}小说"> </div> 
     <div class="body"> <div class="title">{$vo.title}</div> 
     <div class="text">{$vo.summary}</div> 
     <div class="bottom"> 

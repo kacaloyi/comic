@@ -1,8 +1,8 @@
         <volist name="list" id="vo">
         <div class="item clearfix">
-        <a href="{:U('Mh/'.$vo['id'])}" class="clearfix">
+        <a href="{:U('Mh/'.$vo['id'])}" class="clearfix" title="{$vo.title} {$vo.title}漫画">
             <div class="cover">
-            	<img width="75" height="100" class="lazy" src="/Public/file/default_img.png" data-original="{$vo.cover_pic}" style="background: rgb(238, 238, 238); display: block;">
+            	<img width="75" height="100" class="lazy" src="/Public/file/default_img.png" data-original="{$vo.cover_pic}" style="background: rgb(238, 238, 238); display: block;" alt="{$vo.title}漫画">
             </div>
             <div class="body">
                 <div class="title">{$vo.title}</div>

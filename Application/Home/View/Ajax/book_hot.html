@@ -1,8 +1,8 @@
 	<foreach name="list" item="v">
 	<div class="item">
-		<a href="{:U('Mh/'.$v['id'])}" class="link">
+		<a href="{:U('Mh/'.$v['id'])}" class="link" title="{$v.title} {$v.title}漫画">
 			<div class="cover">
-				<img width="63" height="84" class="" src="{$v.cover_pic}" style="background: rgb(238, 238, 238); display: block;">
+				<img width="63" height="84" class="" src="{$v.cover_pic}" style="background: rgb(238, 238, 238); display: block;" alt="{$v.title}漫画">
 			</div>
 			<div class="body">
 				<div class="title">
@@ -21,7 +21,7 @@
 			</div>
 		</a>
 		<div class="action">
-			<a href="{:U('Mh/'.$v['id'])}" class="btn">阅读</a>
+			<a href="{:U('Mh/'.$v['id'])}" class="btn" title="{$v.title} {$v.title}漫画">阅读</a>
 		</div>
 	</div>
 	</foreach>
