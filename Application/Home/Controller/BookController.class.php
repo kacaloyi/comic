@@ -39,12 +39,12 @@ class BookController extends HomeController {
     public function bookinfo(){
     	$bid = I('bid', 'intval', 0);
     	if(empty($bid)) {
-    		$this->error('非法访问漫画数据！', U('Book/index'));
+    		$this->error('非法访问小说数据！', U('Book/index'));
     	}
     	
     	$info = M('book')->where("id={$bid}")->find();
     	if(empty($info)) {
-    		$this->error('漫画数据缺失！', U('Book/index'));
+    		$this->error('小说数据缺失！', U('Book/index'));
     	}
     	M('book')->where("id={$bid}")->setInc('reader', 1);
     	
@@ -83,10 +83,17 @@ class BookController extends HomeController {
 			$huas_num = range(1,$huas);
 		}
 		*/
+		$info['update_time'] = date('Y-m-d',$info['update_time']);
+		$keyword = "爽文小说";
+		//(FALSE!=strstr($info['bookcate'],"8"));
+		//   $keyword = "爽文小说";
 		
     	$asdata = array(
     			'info'			=> $info,
+				'keyword'		=> $keyword,
     			'arr_catename'	=> $arr_catename,
+				'catenname'		=> implode(' ',$arr_catename),
+				'status'		=> $info['status'] == 1?"连载中":"已完结",
     			'first'			=> $first,
     			'huas'			=> $huas,
     			'tag'			=> $tag,
@@ -679,10 +686,10 @@ class BookController extends HomeController {
     					   $money = 0;
     					   $html.= '<div class="item">';
     				   }
-    				   
-    				   $html.='<a href="'.U('Mh/'.$id.'/'.$vo['ji_no']).'" class="">';
+    				   $addtxt = $vo['title']."_".$info['title']."漫画";
+    				   $html.='<a href="'.U('Mh/'.$id.'/'.$vo['ji_no']).'" class="" title="'.$addtxt.'">';
     				   $html.='<span class="imgHead" style="float:left"><img class="lazyload" src="';
-    				   $html.=$vo['imgHead'].'" data-original="'.$vo['imgHead'].'" style='."width:100%".' ></span>';
+    				   $html.=$vo['imgHead'].'" data-original="'.$vo['imgHead'].'" style='."\"width:100%\" alt=\"".$addtxt.'\" ></span>';
  
     				   $html.=$vo['title'];
     				   if($money>0) $html.='<span>'.$money.'书币</span>';
@@ -711,8 +718,8 @@ class BookController extends HomeController {
     					   $money = 0;
     					   $html.= '<div class="item">';
     				   }
-    				   
-				   $html.='<a href="'.U('Book/'.$id.'/'.$vo['ji_no']).'"  style="">'.$vo['title'];
+				   $addtxt = $vo['title']."_".$info['title']."小说";   
+				   $html.='<a href="'.U('Book/'.$id.'/'.$vo['ji_no']).'"  style=""  title="'.$addtxt.'">'.$vo['title'];
 				   if($money>0) $html.='<span>'.$money.'书币</span>';
 				   $html.='</a>';
 				   $html.='</div>';

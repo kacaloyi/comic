@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)https://m.efucms.com/book/{:U('Mh/book_cate')} -->
+
 <html data-dpr="1" style="font-size: 41.6px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{$info.title}小说最新章节列表_{$_CFG['site']['name']}</title>
-    <meta name="keywords" content="{$info.title},{$info.title}网络小说,{$info.author}">
-    <meta name="description" content="{$info.summary} {$_CFG['site']['name']}诚意呈献">
+    <title>{$info.title}小说_{$info.title}最新章节_{$_CFG['site']['name']}</title>
+    <meta name="keywords" content="{$info.title},{$info.title}小说,{$info.title}免费阅读,{$info.title}连载,{$info.author}">
+    <meta name="description" content="{$_CFG['site']['name']}为您提供{$keyword}{$info.title}全集免费在线阅读，最新激爽网文，人气小说，高清精彩漫画、全彩漫画等免费在线漫画小说，尽在{$_CFG['site']['name']}！">
+	<meta itemprop="name" content="上{$_CFG['site']['name']}，《{$info.title}》激爽网文爆H在线观看！">
+    <meta itemprop="image" content="{$info.detail_pic}">  
+    <meta property="og:type" content="novel">
+    <meta property="og:title" content="{$info.title}">
+    <meta property="og:description" content="{$info.summary}">
+    <meta property="og:image" content="{$info.detail_pic}">
+    <meta property="og:novel:category" content="{$catenname}">
+    <meta property="og:novel:author" content="{$info.author}">
+    <meta property="og:novel:book_name" content="{$info.title}">
+    <meta property="og:novel:read_url" content="{:U('/Book/'.$info['id'])}">
+    <meta property="og:url" content="{:U('/Book/'.$info['id'])}">
+    <meta property="og:novel:status" content="{$status}">
+    <meta property="og:novel:update_time" content="{$info['update_time']}">
+    <meta property="og:novel:latest_chapter_name" content="{$first['title']}">
+    <meta property="og:novel:latest_chapter_url" content="{:U('/Book/'.$info['id'].'/'.$first['ji_no'])}">
+    <link rel="prefetch prerender" href="{:U('/Book/'.$info['id'].'/'.$first['ji_no'])}">
+    <link rel="canonical" href="{:U('/Book/'.$info['id'])}">
+    <meta name="applicable-device" content="mobile">
     <!-- 共用引入资源.开始 -->
 
     <meta name="viewport" content="designWidth=750,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -66,12 +84,12 @@
 <body style="font-size: 12px;">
 <div class="cover-box">
     <div class="bg">
-        <img src="{$info.detail_pic}" />
+        <img src="{$info.detail_pic}" title="{$info.title} {$info.title}小说"/>
         <div class="gradient"></div>
     </div>
     <div class="comic-item">
         <div class="thumbnail">
-                    <img data-cfsrc="https://ae01.alicdn.com/kf/He3cda13f34d44e8fb85dcdf6c7768398F.gif" class="thumbnail" alt="{$info.title}" src="https://ae01.alicdn.com/kf/He3cda13f34d44e8fb85dcdf6c7768398F.gif" style="background: url(&quot;{$info.detail_pic}&quot;) center center / cover no-repeat; opacity: 1;">
+                    <img data-cfsrc="https://ae01.alicdn.com/kf/He3cda13f34d44e8fb85dcdf6c7768398F.gif" class="thumbnail" alt="{$info.title} {$info.title}小说" src="https://ae01.alicdn.com/kf/He3cda13f34d44e8fb85dcdf6c7768398F.gif" style="background: url(&quot;{$info.detail_pic}&quot;) center center / cover no-repeat; opacity: 1;">
                     <span class="ift-xing score">9.8</span>
         </div>
     </div>
@@ -88,7 +106,7 @@
     
     </div>
     <div class="action">
-        <a href="{:U('Book/index')}" class="back">
+        <a href="{:U('Book/index')}" class="back" title="小说首页">
             <svg width="12" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 40">
             <path d="M21.56 39.47a2 2 0 0 1-1.38-.56L.44 20 20.18 1.09A2.01 2.01 0 1 1 22.95 4L6.23 20l16.72 16a2 2 0 0 1-1.38 3.44z" fill="#fff"></path></svg>
         </a>
@@ -152,14 +170,14 @@
 		<if condition="$vo['ji_no'] egt $info['pay_num'] and $info['pay_num'] gt 0">
 			<if condition="$read">
 				<div class="item">
-				<a href="{:U('Book/'.$info['id'].'/'.$vo['ji_no'])}" class="">{$vo['title']}<span>{$money}书币</span></a></div>
+				<a href="{:U('Book/'.$info['id'].'/'.$vo['ji_no'])}" class="" title="{$info.title}小说 {$info.title}{$keyword}">{$vo['title']}<span>{$money}书币</span></a></div>
 			<else />
 				<div class="item lock">
-				<a href="{:U('Book/'.$info['id'].'/'.$vo['ji_no'])}" class="">{$vo['title']}<span>{$money}书币</span></a></div>
+				<a href="{:U('Book/'.$info['id'].'/'.$vo['ji_no'])}" class="" title="{$info.title}小说 {$info.title}{$keyword}">{$vo['title']}<span>{$money}书币</span></a></div>
 			</if>
 		<else />
 			<div class="item">
-			<a href="{:U('Book/'.$info['id'].'/'.$vo['ji_no'])}" class="" style="">{$vo['title']}<span></span></a></div>
+			<a href="{:U('Book/'.$info['id'].'/'.$vo['ji_no'])}" class=""  title="{$info.title}小说 {$info.title}{$keyword}">{$vo['title']}<span></span></a></div>
 		</if> 
     </volist>
     </div>
@@ -184,7 +202,7 @@
     <div class="head">
         <div class="title">最新评论({$mcounts})</div>
         <div class="pull-right">
-            <a href="{:U('Book/Comments',array('id'=>$info['id'],'type'=>"xs"))}" class="change">全部评论&gt;</a>
+            <a href="{:U('Book/Comments',array('id'=>$info['id'],'type'=>"xs"))}" class="change"  title="{$info.title}小说评论">全部评论&gt;</a>
         </div>
     </div>
     <div class="books-row">
@@ -221,8 +239,8 @@
 	<div class="books-row" id="booklikes">
 		<foreach name="guess" item="vo">
 		<div class="item">
-			<a href="{:U('Book/'.$vo[id])}">
-				<img class="lazy" src="{$vo.cover_pic}" data-original="{$vo.cover_pic}" style="width:110px;height:146px;" />
+			<a href="{:U('Book/'.$vo[id])}" title="{$vo.title} {$vo.title}小说">
+				<img class="lazy" src="{$vo.cover_pic}" data-original="{$vo.cover_pic}" style="width:110px;height:146px;" alt="{$vo.title} {$vo.title}小说" />
 				<div class="title">{$vo.title}</div>
 				<div class="text">更新至{$vo.episodes}章</div>
 			</a>
@@ -237,7 +255,7 @@
             <span class="title">{$first['title']}</span>
         </div>
         <div class="action">
-            <a href="{:U('Book/'.$info['id'].'/'.$first['ji_no'])}" class="btn">开始阅读</a>
+            <a href="{:U('Book/'.$info['id'].'/'.$first['ji_no'])}" class="btn" title="{$first['title'] $info['title']}小说">开始阅读</a>
         </div>
     </div>
 </div>
@@ -251,7 +269,7 @@
 	<a class="btn-tip-menu" href="javascript:;">打赏</a>
 	<div class="tip-history">
 		<h6 class="title">打赏记录</h6>
-		<div class="no-data" style="display: none;text-align:center;font-size:16px">土豪，求打赏</div>
+		<div class="no-data" style="display: none;text-align:center;font-size:16px">你的支持，我的动力，求打赏</div>
 		<div class="rows">
 
 		</div>

@@ -424,9 +424,17 @@ class MhController extends HomeController {
 			$huas[$k]['imgHead']= $arr_pics[0]."?x-oss-process=image/resize,w_100 "; 
 			$huas[$k]['pics']="";//减少一点儿传输量。
 		}
+		$info['update_time'] = date('Y-m-d',$info['update_time']);
+		$keyword = "国漫精华";
+		if(FALSE!=strstr($info['mhcate'],"8"));
+		   $keyword = "韩国漫画";
+
     	$asdata = array(
     			'info'			=> $info,
+				'keyword'		=> $keyword,
     			'arr_catename'	=> $arr_catename,
+				'catenname'		=> implode(' ',$arr_catename),
+				'status'		=> $info['status'] == 1?"连载中":"已完结",
     			'first'			=> $first,
     			'huas'			=> $huas,
     			'tag'			=> $tag,
