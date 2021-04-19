@@ -133,7 +133,7 @@ class MemberController extends HomeController {
 					'nickname'	=> $username,
 					'headimg'	=> '/Public/home/mhimages/'.rand(1,20).'.jpg',
 					//'mobile'	=> $mobile,
-					'money'     => 200,
+					'money'     => 0,//注册不再奖励书币
 					'vip_level'	=> 0,
 					'username'	=> $username,
 					'userpwd'	=> $userpwd, 

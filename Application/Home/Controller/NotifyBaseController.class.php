@@ -31,6 +31,8 @@ class NotifyBaseController extends Controller {
 	//给分享者奖励 ,这个要改，不再给分享者现金奖励。因为分享来的用户可以刷。
 	//每次分享，来一个新用户，如果充值了，给1天的VIP好了。
 	private function _give_money_2_sharer($order_id){
+		//暂时取消给分享者奖励
+		return;
 		//给用户奖励。
 		$logs = M('separate_log')->where(array('order_id'=>$order_id,'status'=>1))->select();
 		if($logs){
