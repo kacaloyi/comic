@@ -2,9 +2,9 @@
 <html data-dpr="1" style="font-size: 43.1px;">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>{$info.title}_{$binfo['title']}_{$_CFG['site']['name']}小说网</title>
-<meta name="keywords" content="{$info.title},{$binfo['title']}">
-<meta name="description" content="{$_CFG['site']['name']}提供了{$binfo['author']}创作的言情小说《{$binfo['title']}》干净清爽无错字的文字章节：{$info.title}在线阅读。">
+<title>{$info.title}_《{$binfo['title']}》小说_{$_CFG['site']['name']}</title>
+<meta name="keywords" content="{$info.title},{$binfo['title']}小说">
+<meta name="description" content="{$info.title}。{$_CFG['site']['name']}提供了{$binfo['author']}创作的{$keyword}《{$binfo['title']}》干净清爽无错字的文字章节在线阅读">
 <!-- 共用引入资源.开始 -->
 
 <meta name="viewport" content="designWidth=750,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -313,7 +313,7 @@ padding:10px;
 <div class="rt-bar" style="position: fixed">
     <div class="row">
         <div class="col icon">
-            <a href="{:U('Book/'.$bid)}">
+            <a href="{:U('Book/'.$bid)}" title="{$binfo['title']} {$binfo['title']}小说 ">
                 <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M29.56 39.47a2 2 0 0 1-1.38-.56L8.45 20 28.17 1.09A2 2 0 1 1 30.94 4L14.23 20l16.71 16a2 2 0 0 1-1.38 3.44z" fill="#ff730a"></path></svg>
             </a>
         </div>
@@ -424,7 +424,7 @@ padding:10px;
             </a>
         </div>
         <div class="col">
-            <a href="{:U('Book/'.$info[bid]).'?isji=1'}" style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
+            <a href="{:U('Book/'.$info[bid]).'?isji=1'}" title="{$binfo['title']}小说目录" style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
                 <i class="icon-dir"></i>目录
             </a>
         </div>
@@ -457,17 +457,17 @@ padding:10px;
 			$money = $money?$money:$_site['jimoney'];
 			$read = M('book_read')->where(array('ji_no'=>$next,'bid'=>$binfo['id'],'user_id'=>$user['id']))->find();
         ?>
-            <a href="{:U('Book/'.$binfo['id'].'/'.$before)}" onclick="return checkSub();"><i></i>上一章</a>
+            <a href="{:U('Book/'.$binfo['id'].'/'.$before)}" title="{$info['title']} {$binfo['title']}小说 上一章" onclick="return checkSub();"><i></i>上一章</a>
         </div>
         <div class="item next">
 			<if condition="$next egt $binfo['pay_num'] and $binfo['pay_num'] gt 0">	
 				<if condition="$read">
-					<a href="{:U('Book/'.$binfo['id'].'/'.$next)}" onclick="return checkSub();">下一章<i></i></a>
+					<a href="{:U('Book/'.$binfo['id'].'/'.$next)}" title="{$info['title']} {$binfo['title']}小说 下一章" onclick="return checkSub();">下一章<i></i></a>
 				<else />
-					<a href="{:U('Book/'.$binfo['id'].'/'.$next)}" onclick="return checkSub();">下一章<i></i></a>
+					<a href="{:U('Book/'.$binfo['id'].'/'.$next)}" title="{$info['title']} {$binfo['title']}小说 下一章" onclick="return checkSub();">下一章<i></i></a>
 				</if>
 			<else />
-				<a href="{:U('Book/'.$binfo['id'].'/'.$next)}" onclick="return checkSub();">下一章<i></i></a>
+				<a href="{:U('Book/'.$binfo['id'].'/'.$next)}" title="{$info['title']} {$binfo['title']}小说 下一章" onclick="return checkSub();">下一章<i></i></a>
 			</if>
         </div>
     </div>

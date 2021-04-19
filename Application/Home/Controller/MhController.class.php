@@ -657,6 +657,9 @@ class MhController extends HomeController {
 		}
 		}
 		//dump($arr_pics);exit;
+		$keyword = "国漫精华";
+		if(FALSE!=strstr($info['mhcate'],"8"));
+		   $keyword = "韩国漫画";
     	
     	$asdata = array(
     			'mhinfo'		=> $mhinfo,
@@ -668,6 +671,7 @@ class MhController extends HomeController {
     			'arr_catename'	=> $arr_catename,
     			'arr_pics'		=> $arr_pics,
     			'first'			=> $first,
+				'keyword'		=> $keyword,
     	);
 		
 		//若有文案链接的增加文案阅读量

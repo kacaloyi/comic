@@ -324,6 +324,7 @@ class BookController extends HomeController {
 		$this->assign('bid',$bid);
 		$this->assign('collect',$collect);
 		$this->assign('likes',$likes);
+		$this->assign('keyword',"爽文小说");
     	
 	
 // 		$dd = new \Common\Util\ddwechat();
