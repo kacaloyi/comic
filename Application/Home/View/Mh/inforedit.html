@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0041)https://m.efucms.com/book/10227/9147/ -->
+
 <html data-dpr="1" style="font-size: 43.1px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>{$jiinfo.title}_{$mhinfo['title']}{$keyword}_{$_CFG['site']['name']}</title>
 <meta name="keywords" content="{$jiinfo.title} {$mhinfo['title']}漫画,{$mhinfo['title']}{$keyword},{$binfo['title']}漫画全集,{$jiinfo.title},动漫,漫画,在线漫画阅读">
@@ -16,7 +16,7 @@
     <include file="include/headcode" />  
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/mhcss/style.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/vendor.css">
-    <!--script type="text/javascript" src="__PUBLIC__/home/mhjs/fundebug.0.1.7.min.js" apikey="ba3a0e0d938e92b44f279067dffb8d071ee87fc35eb75918b7a900e8581a955d"></script-->
+   
  
 </head>
 <body style="font-size: 12px;">
@@ -78,7 +78,7 @@
 	</div> -->
     <div class="row">
         <div class="col" onclick="collect({$mhid});">
-            <a href="javascript:void(0);" id="collect" <if condition="$collect gt 0">class="shelf active"<else />class="shelf"</if> style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
+            <a href="javascript:void(0);" id="collect" title="收藏{$mhinfo['title']}漫画" <if condition="$collect gt 0">class="shelf active"<else />class="shelf"</if> style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
                 <i class="icon-fav"></i>收藏
             </a>
         </div>
@@ -88,7 +88,7 @@
             </a>
         </div>
         <div class="col" onclick="chapter_dianzan({$mhid}, {$ji_no});">
-            <a href="javascript:;"  id="showcoll" <if condition="$likes gt 0">class="zan active"<else />class="zan"</if> style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
+            <a href="javascript:;"  id="showcoll" title="给{$mhinfo['title']}漫画点赞" <if condition="$likes gt 0">class="zan active"<else />class="zan"</if> style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
                 <i class="icon-good"></i>赞
                 <span id="showlikesnum">{$jiinfo.likes}</span>
             </a>
@@ -190,8 +190,10 @@
 		<hr>
 		<span class="sum_of_tip">{$mhinfo['send']|}书币</span>
 	</div>
-	<a class="btn-tip-menu" href="javascript:;">打赏</a>	
+	<div style="width:100%;text-align:center;">一种优秀的品质</div>
+	<a class="btn-tip-menu" href="javascript:;" title="给{$mhinfo['title']}漫画打赏">打赏</a>	
 </div>
+
 <div class="ds">
 	<div class="msk" onclick="dsHide();"></div>
 	<div class="txt">

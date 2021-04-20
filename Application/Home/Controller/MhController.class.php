@@ -424,11 +424,13 @@ class MhController extends HomeController {
 			$huas[$k]['imgHead']= $arr_pics[0]."?x-oss-process=image/resize,w_100 "; 
 			$huas[$k]['pics']="";//减少一点儿传输量。
 		}
+		
 		$info['update_time'] = date('Y-m-d',$info['update_time']);
 		$keyword = "国漫精华";
-		if(FALSE!=strstr($info['mhcate'],"8"));
+		if(FALSE!=strstr($info['mhcate'],'8'))
 		   $keyword = "韩国漫画";
 
+       
     	$asdata = array(
     			'info'			=> $info,
 				'keyword'		=> $keyword,
@@ -440,7 +442,7 @@ class MhController extends HomeController {
     			'tag'			=> $tag,
     			'lock'			=> $lock,
     	);
-    	 
+    
 		//猜你喜欢随机选择6个不为自己ID
 		$guess = M('mh_list')->where(array('id'=>array('neq',$mhid)))->order('rand()')->limit(6)->select();
 		$this->assign('guess',$guess);
@@ -455,7 +457,7 @@ class MhController extends HomeController {
 //         $dd->setParam($this->_mp);
 //         $jssdk = $dd->getsignpackage();
 //         $this->assign('jssdk', $jssdk);
-		
+
 		$this->display();
     }
     
@@ -564,10 +566,10 @@ class MhController extends HomeController {
 					$money = $this->_site['mhmoney'];
 				}
 				if($mhinfo['isvip'] == 2){
-					$this->error('抱歉，本漫画只允许vip用户阅读！',U('Member/pay'));
+					$this->error('冲个VIP吧，本漫画只允许vip用户阅读！',U('Member/pay'));
 				}
 				if($this->user['money']<$money){
-					$this->error('您的账户书币不足！',U('Member/pay'));
+					$this->error('您的账户书币不足！充个VIP就能解决',U('Member/pay'));
 				}
 				
 				//查询是否有充值记录

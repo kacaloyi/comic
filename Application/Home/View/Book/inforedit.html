@@ -415,11 +415,11 @@ padding:10px;
 </style>
 <div class="read-footer">
 	<div class="zshu">
-		<a href="javascript:;" onclick="$('.pos').show();">追书</a>
+		<a href="javascript:;" onclick="$('.pos').show();" title="去公众号看{$binfo['title']}">追书</a>
 	</div>
     <div class="row">
         <div class="col">
-            <a href="javascript:void(0);" onclick="collect({$bid})" id="collect" <if condition="$collect">class="shelf active"<else />class="shelf"</if> style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
+            <a href="javascript:void(0);" onclick="collect({$bid})" title="收藏{$binfo['title']}小说" id="collect" <if condition="$collect">class="shelf active"<else />class="shelf"</if> style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
                 <i class="icon-fav"></i>收藏
             </a>
         </div>
@@ -429,7 +429,7 @@ padding:10px;
             </a>
         </div>
         <div class="col">
-            <a href="javascript:;" onclick="chapter_dianzan({$bid}, {$_GET['ji_no']});" id="showcoll" <if condition="$likes gt 0">class="zan active"<else />class="zan"</if> style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
+            <a href="javascript:;" onclick="chapter_dianzan({$bid}, {$_GET['ji_no']});" title="给{$binfo['title']}点赞" id="showcoll" <if condition="$likes gt 0">class="zan active"<else />class="zan"</if> style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
                 <i class="icon-good"></i>赞
                 <span id="showlikesnum">{$info.likes|default="0"}</span>
             </a>
@@ -525,7 +525,7 @@ padding:10px;
 		<hr>
 		<span class="sum_of_tip">{$binfo['send']|}书币</span>
 	</div>
-	<a class="btn-tip-menu" href="javascript:;">打赏</a>	
+	<a class="btn-tip-menu" href="javascript:;" title="给{$binfo['title']}打赏">打赏</a>	
 </div>
 <div class="ds">
 	<div class="msk" onclick="dsHide();"></div>

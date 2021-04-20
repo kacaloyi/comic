@@ -85,7 +85,7 @@ class BookController extends HomeController {
 		*/
 		$info['update_time'] = date('Y-m-d',$info['update_time']);
 		$keyword = "爽文小说";
-		//(FALSE!=strstr($info['bookcate'],"8"));
+		//(FALSE!=strstr($info['bookcate'],"8"))
 		//   $keyword = "爽文小说";
 		
     	$asdata = array(
