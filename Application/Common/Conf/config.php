@@ -64,7 +64,10 @@ return array(
 		"qita"=>"其他",
 	),
 	
-	//CDN地址
+	//CDN地址 
+	//uploadcdn: cdn映射到本机的本地根目录
+	//urlcdn: cdn外部访问的url根目录
+	'uploadcdn'=>"/Public/file/", 
 	'urlcdn'=>"https://oss.biquyx.com",
 	
 	//漫画图片地址

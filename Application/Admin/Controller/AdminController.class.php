@@ -194,11 +194,11 @@ class AdminController extends Controller
     private function _get_new_name($ext, $dir = 'default')
     {
         $name = date('His') . substr(microtime(), 2, 8) . rand(1000, 9999) . '.' . $ext;
-        //$path是相对服务器文件系统的目录名   实际位置是：硬盘中的安装位置+$path
-        //$urlpath 是相对于web服务器寻址系统的目录名。 实际位置是：http://host/ +当前页面位置+ $urlpath 直接用/可以避免当前页面位置的影响。
-        
-        $path     = './Public/upload/' . $dir . date('/ym/d') . '/';
-        $url_path = '/Public/upload/' . $dir . date('/ym/d') . '/';
+        //$path是相对服务器文件系统的目录名   实际位置是： cdn映射到本机的根目录+$path
+        //$urlpath 是相对于web服务器寻址系统的目录名。 实际位置是：cdn域名+相对目录名 $urlpath 直接用/可以避免当前页面位置的影响。
+        //经过修改，这一步配合下一步的move_uploaded_file(),把上传上来的文件拷贝到cdn的指定目录中去，并可以通过外部url访问。
+        $path     = C('uploadcdn').'/upload/' . $dir . date('/ym/d') . '/';
+        $url_path = C('urlcdn').'/upload/' . $dir . date('/ym/d') . '/';
         if (!is_dir($path)) {
             mkdir($path, 0777, 1);
         }
