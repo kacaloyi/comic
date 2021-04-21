@@ -114,9 +114,9 @@
 <foreach name="bookcate" item="v" key="k">
 	<div class="bm-box mt-10">
 		<div class="head">
-			<div class="title dot">{$v.name}<a class="ax" href="javascript:getData({$k});">换一换</a></div>
+			<div class="title dot">{$v.name}<a class="ax" href="javascript:getData({$k});" title="{$v.name}小说">换一换</a></div>
 			<div class="pull-right">
-				<a href="{:U('Book/cate/'.$k)}" title="更多{$v.name}小说">
+				<a href="{:U('Book/cate/'.$k)}" title="{$v.name}小说合集">
 					更多 <svg width="7" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 24">
 					<title>right-arrow</title>
 					<path d="M1.91 1.93L12.06 12 1.91 22" fill="none" stroke="#ff5420" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
@@ -139,7 +139,7 @@
 <if condition="$mf">
 <div class="bm-box mt-10">
 	<div class="head">
-		<div class="title dot">免费专区<a  class="ax" href="javascript:getData('free');">换一换</a></div>
+		<div class="title dot">免费专区<a  class="ax" href="javascript:getData('free');" title="免费小说专区">换一换</a></div>
 		<div class="pull-right">
 			<a href="{:U('Book/book_free')}" title="免费小说合集">
 				更多 <svg width="7" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 24">
