@@ -289,10 +289,11 @@ class ConfigController extends AdminController {
 		if(IS_POST){
 			$_POST['config'] = array();
 			foreach($_POST['pic'] as $key => $val){
-				$_POST['config'][] = array('pic' => $_POST['pic'][$key], 'url' => $_POST['url'][$key]);
+				$_POST['config'][] = array('pic' => $_POST['pic'][$key], 'url' => $_POST['url'][$key], 'alt' => $_POST['alt'][$key]);
 			}
 			unset($_POST['pic']);
 			unset($_POST['url']);
+			unset($_POST['alt']);
 		}
 		$this -> _save();
 		$this -> display();
@@ -303,10 +304,11 @@ class ConfigController extends AdminController {
 		if(IS_POST){
 			$_POST['config'] = array();
 			foreach($_POST['pic'] as $key => $val){
-				$_POST['config'][] = array('pic' => $_POST['pic'][$key], 'url' => $_POST['url'][$key]);
+				$_POST['config'][] = array('pic' => $_POST['pic'][$key], 'url' => $_POST['url'][$key], 'alt' => $_POST['alt'][$key]);
 			}
 			unset($_POST['pic']);
 			unset($_POST['url']);
+			unset($_POST['alt']);
 		}
 		$this -> _save();
 		$this -> display();

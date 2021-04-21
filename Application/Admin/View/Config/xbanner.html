@@ -29,6 +29,7 @@
 								<input type="hidden" name="pic[]" value="{$vo.pic}" />
 							</td>
                             <td><input type="text" name="url[]" value="{$vo.url}" /></td>
+							<td><input type="text" name="alt[]" value="{$vo.alt}" /></td>
 							<td><a href="javascript:;" onclick="del_row(this)">删除</a></td>
                         </tr>
                         </volist>
@@ -51,6 +52,7 @@
 						  +'		<input type="hidden" name="pic[]" value="" />'
 						  +'	</td>'
 						  +'	<td><input type="text" name="url[]" /></td>'
+						  +'	<td><input type="text" name="alt[]" /></td>'
 						  +'	<td><a href="javascript:;" onclick="del_row(this)">删除</a></td>'
 						  +'</tr>';
 					size = jQuery("#table2").find("tbody").find("tr").size();

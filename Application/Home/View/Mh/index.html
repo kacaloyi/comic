@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html style="overflow-x:hidden">
 <head>
-    <title>{$_CFG['site']['name']}_漫画网国漫韩漫</title>
-    <meta name="keywords" content="漫画大全,漫画图片,漫画投稿,在线漫画,斗破苍穹漫画,斗罗大陆漫画,偷星九月天,穿越西元3000后,凤逆天下,风起苍岚,妃夕妍雪,BL漫画,耽美漫画,国漫漫画,韩漫漫画" />
-    <meta name="description" content="{$_CFG['site']['name']} 国漫，韩漫，斗破苍穹漫画、斗罗大陆漫画，元尊漫画，看漫画，就来{$_CFG['site']['name']}！" />
+    <title>{$_CFG['site']['name']}漫画小说网</title>
+    <meta name="keywords" content="漫画网,小说网,在线漫画,漫画全集,免费漫画,全彩漫画,精彩国漫,韩国漫画,下拉式阅读,漫画图片,漫画投稿,耽美漫画,国漫漫画,韩漫漫画" />
+    <meta name="description" content="{$_CFG['site']['name']}为您提供国漫，韩漫等精彩漫画全集在线阅读，最新激爽网文，人气小说，高清精彩漫画、全彩漫画等免费在线漫画小说。看漫画，看小说，就来{$_CFG['site']['name']}！" />
     <!-- 共用引入资源.开始 -->
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -82,8 +82,8 @@
     <div class="indexnav portal-slick mt-navbar">
         <volist name="_banner['config']" id="vo">
 			<div class="item">
-				<a href="{:U('Mh/'.$vo['url'])}">
-				<img class="slide_loading" src="{$vo.pic}" data-original="{$vo.pic}" alt="漫画轮播图" />
+				<a href="{:U('Mh/'.$vo['url'])}" title="{$vo.alt}">
+				<img class="slide_loading" src="{$vo.pic}" data-original="{$vo.pic}" alt="{$vo.alt}" />
 				</a>
 			</div>
         </volist>
@@ -159,7 +159,7 @@
 	<div class="books-row" id="rowfree">
 		<volist name="mf" id="vo">
 			<div style="width:100%;padding-bottom: 20px;border-bottom: 1px solid #ddd;position:relative;">
-				<img class="lazy"  src="/Public/file/default_img.png" data-original="{$vo.cover_pic}" alt="{$vo.title}漫画" style="width:88px;height:110px;float:left;margin:10px;" />
+				<img class="lazy"  src="/Public/file/default_img.png" data-original="{$vo.cover_pic}" style="width:88px;height:110px;float:left;margin:10px;"  alt="{$vo.title} {$vo.title}漫画"/>
 				<div class="title" style="margin-top: 15px;font-size: 17px;color: #000;">{$vo.title}</div>
 				<div class="text" style="margin-top: 5px;font-size: 14px;color: #666666;">{$vo.author}</div>
 				<div class="text" style="margin-top: 5px;font-size: 14px;color: #666666;height:60px;text-overflow: ellipsis;overflow: hidden; word-wrap: break-word;word-break: break-all;">{$vo.summary}</div>
