@@ -82,7 +82,7 @@
     <div class="indexnav portal-slick mt-navbar">
         <volist name="_xbanner['config']" id="vo">
 			<div class="item">
-				<a href="{:U('Book/'.$vo['url'])}" title="{$vo.alt}">
+				<a href="{$vo['url']}" title="{$vo.alt}">
 				<img class="slide_loading" src="{$vo.pic}" data-original="{$vo.pic}" alt="{$vo.alt}" />
 				</a>
 			</div>
