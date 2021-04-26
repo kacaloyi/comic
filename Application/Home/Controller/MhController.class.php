@@ -426,9 +426,9 @@ class MhController extends HomeController {
 		}
 		
 		$info['update_time'] = date('Y-m-d',$info['update_time']);
-		$keyword = "国漫精华";
+		$keyword = "漫画";
 		if(FALSE!=strstr($info['mhcate'],'8'))
-		   $keyword = "韩国漫画";
+		   $keyword = "韩漫漫画";
 
        
     	$asdata = array(
@@ -659,9 +659,9 @@ class MhController extends HomeController {
 		}
 		}
 		//dump($arr_pics);exit;
-		$keyword = "国漫精华";
-		if(FALSE!=strstr($info['mhcate'],"8"));
-		   $keyword = "韩国漫画";
+		$keyword = "漫画";
+		if(FALSE!=strstr($mhinfo['mhcate'],'8'))
+		   $keyword = "韩国漫画完整无删";
     	
     	$asdata = array(
     			'mhinfo'		=> $mhinfo,

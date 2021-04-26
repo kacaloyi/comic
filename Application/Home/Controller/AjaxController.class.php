@@ -1272,7 +1272,7 @@ class AjaxController extends HomeController {
 	         case 'mhcate':
 	               $mhcate = I("mhcate");
 	               $where['mhcate'] = array('like','%'.$mhcate.'%');
-	               $list = M('mh_list')->where($where)->order('id desc')->limit($page*10,10)->select();
+	               $list = M('mh_list')->where($where)->order('sort desc')->limit($page*10,10)->select();
 	              break;          
 	          
 	          default:
