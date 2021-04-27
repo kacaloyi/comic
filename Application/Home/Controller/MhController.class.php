@@ -21,7 +21,17 @@ class MhController extends HomeController {
 			if($v['show'] == 2 && $v['isshow']){
 				$mhcate[$k]['name'] = $v['name'];
 				$mhcate[$k]['sort'] = $v['sort'];
-				$mhcate[$k]['list'] = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('rand()')->limit(6)->select();
+				if(FALSE!=strpos($v['name'],"推荐"){
+					$list = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('sort')->limit(6)->select();
+				}else{
+					$list = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('rand()')->limit(6)->select();
+				}
+				
+				foreach($list as $kl=>$vl){
+					if(!isset ($vl['notes'])||4<strlen($vl['notes']))
+						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+				}	
+				$mhcate[$k]['list'] = $list;
 			}
 		}
 		$this->assign('mhcate',$mhcate);

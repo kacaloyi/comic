@@ -1158,9 +1158,14 @@ class AjaxController extends HomeController {
                     break;
             }
             
-           
+            
             
         	if ($list) {
+				foreach($list as $kl=>$vl){
+					if(!isset ($vl['notes'])||4<strlen($vl['notes']))
+						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+				}
+				
                 $this->assign('list', $list);
                 
                 if($cate == "free"){
