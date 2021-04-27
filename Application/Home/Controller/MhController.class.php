@@ -16,7 +16,7 @@ class MhController extends HomeController {
 	 * 漫画商城首页
 	 */
     public function index(){		
-        //var_dump(1523415);
+
     	foreach ($this->_mhcate as $k=>$v){
 			if($v['show'] == 2 && $v['isshow']){
 				$mhcate[$k]['name'] = $v['name'];
