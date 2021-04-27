@@ -21,7 +21,17 @@ class MhController extends HomeController {
 			if($v['show'] == 2 && $v['isshow']){
 				$mhcate[$k]['name'] = $v['name'];
 				$mhcate[$k]['sort'] = $v['sort'];
-				$mhcate[$k]['list'] = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('rand()')->limit(6)->select();
+				if(FALSE!=strpos($v['name'],"推荐"){
+					$list = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('sort')->limit(6)->select();
+				}else{
+					$list = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('rand()')->limit(6)->select();
+				}
+				
+				foreach($list as $kl=>$vl){
+					if(!isset ($vl['notes'])||4<strlen($vl['notes']))
+						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+				}	
+				$mhcate[$k]['list'] = $list;
 			}
 		}
 		$this->assign('mhcate',$mhcate);
@@ -426,9 +436,9 @@ class MhController extends HomeController {
 		}
 		
 		$info['update_time'] = date('Y-m-d',$info['update_time']);
-		$keyword = "国漫精华";
+		$keyword = "漫画";
 		if(FALSE!=strstr($info['mhcate'],'8'))
-		   $keyword = "韩国漫画";
+		   $keyword = "韩漫漫画";
 
        
     	$asdata = array(
@@ -659,9 +669,9 @@ class MhController extends HomeController {
 		}
 		}
 		//dump($arr_pics);exit;
-		$keyword = "国漫精华";
-		if(FALSE!=strstr($info['mhcate'],"8"));
-		   $keyword = "韩国漫画";
+		$keyword = "漫画";
+		if(FALSE!=strstr($mhinfo['mhcate'],'8'))
+		   $keyword = "韩国漫画完整无删";
     	
     	$asdata = array(
     			'mhinfo'		=> $mhinfo,

@@ -1158,9 +1158,14 @@ class AjaxController extends HomeController {
                     break;
             }
             
-           
+            
             
         	if ($list) {
+				foreach($list as $kl=>$vl){
+					if(!isset ($vl['notes'])||4<strlen($vl['notes']))
+						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+				}
+				
                 $this->assign('list', $list);
                 
                 if($cate == "free"){
@@ -1272,7 +1277,7 @@ class AjaxController extends HomeController {
 	         case 'mhcate':
 	               $mhcate = I("mhcate");
 	               $where['mhcate'] = array('like','%'.$mhcate.'%');
-	               $list = M('mh_list')->where($where)->order('id desc')->limit($page*10,10)->select();
+	               $list = M('mh_list')->where($where)->order('sort desc')->limit($page*10,10)->select();
 	              break;          
 	          
 	          default:
