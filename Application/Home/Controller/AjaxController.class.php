@@ -1030,7 +1030,7 @@ class AjaxController extends HomeController {
     
     public function book_hot(){
         if(IS_POST){
-	      $page = I('post.p')-1;
+	      $page = I('post.p');
 	      $cate = I('cate');
 	      $order = I('order');
 	      
@@ -1162,10 +1162,9 @@ class AjaxController extends HomeController {
             
         	if ($list) {
 				foreach($list as $kl=>$vl){
-					if(!isset ($vl['notes'])||4<strlen($vl['notes']))
+					if(false == isset ($vl['notes'])||4 > strlen($vl['notes']))
 						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
 				}
-				
                 $this->assign('list', $list);
                 
                 if($cate == "free"){
@@ -1264,7 +1263,7 @@ class AjaxController extends HomeController {
 	
 	public function book_list(){
 	    if(IS_POST){
-	      $page = I('post.p')-1;
+	      $page = I('post.p');
 	      $cate = I('cate');
 	      
 	      switch ($cate) {
@@ -1284,6 +1283,11 @@ class AjaxController extends HomeController {
 	              // code...
 	              break;
 	      }
+	      
+	      foreach($list as $kl=>$vl){
+					if(false == isset ($vl['notes'])||4 > strlen($vl['notes']))
+						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+		  }
 	    	  
 	     
           if(!empty($list) && is_array($list)) {

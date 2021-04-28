@@ -3,9 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>{$_CFG['site']['name']}_漫画人气榜</title>
-    <meta name="keywords" content="漫画大全,漫画图片,漫画投稿,在线漫画,斗破苍穹漫画,斗罗大陆漫画,偷星九月天,穿越西元3000后,凤逆天下,风起苍岚,妃夕妍雪,BL漫画,耽美漫画,知音漫客,飒漫画,漫画下载" />
-    <meta name="description" content="{$_CFG['site']['name']}最好看的免费漫画在线看，斗破苍穹漫画、斗罗大陆漫画，更有APP和漫画下载等精彩内容等你发现，看漫画，就来{$_CFG['site']['name']}！" />
+
+    <title>{$title}_{$_CFG['site']['name']}漫画小说网</title>
+    <meta name="keywords" content="最近热门的漫画大全,在线漫画,{$keyword},韩漫，韩国漫画，国产漫画，BL漫画,耽美漫画,知音漫客,飒漫画,漫画下载" />
+    <meta name="description" content="{$title}。{$_CFG['site']['name']}好看的热门漫画。看热门人气漫画，就来{$_CFG['site']['name']}！内容包括:{$keyword}" />
+    
 <link href="__PUBLIC__/home/css/swiper.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style.min.css">
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/mhcss/style.min.css?v=201712191015"/>
@@ -124,7 +126,33 @@
 	</div>
 </div>
 <div class="books-res" id="html_box" name="top">
-
+  	<foreach name="list" item="v">
+	<div class="item">
+		<a href="{:U('Mh/'.$v['id'])}" class="link" title="{$v.title} {$v.title}漫画">
+			<div class="cover">
+				<img width="63" height="84" class="" src="{$v.cover_pic}" style="background: rgb(238, 238, 238); display: block;" alt="{$v.title}漫画">
+			</div>
+			<div class="body">
+				<div class="title">
+					{$v.title}
+				</div>
+				<div class="author">
+					作者：{$v.author}
+				</div>
+				<div class="text">
+					{$v.summary}
+				</div>
+				<div class="bottom">
+					<span class="col"><i class="icon-gray-hot"></i> {$v.reader}</span>
+					<span class="col"><i class="icon-hand"></i> {$v.likes}</span>
+				</div>
+			</div>
+		</a>
+		<div class="action">
+			<a href="{:U('Mh/'.$v['id'])}" class="btn" title="{$v.title} {$v.title}漫画">阅读</a>
+		</div>
+	</div>
+	</foreach>
 </div>
 <div class="loading_box" style="display: none;"><span>已显示全部</span></div>
 <div class="content_null_box" style="display: none;">
@@ -146,7 +174,7 @@
 <div class="tabar flb">
 <nav class="nav hls1">
 <div class="item">
-	<a href="{:U('Mh/book_shelf')}">
+	<a href="{:U('Mh/book_shelf')}" title="朕喜欢临幸的漫画">
 	<i class="icon-book"></i>
 	<div class="title">
 		书架
@@ -154,7 +182,7 @@
 	</a>
 </div>
 <div class="item">
-	<a href="{:U('Mh/index')}" class="active">
+	<a href="{:U('Mh/index')}" class="active" title="漫画首页">
 	<i class="icon-home"></i>
 	<div class="title">
 		首页
@@ -162,7 +190,7 @@
 	</a>
 </div>
 <div class="item">
-	<a href="{:U('Mh/my')}">
+	<a href="{:U('Mh/my')}" title="用户中心">
 	<i class="icon-user"></i>
 	<div class="title">
 		我的
@@ -218,7 +246,7 @@
     
     
 	$(function () {
-		getData();
+		//getData();
 		$(window).bind("scroll", function (event) {
 			if(!wait) return;
 			var top = document.documentElement.scrollTop + document.body.scrollTop;

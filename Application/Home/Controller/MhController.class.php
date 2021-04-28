@@ -21,14 +21,14 @@ class MhController extends HomeController {
 			if($v['show'] == 2 && $v['isshow']){
 				$mhcate[$k]['name'] = $v['name'];
 				$mhcate[$k]['sort'] = $v['sort'];
-				if(FALSE!=strpos($v['name'],"推荐"){
-					$list = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('sort')->limit(6)->select();
+				if(FALSE!=strpos($v['name'],"推荐")){
+					$list = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order(' sort desc ')->limit(6)->select() ;
 				}else{
 					$list = M('mh_list')->where(array('mhcate'=>array('like','%'.$k.'%')))->order('rand()')->limit(6)->select();
 				}
 				
 				foreach($list as $kl=>$vl){
-					if(!isset ($vl['notes'])||4<strlen($vl['notes']))
+					if(!isset ($vl['notes'])||4 > strlen($vl['notes']))
 						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
 				}	
 				$mhcate[$k]['list'] = $list;
@@ -103,6 +103,66 @@ class MhController extends HomeController {
     	$this->display();
     }
     
+   
+    private function _book_list($cate,$page){
+	   
+	      $page = 0;
+	      $cate = $cate;
+	      
+	      switch ($cate) {
+	          case 'last':
+	               $list = M('mh_list')->where("")->order('update_time desc')->limit($page*10,10)->select();
+	              break;
+	          case 'free':
+	               $list =M('mh_list')->where("free_type=1")->order('sort desc')->limit($page*10,10)->select();
+	              break; 
+	         case 'mhcate':
+	               $mhcate = I("mhcate");
+	               $where['mhcate'] = array('like','%'.$mhcate.'%');
+	               $list = M('mh_list')->where($where)->order('sort desc')->limit($page*10,10)->select();
+	              break;          
+	          
+	          default:
+	              // code...
+	              break;
+	      }
+	      
+	      foreach($list as $kl=>$vl){
+					if(false == isset ($vl['notes'])||4 > strlen($vl['notes']))
+						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+		  }
+	    	  
+	      $keyword = " ";//收集漫画名
+          if(!empty($list) && is_array($list)) {
+           		foreach ($list as $k => &$v) {
+           		    $keyword = $keyword.$v['title'].'漫画 ';//收集漫画名
+           		    
+            			$arr_catename = '';
+            			$cateids = $v['cateids'];
+            			if(!empty($cateids)) {
+            				$arr_cateids = explode(',', $cateids);
+            				foreach ($arr_cateids as $k => $cateid) {
+            					if(!empty($cateid)) {
+            						$cname= get_mh_cate_name($cateid);
+            						if('' == $arr_catename) {
+        	    						$arr_catename = "<label class='tag'>{$cname}</label>";
+            						} else {
+            							$arr_catename .= "<label class='tag' style='margin-left:4px;'>{$cname}</label>";
+            						}
+            					}
+            				}
+            			}
+            			$v['arr_catename'] = $arr_catename;
+            	}
+            }
+            	
+	    	if ($list) {
+	    	    $this->assign('keyword',$keyword);
+                $this->assign('list', $list);
+            }
+
+        
+	}
     /**
      * 首页  分类
      */
@@ -151,97 +211,101 @@ class MhController extends HomeController {
      * 免费排行
      */
     public function book_free(){
-    	/**$list = M('mh_list')->where("free_type=1")->order('sort desc')->limit(10)->select();
-    	if(!empty($list) && is_array($list)) {
-    		foreach ($list as $k => &$v) {
-    			$arr_catename = '';
-    			$cateids = $v['cateids'];
-    			if(!empty($cateids)) {
-    				$arr_cateids = explode(',', $cateids);
-    				foreach ($arr_cateids as $k => $cateid) {
-    					if(!empty($cateid)) {
-    						$cname= get_mh_cate_name($cateid);
-    						if('' == $arr_catename) {
-    							$arr_catename = "<label class='tag'>{$cname}</label>";
-    						} else {
-    							$arr_catename .= "<label class='tag' style='margin-left:4px;'>{$cname}</label>";
-    						}
-    					}
-    				}
-    			}
-    			$v['arr_catename'] = $arr_catename;
-    		}
-    	}
-    	
-    	$asdata = array(
-    			'list'	=> $list,
-    	);
-    	 
-    	$this->assign($asdata); **/
-    	$this->assign('cate','last');
+
+        $this->_book_list('free',0);
+    	$this->assign('title',"2021年度十大免费漫画排行榜");
+    	$this->assign('cate','free');
     	$this->display();
+    }
+    
+    private function _book_hot($cate,$order,$page){
+        
+	      $page = 0;
+	      $cate = $cate;
+	      $order = $order;
+	      
+    	  if($order){
+    			if($order == "reader"){
+    				$order = "reader desc";
+    			}
+    			if($order == "time"){
+    				$order = "update_time desc";
+    			}
+    			if($order == "overs"){
+    				$where['status'] = 2;
+    				$order = "sort,reader desc";
+    			}
+    			if($order == "free"){
+    				$where['free_type'] = 1;
+    				$order = "sort,reader desc";
+    			}
+    			if($order == "cate1"){
+    				$where['mhcate'] = array('like','%9%');
+    				$order = "sort ,reader desc";
+    			}
+    			if($order == "cate2"){
+    				$where['mhcate'] = array('like','%11%');
+    				$order = "sort ,reader desc";
+    			}
+    		}else{
+    			$order = "sort,reader desc";
+    		}
+    		
+        	$list = M('mh_list')->where($where)->order($order)->limit($page*10,10)->select();
+        	
+        	$keyword = " ";//收集漫画名
+        	if(!empty($list) && is_array($list)) {
+        		foreach ($list as $k => &$v) {
+        		    $keyword = $keyword.$v['title'].'漫画 ';//收集漫画名
+        		     
+        			$arr_catename = '';
+        			$cateids = $v['cateids'];
+        			if(!empty($cateids)) {
+        				$arr_cateids = explode(',', $cateids);
+        				foreach ($arr_cateids as $k => $cateid) {
+        					if(!empty($cateid)) {
+        						$cname= get_mh_cate_name($cateid);
+        						if('' == $arr_catename) {
+        							$arr_catename = "<label class='tag'>{$cname}</label>";
+        						} else {
+        							$arr_catename .= "<label class='tag' style='margin-left:4px;'>{$cname}</label>";
+        						}
+        					}
+        				}
+        			}
+        			$v['arr_catename'] = $arr_catename;
+        		}
+        	}
+    	    
+	    
+	    if ($list) {
+	            $this->assign('keyword',$keyword);
+                $this->assign('list', $list);
+            }
+       
     }
     
     /**
      * 人气排行
      */
     public function book_hot(){
+        $cate  = I('cate','free');
 		$order = I('order',"reader");
-		/*
-		if($order){
-			if($order == "reader"){
-				$order = "reader desc";
-			}
-			if($order == "time"){
-				$order = "create_time desc";
-			}
-			if($order == "overs"){
-				$where['status'] = 2;
-				$order = "sort desc";
-			}
-			if($order == "free"){
-				$where['free_type'] = 1;
-				$order = "sort desc";
-			}
-			if($order == "cate1"){
-				$where['mhcate'] = array('like','%9%');
-				$order = "sort desc ,reader desc";
-			}
-			if($order == "cate2"){
-				$where['mhcate'] = array('like','%11%');
-				$order = "sort desc ,reader desc";
-			}
-		}else{
-			$order = "sort desc";
-		}
-    	$list = M('mh_list')->where($where)->order($order)->limit(10)->select();
-    	if(!empty($list) && is_array($list)) {
-    		foreach ($list as $k => &$v) {
-    			$arr_catename = '';
-    			$cateids = $v['cateids'];
-    			if(!empty($cateids)) {
-    				$arr_cateids = explode(',', $cateids);
-    				foreach ($arr_cateids as $k => $cateid) {
-    					if(!empty($cateid)) {
-    						$cname= get_mh_cate_name($cateid);
-    						if('' == $arr_catename) {
-    							$arr_catename = "<label class='tag'>{$cname}</label>";
-    						} else {
-    							$arr_catename .= "<label class='tag' style='margin-left:4px;'>{$cname}</label>";
-    						}
-    					}
-    				}
-    			}
-    			$v['arr_catename'] = $arr_catename;
-    		}
-    	}
-    	 
-    	$asdata = array(
-    			'list'	=> $list,
-    	);
-    	//dump($list);
-    	$this->assign($asdata);
-    	*/
+		
+		$this->_book_hot($cate,$order,0);
+		
+		$titles=array();
+		$titles['reader']="人气";
+		$titles['time']="最新上架";
+		$titles['overs']="完结";
+		$titles['free']="免费";
+		$titles['cate1']="男生";
+		$titles['cate2']="女生";
+	
+	
+		
+    	$this->assign('title',"2021年度十大热门".$titles[$order]."漫画排行榜");
+    	$this->assign('cate',$cate);
     	$this->assign('order',$order);
     	$this->display();
     }
@@ -250,36 +314,8 @@ class MhController extends HomeController {
      * 最近更新
      */
     public function book_last(){
-        /**
-    	$list = M('mh_list')->where("")->order('update_time desc')->limit(10)->select();
-    	if(!empty($list) && is_array($list)) {
-    		foreach ($list as $k => &$v) {
-    			$arr_catename = '';
-    			$cateids = $v['cateids'];
-    			if(!empty($cateids)) {
-    				$arr_cateids = explode(',', $cateids);
-    				foreach ($arr_cateids as $k => $cateid) {
-    					if(!empty($cateid)) {
-    						$cname= get_mh_cate_name($cateid);
-    						if('' == $arr_catename) {
-	    						$arr_catename = "<label class='tag'>{$cname}</label>";
-    						} else {
-    							$arr_catename .= "<label class='tag' style='margin-left:4px;'>{$cname}</label>";
-    						}
-    					}
-    				}
-    			}
-    			$v['arr_catename'] = $arr_catename;
-    		}
-    	}
-    	
-    	$asdata = array(
-    			'list'	=> $list,
-    	);
-    	
-    	 
-    	$this->assign($asdata);
-    	*/
+        $this->_book_list('last',0);
+    	$this->assign('title',"2021年度最新十大漫画排行榜");
     	$this->assign('cate','last');
     	$this->display();
     }

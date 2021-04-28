@@ -3,12 +3,10 @@
 <html data-dpr="1" style="font-size: 16.64px;">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{$_CFG['site']['name']}_免费好看的漫画大全网</title>
-    <meta name="keywords" content="漫画大全,漫画图片,漫画投稿,在线漫画,斗破苍穹漫画,斗罗大陆漫画,偷星九月天,穿越西元3000后,凤逆天下,风起苍岚,妃夕妍雪,BL漫画,耽美漫画,知音漫客,飒漫画,漫画下载" />
-    <meta name="description" content="{$_CFG['site']['name']}最好看的免费漫画在线看，斗破苍穹漫画、斗罗大陆漫画，更有APP和漫画下载等精彩内容等你发现，免费看漫画，就来{$_CFG['site']['name']}！" />
+    <title>{$title}_{$_CFG['site']['name']}漫画小说网</title>
+    <meta name="keywords" content="限时免费漫画大全,在线漫画,{$keyword},韩漫，韩国漫画，国产漫画，BL漫画,耽美漫画,知音漫客,飒漫画,漫画下载" />
+    <meta name="description" content="在线看漫画。{$_CFG['site']['name']}好看的免费漫画。免费看漫画，就来{$_CFG['site']['name']}！ 内容包括:{$keyword}" />
     <!-- 共用引入资源.开始 -->
-
-    <script src="__PUBLIC__/home/mhjs/stats.js" name="MTAH5" sid="500462993"></script>
 
     <meta name="viewport"
           content="designWidth=750,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -64,16 +62,11 @@
     </script>
     <include file="include/headcode" />  
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/mhcss/style.min.css">
-    <script type="text/javascript" src="__PUBLIC__/home/mhjs/fundebug.0.1.7.min.js"
-            apikey="ba3a0e0d938e92b44f279067dffb8d071ee87fc35eb75918b7a900e8581a955d"></script>
-    <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
-    <!-- 共用引入资源.结束 -->
-    <script type="text/javascript" src="__PUBLIC__/home/mhjs/saved_resource"></script>
-    <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.lazyload.js"></script>
-    <!--<script>(function () {
-        new Image().src = '//res.efucms.com/wap_v3/images/placeholder-unruly.png?v=20171208';
-    })();</script>-->
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/mhcss/loadtip.css?v=20210129">
+
+    <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/mhjs/jquery.lazyload.js"></script>
+    <!-- 共用引入资源.结束 -->
     <style>
         @media screen and (min-width: 320px) {
             html {
@@ -102,17 +95,18 @@
     </style>
 </head>
 <body style="font-size: 12px;">
-<a class="toback tobackbg-free" href="{:U('Mh/index')}"></a>
+<a class="toback tobackbg-free" href="{:U('Mh/index')}" title="漫画频道"></a>
 <!-- 免费漫画 -->
 <div class="br-box free-box rank-view clearfix">
     <div class="tl"><i class="wbg"></i></div>
     <div class="list clearfix" id="html_box" style="min-height: 28px;">
-       <!--
+       
         <volist name="list" id="vo">
         <div class="item clearfix">
-        <a href="{:U('Mh/'.$vo['id'])}" class="clearfix">
+        <a href="{:U('Mh/'.$vo['id'])}" class="clearfix" title="{$vo.title} {$vo.title}漫画">
             <div class="cover">
-            	<img width="75" height="100" class="" src="{$vo.cover_pic}" data-original="{$vo.cover_pic}" style="background: rgb(238, 238, 238); display: block;">
+            	<img width="75" height="100" class="" src="{$vo.cover_pic}" data-original="{$vo.cover_pic}" style="background: rgb(238, 238, 238); display: block;"
+            	alt="{$vo.title} {$vo.title}漫画">
             </div>
             <div class="body">
                 <div class="title">{$vo.title}</div>
@@ -126,12 +120,11 @@
                 <div class="col">
                 {$vo.arr_catename}
                 </div>
-                <div class="col">更新至：第{$vo.episodes}话</div>
+                <div class="col">{$vo.notes}</div>
             </div>
         </a>
         </div>
-        </volist> -->
-    </div>
+        </volist>    </div>
 <div class="loading_box" style="display: block;"><span>努力加载中...请稍候</span></div>
 <div class="content_null_box" style="display: none;">
 		<img src="https://cpsn.zsjwaw.cn/assets/clientweb/img/frontend/search/search_icon_3.png?v=2.2.94" style="">
@@ -167,7 +160,7 @@
     var cate = "free";
     
 	$(function () {
-		getData();
+		//getData();
 		$(window).bind("scroll", function (event) {
 			if(!wait) return;
 			var top = document.documentElement.scrollTop + document.body.scrollTop;
@@ -233,29 +226,7 @@
         if (r != null) return unescape(r[2]);
         return null;
     }
-    /**
-    addLoadEvent(function () {
-        var error_img = new Image(), channel = tj_getcookie('qrmh_channel'),
-            channel_type = tj_getcookie('qrmh_channel_type');
-        error_img.onerror = null;
-        error_img.src = "//www.efucms.com/stats/?c=" + channel + "&ct=" + channel_type + "&rnd=" + (+new Date);
-        error_img = null;
-        //某些地方页面缓存-检测
-        var p_img = new Image(), p_userid = parseInt("0"), c_auth = tj_getcookie('qrmh_auth'),
-            p_reload = getQueryString('p_reload');
-        if (p_userid > 0 && c_auth == '') {
-            if (p_reload == null) {
-                var url = window.location.href;
-                //刷新一次页面
-                window.location.href = url.indexOf("?") > 0 ? (url + '&p_reload=1&reload_time=' + (+new Date)) : (url + '?p_reload=1&reload_time=' + (+new Date));
-            } else {
-                //还是出现这个问题的话，就记录下来
-                p_img.onerror = null;
-                p_img.src = "//www.efucms.com/page_stats/?p_userid=" + p_userid + "&rnd=" + (+new Date);
-            }
-        }
-        p_img = p_userid = c_auth = p_reload = null;
-    });**/
+
     //update byefucms 20170906 某些手机系统下，旋转屏幕出现页面混乱问题，通过延时500ms滚动页面1个单位得以恢复正常
     var evt = "onorientationchange" in window ? "orientationchange" : "resize";
     window.addEventListener(evt, function () {
@@ -265,21 +236,7 @@
     }, false);
 </script>
 <!-- 统计 -->
-<!-- 第三方qq统计 -->
-<!-- <script type="text/javascript">
-    var _mtac = {};
-    (function () {
-        setTimeout(function () {
-            var mta = document.createElement("script");
-            mta.src = (("https:" == document.location.protocol) ? "https://" : "http://") + "pingjs.qq.com/h5/stats.js?v2.0.4";
-            mta.setAttribute("name", "MTAH5");
-            mta.setAttribute("sid", "500462993");
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(mta, s);
-        }, 888);
-    })();
-</script> -->
-<!-- 第三方qq统计 -->
+
 <include file="include/footer" />
 </body>
 </html>
