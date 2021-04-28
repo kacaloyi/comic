@@ -51,14 +51,24 @@ class MhController extends HomeController {
      * 分类数据
      */
     public function mhlist(){
-		$mhcate = I("get.cate");
+		$mhcate = I("get.cate",5);
 		//$page=I("get.page",1);
+		$keyword = "";
 
-		//$where['mhcate'] = array('like','%'.$mhcate.'%');
-    	//$list = M('mh_list')->where($where)->order('id desc')->limit(0,$page*10)->select();
+		$where['mhcate'] = array('like','%'.$mhcate.'%');
+    	$list = M('mh_list')->where($where)->order('sort desc')->limit(0,10)->select();
+    	foreach($list as $kl=>$vl){
+    	        $keyword = $keyword .$vl['title']. "漫画 ";
+					if(!isset ($vl['notes'])||4 > strlen($vl['notes']))
+						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+				}
     	//$this->assign('page',$page);
+    	$title=$this->_mhcate[$mhcate]['name'];
+    	
+    	$this->assign('title',$title);
+    	$this->assign('keyword',$keyword);
 		$this->assign('mhcate',$mhcate);
-		//$this->assign('list',$list);
+		$this->assign('list',$list);
     	$this->display();
     }
 	
@@ -170,7 +180,7 @@ class MhController extends HomeController {
     	$cateid 	= I('cateid', 0, 'intval');
     	$status 	= I('status', 0, 'intval');
     	$free_type 	= I('free_type', 0, 'intval');
-    	/*
+    	
     	$cond = array(
     			'status'	=> $status,
     			'free_type'	=> $free_type,
@@ -195,11 +205,43 @@ class MhController extends HomeController {
     			'free_type'	=> $free_type,
     	);
     	 
-    	$this->assign($asdata);*/
+    	//$this->assign($asdata);
     	
     	$selfurl = U('/Mh/book_cate')."?"."cateid=".$cateid."&status=".$status."&free_type=".$free_type;
-	
-
+    	
+    	$cates=array(
+    	"0" =>"全部漫画" ,
+        "9" =>"霸道总裁漫画",
+        "2" =>"仙侠漫画",
+        "10" =>"恋爱漫画",
+        "11" =>"校园漫画",
+        "12" =>"冒险漫画",
+        "13" =>"搞笑漫画" ,
+		"14" =>"生活漫画" ,
+		"15" =>"热血漫画" ,
+		"16" =>"架空漫画" ,
+		"17" =>"后宫漫画" ,
+		"18" =>"耽美漫画" ,
+		"1" =>"玄幻漫画",
+		"19" =>"悬疑漫画",
+		"20" =>"恐怖漫画" ,
+		"7" =>"灵异漫画",
+		"21" =>"动作漫画",
+		"6" =>"科幻漫画",
+		"22" =>"战争漫画" ,
+		"23" =>"古风漫画" ,
+		"24" =>"穿越漫画",
+		"25" =>"竞技漫画" ,
+		"26" =>"百合漫画",
+		"27"=>"励志漫画" ,
+		"28" =>"同人漫画" ,
+		"29" =>"真人漫画" 
+		);
+	    
+	    $this->assign('title',$cates[$cateid]."分类排行榜");
+	    $this->assign('keyword',$cates[$cateid]);
+	    
+        $this->assign('list',$list);
     	$this->assign('selfurl', $selfurl);
     	$this->assign('cateid',$cateid);
     	$this->assign('status',$status);

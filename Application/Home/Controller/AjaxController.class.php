@@ -925,7 +925,7 @@ class AjaxController extends HomeController {
     
     public function book_cate(){
      if(IS_POST){
-	      $page = I('post.p')-1;
+	      $page = I('post.p');
 	      $cateid 	= I('cateid', 0, 'intval');
     	  $status 	= I('status', 0, 'intval');
     	  $free_type = I('free_type', 0, 'intval');
