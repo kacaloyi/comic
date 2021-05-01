@@ -1163,7 +1163,7 @@ class AjaxController extends HomeController {
         	if ($list) {
 				foreach($list as $kl=>$vl){
 					if(false == isset ($vl['notes'])||4 > strlen($vl['notes']))
-						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+						$list[$kl]['notes']=  mb_substr ($vl['summary'],0,8,'utf8') ."…";//  "更新至".$vl['episodes']."话";
 				}
                 $this->assign('list', $list);
                 
@@ -1286,7 +1286,7 @@ class AjaxController extends HomeController {
 	      
 	      foreach($list as $kl=>$vl){
 					if(false == isset ($vl['notes'])||4 > strlen($vl['notes']))
-						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+						$list[$kl]['notes']= mb_substr ($vl['summary'],0,20,'utf8') ."…";//  "更新至".$vl['episodes']."话";
 		  }
 	    	  
 	     

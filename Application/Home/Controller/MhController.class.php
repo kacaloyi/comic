@@ -29,7 +29,7 @@ class MhController extends HomeController {
 				
 				foreach($list as $kl=>$vl){
 					if(!isset ($vl['notes'])||4 > strlen($vl['notes']))
-						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+						$list[$kl]['notes']= mb_substr ($vl['summary'],0,8,'utf8') ."…";//"更新至".$vl['episodes']."话";
 				}	
 				$mhcate[$k]['list'] = $list;
 			}
@@ -60,7 +60,7 @@ class MhController extends HomeController {
     	foreach($list as $kl=>$vl){
     	        $keyword = $keyword .$vl['title']. "漫画 ";
 					if(!isset ($vl['notes'])||4 > strlen($vl['notes']))
-						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+						$list[$kl]['notes']=mb_substr ($vl['summary'],0,8,'utf8') ."…";// "更新至".$vl['episodes']."话";
 				}
     	//$this->assign('page',$page);
     	$title=$this->_mhcate[$mhcate]['name'];
@@ -139,7 +139,7 @@ class MhController extends HomeController {
 	      
 	      foreach($list as $kl=>$vl){
 					if(false == isset ($vl['notes'])||4 > strlen($vl['notes']))
-						$list[$kl]['notes']= "更新至".$vl['episodes']."话";
+						$list[$kl]['notes']=mb_substr ($vl['summary'],0,8,'utf8') ."…";//  "更新至".$vl['episodes']."话";
 		  }
 	    	  
 	      $keyword = " ";//收集漫画名
@@ -533,6 +533,10 @@ class MhController extends HomeController {
     
 		//猜你喜欢随机选择6个不为自己ID
 		$guess = M('mh_list')->where(array('id'=>array('neq',$mhid)))->order('rand()')->limit(6)->select();
+		foreach($guess as $kl=>$vl){
+					if(!isset ($vl['notes'])||4 > strlen($vl['notes']))
+						$guess[$kl]['notes']= mb_substr ($vl['summary'],0,8,'utf8') ."…";//"更新至".$vl['episodes']."话";
+				}
 		$this->assign('guess',$guess);
 		
 		//列出五天最新评论
