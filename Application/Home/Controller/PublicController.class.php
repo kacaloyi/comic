@@ -353,7 +353,7 @@ class PublicController extends Controller {
 	    $find = M('mh_list')->field('id')->where($where)->select();
        
         $kt = 1;
-        $num = 10;
+        $num = 6;
         $res = array();
 	    foreach ($find as $k=>$v){
 	      //找出对应的章节，按从小到大排序
