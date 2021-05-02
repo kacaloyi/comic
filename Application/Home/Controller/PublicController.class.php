@@ -427,6 +427,23 @@ class PublicController extends Controller {
 	    $root = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
 	    $list = array();
 	    
+	    $list[]= $root.'/Mh/index.html';
+	    $list[]= $root.'/Book/index.html';
+	    $list[]= $root."/Mh/mhlist/cate/5.html";
+	    $list[]= $root."/Mh/mhlist/cate/6.html";
+	    $list[]= $root."/Mh/mhlist/cate/7.html";
+	    $list[]= $root."/Mh/mhlist/cate/8.html";
+	    $list[]= $root."/Mh/book_free.html";
+	    $list[]= $root."/Mh/book_last.html";
+	    $list[]= $root."/Mh/book_hot.html ";
+	    $list[]= $root."/Mh/book_hot/order/time.html";
+	    $list[]= $root."/Mh/book_hot/order/overs.html";
+	    $list[]= $root."/Mh/book_hot/order/free.html";
+	    $list[]= $root."/Mh/book_hot/order/cate1.html";
+	    $list[]= $root."/Mh/book_hot/order/cate2.html";
+
+
+	    
 	    $mhlist = M('mh_list')->order('update_time desc')->field('id,title,update_time')->select();      
         foreach ($mhlist as $k=>$v){
             $list[]= $root.'/Mh/'.$v['id'].'.html' ;
@@ -435,6 +452,7 @@ class PublicController extends Controller {
         foreach ($bklist as $k=>$v){
             $list[]= $root.'/Book/'.$v['id'].'.html';
         }
+	    
 	    
 
 	    echo $this->push_article($list);
@@ -445,22 +463,48 @@ class PublicController extends Controller {
 	        $root = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
 	        $list = array();
 	        
+	        //首页
 	        $list[]=array(
 	            'url'=>$root.'/Mh/index.html',
 	            'title'=>'漫画主页',
-	            'update_time'=>date(DATE_ATOM,time()),
+	            'update_time'=>date(DATE_ATOM,NOW_TIME),
 	            'changefreq'=>'always',
 	            'priority'=>1.0
 	            );
-	        
+	       
 	       $list[]= array(
 	            'url'=>$root.'/Book/index.html',
 	            'title'=>'小说主页',
-	            'update_time'=>date(DATE_ATOM,time()),
+	            'update_time'=>date(DATE_ATOM,NOW_TIME),
 	            'changefreq'=>'always',
 	            'priority'=>1.0
 	            );
-	         
+	       
+	       //几个主题页     
+	       $some =array(     
+	           array( $root."/Mh/mhlist/cate/5.html", "大家都在看漫画全集"),
+	           array( $root."/Mh/mhlist/cate/6.html", " 热门推荐漫画全集"),
+	           array( $root."/Mh/mhlist/cate/7.html", " 国漫精粹漫画全集"),
+	           array( $root."/Mh/mhlist/cate/8.html", " 韩国漫画漫画全集"),
+	           array( $root."/Mh/book_free.html", "    2021年度十大免费漫画全集"),
+	           array( $root."/Mh/book_last.html", "    2021年度最新十大漫画排行榜"),
+	           array( $root."/Mh/book_hot.html ", "    2021年度十大热门人气漫画排行榜"),
+	           array( $root."/Mh/book_hot.html?order=time", " 2021年度十大热门最新上架漫画排行榜"),
+	           array( $root."/Mh/book_hot.html?order=overs", " 2021年度十大热门完结漫画排行榜"),
+	           array( $root."/Mh/book_hot.html?order=free", " 2021年度十大免费漫画排行榜"),
+	           array( $root."/Mh/book_hot.html?order=cate1", " 2021年度十大男性向漫画排行榜"),
+	           array( $root."/Mh/book_hot.html?order=cate2", " 2021年度十大女性向漫画排行榜")
+	        );
+	        
+	       foreach ($some as $k=>$v){
+	           $list[] = array(
+	                'url'=>$v[0],
+	                'title'=>$v[1],
+	                'update_time'=>date(DATE_ATOM,NOW_TIME),
+	                'changefreq'=>'weekly',
+	                'priority'=>0.9
+	               );
+	       }
 	         
 	    $mhlist = M('mh_list')->order('update_time desc')->field('id,title,update_time')->select();      
         foreach ($mhlist as $k=>$v){
