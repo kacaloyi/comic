@@ -48,7 +48,7 @@ class ProductController extends AdminController {
     	    
     	    if(intval($chapid)<=0)
     	    {
-    	        die('操作成功,没有章节ID，不增加新的章节');
+    	        die('操作成功ok,没有章节ID，不增加新的章节');
     	    }
           
             $ctitle=$_POST['ctitle'];//漫画标题
@@ -143,8 +143,10 @@ class ProductController extends AdminController {
                 $send=$_POST['send'];//打赏金额
                 $status=$_POST['status'];//小说状态(连载1/完结2)
                 $free_type=$_POST['free_type'];//属性(免费1/收费2)
-                $pay_num=$_POST['pay_num'];//第n话开始需要付费	            
-	           M('mh_list')->add(array(
+                $pay_num=$_POST['pay_num'];//第n话开始需要付费	   
+                
+              
+	           $result = M('mh_list')->add(array(
 	                'id'=>$bookid,
 	                'title'=>$bookname,
 	                'mhcate'=>$tstype,//猜你喜欢
@@ -152,6 +154,9 @@ class ProductController extends AdminController {
 	                'cateids'=>$sstype,//1总裁2穿越等等
 	                'author'=>$author,
 	                'summary'=>$des,
+	                'notes'=>"",
+	                'actors'=>"",
+	                
 	                'cover_pic'=>$litpic,
 	                'detail_pic'=>$litpic,
 	                'sort'=>1,
@@ -174,8 +179,8 @@ class ProductController extends AdminController {
 	                'create_time' => NOW_TIME,
 				    'update_time' => NOW_TIME
 	                ));
-	           
-	           $binfo = M('mh_list')->where(array('title'=>$bookname))->find();     
+	           //die("增加书名成功,返回值 ".$result);
+	           $binfo = M('mh_list')->where(array('id'=>$result))->find();     
 	          
 	        }
 	        

@@ -31,6 +31,42 @@ class UserController extends AdminController {
 		$this->assign('tpls',M('tpl')->order('id desc')->select());
 		$this -> _list('user', $where, $order);
 	}
+
+	//用户评论显示
+	public function comment(){
+		if(IS_POST){
+			$_GET = $_REQUEST;
+		}
+		if(!empty($_GET['id'])){
+			$where['user_id'] = intval($_GET['id']);
+		}
+		if(!empty($_GET['cid'])){
+			$where['cid'] = intval($_GET['cid']);
+		}
+		if(!empty($_GET['name'])){
+			$where['true_name|nickname'] = array('like','%'.$_GET['name'].'%');
+		}
+
+		// 组合排序方式
+		if(in_array($_GET['order'], array('id','cid','create_time'))){
+			$type = $_GET['type'] == 'asc' ? 'asc' : 'desc';
+			$order = $_GET['order'].' '.$type;
+		}
+
+		//发送的升级模板消息
+		$this->assign('tpls',M('tpl')->order('id desc')->select());
+		$this -> _list('comment', $where, $order);
+	}
+
+	//删除评论
+	public function delcomment(){
+		if(!empty($_GET['ccid'])){
+			$id = intval($_GET['ccid']);
+			$this->_del('comment', $id);
+		}
+
+		$this->comment();
+	}
 	
 	// 用户详细信息
 	public function detail(){
@@ -79,6 +115,8 @@ class UserController extends AdminController {
 			exit;
 		}
 	}
+
+
 	
 	// 校准下级代理数
 	public function correct_agent(){
