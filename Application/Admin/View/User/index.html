@@ -137,6 +137,7 @@
 						</td>
 						<td>
 							<a href="{:U('detail?id='.$vo['id'])}">详细信息</a> |
+							<a href="{:U('Charge/index?user_id='.$vo['id'])}">充值查询</a> |
 							<if condition="$vo['vip'] eq 1">
 								<a href="{:U('setVip?id='.$vo['id'])}">取消VIP</a>
 							<else />

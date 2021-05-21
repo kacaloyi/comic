@@ -1,0 +1,138 @@
+		<script src="__PUBLIC__/plugins/My97DatePicker/WdatePicker.js"></script>
+        <div class="pageheader notab">
+            <h1 class="pagetitle">评论管理</h1>
+            <span class="pagedesc">用户评论信息</span>
+            
+        </div><!--pageheader-->
+        <style>
+					.r4{
+						display: block;
+						width: 70px;
+						line-height: 25px;
+						background: #FF9800;
+						float: right;
+						text-align: center;
+						font-size: 15px;
+						color: #fff;
+						border-radius: 5px;
+						margin-right:5%;
+					}
+				</style>
+        <div id="contentwrapper" class="contentwrapper lineheight21">
+			<div class="tableoptions">        
+				<form method="post" id="form">
+					VIP:
+					<select name="vip" default="{$_GET['vip']}" style="width:90px; min-width:0;">
+						<option value="">全部</option>
+						<option value="1">是</option>
+						<option value="-1">否</option>
+					</select>
+					编号:
+					<input type="text" name="id" value="{$_GET['id']}" class="smallinput" style="width:100px;" />
+					昵称/姓名:
+					<input type="text" name="name" value="{$_GET['name']}" class="smallinput" style="width:100px;" />
+					漫画id:
+					<input type="text" name="cid" value="{$_GET['cid']}" class="smallinput" style="width:100px;" />
+					<input type="submit" value="查找" />
+					<input type="button" value="导出" onclick="exportExcel()" />
+					<script>
+						function exportExcel(){
+							jQuery("#form").attr('action', "{:U('export')}");
+							jQuery("#form").submit();
+						}					
+					</script>
+				</form>
+			</div><!--tableoptions-->
+			<table cellpadding="0" cellspacing="0" border="0" id="table2" class="stdtable stdtablecb" style="background:#fff">
+				<thead>
+					<tr>
+						<th class="head1">
+							<a href="<?php if($_GET['order'] == 'id' && $_GET['type'] == 'desc'){
+								echo U('index?order=id&type=asc');
+							}else{
+								echo U('index?order=id&type=desc');
+							}?>">
+							用户编号
+							<?php if($_GET['order'] == 'id' && $_GET['type'] == 'desc')echo '↑';else echo '↓';?>
+							</a>
+						</th>
+						<th class="head1">头像</th>
+						<th class="head0">昵称</th>
+						
+						
+						<th class="head0">
+							<a href="<?php if($_GET['order'] == 'create_time' && $_GET['type'] == 'desc'){
+								echo U('index?order=create_time&type=asc');
+							}else{
+								echo U('index?order=create_time&type=desc');
+							}?>" style="color:red">
+							发布时间
+							<?php if($_GET['order'] == 'create_time' && $_GET['type'] == 'desc')echo '↑';else echo '↓';?>
+							</a>
+						</th>
+
+						<th class="head0">
+							<a href="<?php if($_GET['order'] == 'cid' && $_GET['type'] == 'desc'){
+								echo U('index?order=cid&type=asc');
+							}else{
+								echo U('index?order=cid&type=desc');
+							}?>" style="color:red">
+							漫画ID
+							<?php if($_GET['order'] == 'cid' && $_GET['type'] == 'desc')echo '↑';else echo '↓';?>
+							</a>
+						</th>
+						<th class="head0">							
+							漫画|小说							
+							</a>
+						</th>
+						<th class="head0">							
+							内容							
+							</a>
+						</th>
+						
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<volist name="list" id="vo">
+					<tr>
+						
+						<td>{$vo.user_id}</td>
+						<td><img src="{$vo.headimg}" style="width:50px; height:50px; border-radius:25px;" /></td>
+						<td>{$vo.nickname}</td>
+						
+						<td>{$vo.create_time}</td>
+												
+						<td>{$vo.cid}</td>
+						<td>{$vo.type}</td>
+						<td>{$vo.content}</td>
+
+						<td>
+							<a href="{:U('index?id='.$vo['user_id'])}">用户查询</a> |
+							<a href="{:U('Charge/index?user_id='.$vo['user_id'])}">充值查询</a> |
+							<a href="{:U('delcomment?ccid='.$vo['id'])}">删除</a>							
+						</td>
+					</tr>
+					</volist>
+				</tbody>
+			</table>
+			<style>
+				.r3{
+					float: left;
+					border: none;
+					color: #fff;
+					background: #FF5722;
+					margin-top: -2.5px;
+					margin-left: 10px;
+					border-radius: 4px;
+					text-align: center;
+				}
+			</style>
+			<div class="dataTables_paginate paging_full_numbers" id="dyntable2_paginate">
+			{$page|default="<p style='text-align:center'>暂时没有数据</p>"}
+			</div>
+        
+        </div><!--contentwrapper-->
+		<link href="__PUBLIC__/layer_mobile/skin/layer.css" rel="stylesheet" type="text/css" />
+		<script src="__PUBLIC__/layer_mobile/layer.js" type="text/javascript"></script>
+		
