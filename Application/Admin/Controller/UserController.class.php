@@ -63,9 +63,12 @@ class UserController extends AdminController {
 		if(!empty($_GET['ccid'])){
 			$id = intval($_GET['ccid']);
 			$this->_del('comment', $id);
+			$this -> success('操作成功！');
+		    exit;
 		}
 
-		$this->comment();
+		$this -> error('操作错误！');
+		exit;
 	}
 	
 	// 用户详细信息
