@@ -375,6 +375,22 @@ class PublicController extends Controller {
 	    
 	}
 	
+	#获取漫画的所有章节
+	public function get_mh_chapters(){
+		$mhid = I('mhid',0);
+        print($mhid);
+		if ( 0 != $mhid ){
+			$cpts = M('mh_episodes')->field("id,mhid,ji_no,title")->where(array('mhid'=>$mhid))->order('ji_no ASC')->select();
+			var_dump($cpts);
+			#$this->success(json_encode($cpts));
+			die();
+		}
+
+		$this->error("没有mhid");
+
+
+	}
+	
 	// 阅读文章
 	public function read(){
 		$id = intval($_GET['id']);
