@@ -25,6 +25,8 @@
 						<th class="head1">用户</th>
 						<th class="head1">用户昵称</th>
 						<th class="head1">充值单号</th>
+						<th class="head1">平台流水号</th>
+						<th class="head0">支付平台</th>
 						<th class="head0">下单时间</th>
 						<th class="head0">充值金额</th>
 						<th class="head0">状态</th>
@@ -37,6 +39,8 @@
 						<td>{$vo.user_id}</td>
 						<td>{$vo.nickname}</td>
 						<td>{$vo.sn}</td>
+						<td>{$vo.paysn}</td>
+						<td>{$vo.remark}</td>
 						<td>{$vo.create_time|date="Y-m-d H:i",###}</td>
 						<td>{$vo.money|floatval}</td>
 						<td>{$vo.status}</td>
