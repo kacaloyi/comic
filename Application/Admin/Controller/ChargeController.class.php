@@ -17,6 +17,32 @@ class ChargeController extends AdminController {
 		$this->assign('page',$this->data['page']);
 		$this->display();
 	}
+	
+	public function check_Alipay()
+	{
+	    $sn = I('sn');  //要补偿的订单
+	    $alipay_config=C('alipay_config_mobile');
+	    $data = [
+            // 通过支付宝交易号查询，  推荐  效率更高
+            //'transaction_id'    => '2016011421001004330041239366',// 支付宝
+    
+            // 通过订单号查询
+            'order_no'    => $sn// 支付宝
+        ];
+
+	    $query = new QueryContext();
+ 
+        try {
+            // 支付宝查询
+            $query->initQuery(Config::ALI, $aliconfig);
+            $ret = $query->query($data);
+         
+        } catch (PayException $e) {
+            echo $e->errorMessage();exit;
+        }
+         
+        var_dump($ret);
+	}
 
 	public function pay_makeup(){
 		$sn = I('sn');  //要补偿的订单
