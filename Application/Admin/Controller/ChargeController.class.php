@@ -17,6 +17,30 @@ class ChargeController extends AdminController {
 		$this->assign('page',$this->data['page']);
 		$this->display();
 	}
+
+	public function pay_makeup(){
+		$sn = I('sn');  //要补偿的订单
+		$remark="补单";
+		$paysn="000000000000000";
+		$paytime = NOW;
+
+		//进行订单处理；
+		$order_info = M($table)->where(array('sn'=>$sn))->find(); 
+		$order_id = $order_info['id'];
+
+		if($order_info['status'] !=1){//1代表没有处理过，处理过之后已经用户加过金币，就不能再次处理了。
+			   $this->error("已经处理过了，不能重复处理") ;//	die('FAIL');
+		}
+
+		action('Home/NotifyBase/_charge',[
+				'sn'=>$sn,
+				'remark'=>$remark,
+				'paysn'=>$paysn,
+				'paytime'=>$paytime
+		]);
+		
+		$this->success("处理成功")
+	}
 	
 	private function _get_where(){
 		if(IS_POST){

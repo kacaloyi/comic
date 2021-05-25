@@ -30,6 +30,7 @@
 						<th class="head0">下单时间</th>
 						<th class="head0">充值金额</th>
 						<th class="head0">状态</th>
+						<th class="head0">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,6 +45,9 @@
 						<td>{$vo.create_time|date="Y-m-d H:i",###}</td>
 						<td>{$vo.money|floatval}</td>
 						<td>{$vo.status}</td>
+						<td>
+							<a href="{:U('pay_makeup?sn='.$sn)}" style="color:red">补单</a>						
+						</td>
 						
 					</tr>
 					</volist>
