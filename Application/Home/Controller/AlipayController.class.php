@@ -48,7 +48,6 @@ class AlipayController extends NotifyBaseController {
 			'type' =>$table,
 		);
 		
-		
 		//调用支付接口
 		$this->assign('pay_array',$pay_array);
 		$this->display();
@@ -95,7 +94,6 @@ class AlipayController extends NotifyBaseController {
 
 			);
 
-
 			//建立请求
 			$alipaySubmit = new \Vendor\Alipay\AlipaySubmit($alipay_config);
 			$html_text = $alipaySubmit->buildRequestForm($parameter,"get", "确认");
@@ -117,6 +115,8 @@ class AlipayController extends NotifyBaseController {
           $verify_result = $alipayNotify->verifyNotify();
         else
           $verify_result = $alipayNotify->verifyReturn();
+          
+        //file_put_contents('pay_notify.log',"检验结果:verify_result=".intval($verify_result),FILE_APPEND);  
           
         return $verify_result;
     }
