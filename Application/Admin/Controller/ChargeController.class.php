@@ -76,6 +76,10 @@ class ChargeController extends AdminController {
 			$where['user_id'] = intval($_GET['user_id']);
 		}
 		
+		if(!empty($_GET['sn'])){
+			$where['sn'] = ($_GET['sn']);
+		}
+		
 		if(!empty($_GET['time1']) && !empty($_GET['time2'])){
 			$where['create_time'] = array(
 				array('gt', strtotime($_GET['time1'])),
