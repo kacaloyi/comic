@@ -664,11 +664,12 @@ class BookController extends HomeController {
 				    {
 				        
 				        $arr_pics=getPicArray($vo['pics']);
-				        $arr_pics=str_replace("/Public/file",C('urlcdn'),$arr_pics);
+				        //$arr_pics=str_replace("/Public/file",C('urlcdn'),$arr_pics);
 			            //$list[$k]['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
 			            //$list[$k]['pics']="";//减少一点儿传输量。
 			            
-			            $vo['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
+			            //$vo['imgHead']= isset($arr_pics[1])?$arr_pics[1]:$arr_pics[0]; 
+			            $vo['imgHead']= $info['detail_pic'];
 			            $vo['imgHead']=$vo['imgHead']."?x-oss-process=image/resize,w_100 ";
 				        
 				        $money = $vo['money'];

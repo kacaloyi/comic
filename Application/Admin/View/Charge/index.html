@@ -48,6 +48,7 @@
 						<td>{$vo.money|floatval}</td>
 						<td>{$vo.status}</td>
 						<td>
+						    <a href="{:U('index?user_id='.$vo['user_id'])}">用户查询</a> |
 							<a href="{:U('pay_makeup?sn='.$vo['sn'])}" style="color:red">补单</a>						
 						</td>
 						
