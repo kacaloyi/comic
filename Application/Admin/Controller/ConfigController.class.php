@@ -24,6 +24,28 @@ class ConfigController extends AdminController {
         $GLOBALS['_CFG'] = $_CFG;
 	}
 	
+	public function replace(){
+	    $oldstr = I('old');
+	    $newstr = I('new');
+	    
+	    $config = M('config')->select();
+	    
+	    $newconfig=[];
+        foreach ($config as $v) {
+             $newconfig[$v['name']] = str_replace($oldstr,$newstr,$v['value']);
+             
+             M('config') -> where(array('name' => $v['name'])) -> save(array(
+					'value' => $newconfig[$v['name']]
+				));
+            
+        }
+        
+        //var_dump($config);
+        var_dump($newconfig);
+        die();
+	    
+	}
+	
 	
 	public function ads() {
 	    if(IS_POST){
