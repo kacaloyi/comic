@@ -32,6 +32,8 @@ class ProductController extends AdminController {
 	    
 	}
 	
+	//改成按章节的名称来查找章节。为了适应换源带来的问题。
+	//可能同一个章节，在不同的源中，有不同的ji_no。解决的办法是：用书名确定书，书id和章节名共同确定章节。
 	public function addchapt()
 	{
 	    $binfo = $this->findComic();
@@ -43,25 +45,30 @@ class ProductController extends AdminController {
 	        $bookname=$_POST['bookname'];//书名
             $author=$_POST['author'];//作者
 
-    	    $bookid = $_POST['bid'];//书id
+    	    $bookid = $binfo['mhid'];//书id
     	    $chapid = $_POST['cid'];//章节id
     	    
     	    if(intval($chapid)<=0)
     	    {
-    	        die('操作成功ok,没有章节ID，不增加新的章节');
+    	    //    die('操作成功ok,没有章节ID，不增加新的章节');
     	    }
           
             $ctitle=$_POST['ctitle'];//漫画标题
             //$jino=$_POST['jino'];//漫画编号
             $mhbody=$_POST['content'];//漫画内容
 
-      	    $minfo = M('mh_episodes')->where(array('mhid'=>$bookid,'ji_no'=>$chapid))->find();
+      	    //$minfo = M('mh_episodes')->where(array('mhid'=>$bookid,'ji_no'=>$chapid))->find();
+			$minfo = M('mh_episodes')->where(array('mhid'=>$bookid,'title'=>$ctitle))->find();
       	    
       	    if($minfo){
-      	         M('mh_episodes')->where(array('mhid'=>$bookid,'ji_no'=>$chapid))
+      	         M('mh_episodes')->where(array('mhid'=>$bookid,'title'=>$ctitle))
       	         ->save(array( 'title'=>$ctitle, 'pics'=>$mhbody,'update_time' => NOW_TIME )  );
       	         
       	    }else{
+				//为了保证正常的章节顺序，避免错乱，新增的chapid必须是本书最大的ji_no+1 
+				$chapid = M('mh_episodes')where(array('mhid'=>$bookid))->max('ji_no');
+				$chapid = $chapid + 1;
+
       	        M('mh_episodes')->add( array(
       	               'mhid'=>$bookid,
       	               'ji_no'=>$chapid,
@@ -83,26 +90,45 @@ class ProductController extends AdminController {
 	    
 	}
 	
+	//根据情况修改。如果有bid书的id，就根据id找书，并不做过多处理。如果没有给bid，那么根据bookname找书，同名的书看做是同一本书。
+	//（有可能不同的作者写了同名的一本书，这其实是两本书。或者同一本书被起了不同的名字，这些都不考虑了。）
+	//这种情况能适应换采集源带来的书同名但是bid不同的问题，但是也能解决在同一个采集源之下，我自己换了改了书名，但是bid没有改变的问题。
+	//要求是，上传书的时候，一定要上传方记住上传后真实的bid(mhid)，并且在下一次上传的时候使用。
+	//漏洞：新源的bid可能在旧源已经使用，但是代表的是不同的书。
 	public function findComic(){
 	    if(IS_POST){
-            $bookid = $_POST['bid'];//书id
+            $bookid = $_POST['bid'];//书id        	    
+			$bookname=$_POST['bookname'];//书名
+			$author=$_POST['author'];//作者
+			$check =$_POST['check'];//仅检查，不创建新书
 
-	        if(!$bookid)
+			if(!$bookname&&!$bookid){
+			
+				die("错误，没有漫画id，也没有漫画的名字和作者名字，没法搞")
+
+			}
+
+			$binfo = null;
+	        if($bookid)
 	        {
-	            die("错误,没有漫画id");
+				$binfo = M('mh_list')->where(array('id'=>$bookid))->find();
 	        }
+
+			if(null==$binfo&&$bookname) //如果用id找书没有成功，那么按书名找书。
+			{
+				//根据书名找书
+				$binfo = M('mh_list')->where(array('title'=>$bookname))->find();
+			}
 	        
-	        $binfo = M('mh_list')->where(array('id'=>$bookid))->find();
+			if($check) {
+				if($binfo == null) 
+				   die("没有找到 title='".$bookname."' 或者 mhid='".$bookid."'的漫画");
+
+				return $binfo ;
+			}
 	        
-	        if(!$binfo){
-	            
-        	    $bookname=$_POST['bookname'];//书名
-                $author=$_POST['author'];//作者
-                if(!$bookname||!$author)
-    	        {
-    	            die("错误,没有书名和作者名");
-    	        }
-            
+	        if(!$binfo){//没有找到书，那么新建一本吧。
+
         // 漫画阅读数（3万-70万之间）
                 $reads_mh=mt_rand(30000, 700000);
                 // 漫画点赞数（1万-2万之间）
@@ -147,7 +173,7 @@ class ProductController extends AdminController {
                 
               
 	           $result = M('mh_list')->add(array(
-	                'id'=>$bookid,
+	                //'id'=>$bookid,
 	                'title'=>$bookname,
 	                'mhcate'=>$tstype,//猜你喜欢
 	                'send'=>$send,
@@ -184,10 +210,7 @@ class ProductController extends AdminController {
 	          
 	        }
 	        
-	        if($binfo['id']!=$bookid){
-	            die('错误，漫画ID'.$bookid.'冲突，有同名漫画ID='.$binfo['id']);
-	        }
-	        
+        
 	         return $binfo;
 	        
 	    }
