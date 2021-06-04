@@ -41,12 +41,15 @@ class ProductController extends AdminController {
 	        die('错误，没有书的信息，无法添加章节');
 	    }
 	    
+	    $msg = "操作成功ok";
+	    
 	    if(IS_POST){
 	        $bookname=$_POST['bookname'];//书名
             $author=$_POST['author'];//作者
 
-    	    $bookid = $binfo['mhid'];//书id
+    	    $bookid = $binfo['id'];//书id
     	    $chapid = $_POST['cid'];//章节id
+    	    
     	    
     	    if(intval($chapid)<=0)
     	    {
@@ -59,16 +62,22 @@ class ProductController extends AdminController {
 
       	    //$minfo = M('mh_episodes')->where(array('mhid'=>$bookid,'ji_no'=>$chapid))->find();
 			$minfo = M('mh_episodes')->where(array('mhid'=>$bookid,'title'=>$ctitle))->find();
-      	    
+			//print("mhid:".$bookid." ctitle:".$ctitle."<br>");
+			//print($mhbody."<br>");
+      	    //var_dump($minfo);
+      	    //die("暂停");
       	    if($minfo){
       	         M('mh_episodes')->where(array('mhid'=>$bookid,'title'=>$ctitle))
       	         ->save(array( 'title'=>$ctitle, 'pics'=>$mhbody,'update_time' => NOW_TIME )  );
       	         
+      	         $msg = "更新，操作成功ok";
+      	         
       	    }else{
 				//为了保证正常的章节顺序，避免错乱，新增的chapid必须是本书最大的ji_no+1 
-				$chapid = M('mh_episodes')where(array('mhid'=>$bookid))->max('ji_no');
+				$chapid = M('mh_episodes')->where(array('mhid'=>$bookid))->max('ji_no');
 				$chapid = $chapid + 1;
-
+				
+				
       	        M('mh_episodes')->add( array(
       	               'mhid'=>$bookid,
       	               'ji_no'=>$chapid,
@@ -77,17 +86,25 @@ class ProductController extends AdminController {
       	               'create_time' => NOW_TIME,
 				       'update_time' => NOW_TIME
       	              )); 
+      	       $msg = "增加，操作成功ok";
       	    }
       	    
       	  
-	    
+	     
 	      $cnt = M('mh_episodes')->where(array('mhid'=>$bookid))->count();
 	      M('mh_list')->where(array('id'=>$bookid))->save(array('episodes'=>$cnt,'update_time' => NOW_TIME));  
 	        
 	    }
 	    
-	    die('操作成功OK');
+	    die($msg);
 	    
+	}
+	
+	
+	public function addComic(){
+	    
+	    $re  = $this->findComic();
+	    var_dump($re);
 	}
 	
 	//根据情况修改。如果有bid书的id，就根据id找书，并不做过多处理。如果没有给bid，那么根据bookname找书，同名的书看做是同一本书。
@@ -104,7 +121,7 @@ class ProductController extends AdminController {
 
 			if(!$bookname&&!$bookid){
 			
-				die("错误，没有漫画id，也没有漫画的名字和作者名字，没法搞")
+				die("错误，没有漫画id，也没有漫画的名字和作者名字，没法搞");
 
 			}
 
@@ -124,8 +141,12 @@ class ProductController extends AdminController {
 				if($binfo == null) 
 				   die("没有找到 title='".$bookname."' 或者 mhid='".$bookid."'的漫画");
 
-				return $binfo ;
+			    return  $binfo ;
+				
+				
 			}
+			
+			
 	        
 	        if(!$binfo){//没有找到书，那么新建一本吧。
 
@@ -361,7 +382,7 @@ class ProductController extends AdminController {
 		$this->assign('mhinfo', $mhinfo);
 		$this->assign('mhid', $mhid);
 		$cond = array('mhid'=>$mhid);
-		$this -> _list('mh_episodes',$cond, 'id desc');
+		$this -> _list('mh_episodes',$cond, 'ji_no desc');
 	}
 	
 	// 编辑、添加漫画分集
