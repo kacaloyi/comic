@@ -749,8 +749,6 @@ class MhController extends HomeController {
 		//不会乱，因为在这样弄一次后，已经没有/Public/file这样的字符串了。
 		$arr_pics = str_replace("/Public/file",C('urlcdn'),$arr_pics);
 		
-		var_dump(C());
-		die();
 
 		if($this->user['vip']<=0){
 		    foreach($arr_pics as $k=>$v){
