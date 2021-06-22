@@ -70,6 +70,8 @@ return array(
 	//注意：uploadcdn是本地目录，是个相对目录，前面要带"."。urlcdn是web目录，是绝对的。两个目录都不需要在后面加上反斜杠"/"
 	'uploadcdn'=>"./Public/file", 
 	'urlcdn'=>"https://cdn.biquyx.com",
+	'uploadcdx'=>"./Public/file/ix", 
+	'urlcdx'=>"https://cdx.biquyx.com",
 	
 	//漫画图片地址
 	'mh_config_url'=>'',
