@@ -68,10 +68,10 @@ return array(
 	//uploadcdn: cdn映射到本机的本地根目录
 	//urlcdn: cdn外部访问的url根目录
 	//注意：uploadcdn是本地目录，是个相对目录，前面要带"."。urlcdn是web目录，是绝对的。两个目录都不需要在后面加上反斜杠"/"
-	'uploadcdn'=>"./Public/file", 
-	'urlcdn'=>"https://cdn.biquyx.com",
-	'uploadcdx'=>"./Public/file/ix", 
-	'urlcdx'=>"https://cdx.biquyx.com",
+	//'uploadcdn'=>"./Public/file", 
+	//'urlcdn'=>"https://cdn.biquyx.com",
+	//'uploadcdx'=>"./Public/file/ix",  不知道为什么在这里设置无效，要到Home/Conf/config.php中去设置。
+	//'urlcdx'=>"https://cdx.biquyx.com",
 	
 	//漫画图片地址
 	'mh_config_url'=>'',

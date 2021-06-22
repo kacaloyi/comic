@@ -745,9 +745,13 @@ class MhController extends HomeController {
 		*/
 		
 		$arr_pics = getPicArray($jiinfo['pics']);
-		$arr_pics = str_replace("/Public/file/ix",C('urlcdx'),$arr_pics);//不会乱，因为在这样弄一次后，已经没有/Public/file这样的字符串了。
+		$arr_pics = str_replace("/Public/file/ix",C('urlcdx'),$arr_pics);
+		//不会乱，因为在这样弄一次后，已经没有/Public/file这样的字符串了。
 		$arr_pics = str_replace("/Public/file",C('urlcdn'),$arr_pics);
 		
+		var_dump(C());
+		die();
+
 		if($this->user['vip']<=0){
 		    foreach($arr_pics as $k=>$v){
 		  	   $arr_pics[$k] = $v."?x-oss-process=image/resize,p_40";
