@@ -463,11 +463,19 @@ class PublicController extends Controller {
 	    $mhlist = M('mh_list')->order('update_time desc')->field('id,title,update_time')->select();      
         foreach ($mhlist as $k=>$v){
             $list[]= $root.'/Mh/'.$v['id'].'.html' ;
+            $cptlist = M('mh_episodes')->field('ji_no')->where(array('mhid'=>$v['id']))->select();
+            foreach ($cptlist as $kp=>$vp){
+            $list[] = $root.'/Mh/'.$v['id'].'/'.$vp['ji_no'].'.html' ;
+            }
         }
         $bklist = M('book')->order('update_time desc')->field('id,title,update_time')->select();  
         foreach ($bklist as $k=>$v){
             $list[]= $root.'/Book/'.$v['id'].'.html';
+
         }
+        
+        var_dump($list);
+        die();
 	    
 	    
 
