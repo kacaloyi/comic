@@ -474,10 +474,6 @@ class PublicController extends Controller {
 
         }
         
-        var_dump($list);
-        die();
-	    
-	    
 
 	    echo $this->push_article($list);
 	}
