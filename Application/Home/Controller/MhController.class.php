@@ -644,7 +644,7 @@ class MhController extends HomeController {
 		$read = false;// M('read')->where(array('rid'=>$mhid,'user_id'=>$this->user['id'],'episodes'=>$ji_no,'type'=>'mh'))->find();
 		
 		//查看该用户是否看过本小说
-		$reads = M('read')->where(array('rid'=>$mhid,'user_id'=>$this->user['id'],'type'=>'mh'))->find();
+		$reads = M('read')->where(array('rid'=>$mhid,'user_id'=>$this->user['id'],'type'=>'mh'))->select();
 		foreach ($reads as $r){
 		    if($ji_no == $r['episodes']){
 		        $read = $r;
@@ -652,23 +652,36 @@ class MhController extends HomeController {
 		    }
 		}
 		
-		if($ji_no>=$mhinfo["pay_num"] && $this->user['vip'] == 0 && $mhinfo['pay_num']>0/*&&($mhinfo['free_type'] == 2||$mhinfo['pay_num']>0)*/){ //如果集大于付费级别			
+	//	print("现在开始");
+	//	var_dump($mhinfo);
+	//	die();
+		
+		if($ji_no>=$mhinfo["pay_num"] /*&& $this->user['vip'] == 0 */&& $mhinfo['pay_num']>0/*&&($mhinfo['free_type'] == 2||$mhinfo['pay_num']>0)*/){ //如果集大于付费级别			
 			//查看这集是否阅读过？
 			if(!$read){
 				$money = M('mh_episodes')->where(array('ji_no'=>$ji_no,'mhid'=>$mhid))->getField("money");
 				if(!$money || $money<=0){
 					$money = $this->_site['mhmoney'];
 				}
-				if($mhinfo['isvip'] == 2){
-					$this->error('冲个VIP吧，本漫画只允许vip用户阅读！',U('Member/pay'));
+				if($this->user['vip'] > 0){
+				    $money = round($money*0.7);
 				}
-				if($this->user['money']<$money){
-					$this->error('您的账户书币不足！充个VIP就能解决',U('Member/pay'));
-				}
+
 				
 				//查询是否有充值记录
 				$read_charge = false;// M('read_charge')->where(array('user_id'=>$this->user['id'],'rid'=>$mhid,'ji_no'=>$ji_no,'type'=>'mh'))->find();
+				
+				if($mhinfo['free_type'] == 1 && $this->user['vip'] > 0){ //free_type =0 完全免费 、free_type=1 VIP限免漫、free_type=2 正常收费 。 用户有VIP身份
+					$read_charge = true;
+				}
+				if($mhinfo['free_type'] == 0){
+				    $read_charge = true;
+				}
 				if(!$read_charge){
+				    if($this->user['money']<$money){
+					    $this->error('您的账户书币不足！充值就能解决',U('Member/pay'));
+				    }
+				    
 				    M('user')->where(array('id'=>$this->user['id']))->setDec("money",$money);
 				    flog($this->user['id'], "money", "-".$money, 8);
 				    
@@ -695,9 +708,9 @@ class MhController extends HomeController {
 				'user_id'=>$this->user['id'],
 				'episodes'=>$ji_no,
 				'title'=>$mhinfo['title'],
-				'pic'=>$mhinfo['cover_pic'],
-				'summary'=>$mhinfo['summary'],
-				'author'=>$mhinfo['author'],
+				'pic'=>"",//$mhinfo['cover_pic'],
+				'summary'=>"",//$mhinfo['summary'],
+				'author'=>"",//$mhinfo['author'],
 				'create_time'=>NOW_TIME,
 				'type'=>'mh',
 			));

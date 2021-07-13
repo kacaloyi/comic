@@ -86,7 +86,7 @@
                 <span class="u2" style="font-size: 0.3em;"> 个性签名:还没想好</span>
                 <span class="u2" style="font-size: 0.3em;"> 编号:{$user.id}</span>
                 <if condition="$user['vip']">
-                    <span><div class="u2"><b id="u2">尊贵贵宾</b></div></span>
+                    <span><div class="u2"><b id="u2">VIP贵宾</b></div></span>
                 <else />
                     <span><div ><b id="u2">普通用户</b></div></span>
                 </if>
@@ -94,7 +94,11 @@
             <!--<div class="title">密码：<a style=" color: #FF0036;">{$user.userpwd}</a></div>-->
              <div class="text">
              
-             <if condition="$user['vip']"><span style="display: block;">VIP到期时间：<a style=" color: #FF0036;">{$user['vip_e_time']|date="Y-m-d",###}</a></span></if>
+             <if condition="$user['vip']">
+                 <span style="display: block;">VIP到期时间：<a style=" color: #FF0036;">{$user['vip_e_time']|date="Y-m-d",###}</a></span>
+             <else />
+                 <span style="display: block; font-size: .25rem; color: #FF5726;">升级VIP会员，付费漫画7折，还有限免漫画免费阅读</span>
+             </if>
             </div>
     		<!--<div class="action">
     			<a href="{:U('Member/withdraw')}" class="btn btn-sign" style="color:#2196F3">申请提现</a>

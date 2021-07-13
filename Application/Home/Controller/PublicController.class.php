@@ -347,9 +347,10 @@ class PublicController extends Controller {
 	
 	//给指定类型的漫画pay_num赋值
 	public function setPaynum(){
-	    //die("此工具函数已经停用，需要启用联系管理员");
+	    die("此工具函数已经停用，需要启用联系管理员");
 	    //选出要处理的书，目前的条件是类型为8，韩漫。
 	    $where['mhcate']= array('like',"%8%");
+	    //$where = "  1=1 " ;
 	    $find = M('mh_list')->field('id')->where($where)->select();
        
         $kt = 1;

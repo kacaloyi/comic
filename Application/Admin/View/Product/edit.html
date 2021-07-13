@@ -90,17 +90,18 @@
 					</td>
 					</tr>
 					<tr>
-						<th class="title">属性</th>
+						<th class="title">收费方式</th>
 						<td>
-							<input name="free_type" type="radio" value="1" <if condition="$info['free_type'] eq 1">checked</if> />免费&nbsp;&nbsp;&nbsp;
-							<input name="free_type" type="radio" value="2" <if condition="$info['free_type'] eq 2">checked</if> />付费&nbsp;&nbsp;&nbsp;
+						    <input name="free_type" type="radio" value="1" <if condition="$info['free_type'] eq 0">checked</if> />完全免费&nbsp;&nbsp;&nbsp;
+							<input name="free_type" type="radio" value="1" <if condition="$info['free_type'] eq 1">checked</if> />VIP免费&nbsp;&nbsp;&nbsp;
+							<input name="free_type" type="radio" value="2" <if condition="$info['free_type'] eq 2">checked</if> />正常收费&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 					<tr>
-						<th class="title">VIP专属</th>
+						<th class="title">VIP专区(该项无效)</th>
 						<td>
 							<input name="isvip" type="radio" value="1" <if condition="$info['isvip普通'] eq 1">checked</if> />普通&nbsp;&nbsp;&nbsp;
-							<input name="isvip" type="radio" value="2" <if condition="$info['isvip'] eq 2">checked</if> />VIP专属&nbsp;&nbsp;&nbsp;
+							<input name="isvip" type="radio" value="2" <if condition="$info['isvip'] eq 2">checked</if> />VIP限免&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 					<tr>
