@@ -658,11 +658,14 @@ class MhController extends HomeController {
 		
 		if($ji_no>=$mhinfo["pay_num"] /*&& $this->user['vip'] == 0 */&& $mhinfo['pay_num']>0/*&&($mhinfo['free_type'] == 2||$mhinfo['pay_num']>0)*/){ //如果集大于付费级别			
 			//查看这集是否阅读过？
+			
 			if(!$read){
 				$money = M('mh_episodes')->where(array('ji_no'=>$ji_no,'mhid'=>$mhid))->getField("money");
 				if(!$money || $money<=0){
 					$money = $this->_site['mhmoney'];
 				}
+				
+				$errstr="本话需".$money."书币,VIP优惠仅需".round($money*0.7)."书币<br>";
 				if($this->user['vip'] > 0){
 				    $money = round($money*0.7);
 				}
@@ -679,7 +682,8 @@ class MhController extends HomeController {
 				}
 				if(!$read_charge){
 				    if($this->user['money']<$money){
-					    $this->error('您的账户书币不足！充值就能解决',U('Member/pay'));
+					    $this->error($errstr.'您的账户书币不足！充值就能解决',U('Member/pay'));
+					    return;
 				    }
 				    
 				    M('user')->where(array('id'=>$this->user['id']))->setDec("money",$money);
