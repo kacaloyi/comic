@@ -28,6 +28,11 @@ class ConfigController extends AdminController {
 	    $oldstr = I('old');
 	    $newstr = I('new');
 	    
+	    if (!$oldstr || !$newstr){
+	        
+	        die("没有提供old和new");
+	    }
+	    
 	    $config = M('config')->select();
 	    
 	    $newconfig=[];

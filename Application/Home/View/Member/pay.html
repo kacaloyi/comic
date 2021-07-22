@@ -188,7 +188,11 @@
     			<input type="radio" name="recharge" value="{$v['money']}">
     			<a href="javascript:void(0);" class="container" data-fee="{$v['money']}" _send="{$v['send']}" _vip="0">
     				<div class="body">
+    				    <if condition="$v['tip'] neq '' ">
+    					<div class="num">{$v['money']}元<san class="tip">{$v['tip']}</san></div>
+    					<else/>
     					<div class="num">{$v['money']}元</div>
+    					</if>
     					<div class="bio">{$v['money']*$_site['rate']}+{$v['send']}书币</div>
     					<div class="bio">{$v['ads']}</div>
     				</div>
