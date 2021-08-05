@@ -469,7 +469,7 @@ class MhController extends HomeController {
     	
     	$info = M('mh_list')->where("id={$mhid}")->find();
     	if(empty($info)) {
-    		$this->error('漫画数据缺失！', U('Mh/index'));
+    		$this->error('漫画数据缺失或已经下架！', U('Mh/index'));
     	}
     	M('mh_list')->where("id={$mhid}")->setInc('reader', 1);
     	
@@ -712,9 +712,9 @@ class MhController extends HomeController {
 				'user_id'=>$this->user['id'],
 				'episodes'=>$ji_no,
 				'title'=>$mhinfo['title'],
-				'pic'=>"",//$mhinfo['cover_pic'],
+				'pic'=>$mhinfo['cover_pic'],
 				'summary'=>"",//$mhinfo['summary'],
-				'author'=>"",//$mhinfo['author'],
+				'author'=>$mhinfo['author'],
 				'create_time'=>NOW_TIME,
 				'type'=>'mh',
 			));
